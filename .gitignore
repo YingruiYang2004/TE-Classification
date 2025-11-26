@@ -1,3 +1,5 @@
 .venv
 data
 *.pt
+data_analysis/vgp_model_data
+data_analysis/vgp_model_data_tpase
