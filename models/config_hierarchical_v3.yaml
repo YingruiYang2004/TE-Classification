@@ -1,0 +1,62 @@
+# ============================================================
+# Configuration for Hierarchical TE Classification Model (V3)
+# ============================================================
+# This config file contains all hyperparameters and settings
+# for training the hierarchical transposon classifier.
+#
+# Usage:
+#   python train_hierarchical_v3.py -c config_hierarchical_v3.yaml
+#
+# All paths are relative to the models/ directory.
+# When running from a cluster, adjust paths as needed.
+
+# ---- Data paths ----
+data:
+  fasta_path: "../all_vgp_tes.fa"
+  label_path: "../20251215-features-tpase"
+
+# ---- Sequence processing ----
+sequence:
+  fixed_length: 40000  # Fixed canvas length for random placement (bp)
+  min_class_count: 100  # Minimum samples per class (filter rare classes)
+
+# ---- Model architecture ----
+model:
+  width: 128  # Base channel width
+  motif_kernels: [7, 15, 21]  # Kernel sizes for motif detection
+  context_kernel: 9  # Kernel size for context blocks
+  context_dilations: [1, 2, 4, 8]  # Dilation rates for context blocks
+  dropout: 0.15  # Dropout rate
+  rc_mode: "late"  # RC fusion strategy: "early" or "late"
+
+# ---- Training hyperparameters ----
+training:
+  batch_size: 32
+  epochs: 50
+  learning_rate: 0.001
+  weight_decay: 0.0001
+  patience: 10  # Early stopping patience
+  
+  # Loss weights
+  binary_weight: 1.0  # Weight for binary classification loss
+  superfamily_weight: 1.0  # Weight for superfamily classification loss
+  aux_weight: 0.1  # Weight for auxiliary boundary prediction loss
+  
+  # Regularization
+  label_smoothing: 0.1  # Label smoothing factor (0.0 = no smoothing)
+
+# ---- Data split ----
+split:
+  test_size: 0.4  # Fraction for test set
+  random_state: 42  # Random seed for reproducibility
+  subsample_none: 20000  # Subsample "None" sequences to reduce imbalance (null = no subsampling)
+
+# ---- Output settings ----
+output:
+  save_dir: "checkpoints"  # Directory to save model checkpoints
+  checkpoint_prefix: "rc_cnn_hierarchical_v3"  # Prefix for checkpoint files
+
+# ---- Hardware ----
+hardware:
+  device: null  # Device to use (null = auto-detect: cuda > mps > cpu)
+  num_workers: 0  # Number of data loading workers

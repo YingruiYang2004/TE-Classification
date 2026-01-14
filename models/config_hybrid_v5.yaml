@@ -1,0 +1,67 @@
+# ============================================================
+# Configuration for Hybrid TE Classifier V5 (Unified multi-class)
+# ============================================================
+# Assumes file layout consistent with V3:
+#   - This YAML and the training .py live in: ~/TEs/models
+#   - Data live in: ~/TEs/data
+#
+# Run:
+#   python train_hybrid_v5.py -c config_hybrid_v5.yaml
+
+paths:
+  fasta_path: "../data/vgp/all_vgp_tes.fa"
+
+model:
+  # CNN token canvas
+  fixed_length: 5000
+
+  # CNN backbone
+  cnn_width: 128
+  motif_kernels: [7, 15, 21]
+  context_dilations: [1, 2, 4, 8]
+  rc_fusion_mode: "late"   # "late" (default) or "early"
+
+  # K-mer windowed hashed features (GNN input)
+  kmer:
+    k: 7
+    dim: 2048
+    window: 512
+    stride: 256
+    gnn_hidden: 128
+    gnn_layers: 3
+
+  # Cross-modal attention fusion
+  fusion:
+    fusion_dim: 256
+    num_heads: 4
+
+  dropout: 0.2
+
+train:
+  batch_size: 16
+  epochs: 60
+  lr: 0.001
+  patience: 10
+
+  label_smoothing: 0.1
+  min_class_count: 100
+
+  test_size: 0.2
+  random_state: 42
+
+  # Optional: cap very large classes to balance training
+  max_samples_per_class: 3000
+
+runtime:
+  # Leave null to auto-select (cuda -> mps -> cpu)
+  device: null
+
+  # DataLoader workers; on GPU nodes you usually want >0
+  # Start with 4 or 8 (match --cpus-per-task)
+  num_workers: 4
+  pin_memory: true
+
+output:
+  save_dir: "./outputs_v5"
+  ckpt_prefix: "hybrid_v5"
+  topk: 5

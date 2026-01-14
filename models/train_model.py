@@ -1,4 +1,4 @@
-import os, argparse, time
+import os, argparse, time, io, yaml
 
 from scripts.model_pipeline import run_train
 from scripts.analysis_results import plot_training_curves, plot_roc
@@ -7,9 +7,9 @@ def get_parsed_args():
     parser = argparse.ArgumentParser()
     
     parser.add_argument('-f', '--fasta_path', type=str, dest='fasta_path', 
-                        required=True, help='The path to the fasta dataset.')
+                        help='The path to the fasta dataset.')
     parser.add_argument('-l', '--label_path', type=str, dest='label_path', 
-                        required=True, help='The path to the label (feature) file.')
+                        help='The path to the label (feature) file.')
     parser.add_argument('-o', '--output_dir', type=str, dest='output_dir', 
                         default='vgp_model_data_tpase', help='Directory to save model data.')
     parser.add_argument('-b', '--batch_size', type=int, dest='batch_size',
@@ -34,20 +34,34 @@ def get_parsed_args():
 
 def main():
     
-    args = get_parsed_args()
+    with open("data.yaml", 'r') as stream:
+        data_loaded = yaml.safe_load(stream)
     
-    if not os.path.exists(args.output_dir):
-        os.makedirs(args.output_dir)
+    args = get_parsed_args()
+        
+    model_args = {
+        "fasta_path" : data_loaded["fasta_path"] if not args.fasta_path else args.fasta_path, 
+        "label_path" : data_loaded["label_path"] if not args.label_path else args.label_path, 
+        "output_dir" : data_loaded["output_dir"] if not args.output_dir else args.output_dir, 
+        
+        "num_workers" : data_loaded["num_workers"] if not args.num_workers else args.num_workers, 
+        "epochs" : data_loaded["epochs"] if not args.epochs else args.epochs, 
+        "patience" : data_loaded["patience"] if not args.patience else args.patience, 
+        "subset_size" : data_loaded["subset_size"] if not args.subset_size else args.subset_size, 
+    }
+    
+    if not os.path.exists(model_args["output_dir"]):
+        os.makedirs(model_args["output_dir"])
     
     results = run_train(
-        fasta_path=args.fasta_path,
-        label_path=args.label_path,
+        fasta_path=model_args["fasta_path"],
+        label_path=model_args["label_path"],
         batch_size=args.batch_size,
-        num_workers=args.num_workers,
-        epochs=args.epochs,
         device=args.device,
-        patience=args.patience,
-        subset_size=args.subset_size,
+        num_workers=model_args["num_workers"],
+        epochs=model_args["epochs"],
+        patience=model_args["patience"],
+        subset_size=model_args["subset_size"],
         trial=args.trial
     )
     

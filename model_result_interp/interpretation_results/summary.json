@@ -1,0 +1,23 @@
+{
+  "total_sequences": 9995,
+  "num_classes": 11,
+  "class_names": [
+    "None",
+    "DNA",
+    "DNA/Academ-1",
+    "DNA/CMC",
+    "DNA/Kolobok",
+    "DNA/P",
+    "DNA/PIF-Harbinger",
+    "DNA/PiggyBac",
+    "DNA/Sola-2",
+    "DNA/TcMar-Tc1",
+    "DNA/hAT"
+  ],
+  "accuracy": 0.9229614807403702,
+  "balanced_accuracy": 0.09090909090909091,
+  "macro_f1": 0.0872670513669473,
+  "mean_confidence": 0.20392684638500214,
+  "num_disagreements": 770,
+  "disagreement_rate": 0.07703851925962982
+}

@@ -70,8 +70,7 @@ def evaluate(model, loader, loss_fn, device, dataset):
         auroc, auprc = float("nan"), float("nan")
     return auroc, auprc, val_loss, all_logits, all_labels
 
-def run_train(fasta_path, label_path, batch_size=8, num_workers=0, epochs=5, lr=1e-3, device=None, patience=20, subset_size=None, random_state=42, trial=False):
-    
+def run_train(fasta_path, label_path, batch_size=8, epochs=5, lr=1e-3, device=None, patience=10, subset_size=None, random_state=42, trial=False, pos_weight=None, num_workers=0):
     device = resolve_device(device)
     print(f"Using device: {device}")
 
@@ -79,6 +78,26 @@ def run_train(fasta_path, label_path, batch_size=8, num_workers=0, epochs=5, lr=
     loader_tr = DataLoader(ds_tr, batch_size=batch_size, shuffle=True, num_workers=num_workers, collate_fn=collate_pad)
     loader_val = DataLoader(ds_val, batch_size=batch_size, shuffle=False, num_workers=num_workers, collate_fn=collate_pad)
     loader_te = DataLoader(ds_te, batch_size=batch_size, shuffle=False, num_workers=num_workers, collate_fn=collate_pad)
+
+    # The dataset is highly imbalanced; compute pos_weight if not provided
+    if pos_weight is None:
+        train_labels = torch.tensor(ds_tr.labels, dtype=torch.float32)
+        pos_count = float(train_labels.sum().item())
+        neg_count = float(train_labels.numel() - pos_count)
+        if pos_count == 0:
+            pos_weight_value = 1.0
+        else:
+            pos_weight_value = max(neg_count / pos_count, 1.0)
+        print(f"Computed pos_weight={pos_weight_value:.4f} from dataset (pos={pos_count:.0f}, neg={neg_count:.0f})")
+        pos_weight_tensor = torch.tensor(pos_weight_value, device=device)
+    else:
+        if isinstance(pos_weight, torch.Tensor):
+            pos_weight_tensor = pos_weight.to(device)
+            pos_weight_value = float(pos_weight_tensor.item())
+        else:
+            pos_weight_value = float(pos_weight)
+            pos_weight_tensor = torch.tensor(pos_weight_value, device=device)
+        print(f"Using provided pos_weight={pos_weight_value:.4f}")
 
     model = RCInputInvariantCNN().to(device)
     opt = torch.optim.AdamW(model.parameters(), lr=lr, weight_decay=1e-4)
@@ -97,9 +116,8 @@ def run_train(fasta_path, label_path, batch_size=8, num_workers=0, epochs=5, lr=
     patience = patience if patience is not None else epochs + 1
 
     for ep in range(1, epochs + 1):
-        
         train_loss = train_one_epoch(model, loader_tr, opt, loss_fn, device, ep, epochs)
-        
+
         auroc, auprc, val_loss, Ps, Ys = evaluate(model, loader_val, loss_fn, device, ds_val)
 
         history["train_loss"].append(train_loss)
@@ -112,7 +130,8 @@ def run_train(fasta_path, label_path, batch_size=8, num_workers=0, epochs=5, lr=
         last_scores, last_labels = Ps, Ys
         last_val_loss, last_auroc, last_auprc = val_loss, auroc, auprc
 
-        improved = auroc > best_metrics["auroc"] + 1e-4
+        improved = (auroc - best_metrics["auroc"] > val_loss - best_metrics["val_loss"])
+        print(improved, auroc > best_metrics["auroc"], val_loss < best_metrics["val_loss"])
         if improved:
             best_metrics = {"auroc": auroc, "auprc": auprc, "val_loss": val_loss}
             best_state = {k: v.detach().cpu().clone() for k, v in model.state_dict().items()}
@@ -121,13 +140,14 @@ def run_train(fasta_path, label_path, batch_size=8, num_workers=0, epochs=5, lr=
             torch.save(best_state, "vgp_model_data_tpase/rc_cnn_latest.pt")
         else:
             bad += 1
+            print(f"No improvement for {bad} epochs.")
             if bad >= patience:
                 print("Early stopping.")
                 break
         if auroc == 1:
             print("Early stopping.")
             break
-    
+
     if best_state is not None:
         if not trial:
             save_torch(best_state, "vgp_model_data_tpase", "rc_cnn_best")
@@ -139,9 +159,9 @@ def run_train(fasta_path, label_path, batch_size=8, num_workers=0, epochs=5, lr=
         best_metrics = {
             "auroc": last_auroc,
             "auprc": last_auprc,
-            "val_loss": last_val_loss
+            "val_loss": last_val_loss,
         }
-    
+
     auroc, auprc, te_loss, te_scores, te_labels = evaluate(model, loader_te, loss_fn, device, ds_te)
     print(f"Test set performance: Loss {te_loss:.4f} | AUROC {auroc:.4f} | AUPRC {auprc:.4f}")
 
@@ -152,17 +172,18 @@ def run_train(fasta_path, label_path, batch_size=8, num_workers=0, epochs=5, lr=
             "best_epoch": best_epoch,
             "best_auroc": best_metrics["auroc"],
             "best_auprc": best_metrics["auprc"],
-            "best_val_loss": best_metrics["val_loss"], 
-            "test_auroc": auroc, 
-            "test_auprc": auprc, 
-            "test_loss": te_loss
+            "best_val_loss": best_metrics["val_loss"],
+            "test_auroc": auroc,
+            "test_auprc": auprc,
+            "test_loss": te_loss,
         },
         "roc": {
             "labels": te_labels,
-            "scores": te_scores, 
+            "scores": te_scores,
             "best_labels": best_labels,
-            "best_scores": best_scores
+            "best_scores": best_scores,
         },
-        "device": str(device)
+        "device": str(device),
+        "pos_weight": pos_weight_value,
     }
     return results
