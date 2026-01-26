@@ -1,0 +1,47 @@
+# TIR Binary Classification Model Configuration (V1)
+# ===================================================
+# Task: Predict TRUE (has TIR) vs FALSE (no TIR)
+
+# Data paths
+data:
+  fasta_path: "../all_vgp_tes.fa"
+  label_path: "../features"  # TIR labels: TRUE/FALSE
+
+# Sequence parameters
+sequence:
+  fixed_length: 40000  # Canvas size in bp
+
+# Model architecture
+model:
+  width: 128                    # Base channel width
+  motif_kernels: [7, 15, 21]    # Multi-scale motif detection
+  context_kernel: 9             # Context block kernel size
+  context_dilations: [1, 2, 4, 8]  # Dilated convolutions
+  dropout: 0.15                 # Dropout rate
+  rc_mode: "early"              # RC fusion: "early" or "late"
+
+# Training parameters
+training:
+  batch_size: 32
+  epochs: 50
+  learning_rate: 0.0003        # Reduced from 0.001 to prevent collapse
+  weight_decay: 0.0001
+  patience: 15                  # Increased patience
+  label_smoothing: 0.0          # Disabled - can cause collapse with imbalanced data
+  class_weight_mode: "inv_sqrt" # Stronger than "balanced"
+
+# Data split
+split:
+  test_size: 0.2
+  random_state: 42
+  subset_size: null             # Set to e.g. 30000 to limit samples
+
+# Output
+output:
+  save_dir: "checkpoints"
+  checkpoint_prefix: "tir_cnn_v1"
+
+# Hardware
+hardware:
+  device: null                  # Auto-detect (cuda, mps, cpu)
+  num_workers: 16               # DataLoader workers
