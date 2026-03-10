@@ -1,0 +1,359 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{geometry}
+\geometry{a4paper, margin=2cm}
+\usepackage{tabularx}
+\usepackage{enumitem}
+\usepackage{setspace}  % For line spacing control
+\usepackage{tocloft}   % For Table of Contents formatting
+
+% Set 1.5 line spacing for main text
+\onehalfspacing
+
+% Set font to Times New Roman (if available)
+\usepackage{times}
+
+% Set up word count command using texcount (requires -shell-escape)
+\newcommand\wordcount{\input{|"texcount -1 -sum 'TE Classification.tex'"}}
+
+\begin{document}
+
+% ============ TITLE PAGE ============
+\begin{titlepage}
+    \centering
+    \vspace*{2cm}
+    
+    % Title
+    {\LARGE\bfseries Machine Learning a Transposable Element Classifier\par}
+    
+    \vspace{3cm}
+    
+    % Author name
+    {\Large Yingrui Yang\par}
+    
+    \vspace{3cm}
+    
+    % Supervisor information
+    {\large 
+    Supervisor: Richard Durbin\par
+    \vspace{0.5cm}
+    Day-to-day Supervisors: Pio Sierra, Hadi Khan\par
+    }
+    
+    \vfill
+    
+    % Word count statement
+    {\normalsize This thesis contains approximately \wordcount\ words.\par}
+    
+    \vspace{1cm}
+    
+\end{titlepage}
+
+% ============ DECLARATION PAGE ============
+\newpage
+\thispagestyle{empty}
+
+\vspace*{1cm}
+
+\begin{center}
+    {\Large\bfseries Declaration\par}
+\end{center}
+
+\vspace{1cm}
+
+\noindent\textbf{Name:} Yingrui Yang
+
+\vspace{0.5cm}
+
+\noindent\textbf{College:} Emmanuel College
+
+\vspace{0.5cm}
+
+\noindent\textbf{Title:} Machine Learning a Transposable Element Classifier
+
+\vspace{1.5cm}
+
+\noindent I understand the University's definition of plagiarism. I declare that, in accordance with Discipline regulation 6, this dissertation is entirely my own work except where otherwise stated, either in the form of citation of published work, or acknowledgement of the source of any unpublished material.
+
+\vspace{1.5cm}
+
+\noindent The project is purely computational and does not involve any wet lab experiments. The models were trained on CSD3 in the Western Cambridge Data Center, with the access provided by the research group. 
+
+\vspace{2cm}
+
+\noindent\textbf{Signature:} \hrulefill
+
+\vspace{1cm}
+
+\noindent\textbf{Date:} \hrulefill
+
+% ============ BLIND GRADING NUMBER PAGE ============
+\newpage
+\thispagestyle{empty}
+
+\vspace*{\fill}
+\begin{center}
+    {\fontsize{24.88}{34}\selectfont\bfseries Part III project report 6506D\par}
+\end{center}
+\vspace*{\fill}
+
+% ============ SUMMARY ============
+\newpage
+\section*{Summary}
+\addcontentsline{toc}{section}{Summary}
+
+% ~250 words
+[Your summary here - approximately 250 words]
+
+% ============ TABLE OF CONTENTS ============
+\newpage
+\tableofcontents
+
+% ============ LIST OF ABBREVIATIONS ============
+\newpage
+\section*{List of Abbreviations}
+\addcontentsline{toc}{section}{List of Abbreviations}
+
+\begin{tabular}{ll}
+    TE & Transposable Element \\
+    CNN & Convolutional Neural Network \\
+    GNN & Graph Neural Network \\
+    % Add more abbreviations as needed
+\end{tabular}
+
+\iffalse
+
+%% Supervisor's plan for project - to be used as a basis for writing the thesis, but not to be included in the final document
+
+Transposable elements (TEs) are kilobase-scale segments of DNA that insert new copies of themselves in the genome, generating over time large families of interspersed repeats (ref 1). Some of these are autonomous, themselves encoding the proteins needed to mobilise themselves, but others are non-autonomous, needing an active autonomous element to move. Our group with Prof. Karam Teixeira’s is studying the co-evolution of TE families and subfamilies with eukaryote genomes. Although we have increasingly good methods to identify TE families in new genome sequences, classifying them correctly is not a solved problem. In particular it is frequently difficult to correctly identify non-autonomous element subtypes and assign them to their driver elements. Current methods rely on detection of a set of features, with manual curation, but recently machine learning methods have been explored. In this project the student will take advantage of very large sets of TEs found using our new detection approach Pantera (ref 2), to build better classifiers using novel machine learning approaches, for example using DNA and protein foundation models and unsupervised learning to identify new families, and exploring new approaches to associate non-autonomous sequences to their drivers. One goal is to build generative models of TE sequences that encode information not captured by classic sequence alignment.
+
+1. Wells JN, Feschotte C (2020) A Field Guide to Eukaryotic Transposable Elements. Annu Rev Genet. 54:539-561. https://doi.org/10.1146/annurev-genet-040620-022145 
+
+2. Sierra P, Durbin R (2024) Identification of transposable element families from pangenome polymorphisms. Mobile DNA. 15:13. https://doi.org/10.1186/s13100-024-00323-y 
+
+3. Balamurugan R, Mohite S, Raja SP (2023) Protein Sequence Classification Using Bidirectional Encoder Representations from Transformers (BERT) Approach. SN COMPUT. SCI. 4:481. https://doi.org/10.1007/s42979-023-01980-1 
+
+4. David KT, Halanych KM (2023) Unsupervised Deep Learning Can Identify Protein Functional Groups from Unaligned Sequences, Genome Biology and Evolution, 15:evad084, https://doi.org/10.1093/gbe/evad084 
+
+\fi
+
+\iffalse
+
+%% This is NOT the interium report. I could not find the original document, but this is a very relevant email and contains some high-level summaries of the work done by the time. Again, just for reference and not to be included in the final document.
+
+CNN Tower Model (v3)
+
+This is an update to the models I trained before the vacation, with the tower-based CNN network and RC-invariance via fusion. The model generally goes through three CNN layers with kernel sizes 7, 15, 21 to capture difference motifs, and the results are put into attention layer. The model currently has a binary head to deal with transposase vs None and a multi classification head (among 7 families since I'm ruling out all the families with fewer then 100 samples). 
+
+I'm getting pretty decent results, with 91.3% accuracy and 0.87 Macro F1 on the binary head, and 94.4% accuracy and 0.90 Macro F1 on the multi head. Please see the confusion matrix as attached. The model performs especially well on DNA/hAT (F1=0.98) and TcMar-Tc1 (F1=0.97), while DNA/CMC remains challenging (F1=0.76), likely due to limited training samples.
+
+I'm placing the raw sequences at random positions within a 40,000 bp window during training. Interestingly, the model learned to predict sequence length with high accuracy (correlation 0.94, MAE ~1kb), though absolute boundary positions remain difficult to localise.
+
+CNN Tower + k-mer GNN Hybrid Model (v4)
+
+As previously discussed, I experimented with combining a windowed k-mer GNN to help the model learn compositional patterns across the sequence. The standalone k-mer GNN does not perform as well on its own as it tends to confuse superfamilies within the DNA class since they share similar k-mer compositions. However, it provides useful complementary information, so I combined both approaches using attention-based fusion.
+
+In the best trained epoch, the attention fusion weights settled at approximately CNN: 40% / GNN: 60%, but this proportion is quite stable at the late stage of training. The hybrid model doesn't outperform v3 on superfamily classification but is slightly better at the binary head. 
+
+Model using the full label set (v5, in progress)
+
+The previous models were trained with Pio's 2025-12-15 feature set, which labels over 92% sequences as "None" (no transposase detected). However, the FASTA headers themselves contain more detailed class labels (e.g., LTR/Gypsy, LINE/L1). I'm now training a model on this fuller label set, which may improve the binary classification by leveraging the richer supervision signal. 
+
+Interim Report
+
+Finally, regarding the interim report, I've just realised the deadline is Jan 15 and that supervisor and student need to submit separate reports. I apologise for the late notice on this. I'll be back in Cambridge on Tuesday (Jan 13), so I hope there will be enough time to complete it. Please let me know if you have any guidance or templates I should follow.
+
+\fi
+
+\iffalse
+
+%% This is another quote from email. The first feature set for TIR is the starting point of the project, and the second feature set includes the classification labels for only the DNA elements, while everything else are labeled as "None". It is important to clarify that in the model files I was writing "Transposase vs None" for the second model, but it is not exactly correct since the "None" class includes all non-DNA elements, not just the ones without transposase. 
+
+That looks good, but I am a little confused by the “Transposase vs None” model. Do you mean the first feature table? If so that is about presence/absence of TIR elements, the inverted repeats at the edges of the sequence.
+
+If instead you mean “anything not none vs none” in the second table, that would put together all elements classified as DNA elements, but not all of them would have a transposase, so that is not what the model would be detecting.
+
+\fi
+
+% ============ INTRODUCTION ============
+\newpage
+\section{Introduction}
+% ~250 words (from supervisor's plan)
+
+
+
+% ============ RESULTS ============
+\newpage
+\section{Results}
+% ~3000 words (from supervisor's plan)
+
+\subsection{Terminal Inverted Repeat Detection}
+% ~500 words
+
+EDIT THIS PARA
+
+Terminal inverted repeats (TIRs) are a defining structural feature of DNA transposons, consisting of near-identical sequences in opposite orientations at the element boundaries. Detecting TIR presence is a fundamental task for TE classification, as it distinguishes DNA transposons from other TE classes such as LTR retrotransposons and LINEs. I developed a convolutional neural network (CNN) specifically designed for binary TIR detection, addressing two key challenges: the inherent reverse-complement symmetry of TIRs and severe class imbalance in the training data.
+
+\subsubsection{Model Architecture and Reverse-Complement Invariance}
+
+
+
+A sequence containing a TIR should be recognized regardless of which strand is provided as input. In other words, the model should be invariant to the reverse-complement transformation for any sequence. To achieve this, I implemented a tower shaped CNN architecture with
+
+The model architecture employs multi-scale motif detection with convolutional kernels of sizes 7, 15, and 21 base pairs, capturing both short sequence motifs and longer structural features characteristic of TIRs. These are followed by dilated convolutional blocks with dilation rates of 1, 2, 4, and 8, providing an exponentially increasing receptive field to capture long-range dependencies across the 40 kb input window.
+
+\subsubsection{Handling Class Imbalance}
+
+The training dataset exhibited substantial class imbalance, with TIR-positive sequences representing only approximately 8\% of the total data. I explored several approaches to address this imbalance, including inverse frequency class weighting, inverse square-root weighting, focal loss, and stratified subsampling. Surprisingly, the last approach - simply selecting a balanced subset of the data for training - outperformed more sophisticated loss-based approaches.
+
+[EDIT THIS] This finding has practical implications: rather than engineering complex loss functions that can lead to training instability, straightforward data balancing through subsampling provides robust and reproducible results. The model trained with subsampling achieved [XX]\% accuracy and [XX] F1 score on the held-out test set, with balanced performance across both classes.
+
+\subsubsection{Sequence Position Augmentation}
+
+To ensure the model learns position-invariant features, I placed each input sequence at a random position within the 40 kb canvas during training. This augmentation strategy forces the model to recognize TIR signatures regardless of their absolute position, improving generalization to sequences of varying lengths and genomic contexts.
+
+% TODO: Add specific performance metrics once finalized
+
+
+\subsection{Hierarchical DNA Transposon Classification}
+% ~500 words
+
+% DRAFT - corrected to reflect actual task (DNA vs non-DNA, not transposase detection)
+The core goal of the project is to build a classifier that can assign each transposable element to its correct superfamily based on sequence features, with particular focus on DNA transposons. I developed a hierarchical classification system that performs two tasks simultaneously: (1) binary classification of whether a sequence is a DNA transposon or belongs to another TE class (LTR retrotransposons, LINEs, SINEs, etc.), and (2) multi-class classification into superfamilies for DNA-positive sequences. This hierarchical approach reflects the biological organization of TEs and allows the model to leverage shared features across related classification tasks.
+
+It is important to note that the binary task distinguishes DNA transposons from other TE classes, not the presence of transposase domains specifically. While most autonomous DNA transposons encode transposases, many sequences in the DNA class are non-autonomous elements (e.g., MITEs) that lack transposase but share structural features with their autonomous relatives.
+
+\subsubsection{Hierarchical Design}
+
+% DRAFT - focus on the WHY, technical details are in Methods
+The model employs two classification heads branching from a shared CNN embedding: a binary head for DNA vs non-DNA classification and a multi-class head for superfamily assignment among DNA elements. This hierarchical design reflects the biological organization---DNA transposons share structural features (such as TIRs) that distinguish them from retrotransposons, while superfamily-specific sequence motifs provide finer discrimination. Training both heads jointly allows the model to learn representations useful for both tasks, with the binary head providing a strong gradient signal even for rare superfamilies.
+
+\subsubsection{Addressing Extreme Class Imbalance}
+
+% DRAFT - corrected terminology
+The dataset presents a challenging imbalance: over 92\% of sequences are non-DNA elements (labeled ``None'' in the feature annotations), while the remaining 8\% are DNA transposons distributed across seven superfamilies with more than 100 samples each. I addressed this through strategic subsampling, reducing the ``None'' class from approximately 135,000 to 20,000 sequences while retaining all DNA transposon samples. This approach maintains sufficient negative examples for robust binary classification while preventing the model from defaulting to majority-class predictions.
+
+Within the transposase-positive class, superfamily distribution remains imbalanced. Inverse square-root class weighting in the loss function upweights rare superfamilies without the instability that inverse frequency weighting can cause.
+
+\subsubsection{Performance}
+
+% DRAFT - corrected terminology
+The hierarchical model achieves strong performance on both tasks. For binary classification (DNA transposon vs other TE classes), the model reaches 91.3\% accuracy with a macro F1 score of 0.87. For superfamily classification among DNA transposons, accuracy improves to 94.4\% with a macro F1 of 0.90.
+
+Performance varies across superfamilies, correlating with both sample size and biological distinctiveness. DNA/hAT achieves the highest F1 score of 0.98, reflecting both its abundance in the training data and its distinctive sequence features. TcMar-Tc1 similarly performs well (F1 = 0.97). In contrast, DNA/CMC remains challenging (F1 = 0.76), likely due to limited training samples and greater sequence diversity within this superfamily.
+
+The confusion matrix reveals that most misclassifications occur between biologically related superfamilies, suggesting the model captures meaningful evolutionary relationships rather than arbitrary patterns.
+
+% TODO: Add confusion matrix figure
+
+
+\subsection{Hybrid CNN and K-mer Graph Neural Network Model}
+% ~500 words
+
+While the CNN-based hierarchical model performs well, convolutional architectures may not fully capture compositional patterns—the overall distribution of sequence motifs—that distinguish TE superfamilies. I hypothesized that combining local sequence features from CNNs with global compositional information could improve classification. To test this, I developed a hybrid architecture that fuses a CNN tower with a k-mer-based graph neural network (GNN).
+
+\subsubsection{K-mer Graph Representation}
+
+% DRAFT - focus on motivation, technical details in Methods
+The GNN branch represents each sequence as a graph where nodes correspond to sliding windows and edges connect adjacent windows. Each node contains the k-mer frequency profile of its window, using canonical k-mer representation for RC-invariance. This windowed approach preserves positional information that would be lost with global k-mer counts, while the graph structure allows the GNN to propagate compositional information across the sequence.
+
+\subsubsection{Attention-Based Fusion}
+
+Rather than simply concatenating CNN and GNN embeddings, I employ learned attention-based fusion. A gating mechanism computes weights for each modality based on the input, allowing the model to dynamically emphasize the more informative branch for each sequence. The fused representation is passed to the same hierarchical classification heads as the CNN-only model.
+
+Interestingly, the learned gate weights stabilize at approximately 40\% CNN and 60\% GNN across training, suggesting that compositional information provides complementary signal to sequence motifs. However, this ratio varies across samples—some sequences rely more heavily on CNN features while others benefit from the GNN branch.
+
+\subsubsection{Comparison with CNN-Only Model}
+
+% DRAFT - corrected terminology
+The hybrid model shows modest improvements over the CNN-only architecture, particularly for the binary classification task (DNA vs non-DNA). However, superfamily classification performance is comparable between the two approaches. This suggests that while k-mer composition provides useful signal for distinguishing DNA transposons from other TE classes, the fine-grained distinctions between superfamilies are better captured by local sequence motifs.
+
+The hybrid architecture also incurs computational overhead: k-mer feature extraction and GNN processing approximately double the training time per epoch. Given the marginal performance gains, the pure CNN model may be preferable for practical applications where computational efficiency is important.
+
+% TODO: Add comparison table and gate weight visualization
+
+
+\subsection{Results Section 4 (Placeholder)}
+% ~500 words - holding for further progress
+
+[Placeholder for additional results]
+
+\subsection{Results Section 5 (Placeholder)}
+% ~500 words - holding for further progress
+
+[Placeholder for additional results]
+
+\subsection{Results Section 6 (Placeholder)}
+% ~500 words - holding for further progress
+
+[Placeholder for additional results]
+
+% ============ DISCUSSION ============
+\newpage
+\section{Discussion}
+% ~750 words (from supervisor's plan)
+
+[Your discussion here]
+
+% ============ MATERIALS AND METHODS ============
+\newpage
+\section{Materials and Methods}
+% ~500 words
+
+\subsection{Data}
+
+% DRAFT - revise with your own words
+Training data consisted of transposable element sequences identified by Pantera \cite{sierra2024pantera} from the Vertebrate Genomes Project (VGP) assemblies. Pantera identifies TE families from pangenome polymorphisms by detecting insertions that are absent in some haplotypes, providing a comprehensive catalogue of active and recently active TEs across vertebrate genomes. The dataset comprises approximately 145,000 sequences. Two annotation sets were used: (1) TIR presence/absence labels derived from structural analysis, and (2) TE class labels where sequences are classified as DNA transposons or other TE classes (LTR, LINE, SINE, etc.) based on FASTA header annotations. Approximately 8\% of sequences are DNA transposons, distributed across seven superfamilies with sufficient samples for training (DNA/hAT, TcMar-Tc1, DNA/PIF-Harbinger, DNA/CMC, DNA/MULE, DNA/Kolobok, DNA/PiggyBac).
+
+The sequences have a wide variety of lengths, with a range from 173 bp to 19,907 bp and median at 3,263 bp. To standardize the input, the sequences were placed at random positions within a fixed-length 40kb canvas to enable position augmentation.
+
+\subsection{Model Architectures}
+
+All models employ a tower-based CNN encoder with reverse-complement (RC) invariance. The encoder processes one-hot encoded DNA sequences (5 channels: A, C, G, T, N) through three parallel convolutional towers with kernel sizes 7, 15, and 21 bp, each producing 128 feature maps. Tower outputs are concatenated (384 channels) and mixed via 1-by-1 convolution to 128 channels. Four subsequent dilated convolutional blocks (dilation rates 1, 2, 4, 8) with kernel size 9 expand the receptive field. Each block uses GELU activation, batch normalization, dropout (0.15), and residual connections. Finally, masked global average pooling produces a 128-dimensional embedding.
+
+In current scheme, RC-invariance is achieved through late fusion. The model processes both the original and reverse-complement sequences through the same CNN encoder, and average the outcome embeddings. This allows the model to learn strand-agnostic features without enforcing strict symmetry at the convolutional layer level. 
+
+For the hybrid model (v4), a parallel k-mer GNN branch captures compositional patterns. For each sequence, 7-mer frequencies are extracted from sliding windows (512 bp, stride 256) and hashed to 2048 dimensions using canonical k-mer representation (taking the lexicographically smaller of forward and reverse-complement codes). A relative positional encoding is appended to each window's feature vector. The windows form a chain graph where adjacent windows are connected by bidirectional edges with self-loops. A 3-layer GraphSAGE-style message-passing GNN (hidden dimension 128) processes this graph, aggregating neighborhood information at each layer. Scatter mean pooling produces a sequence-level embedding from the node representations, which is combined with the CNN embeddings via learned attention gating before classification.
+
+\subsection{Training}
+
+Models were trained using AdamW optimizer with learning rate $10^{-3}$, weight decay $10^{-4}$, and cosine annealing schedule. Two strategies address class imbalance at different levels: (1) subsampling the majority class (``None'') to 20,000 samples balances the binary classification task (DNA vs non-DNA), and (2) inverse square-root class weighting handles the remaining imbalance across the seven superfamilies within the DNA class. Label smoothing ($\epsilon = 0.1$) was used for multi-class heads. Training used batch size 32 (16 for hybrid model), early stopping with patience 10 based on validation macro F1, and 80/20 stratified train/test split.
+
+An auxiliary boundary prediction head was included during training, predicting the normalized start position, end position, and length of the sequence within the canvas. This auxiliary task (weighted at 0.1) encourages the model to learn positionally-aware representations, though the predictions themselves showed limited accuracy for absolute boundary localization.
+
+\subsection{Evaluation}
+
+% DRAFT
+Model performance was evaluated using accuracy, balanced accuracy, macro F1 score, and per-class F1 scores. AUROC and AUPRC were computed for binary tasks.
+
+\subsection{Implementation}
+
+% DRAFT
+All models were implemented in PyTorch and trained on NVIDIA A100 GPUs via CSD3. Code is available at [repository].
+
+% ============ ACKNOWLEDGEMENTS ============
+\newpage
+\section*{Acknowledgements}
+\addcontentsline{toc}{section}{Acknowledgements}
+
+[Your acknowledgements here]
+
+% ============ REFERENCES ============
+\newpage
+\section*{References}
+\addcontentsline{toc}{section}{References}
+
+% Single-spaced for references
+\begin{thebibliography}{99}
+
+\bibitem{sierra2024pantera}
+Sierra P, Durbin R (2024) Identification of transposable element families from pangenome polymorphisms. \textit{Mobile DNA} 15:13. https://doi.org/10.1186/s13100-024-00323-y
+
+\end{thebibliography}
+
+\end{document}

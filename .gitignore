@@ -2,5 +2,7 @@
 data
 *.pt
 *.pth
+*.pkl
+*.csv
 data_analysis/vgp_model_data
 data_analysis/vgp_model_data_tpase
