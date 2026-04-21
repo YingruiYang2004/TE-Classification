@@ -209,7 +209,7 @@ This finding has practical implications: rather than engineering complex loss fu
 To ensure the model learns position-invariant features, I placed each input sequence at a random position within the 40 kb canvas during training. This augmentation strategy forces the model to recognize TIR signatures regardless of their absolute position, improving generalization to sequences of varying lengths and genomic contexts.
 
 
-\subsection{Hierarchical DNA Transposon Classification}
+\subsection{Hierarchical DNA Transposon Classification (v3)}\label{ssec:hier}
 
 The core goal of the project is to build a classifier that can assign each transposable element to its correct superfamily based on sequence features, with particular focus on DNA transposons. I developed a hierarchical classification system that performs two tasks simultaneously: (1) binary classification of whether a sequence is a DNA transposon or belongs to another TE class (LTR retrotransposons, LINEs, SINEs, etc.), and (2) multi-class classification into superfamilies for DNA-positive sequences. This hierarchical approach reflects the biological organization of TEs and allows the model to leverage shared features across related classification tasks.
 
@@ -234,7 +234,7 @@ Performance varies across superfamilies, correlating with both sample size and b
 The confusion matrix reveals that most misclassifications occur between biologically related superfamilies, suggesting the model captures meaningful evolutionary relationships rather than arbitrary patterns.
 
 
-\subsection{Hybrid CNN and K-mer Graph Neural Network Model}
+\subsection{Hybrid CNN and K-mer Graph Neural Network Model (v4)}\label{ssec:hybrid}
 
 While the CNN-based hierarchical model performs well, convolutional architectures may not fully capture compositional patterns—the overall distribution of sequence motifs—that distinguish TE superfamilies. I hypothesized that combining local sequence features from CNNs with global compositional information could improve classification. To test this, I developed a hybrid architecture that fuses a CNN tower with a k-mer-based graph neural network (GNN).
 
@@ -246,7 +246,7 @@ The GNN branch represents each sequence as a graph where nodes correspond to sli
 
 Rather than simply concatenating CNN and GNN embeddings, I employ learned attention-based fusion. A gating mechanism computes weights for each modality based on the input, allowing the model to dynamically emphasize the more informative branch for each sequence. The fused representation is passed to the same hierarchical classification heads as the CNN-only model.
 
-Interestingly, the learned gate weights stabilize at approximately 40\% CNN and 60\% GNN across training, suggesting that compositional information provides complementary signal to sequence motifs. However, this ratio varies across samples—some sequences rely more heavily on CNN features while others benefit from the GNN branch.
+In the binary classification setting, the learned gate weights stabilize at approximately 40\% CNN and 60\% GNN across training, suggesting that global compositional patterns provide stronger signal than local motifs for the broad DNA/non-DNA task. The ratio shifts when the model is extended to the three-class setting (Section~\ref{ssec:fullset}), where CNN becomes dominant.
 
 \subsubsection{Comparison with CNN-Only Model}
 
@@ -255,9 +255,88 @@ The hybrid model shows modest improvements over the CNN-only architecture, parti
 The hybrid architecture also incurs computational overhead: k-mer feature extraction and GNN processing approximately double the training time per epoch. Given the marginal performance gains, the pure CNN model may be preferable for practical applications where computational efficiency is important.
 
 
-\subsection{[PLACEHOLDER: Results Section 4]}
+\subsection{Multi-Class Extension: Three-Class Classification (v4.2 and v4.3)}\label{ssec:fullset}
 
-\subsection{[PLACEHOLDER: Results Section 5]}
+The binary models described in Sections~\ref{ssec:hier} and~\ref{ssec:hybrid} classify DNA transposons against all other TEs lumped into a single ``None'' category. This formulation discards supervision available in the FASTA annotations, which assign sequences to specific classes reflecting distinct transposition mechanisms. I extended the hybrid CNN+GNN model to a three-class head distinguishing DNA transposons, LTR retrotransposons, and LINEs, developing two successive versions: v4.2, trained on the full VGP dataset, and v4.3, which reserves three benchmark species for external validation.
+
+\subsubsection{Three-Class Reformulation}
+
+The three-class head asks the model to distinguish: cut-and-paste DNA transposons; LTR retrotransposons, which copy via an RNA intermediate flanked by long terminal repeats; and LINEs, which replicate through target-primed reverse transcription. Sequences with ambiguous or rare class labels (None, SINE, PLE, RC) are excluded from training and evaluation, leaving 50,431 sequences distributed across 23 superfamilies. The CNN and GNN tower architectures are unchanged from the hybrid model (Section~\ref{ssec:hybrid}); only the top-level classification head is broadened from two outputs to three, with superfamily subheads spanning all three major classes.
+
+\subsubsection{Overfitting Analysis in v4.2}
+
+The first three-class version (v4.2) was trained on the full VGP dataset for up to 65 epochs. Although the checkpoint-selection metric (validation macro F1) appeared saturated---with both training and validation superfamily F1 reaching 0.999---the held-out test set revealed a substantial generalization gap: superfamily macro F1 dropped to 0.872 on the test set, a gap of 0.127 (moderate overfitting). Top-level class F1 generalized markedly better (test F1 = 0.984, gap = 0.016), indicating that three-class discrimination is inherently robust while fine-grained superfamily classification is susceptible to memorizing genome-specific sequence patterns. This analysis prompted two refinements carried into v4.3: capping training at 40 epochs and withholding three species as a clean external benchmark.
+
+\subsubsection{K-mer Features Separate Top-Level Classes}
+
+Analysis of k-mer features reveals that compositional patterns alone largely distinguish the three major TE classes. Logistic regression and random forest classifiers trained on 7-mer frequencies achieve approximately 85\% macro F1 for top-level classification without any deep learning---1.71$\times$ better than the majority-class baseline. This strong baseline separability is reflected in the attention gate of the three-class v4.2/v4.3 model: unlike the binary model where GNN weights dominated at $\sim$60\%, the three-class model settles at CNN $\approx$ 66\% / GNN $\approx$ 34\%. The shift indicates that, once all three TE classes must be discriminated simultaneously, local sequence motifs captured by the CNN become the stronger signal. Within each class, k-mer features perform poorly for superfamily discrimination (macro F1 0.14--0.26 across classes), confirming that the CNN branch drives fine-grained classification.
+
+\subsubsection{Benchmark Exclusion and Final Model (v4.3)}
+
+The final model (v4.3) excludes three species from both training and evaluation: Zebra finch (\textit{Taeniopygia guttata}, \texttt{bTaeGut}), platypus (\textit{Ornithorhynchus anatinus}, \texttt{mOrnAna}), and American alligator (\textit{Alligator mississippiensis}, \texttt{rAllMis}). These species are reserved for an independent external benchmark (Section~\ref{ssec:mini_benchmark}), ensuring that no TEs from these genomes influence learned sequence features. Training was capped at 40 epochs with early stopping on macro F1, and the resulting held-out test set spans 6,141 sequences from the remaining VGP genomes.
+
+\subsubsection{Performance (v4.3)}
+
+The v4.3 model achieves 98.2\% accuracy with a macro F1 of 0.981 on the top-level three-class task (DNA vs LTR vs LINE). All three classes are well-separated: DNA (F1~=~0.978), LTR (F1~=~0.983), and LINE (F1~=~0.983), with per-class accuracy of 97.3\%, 98.2\%, and 98.9\% respectively.
+
+At the superfamily level, accuracy is 89.3\% and macro F1 is 0.839 across 23 superfamilies. LINE subfamilies achieve the highest scores---LINE/CR1 (F1~=~0.992), LINE/RTE (F1~=~0.985), and LINE/L2 (F1~=~0.965)---likely because their distinct compositional profiles make them easily separable. LTR superfamilies show mixed performance: LTR/DIRS (F1~=~0.935), LTR/ERV3 (F1~=~0.936), and LTR/Gypsy (F1~=~0.895) are strong, while the generic \textit{LTR} label (conflating sequences from multiple lineages) is the most challenging at F1~=~0.714. Among DNA transposons, DNA/TcMar-Tc1 (F1~=~0.925) and DNA/hAT (F1~=~0.896) perform well, while DNA/CMC (F1~=~0.494) and LINE/L1-Tx1 (F1~=~0.549) lag behind---consistent with small test support (36 and 69 samples) and biological diversity within those groups.
+
+The most frequent misclassification patterns are biologically interpretable: DNA/hAT sequences are confused with the generic \textit{DNA} label and vice versa ($n$~=~33 and 24); LTR/Gypsy and LTR/Pao are mutually confused ($n$~=~27 and 18); and ERV elements are confused with the unspecified \textit{LTR} label. Crucially, all 15 most common misclassifications occur within the same top-level class (DNA$\rightarrow$DNA, LTR$\rightarrow$LTR, LINE$\rightarrow$LINE), confirming that the model reliably identifies the transposition mechanism even when the precise superfamily is ambiguous.
+
+\subsection{External Benchmark: Mini Dataset Evaluation}\label{ssec:mini_benchmark}
+
+A held-out test set drawn from the same VGP distribution provides evidence of generalisation within the training distribution. A more stringent assessment requires species never encountered in any stage of training. The three species withheld from v4.3---Zebra finch (\textit{T.~guttata}), platypus (\textit{O.~anatinus}), and American alligator (\textit{A.~mississippiensis})---form a mini benchmark spanning the three main amniote lineages (Aves, Mammalia, Reptilia), each with a distinct TE landscape (Table~\ref{tab:mini_benchmark_species}).
+
+\subsubsection{Benchmark Species}
+
+Birds typically have compact genomes dominated by CR1 LINEs with relatively few DNA transposons; the Zebra finch ($\sim$1.0 Gb genome) is a well-studied avian model with an established curated TE library of 543 entries. Platypus is an early-branching monotreme mammal with an unusually rich and active TE repertoire, including families rare in therian mammals; its curated library contains 380 entries. American alligator represents Crocodylia with a moderately sized genome ($\sim$2.2 Gb) and a TE composition intermediate between birds and mammals, with 1,196 curated reference entries providing dense ground-truth coverage.
+
+\begin{table}[h]
+\centering
+\begin{tabular}{llcc}
+\hline
+Species & Lineage & Pantera consensi & Curated library \\
+\hline
+\textit{T. guttata} (Zebra finch) & Aves & 161 & 543 \\
+\textit{O. anatinus} (Platypus) & Mammalia & 25 & 380 \\
+\textit{A. mississippiensis} (Alligator) & Reptilia & 296 & 1196 \\
+\hline
+\end{tabular}
+\caption{Mini benchmark species, Pantera-derived consensus sequence counts, and curated library sizes.}
+\label{tab:mini_benchmark_species}
+\end{table}
+
+\subsubsection{Evaluation Protocol}
+
+Evaluation is performed directly on the three held-out curated libraries (\texttt{taeniopygia\_guttata\_lib.fa}, \texttt{platypus\_curated\_lib.fa}, and \texttt{Aligator\_mississippiensis\_lib.fa}) using the best v4.3 checkpoint (epoch 40). Each FASTA header follows RepeatMasker-style annotation (\texttt{Name\#CLASS/SUPERFAMILY}), which provides ground-truth top-level class and superfamily labels. Only sequences whose top-level class is in \{DNA, LTR, LINE\} are evaluated.
+
+For superfamily-level scoring, labels are mapped to the model vocabulary using a hierarchical strategy: exact superfamily match when available, parent-level fallback (e.g., \textit{DNA}, \textit{LTR}, \textit{LINE}) when a specific subtype is unseen, and exclusion from superfamily scoring if no valid mapping exists. Sequences with labels outside the model scope (e.g., tRNA, SINE, RC/Helitron, Unknown) are excluded from the evaluable set.
+
+\subsubsection{Results}
+
+\begin{table}[h]
+\centering
+\begin{tabular}{lccc}
+\hline
+Species & Matched sequences & Class accuracy & Superfamily accuracy \\
+\hline
+\textit{T. guttata} (Zebra finch) & 415 & 33.3\% & 18.8\% \\
+\textit{O. anatinus} (Platypus) & 206 & 73.8\% & 41.3\% \\
+\textit{A. mississippiensis} (Alligator) & 1003 & 60.1\% & 22.7\% \\
+\hline
+Overall & 1624 & 55.0\% & 24.1\% \\
+\hline
+\end{tabular}
+\caption{v4.3 classification performance on held-out curated libraries from the mini benchmark. ``Matched sequences'' denotes the evaluable subset after class filtering and label mapping to the model vocabulary.}
+\label{tab:mini_benchmark}
+\end{table}
+
+Generalization is heterogeneous across species. The model transfers best to platypus at both class and superfamily levels, while Zebra finch shows marked degradation, particularly for LTR elements. Across all three genomes, DNA class recall remains high (approximately 96--97\% in per-class breakdown), but LTR discrimination is substantially weaker, indicating lineage-dependent domain shift in LTR sequence features that is not fully captured by the current training set.
+
+
+\subsection{Unsupervised Clustering of TE sequences}
+[PLACEHOLDER: Unsupervised Clustering]
+%TODO: summarize the results from unsupervised clustering experiments, including the UMAP, the loss being used for clustering, and the evaluation metrics (e.g., silhouette score, cluster purity, etc.)
 
 \subsection{[PLACEHOLDER: Results Section 6]}
 
