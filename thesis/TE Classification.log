@@ -1,9 +1,9 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.9.30)  17 APR 2026 01:05
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.9.30)  23 APR 2026 17:18
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**"/Users/alexyang/Documents/Part III System Biology/TE Classification/thesis/TE Classification.tex"
+**"/Users/alexyang/Documents/Part III System Biology/TE Classification/thesis/TE Classification"
 (/Users/alexyang/Documents/Part III System Biology/TE Classification/thesis/TE Classification.tex
 LaTeX2e <2025-06-01> patch level 1
 L3 programming layer <2025-09-02>
@@ -303,34 +303,35 @@ Package tocloft Info: The document has section divisions on input line 51.
 ) (/usr/local/texlive/2025/texmf-dist/tex/latex/psnfss/times.sty
 Package: times 2020/03/25 PSNFSS-v9.3 (SPQR) 
 )
-LaTeX Font Info:    Trying to load font information for OT1+ptm on input line 24.
+LaTeX Font Info:    Trying to load font information for OT1+ptm on input line 28.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/psnfss/ot1ptm.fd
 File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
 ) (/usr/local/texlive/2025/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2025-06-09 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count315
-) (./TE Classification.aux)
+)
+No file "TE Classification".aux.
 \openout1 = `"TE Classification.aux"'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
- (/usr/local/texlive/2025/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 28.
+LaTeX Font Info:    ... okay on input line 28.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 28.
+LaTeX Font Info:    ... okay on input line 28.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 28.
+LaTeX Font Info:    ... okay on input line 28.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 28.
+LaTeX Font Info:    ... okay on input line 28.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 28.
+LaTeX Font Info:    ... okay on input line 28.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 28.
+LaTeX Font Info:    ... okay on input line 28.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 28.
+LaTeX Font Info:    ... okay on input line 28.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 28.
+LaTeX Font Info:    ... okay on input line 28.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 28.
+LaTeX Font Info:    ... okay on input line 28.
+(/usr/local/texlive/2025/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count316
 \scratchdimen=\dimen180
@@ -349,8 +350,7 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 48
  (/usr/local/texlive/2025/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
-Package hyperref Info: Link coloring OFF on input line 24.
- (./TE Classification.out) (./TE Classification.out)
+Package hyperref Info: Link coloring OFF on input line 28.
 \@outlinefile=\write3
 \openout3 = `"TE Classification.out"'.
 
@@ -389,7 +389,7 @@ Package hyperref Info: Link coloring OFF on input line 24.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-(|texcount -1 -sum 'TE Classification.tex')
+
 
 [1
 
@@ -399,88 +399,460 @@ Package hyperref Info: Link coloring OFF on input line 24.
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.96 \newpage
-              [1]
+l.100 \newpage
+               [1]
 
 [2]
-
-[3] (./TE Classification.toc
-LaTeX Font Info:    Trying to load font information for U+msa on input line 1.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 122.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 1.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 122.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 
-[4])
+[3]
+No file "TE Classification".toc.
 \tf@toc=\write4
 \openout4 = `"TE Classification.toc"'.
 
 
 
+[4]
+
 [5]
+
+LaTeX Warning: Citation `lecun2015deep' on page 6 undefined on input line 217.
+
+
+LaTeX Warning: Citation `goodfellow2016deep' on page 6 undefined on input line 217.
+
+
+LaTeX Warning: Citation `kipf2016semi' on page 6 undefined on input line 217.
+
+
+LaTeX Warning: Citation `hamilton2017inductive' on page 6 undefined on input line 217.
+
+
+LaTeX Warning: Reference `ssec:fullset' on page 6 undefined on input line 228.
+
+
 
 [6]
 
 [7]
 
 [8]
-Overfull \hbox (5.06671pt too wide) in paragraph at lines 226--227
-[]\OT1/ptm/m/n/12 Within the transposase-positive class, su-per-fam-ily dis-tri-bu-tion re-mains im-bal-anced. In-verse square-
- []
-
-
 
 [9]
+<figures/v3_confusion.png, id=65, 1086.9408pt x 686.565pt>
+File: figures/v3_confusion.png Graphic file (type png)
+<use figures/v3_confusion.png>
+Package pdftex.def Info: figures/v3_confusion.png  used on input line 316.
+(pdftex.def)             Requested size: 386.95897pt x 244.41846pt.
 
-[10]
+
+[10 <./figures/v3_confusion.png>]
+
+LaTeX Warning: Reference `ssec:fullset' on page 11 undefined on input line 340.
+
+<figures/v4_confusion.png, id=75, 978.054pt x 352.1958pt>
+File: figures/v4_confusion.png Graphic file (type png)
+<use figures/v4_confusion.png>
+Package pdftex.def Info: figures/v4_confusion.png  used on input line 356.
+(pdftex.def)             Requested size: 411.14528pt x 148.05557pt.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<figures/v4_training.png, id=76, 1148.6112pt x 710.655pt>
+File: figures/v4_training.png Graphic file (type png)
+<use figures/v4_training.png>
+Package pdftex.def Info: figures/v4_training.png  used on input line 365.
+(pdftex.def)             Requested size: 386.95897pt x 239.40738pt.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+LaTeX Warning: Reference `ssec:hier' on page 11 undefined on input line 375.
+
+
+LaTeX Warning: Reference `ssec:hybrid' on page 11 undefined on input line 375.
+
+
+LaTeX Warning: Reference `ssec:hybrid' on page 11 undefined on input line 384.
+
+
 
 [11]
-LaTeX Font Info:    Trying to load font information for OT1+pcr on input line 276.
+
+[12 <./figures/v4_confusion.png>]
+
+[13 <./figures/v4_training.png>]
+LaTeX Font Info:    Trying to load font information for OT1+pcr on input line 413.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/psnfss/ot1pcr.fd
 File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
 )
 
-[12]
+LaTeX Warning: Reference `ssec:mini_benchmark' on page 14 undefined on input line 413.
 
-[13]
+<figures/v4_3_confusion.png, id=101, 977.0904pt x 352.1958pt>
+File: figures/v4_3_confusion.png Graphic file (type png)
+<use figures/v4_3_confusion.png>
+Package pdftex.def Info: figures/v4_3_confusion.png  used on input line 427.
+(pdftex.def)             Requested size: 435.32422pt x 156.91742pt.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<figures/gate_weights.png, id=102, 578.16pt x 289.08pt>
+File: figures/gate_weights.png Graphic file (type png)
+<use figures/gate_weights.png>
+Package pdftex.def Info: figures/gate_weights.png  used on input line 434.
+(pdftex.def)             Requested size: 386.95897pt x 193.47968pt.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<figures/kmer_separation.png, id=103, 1004.0712pt x 427.3566pt>
+File: figures/kmer_separation.png Graphic file (type png)
+<use figures/kmer_separation.png>
+Package pdftex.def Info: figures/kmer_separation.png  used on input line 441.
+(pdftex.def)             Requested size: 386.95897pt x 164.69908pt.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 461.
+(/usr/local/texlive/2025/texmf-dist/tex/latex/psnfss/ts1ptm.fd
+File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
+)
+Overfull \hbox (184.74715pt too wide) in paragraph at lines 453--469
+ [][] 
+ []
+
+LaTeX Info: Symbol \textrightarrow not provided by
+            font family ptm in TS1 encoding.
+            Default family used instead on input line 469.
+LaTeX Info: Symbol \textrightarrow not provided by
+            font family ptm in TS1 encoding.
+            Default family used instead on input line 469.
+LaTeX Info: Symbol \textrightarrow not provided by
+            font family ptm in TS1 encoding.
+            Default family used instead on input line 469.
+LaTeX Info: Symbol \textrightarrow not provided by
+            font family ptm in TS1 encoding.
+            Default family used instead on input line 469.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
 
 [14]
 
-[15]
-Overfull \hbox (0.82245pt too wide) in paragraph at lines 370--371
-\OT1/ptm/m/n/12 start po-si-tion, end po-si-tion, and length of the se-quence within the can-vas. This aux-il-iary task (weighted
+LaTeX Warning: Reference `ssec:tir' on page 15 undefined on input line 480.
+
+
+Overfull \hbox (2.05412pt too wide) in paragraph at lines 482--483
+[]\OT1/ptm/m/n/12 Crucially, saliency pat-terns vary pre-dictably across mis-clas-si-fied vs. cor-rectly clas-si-fied se-quences:
  []
 
 
 
-[16]
+[15 <./figures/v4_3_confusion.png> <./figures/gate_weights.png>]
+<figures/saliency_analysis.png, id=123, 1148.73164pt x 1025.5113pt>
+File: figures/saliency_analysis.png Graphic file (type png)
+<use figures/saliency_analysis.png>
+Package pdftex.def Info: figures/saliency_analysis.png  used on input line 488.
+(pdftex.def)             Requested size: 435.32422pt x 388.61864pt.
 
-[17]
 
-[18] (./TE Classification.aux)
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<figures/misclassification_analysis.png, id=124, 1581.9903pt x 540.94095pt>
+File: figures/misclassification_analysis.png Graphic file (type png)
+<use figures/misclassification_analysis.png>
+Package pdftex.def Info: figures/misclassification_analysis.png  used on input line 495.
+(pdftex.def)             Requested size: 411.14528pt x 140.58354pt.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+LaTeX Warning: Reference `tab:mini_benchmark_species' on page 16 undefined on input line 506.
+
+
+
+[16{/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc} <./figures/kmer_separation.png>]
+
+[17 <./figures/saliency_analysis.png>]
+LaTeX Font Info:    Trying to load font information for OMS+ptm on input line 529.
+ (/usr/local/texlive/2025/texmf-dist/tex/latex/psnfss/omsptm.fd
+File: omsptm.fd 
+)
+LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <12> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 529.
+
+Overfull \hbox (39.16359pt too wide) in paragraph at lines 529--530
+\OT1/ptm/m/n/12 Evaluation is per-formed di-rectly on the three held-out cu-rated li-braries (\OT1/pcr/m/n/12 taeniopygia[]guttata[]lib.fa\OT1/ptm/m/n/12 ,
+ []
+
+
+Overfull \hbox (108.94293pt too wide) in paragraph at lines 529--530
+\OT1/ptm/m/n/12 v4.3 check-point (epoch 40). Each FASTA header fol-lows RepeatMasker-style an-no-ta-tion (\OT1/pcr/m/n/12 Name#CLASS/SUPERFAMILY\OT1/ptm/m/n/12 ),
+ []
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+LaTeX Warning: Reference `fig:transfer_class_accuracy' on page 18 undefined on input line 552.
+
+<figures/transfer_class_accuracy.png, id=141, 1147.6476pt x 441.8106pt>
+File: figures/transfer_class_accuracy.png Graphic file (type png)
+<use figures/transfer_class_accuracy.png>
+Package pdftex.def Info: figures/transfer_class_accuracy.png  used on input line 556.
+(pdftex.def)             Requested size: 483.69687pt x 186.20636pt.
+
+
+[18 <./figures/misclassification_analysis.png>]
+
+LaTeX Warning: Reference `fig:transfer_sf_heatmap' on page 19 undefined on input line 561.
+
+<figures/transfer_sf_heatmap.png, id=153, 619.113pt x 566.5968pt>
+File: figures/transfer_sf_heatmap.png Graphic file (type png)
+<use figures/transfer_sf_heatmap.png>
+Package pdftex.def Info: figures/transfer_sf_heatmap.png  used on input line 565.
+(pdftex.def)             Requested size: 411.14528pt x 376.27205pt.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+LaTeX Warning: Reference `fig:transfer_error_analysis' on page 19 undefined on input line 570.
+
+<figures/transfer_error_analysis.png, id=154, 1510.443pt x 499.1448pt>
+File: figures/transfer_error_analysis.png Graphic file (type png)
+<use figures/transfer_error_analysis.png>
+Package pdftex.def Info: figures/transfer_error_analysis.png  used on input line 574.
+(pdftex.def)             Requested size: 483.69687pt x 159.84384pt.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+LaTeX Warning: Reference `fig:transfer_confusion' on page 19 undefined on input line 579.
+
+
+
+[19 <./figures/transfer_class_accuracy.png>]
+<figures/transfer_confusion_matrices.png, id=162, 1237.7442pt x 378.6948pt>
+File: figures/transfer_confusion_matrices.png Graphic file (type png)
+<use figures/transfer_confusion_matrices.png>
+Package pdftex.def Info: figures/transfer_confusion_matrices.png  used on input line 583.
+(pdftex.def)             Requested size: 435.32422pt x 133.18655pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+
+[20 <./figures/transfer_sf_heatmap.png>]
+
+[21 <./figures/transfer_error_analysis.png> <./figures/transfer_confusion_matrices.png>]
+
+LaTeX Warning: Reference `ssec:fullset' on page 22 undefined on input line 608.
+
+<figures/contrastive_training.png, id=181, 859.0494pt x 279.9258pt>
+File: figures/contrastive_training.png Graphic file (type png)
+<use figures/contrastive_training.png>
+Package pdftex.def Info: figures/contrastive_training.png  used on input line 620.
+(pdftex.def)             Requested size: 411.14528pt x 133.97415pt.
+<figures/contrastive_umap.png, id=182, 858.0858pt x 713.5458pt>
+File: figures/contrastive_umap.png Graphic file (type png)
+<use figures/contrastive_umap.png>
+Package pdftex.def Info: figures/contrastive_umap.png  used on input line 627.
+(pdftex.def)             Requested size: 435.32422pt x 361.99818pt.
+
+LaTeX Warning: Reference `fig:superfamily_umap' on page 22 undefined on input line 628.
+
+
+LaTeX Warning: Reference `fig:superfamily_umap' on page 22 undefined on input line 628.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+
+[22 <./figures/contrastive_training.png>]
+
+LaTeX Warning: Reference `ssec:fullset' on page 23 undefined on input line 636.
+
+<figures/superfamily_umap.png, id=191, 1003.1076pt x 713.064pt>
+File: figures/superfamily_umap.png Graphic file (type png)
+<use figures/superfamily_umap.png>
+Package pdftex.def Info: figures/superfamily_umap.png  used on input line 640.
+(pdftex.def)             Requested size: 435.32422pt x 309.45134pt.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<figures/clustering_umap.png, id=192, 1003.1076pt x 713.064pt>
+File: figures/clustering_umap.png Graphic file (type png)
+<use figures/clustering_umap.png>
+Package pdftex.def Info: figures/clustering_umap.png  used on input line 647.
+(pdftex.def)             Requested size: 435.32422pt x 309.45134pt.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+
+[23 <./figures/contrastive_umap.png>]
+
+[24 <./figures/superfamily_umap.png>]
+
+[25 <./figures/clustering_umap.png>]
+LaTeX Info: Symbol \textrightarrow not provided by
+            font family ptm in TS1 encoding.
+            Default family used instead on input line 676.
+
+
+[26
+
+]
+Overfull \hbox (4.05106pt too wide) in paragraph at lines 690--691
+\OT1/ptm/m/n/12 out ex-plicit la-bels. The SupCon-Unsupervised model (trained only on canvas-perturbed pairs) achieved
+ []
+
+
+
+[27]
+
+[28]
+
+LaTeX Warning: Citation `sierra2024pantera' on page 29 undefined on input line 714.
+
+<figures/superfamily_class_distribution.png, id=233, 801.7152pt x 353.1594pt>
+File: figures/superfamily_class_distribution.png Graphic file (type png)
+<use figures/superfamily_class_distribution.png>
+Package pdftex.def Info: figures/superfamily_class_distribution.png  used on input line 720.
+(pdftex.def)             Requested size: 386.95897pt x 170.4576pt.
+<figures/superfamily_distribution_bar.png, id=234, 1004.0712pt x 569.0058pt>
+File: figures/superfamily_distribution_bar.png Graphic file (type png)
+<use figures/superfamily_distribution_bar.png>
+Package pdftex.def Info: figures/superfamily_distribution_bar.png  used on input line 727.
+(pdftex.def)             Requested size: 386.95897pt x 219.2893pt.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+
+[29 <./figures/superfamily_class_distribution.png>]
+
+[30 <./figures/superfamily_distribution_bar.png>]
+Overfull \hbox (0.82245pt too wide) in paragraph at lines 746--747
+\OT1/ptm/m/n/12 start po-si-tion, end po-si-tion, and length of the se-quence within the can-vas. This aux-il-iary task (weighted
+ []
+
+
+Overfull \hbox (20.2469pt too wide) in paragraph at lines 752--753
+[]\OT1/ptm/m/n/12 For hi-er-ar-chi-cal tasks, I de-com-posed per-for-mance by level: top-level class ac-cu-racy (DNA/LTR/LINE)
+ []
+
+
+
+[31]
+Overfull \hbox (16.56755pt too wide) in paragraph at lines 770--793
+ [][] 
+ []
+
+
+
+[32]
+
+[33]
+Underfull \hbox (badness 10000) in paragraph at lines 816--817
+[]\OT1/ptm/m/n/12 LeCun Y, Ben-gio Y, Hin-ton G (2015) Deep learn-ing. \OT1/ptm/m/it/12 Na-ture \OT1/ptm/m/n/12 521:436--444.
+ []
+
+
+Underfull \hbox (badness 4120) in paragraph at lines 846--847
+[]\OT1/ptm/m/n/12 Simonyan K, Vedaldi A, Zis-ser-man A (2014) Deep in-side con-vo-lu-tional net-works:
+ []
+
+
+Underfull \hbox (badness 6927) in paragraph at lines 846--847
+\OT1/ptm/m/n/12 vi-su-al-is-ing im-age clas-si-fi-ca-tion mod-els and saliency maps. In: ICLR Work-shop.
+ []
+
+
+
+[34]
+Underfull \hbox (badness 2334) in paragraph at lines 882--883
+[]\OT1/ptm/m/n/12 Kingma DP, Ba J (2014) Adam: a method for stochas-tic op-ti-miza-tion. In: ICLR.
+ []
+
+
+Underfull \hbox (badness 4647) in paragraph at lines 885--886
+[]\OT1/ptm/m/n/12 Loshchilov I, Hut-ter F (2019) De-cou-pled weight de-cay reg-u-lar-iza-tion. In: ICLR.
+ []
+
+
+
+[35] (./TE Classification.aux
+./TE Classification.aux:55: Missing \endcsname inserted.
+<to be read again> 
+                   \protect 
+l.55 ...pping and species withholding}{table.1}{}}
+                                                  
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+./TE Classification.aux:55: Extra \endcsname.
+\@newl@bel ...dafter \ifx \csname #1@#2\endcsname 
+                                                  \reserved@a \else \@tempsw...
+l.55 ...pping and species withholding}{table.1}{}}
+                                                  
+I'm ignoring this, since I wasn't doing a \csname.
+
+LaTeX Info: Symbol \textrightarrow not provided by
+            font family ptm in TS1 encoding.
+            Default family used instead on input line 55.
+LaTeX Info: Symbol \textrightarrow not provided by
+            font family ptm in TS1 encoding.
+            Default family used instead on input line 55.
+)
  ***********
 LaTeX2e <2025-06-01> patch level 1
 L3 programming layer <2025-09-02>
  ***********
-Package rerunfilecheck Info: File `"TE Classification".out' has not changed.
-(rerunfilecheck)             Checksum: 6F53697EAA7B9EFCE379FA6E9F3FCF4E;7022.
+
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+
+Package rerunfilecheck Warning: File `"TE Classification".out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `"TE Classification".out':
+(rerunfilecheck)             Before: <no file>
+(rerunfilecheck)             After:  B511523619D6E08F08D02CEC59F1ABC9;11226.
+
+Underfull \hbox (badness 10000) in paragraph at lines 55--889
+
+ []
+
  ) 
 Here is how much of TeX's memory you used:
- 11126 strings out of 467748
- 170098 string characters out of 5426959
- 589618 words of memory out of 5000000
- 39610 multiletter control sequences out of 15000+600000
- 648464 words of font info for 80 fonts, out of 8000000 for 9000
+ 11411 strings out of 467748
+ 177584 string characters out of 5426959
+ 590820 words of memory out of 5000000
+ 39820 multiletter control sequences out of 15000+600000
+ 649115 words of font info for 82 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,8n,79p,1507b,479s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on "TE Classification.pdf" (19 pages, 129841 bytes).
+ 75i,10n,79p,1503b,571s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on "TE Classification.pdf" (36 pages, 5836282 bytes).
 PDF statistics:
- 346 PDF objects out of 1000 (max. 8388607)
- 303 compressed objects within 4 object streams
- 60 named destinations out of 1000 (max. 500000)
- 297 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 384 PDF objects out of 1000 (max. 8388607)
+ 285 compressed objects within 3 object streams
+ 138 named destinations out of 1000 (max. 500000)
+ 91 words of extra memory for PDF output out of 10000 (max. 10000000)
 
