@@ -1,0 +1,50 @@
+\contentsline {section}{Summary}{3}{section*.1}%
+\contentsline {section}{List of Abbreviations}{6}{section*.2}%
+\contentsline {section}{\numberline {1}Introduction}{7}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Computational Challenges in Sequence Classification}{7}{subsection.1.1}%
+\contentsline {section}{\numberline {2}Results}{8}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Terminal Inverted Repeat Detection}{8}{subsection.2.1}%
+\contentsline {subsubsection}{\numberline {2.1.1}Model Architecture and Reverse-Complement Invariance}{8}{subsubsection.2.1.1}%
+\contentsline {subsubsection}{\numberline {2.1.2}Handling Class Imbalance}{8}{subsubsection.2.1.2}%
+\contentsline {subsubsection}{\numberline {2.1.3}Sequence Position Augmentation}{8}{subsubsection.2.1.3}%
+\contentsline {subsection}{\numberline {2.2}Hierarchical DNA Transposon Classification (v3)}{9}{subsection.2.2}%
+\contentsline {subsubsection}{\numberline {2.2.1}Hierarchical Design}{9}{subsubsection.2.2.1}%
+\contentsline {subsubsection}{\numberline {2.2.2}Addressing Extreme Class Imbalance}{9}{subsubsection.2.2.2}%
+\contentsline {subsubsection}{\numberline {2.2.3}Performance}{10}{subsubsection.2.2.3}%
+\contentsline {subsection}{\numberline {2.3}Hybrid CNN and K-mer Graph Neural Network Model (v4)}{10}{subsection.2.3}%
+\contentsline {subsubsection}{\numberline {2.3.1}K-mer Graph Representation}{11}{subsubsection.2.3.1}%
+\contentsline {subsubsection}{\numberline {2.3.2}Attention-Based Fusion}{11}{subsubsection.2.3.2}%
+\contentsline {subsubsection}{\numberline {2.3.3}Comparison with CNN-Only Model}{11}{subsubsection.2.3.3}%
+\contentsline {subsection}{\numberline {2.4}Multi-Class Extension: Three-Class Classification (v4.2 and v4.3)}{12}{subsection.2.4}%
+\contentsline {subsubsection}{\numberline {2.4.1}Three-Class Reformulation}{13}{subsubsection.2.4.1}%
+\contentsline {subsubsection}{\numberline {2.4.2}Overfitting Analysis in v4.2}{13}{subsubsection.2.4.2}%
+\contentsline {subsubsection}{\numberline {2.4.3}Benchmark Exclusion and Final Model (v4.3)}{13}{subsubsection.2.4.3}%
+\contentsline {subsubsection}{\numberline {2.4.4}Performance (v4.3)}{14}{subsubsection.2.4.4}%
+\contentsline {subsubsection}{\numberline {2.4.5}K-mer Features Separate Top-Level Classes}{15}{subsubsection.2.4.5}%
+\contentsline {subsection}{\numberline {2.5}External Benchmark: Mini Dataset Evaluation}{15}{subsection.2.5}%
+\contentsline {subsubsection}{\numberline {2.5.1}Benchmark Species}{16}{subsubsection.2.5.1}%
+\contentsline {subsubsection}{\numberline {2.5.2}Evaluation Protocol}{16}{subsubsection.2.5.2}%
+\contentsline {subsubsection}{\numberline {2.5.3}Results}{17}{subsubsection.2.5.3}%
+\contentsline {subsection}{\numberline {2.6}Saliency-Based Attribution Analysis}{19}{subsection.2.6}%
+\contentsline {subsection}{\numberline {2.7}Unsupervised Clustering of TE Sequences}{21}{subsection.2.7}%
+\contentsline {subsubsection}{\numberline {2.7.1}Contrastive Learning Framework}{21}{subsubsection.2.7.1}%
+\contentsline {subsubsection}{\numberline {2.7.2}Embedding Space Geometry}{21}{subsubsection.2.7.2}%
+\contentsline {subsubsection}{\numberline {2.7.3}Hierarchical Clustering and Subclusters}{22}{subsubsection.2.7.3}%
+\contentsline {subsubsection}{\numberline {2.7.4}UMAP Visualization and Interpretability}{22}{subsubsection.2.7.4}%
+\contentsline {subsubsection}{\numberline {2.7.5}Novel Substructure Discovery}{22}{subsubsection.2.7.5}%
+\contentsline {section}{\numberline {3}Discussion}{26}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Architectural Insights and Hybrid Design Justification}{26}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Generalization and Domain Shift}{26}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}Overfitting Mechanisms and Remedies}{26}{subsection.3.3}%
+\contentsline {subsection}{\numberline {3.4}Saliency and Feature Attribution}{27}{subsection.3.4}%
+\contentsline {subsection}{\numberline {3.5}Unsupervised Learning and Emergent Structure}{27}{subsection.3.5}%
+\contentsline {subsection}{\numberline {3.6}Comparative Performance and Baselines}{28}{subsection.3.6}%
+\contentsline {subsection}{\numberline {3.7}Limitations and Future Directions}{28}{subsection.3.7}%
+\contentsline {section}{\numberline {4}Materials and Methods}{29}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Data}{29}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Model Architectures}{29}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}Training}{30}{subsection.4.3}%
+\contentsline {subsection}{\numberline {4.4}Evaluation}{31}{subsection.4.4}%
+\contentsline {subsection}{\numberline {4.5}Implementation}{31}{subsection.4.5}%
+\contentsline {section}{Acknowledgements}{33}{section*.3}%
+\contentsline {section}{References}{34}{section*.4}%
