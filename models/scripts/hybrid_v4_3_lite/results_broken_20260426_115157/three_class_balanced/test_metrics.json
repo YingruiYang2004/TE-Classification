@@ -1,0 +1,18 @@
+{
+  "variant": "three_class_balanced",
+  "n_params": 441500,
+  "best_epoch": 5,
+  "epochs_run": 8,
+  "train_top_f1": 0.1443079704365396,
+  "val_top_f1": 0.14422463305679642,
+  "test_top_acc": 0.2763393584106823,
+  "test_top_f1": 0.14433954240027216,
+  "train_sf_f1": 0.004123120249242197,
+  "val_sf_f1": 0.004131151410914671,
+  "test_sf_acc": 0.049829018075232046,
+  "test_sf_f1": 0.004127298844760961,
+  "top_f1_gap_train_test": -3.157196373257398e-05,
+  "sf_f1_gap_train_test": -4.1785955187632895e-06,
+  "gate_cnn_test": NaN,
+  "gate_gnn_test": NaN
+}

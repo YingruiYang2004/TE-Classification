@@ -1,0 +1,132 @@
+# notebook: 02_train.ipynb
+# variant : three_class_unbalanced
+# start   : Mon Apr 27 01:38:32 2026
+
+--- cell #2 stdout ---
+Variant:  three_class_unbalanced
+Smoke:    False
+Save dir: /Users/alexyang/Documents/Part III System Biology/TE Classification/models/scripts/hybrid_v4_3_lite/results/three_class_unbalanced
+--- cell #4 stdout ---
+PyTorch 2.9.0 on mps
+--- cell #6 stdout ---
+Loaded 135,751 FASTA records and 50,431 labelled headers in 0.4s
+--- cell #8 stdout ---
+Excluded 28 sequences from benchmark genomes
+After filtering: 49,804 sequences across 23 superfamilies
+Top-level head (3-way):
+  DNA: 10,381
+  LTR: 25,548
+  LINE: 13,875
+--- cell #10 stdout ---
+Featurized 49,804 sequences in 2195.3s
+  feature dim: 1025 (= KMER_DIM + 1 position)
+--- cell #12 stdout ---
+Trainval: 39,843    Held-out test: 9,961
+5-fold CV indices ready (rotating per epoch).
+--- cell #14 stdout ---
+Model parameters: 441,500 (0.442 M)
+--- cell #14 stdout ---
+top-level class weights: {'DNA': 1.199, 'LTR': 0.764, 'LINE': 1.037}
+sf weights: min=0.258  max=2.480  mean=1.000
+--- cell #20 stdout ---
+  [WARN] non-finite loss at ep=1 step (skipped)
+--- cell #20 stdout ---
+  [WARN] non-finite loss at ep=1 step (skipped)
+--- cell #20 stdout ---
+Ep   1 fold1 | loss 1.9096 | TOP train 0.115 val 0.115  | SF  train 0.003 val 0.003  gap +0.000 | gate C/G 0.27/0.73
+  saved (top-3: [1])
+--- cell #20 stdout ---
+  [WARN] non-finite loss at ep=2 step (skipped)
+--- cell #20 stdout ---
+Ep   2 fold2 | loss 1.8587 | TOP train 0.115 val 0.115  | SF  train 0.003 val 0.003  gap -0.000 | gate C/G 0.38/0.62
+  saved (top-3: [1, 2])
+--- cell #20 stdout ---
+  [WARN] non-finite loss at ep=3 step (skipped)
+--- cell #20 stdout ---
+Ep   3 fold3 | loss 1.8542 | TOP train 0.115 val 0.115  | SF  train 0.003 val 0.003  gap -0.000 | gate C/G 0.67/0.33
+  saved (top-3: [1, 2, 3])
+--- cell #20 stdout ---
+  [WARN] non-finite loss at ep=4 step (skipped)
+--- cell #20 stdout ---
+Ep   4 fold4 | loss 1.8524 | TOP train 0.115 val 0.115  | SF  train 0.003 val 0.003  gap -0.000 | gate C/G 0.61/0.39
+  saved (top-3: [2, 3, 4])
+--- cell #20 stdout ---
+  [WARN] non-finite loss at ep=5 step (skipped)
+--- cell #20 stdout ---
+Ep   5 fold5 | loss 1.8517 | TOP train 0.115 val 0.115  | SF  train 0.003 val 0.003  gap +0.000 | gate C/G 0.61/0.39
+--- cell #20 stdout ---
+  [WARN] non-finite loss at ep=6 step (skipped)
+--- cell #20 stdout ---
+Ep   6 fold1 | loss 1.8433 | TOP train 0.115 val 0.115  | SF  train 0.003 val 0.003  gap +0.000 | gate C/G 0.56/0.44
+--- cell #20 stdout ---
+Ep   7 fold2 | loss 1.8057 | TOP train 0.115 val 0.115  | SF  train 0.003 val 0.003  gap -0.000 | gate C/G 0.76/0.24
+--- cell #20 stdout ---
+  [WARN] non-finite loss at ep=8 step (skipped)
+--- cell #20 stdout ---
+Ep   8 fold3 | loss 1.8412 | TOP train 0.115 val 0.115  | SF  train 0.003 val 0.003  gap -0.000 | gate C/G 0.62/0.38
+--- cell #20 stdout ---
+  [WARN] non-finite loss at ep=9 step (skipped)
+--- cell #20 stdout ---
+Ep   9 fold4 | loss 1.9276 | TOP train 0.115 val 0.115  | SF  train 0.003 val 0.003  gap -0.000 | gate C/G 0.60/0.40
+  saved (top-3: [3, 4, 9])
+--- cell #20 stdout ---
+  [WARN] non-finite loss at ep=10 step (skipped)
+--- cell #20 stdout ---
+Ep  10 fold5 | loss 1.8698 | TOP train 0.115 val 0.115  | SF  train 0.003 val 0.003  gap +0.000 | gate C/G 0.64/0.36
+--- cell #20 stdout ---
+  [WARN] non-finite loss at ep=11 step (skipped)
+--- cell #20 stdout ---
+Ep  11 fold1 | loss 2.0187 | TOP train 0.115 val 0.115  | SF  train 0.003 val 0.003  gap +0.000 | gate C/G 0.46/0.54
+
+Early stop: no improvement in val_sf_f1 for 7 epochs.
+
+Training done in 101.3 min (552.5s/epoch). Best val_sf_f1 = 0.0026
+--- cell #22 stdout ---
+Loaded best checkpoint from epoch 9 (val score 0.0026)
+--- cell #22 stdout ---
+
+--- HELD-OUT VGP TEST ---
+  TOP   acc 0.2085   macro-F1 0.1150
+  SF    acc 0.0307   macro-F1 0.0026
+  Gate  CNN 0.60   GNN 0.40
+
+--- TRAIN -> VAL -> TEST F1 GAPS (best epoch) ---
+  TOP-F1   train 0.1150  val 0.1149  test 0.1150   gap(tr-te) -0.0000
+  SF-F1    train 0.0026  val 0.0026  test 0.0026   gap(tr-te) -0.0000
+
+--- TOP-LEVEL classification report ---
+              precision    recall  f1-score   support
+
+         DNA      0.209     1.000     0.345      2077
+         LTR      0.000     0.000     0.000      5110
+        LINE      0.000     0.000     0.000      2774
+
+    accuracy                          0.209      9961
+   macro avg      0.070     0.333     0.115      9961
+weighted avg      0.043     0.209     0.072      9961
+
+--- cell #24 stdout ---
+{
+  "variant": "three_class_unbalanced",
+  "n_params": 441500,
+  "best_epoch": 9,
+  "epochs_run": 11,
+  "train_top_f1": 0.11499087030642886,
+  "val_top_f1": 0.1149425287356322,
+  "test_top_acc": 0.2085132014857946,
+  "test_top_f1": 0.11502464418231156,
+  "train_sf_f1": 0.0025886061626295793,
+  "val_sf_f1": 0.0025939787928999096,
+  "test_sf_acc": 0.030719807248268245,
+  "test_sf_f1": 0.0025916719248245752,
+  "top_f1_gap_train_test": -3.377387588270053e-05,
+  "sf_f1_gap_train_test": -3.0657621949959322e-06,
+  "gate_cnn_test": 0.5988896489143372,
+  "gate_gnn_test": 0.40111032128334045
+}
+
+Saved -> /Users/alexyang/Documents/Part III System Biology/TE Classification/models/scripts/hybrid_v4_3_lite/results/three_class_unbalanced
+
+# end     : Mon Apr 27 03:57:10 2026
+# elapsed : 138.6 min
+# success : True

@@ -1,0 +1,163 @@
+# notebook: 02_train.ipynb
+# variant : three_class_unbalanced
+# start   : Sun Apr 26 16:37:13 2026
+
+Traceback (most recent call last):
+  File "/Users/alexyang/Documents/Part III System Biology/TE Classification/.venv/lib/python3.11/site-packages/nbclient/client.py", line 654, in async_setup_kernel
+    yield
+  File "/Users/alexyang/Documents/Part III System Biology/TE Classification/.venv/lib/python3.11/site-packages/nbclient/client.py", line 709, in async_execute
+    await self.async_execute_cell(
+  File "/Users/alexyang/Documents/Part III System Biology/TE Classification/.venv/lib/python3.11/site-packages/nbclient/client.py", line 1062, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/Users/alexyang/Documents/Part III System Biology/TE Classification/.venv/lib/python3.11/site-packages/nbclient/client.py", line 918, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+feat = L.KmerWindowFeaturizer(
+    k=L.KMER_K, dim=L.KMER_DIM, window=L.KMER_WINDOW, stride=L.KMER_STRIDE,
+)
+t0 = time.time()
+all_kmer = [feat.featurize_sequence(s) for s in tqdm(all_s, desc='Featurizing')]
+print(f'Featurized {len(all_kmer):,} sequences in {time.time()-t0:.1f}s')
+print(f'  feature dim: {all_kmer[0].shape[-1]} (= KMER_DIM + 1 position)')
+------------------
+
+
+[31m---------------------------------------------------------------------------[39m
+[31mKeyboardInterrupt[39m                         Traceback (most recent call last)
+[36mCell[39m[36m [39m[32mIn[5][39m[32m, line 5[39m
+[32m      1[39m feat = L.KmerWindowFeaturizer(
+[32m      2[39m     k=L.KMER_K, dim=L.KMER_DIM, window=L.KMER_WINDOW, stride=L.KMER_STRIDE,
+[32m      3[39m )
+[32m      4[39m t0 = time.time()
+[32m----> [39m[32m5[39m all_kmer = [43m[[49m[43mfeat[49m[43m.[49m[43mfeaturize_sequence[49m[43m([49m[43ms[49m[43m)[49m[43m [49m[38;5;28;43;01mfor[39;49;00m[43m [49m[43ms[49m[43m [49m[38;5;129;43;01min[39;49;00m[43m [49m[43mtqdm[49m[43m([49m[43mall_s[49m[43m,[49m[43m [49m[43mdesc[49m[43m=[49m[33;43m'[39;49m[33;43mFeaturizing[39;49m[33;43m'[39;49m[43m)[49m[43m][49m
+[32m      6[39m [38;5;28mprint[39m([33mf[39m[33m'[39m[33mFeaturized [39m[38;5;132;01m{[39;00m[38;5;28mlen[39m(all_kmer)[38;5;132;01m:[39;00m[33m,[39m[38;5;132;01m}[39;00m[33m sequences in [39m[38;5;132;01m{[39;00mtime.time()-t0[38;5;132;01m:[39;00m[33m.1f[39m[38;5;132;01m}[39;00m[33ms[39m[33m'[39m)
+[32m      7[39m [38;5;28mprint[39m([33mf[39m[33m'[39m[33m  feature dim: [39m[38;5;132;01m{[39;00mall_kmer[[32m0[39m].shape[-[32m1[39m][38;5;132;01m}[39;00m[33m (= KMER_DIM + 1 position)[39m[33m'[39m)
+
+[36mCell[39m[36m [39m[32mIn[5][39m[32m, line 5[39m, in [36m<listcomp>[39m[34m(.0)[39m
+[32m      1[39m feat = L.KmerWindowFeaturizer(
+[32m      2[39m     k=L.KMER_K, dim=L.KMER_DIM, window=L.KMER_WINDOW, stride=L.KMER_STRIDE,
+[32m      3[39m )
+[32m      4[39m t0 = time.time()
+[32m----> [39m[32m5[39m all_kmer = [[43mfeat[49m[43m.[49m[43mfeaturize_sequence[49m[43m([49m[43ms[49m[43m)[49m [38;5;28;01mfor[39;00m s [38;5;129;01min[39;00m tqdm(all_s, desc=[33m'[39m[33mFeaturizing[39m[33m'[39m)]
+[32m      6[39m [38;5;28mprint[39m([33mf[39m[33m'[39m[33mFeaturized [39m[38;5;132;01m{[39;00m[38;5;28mlen[39m(all_kmer)[38;5;132;01m:[39;00m[33m,[39m[38;5;132;01m}[39;00m[33m sequences in [39m[38;5;132;01m{[39;00mtime.time()-t0[38;5;132;01m:[39;00m[33m.1f[39m[38;5;132;01m}[39;00m[33ms[39m[33m'[39m)
+[32m      7[39m [38;5;28mprint[39m([33mf[39m[33m'[39m[33m  feature dim: [39m[38;5;132;01m{[39;00mall_kmer[[32m0[39m].shape[-[32m1[39m][38;5;132;01m}[39;00m[33m (= KMER_DIM + 1 position)[39m[33m'[39m)
+
+[36mFile [39m[32m~/Documents/Part III System Biology/TE Classification/models/scripts/hybrid_v4_3_lite/_lib.py:218[39m, in [36mKmerWindowFeaturizer.featurize_sequence[39m[34m(self, seq)[39m
+[32m    216[39m [38;5;28;01mfor[39;00m i [38;5;129;01min[39;00m [38;5;28mrange[39m([32m0[39m, sub.size - k + [32m1[39m):
+[32m    217[39m     kmer = sub[i:i + k]
+[32m--> [39m[32m218[39m     [38;5;28;01mif[39;00m [43mnp[49m[43m.[49m[43many[49m[43m([49m[43mkmer[49m[43m [49m[43m==[49m[43m [49m[32;43m4[39;49m[43m)[49m:
+[32m    219[39m         [38;5;28;01mcontinue[39;00m
+[32m    220[39m     code = _canonical_kmer_code(kmer)
+
+[36mFile [39m[32m~/Documents/Part III System Biology/TE Classification/.venv/lib/python3.11/site-packages/numpy/core/fromnumeric.py:2317[39m, in [36m_any_dispatcher[39m[34m(a, axis, out, keepdims, where)[39m
+[32m   2311[39m         [38;5;28;01mreturn[39;00m res
+[32m   2313[39m     [38;5;28;01mreturn[39;00m _wrapreduction(a, np.add, [33m'[39m[33msum[39m[33m'[39m, axis, dtype, out, keepdims=keepdims,
+[32m   2314[39m                           initial=initial, where=where)
+[32m-> [39m[32m2317[39m [38;5;28;01mdef[39;00m[38;5;250m [39m[34m_any_dispatcher[39m(a, axis=[38;5;28;01mNone[39;00m, out=[38;5;28;01mNone[39;00m, keepdims=[38;5;28;01mNone[39;00m, *,
+[32m   2318[39m                     where=np._NoValue):
+[32m   2319[39m     [38;5;28;01mreturn[39;00m (a, where, out)
+[32m   2322[39m [38;5;129m@array_function_dispatch[39m(_any_dispatcher)
+[32m   2323[39m [38;5;28;01mdef[39;00m[38;5;250m [39m[34many[39m(a, axis=[38;5;28;01mNone[39;00m, out=[38;5;28;01mNone[39;00m, keepdims=np._NoValue, *, where=np._NoValue):
+
+[31mKeyboardInterrupt[39m: 
+
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/alexyang/Documents/Part III System Biology/TE Classification/.venv/lib/python3.11/site-packages/jupyter_client/manager.py", line 91, in wrapper
+    self._ready.set_result(None)
+asyncio.exceptions.InvalidStateError: invalid state
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/alexyang/Documents/Part III System Biology/TE Classification/.venv/lib/python3.11/site-packages/nbclient/client.py", line 509, in _async_cleanup_kernel
+    await ensure_async(self.km.shutdown_kernel(now=now))
+  File "/Users/alexyang/Documents/Part III System Biology/TE Classification/.venv/lib/python3.11/site-packages/jupyter_core/utils/__init__.py", line 214, in ensure_async
+    result = await obj
+             ^^^^^^^^^
+  File "/Users/alexyang/Documents/Part III System Biology/TE Classification/.venv/lib/python3.11/site-packages/jupyter_client/manager.py", line 94, in wrapper
+    self._ready.set_exception(e)
+asyncio.exceptions.InvalidStateError: invalid state
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/alexyang/Documents/Part III System Biology/TE Classification/models/scripts/hybrid_v4_3_lite/run_overnight.py", line 47, in run_notebook
+    client.execute()
+  File "/Users/alexyang/Documents/Part III System Biology/TE Classification/.venv/lib/python3.11/site-packages/jupyter_core/utils/__init__.py", line 165, in wrapped
+    return loop.run_until_complete(inner)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.11/3.11.14/Frameworks/Python.framework/Versions/3.11/lib/python3.11/asyncio/base_events.py", line 654, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/Users/alexyang/Documents/Part III System Biology/TE Classification/.venv/lib/python3.11/site-packages/nbclient/client.py", line 693, in async_execute
+    async with self.async_setup_kernel(**kwargs):
+  File "/opt/homebrew/Cellar/python@3.11/3.11.14/Frameworks/Python.framework/Versions/3.11/lib/python3.11/contextlib.py", line 231, in __aexit__
+    await self.gen.athrow(typ, value, traceback)
+  File "/Users/alexyang/Documents/Part III System Biology/TE Classification/.venv/lib/python3.11/site-packages/nbclient/client.py", line 660, in async_setup_kernel
+    await self._async_cleanup_kernel()
+  File "/Users/alexyang/Documents/Part III System Biology/TE Classification/.venv/lib/python3.11/site-packages/nbclient/client.py", line 516, in _async_cleanup_kernel
+    await ensure_async(self.km.cleanup_resources())
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'cleanup_resources'
+--- cell #2 stdout ---
+Variant:  three_class_unbalanced
+Smoke:    False
+Save dir: /Users/alexyang/Documents/Part III System Biology/TE Classification/models/scripts/hybrid_v4_3_lite/results/three_class_unbalanced
+--- cell #4 stdout ---
+PyTorch 2.9.0 on mps
+--- cell #6 stdout ---
+Loaded 135,751 FASTA records and 50,431 labelled headers in 0.4s
+--- cell #8 stdout ---
+Excluded 28 sequences from benchmark genomes
+After filtering: 49,804 sequences across 23 superfamilies
+Top-level head (3-way):
+  DNA: 10,381
+  LTR: 25,548
+  LINE: 13,875
+--- cell #10 ERROR ---
+[31m---------------------------------------------------------------------------[39m
+[31mKeyboardInterrupt[39m                         Traceback (most recent call last)
+[36mCell[39m[36m [39m[32mIn[5][39m[32m, line 5[39m
+[32m      1[39m feat = L.KmerWindowFeaturizer(
+[32m      2[39m     k=L.KMER_K, dim=L.KMER_DIM, window=L.KMER_WINDOW, stride=L.KMER_STRIDE,
+[32m      3[39m )
+[32m      4[39m t0 = time.time()
+[32m----> [39m[32m5[39m all_kmer = [43m[[49m[43mfeat[49m[43m.[49m[43mfeaturize_sequence[49m[43m([49m[43ms[49m[43m)[49m[43m [49m[38;5;28;43;01mfor[39;49;00m[43m [49m[43ms[49m[43m [49m[38;5;129;43;01min[39;49;00m[43m [49m[43mtqdm[49m[43m([49m[43mall_s[49m[43m,[49m[43m [49m[43mdesc[49m[43m=[49m[33;43m'[39;49m[33;43mFeaturizing[39;49m[33;43m'[39;49m[43m)[49m[43m][49m
+[32m      6[39m [38;5;28mprint[39m([33mf[39m[33m'[39m[33mFeaturized [39m[38;5;132;01m{[39;00m[38;5;28mlen[39m(all_kmer)[38;5;132;01m:[39;00m[33m,[39m[38;5;132;01m}[39;00m[33m sequences in [39m[38;5;132;01m{[39;00mtime.time()-t0[38;5;132;01m:[39;00m[33m.1f[39m[38;5;132;01m}[39;00m[33ms[39m[33m'[39m)
+[32m      7[39m [38;5;28mprint[39m([33mf[39m[33m'[39m[33m  feature dim: [39m[38;5;132;01m{[39;00mall_kmer[[32m0[39m].shape[-[32m1[39m][38;5;132;01m}[39;00m[33m (= KMER_DIM + 1 position)[39m[33m'[39m)
+
+[36mCell[39m[36m [39m[32mIn[5][39m[32m, line 5[39m, in [36m<listcomp>[39m[34m(.0)[39m
+[32m      1[39m feat = L.KmerWindowFeaturizer(
+[32m      2[39m     k=L.KMER_K, dim=L.KMER_DIM, window=L.KMER_WINDOW, stride=L.KMER_STRIDE,
+[32m      3[39m )
+[32m      4[39m t0 = time.time()
+[32m----> [39m[32m5[39m all_kmer = [[43mfeat[49m[43m.[49m[43mfeaturize_sequence[49m[43m([49m[43ms[49m[43m)[49m [38;5;28;01mfor[39;00m s [38;5;129;01min[39;00m tqdm(all_s, desc=[33m'[39m[33mFeaturizing[39m[33m'[39m)]
+[32m      6[39m [38;5;28mprint[39m([33mf[39m[33m'[39m[33mFeaturized [39m[38;5;132;01m{[39;00m[38;5;28mlen[39m(all_kmer)[38;5;132;01m:[39;00m[33m,[39m[38;5;132;01m}[39;00m[33m sequences in [39m[38;5;132;01m{[39;00mtime.time()-t0[38;5;132;01m:[39;00m[33m.1f[39m[38;5;132;01m}[39;00m[33ms[39m[33m'[39m)
+[32m      7[39m [38;5;28mprint[39m([33mf[39m[33m'[39m[33m  feature dim: [39m[38;5;132;01m{[39;00mall_kmer[[32m0[39m].shape[-[32m1[39m][38;5;132;01m}[39;00m[33m (= KMER_DIM + 1 position)[39m[33m'[39m)
+
+[36mFile [39m[32m~/Documents/Part III System Biology/TE Classification/models/scripts/hybrid_v4_3_lite/_lib.py:218[39m, in [36mKmerWindowFeaturizer.featurize_sequence[39m[34m(self, seq)[39m
+[32m    216[39m [38;5;28;01mfor[39;00m i [38;5;129;01min[39;00m [38;5;28mrange[39m([32m0[39m, sub.size - k + [32m1[39m):
+[32m    217[39m     kmer = sub[i:i + k]
+[32m--> [39m[32m218[39m     [38;5;28;01mif[39;00m [43mnp[49m[43m.[49m[43many[49m[43m([49m[43mkmer[49m[43m [49m[43m==[49m[43m [49m[32;43m4[39;49m[43m)[49m:
+[32m    219[39m         [38;5;28;01mcontinue[39;00m
+[32m    220[39m     code = _canonical_kmer_code(kmer)
+
+[36mFile [39m[32m~/Documents/Part III System Biology/TE Classification/.venv/lib/python3.11/site-packages/numpy/core/fromnumeric.py:2317[39m, in [36m_any_dispatcher[39m[34m(a, axis, out, keepdims, where)[39m
+[32m   2311[39m         [38;5;28;01mreturn[39;00m res
+[32m   2313[39m     [38;5;28;01mreturn[39;00m _wrapreduction(a, np.add, [33m'[39m[33msum[39m[33m'[39m, axis, dtype, out, keepdims=keepdims,
+[32m   2314[39m                           initial=initial, where=where)
+[32m-> [39m[32m2317[39m [38;5;28;01mdef[39;00m[38;5;250m [39m[34m_any_dispatcher[39m(a, axis=[38;5;28;01mNone[39;00m, out=[38;5;28;01mNone[39;00m, keepdims=[38;5;28;01mNone[39;00m, *,
+[32m   2318[39m                     where=np._NoValue):
+[32m   2319[39m     [38;5;28;01mreturn[39;00m (a, where, out)
+[32m   2322[39m [38;5;129m@array_function_dispatch[39m(_any_dispatcher)
+[32m   2323[39m [38;5;28;01mdef[39;00m[38;5;250m [39m[34many[39m(a, axis=[38;5;28;01mNone[39;00m, out=[38;5;28;01mNone[39;00m, keepdims=np._NoValue, *, where=np._NoValue):
+
+[31mKeyboardInterrupt[39m: 
+
+# end     : Sun Apr 26 16:54:21 2026
+# elapsed : 17.1 min
+# success : False

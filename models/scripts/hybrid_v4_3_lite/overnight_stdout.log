@@ -1,0 +1,9 @@
+
+========== three_class_balanced ==========
+three_class_balanced: FAILED  (33.1 min)
+  -> see /Users/alexyang/Documents/Part III System Biology/TE Classification/models/scripts/hybrid_v4_3_lite/logs/three_class_balanced.log
+
+========== three_class_unbalanced ==========
+three_class_unbalanced: OK  (138.6 min)
+
+========== binary_dna ==========

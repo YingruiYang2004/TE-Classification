@@ -1,0 +1,103 @@
+# notebook: 02_train.ipynb
+# variant : three_class_balanced
+# start   : Sun Apr 26 00:00:29 2026
+
+--- cell #2 stdout ---
+Variant:  three_class_balanced
+Smoke:    False
+Save dir: /Users/alexyang/Documents/Part III System Biology/TE Classification/models/scripts/hybrid_v4_3_lite/results/three_class_balanced
+--- cell #4 stdout ---
+PyTorch 2.9.0 on mps
+--- cell #6 stdout ---
+Loaded 135,751 FASTA records and 50,431 labelled headers in 0.4s
+--- cell #8 stdout ---
+Excluded 28 sequences from benchmark genomes
+After filtering: 30,701 sequences across 23 superfamilies
+Top-level head (3-way):
+  DNA: 8,481
+  LTR: 12,529
+  LINE: 9,691
+--- cell #10 stdout ---
+Featurized 30,701 sequences in 1315.1s
+  feature dim: 1025 (= KMER_DIM + 1 position)
+--- cell #12 stdout ---
+Trainval: 24,560    Held-out test: 6,141
+5-fold CV indices ready (rotating per epoch).
+--- cell #14 stdout ---
+Model parameters: 441,500 (0.442 M)
+--- cell #14 stdout ---
+top-level class weights: {'DNA': 1.088, 'LTR': 0.895, 'LINE': 1.017}
+sf weights: min=0.498  max=2.403  mean=1.000
+--- cell #20 stdout ---
+Ep   1 fold1 | loss -244080.3817 | TOP train 0.144 val 0.144  | SF  train 0.004 val 0.004  gap -0.000 | gate C/G 0.61/0.39
+  saved (top-3: [1])
+--- cell #20 stdout ---
+Ep   2 fold2 | loss -182108.4502 | TOP train 0.144 val 0.144  | SF  train 0.004 val 0.004  gap -0.000 | gate C/G 0.49/0.51
+  saved (top-3: [1, 2])
+--- cell #20 stdout ---
+Ep   3 fold3 | loss -2013996826548805787587706880.0000 | TOP train 0.144 val 0.144  | SF  train 0.004 val 0.004  gap +0.000 | gate C/G 0.56/0.44
+  saved (top-3: [1, 2, 3])
+--- cell #20 stdout ---
+Ep   4 fold4 | loss nan | TOP train 0.144 val 0.144  | SF  train 0.004 val 0.004  gap +0.000 | gate C/G nan/nan
+--- cell #20 stdout ---
+Ep   5 fold5 | loss nan | TOP train 0.144 val 0.144  | SF  train 0.004 val 0.004  gap -0.000 | gate C/G nan/nan
+  saved (top-3: [1, 2, 5])
+--- cell #20 stdout ---
+Ep   6 fold1 | loss nan | TOP train 0.144 val 0.144  | SF  train 0.004 val 0.004  gap -0.000 | gate C/G nan/nan
+--- cell #20 stdout ---
+Ep   7 fold2 | loss nan | TOP train 0.144 val 0.144  | SF  train 0.004 val 0.004  gap -0.000 | gate C/G nan/nan
+--- cell #20 stdout ---
+Ep   8 fold3 | loss nan | TOP train 0.144 val 0.144  | SF  train 0.004 val 0.004  gap +0.000 | gate C/G nan/nan
+
+Early stop: no improvement in val_sf_f1 for 7 epochs.
+
+Training done in 44.7 min (335.1s/epoch). Best val_sf_f1 = 0.0041
+--- cell #22 stdout ---
+Loaded best checkpoint from epoch 5 (val score 0.0041)
+--- cell #22 stdout ---
+
+--- HELD-OUT VGP TEST ---
+  TOP   acc 0.2763   macro-F1 0.1443
+  SF    acc 0.0498   macro-F1 0.0041
+  Gate  CNN nan   GNN nan
+
+--- TRAIN -> VAL -> TEST F1 GAPS (best epoch) ---
+  TOP-F1   train 0.1443  val 0.1442  test 0.1443   gap(tr-te) -0.0000
+  SF-F1    train 0.0041  val 0.0041  test 0.0041   gap(tr-te) -0.0000
+
+--- TOP-LEVEL classification report ---
+              precision    recall  f1-score   support
+
+         DNA      0.276     1.000     0.433      1697
+         LTR      0.000     0.000     0.000      2506
+        LINE      0.000     0.000     0.000      1938
+
+    accuracy                          0.276      6141
+   macro avg      0.092     0.333     0.144      6141
+weighted avg      0.076     0.276     0.120      6141
+
+--- cell #24 stdout ---
+{
+  "variant": "three_class_balanced",
+  "n_params": 441500,
+  "best_epoch": 5,
+  "epochs_run": 8,
+  "train_top_f1": 0.1443079704365396,
+  "val_top_f1": 0.14422463305679642,
+  "test_top_acc": 0.2763393584106823,
+  "test_top_f1": 0.14433954240027216,
+  "train_sf_f1": 0.004123120249242197,
+  "val_sf_f1": 0.004131151410914671,
+  "test_sf_acc": 0.049829018075232046,
+  "test_sf_f1": 0.004127298844760961,
+  "top_f1_gap_train_test": -3.157196373257398e-05,
+  "sf_f1_gap_train_test": -4.1785955187632895e-06,
+  "gate_cnn_test": NaN,
+  "gate_gnn_test": NaN
+}
+
+Saved -> /Users/alexyang/Documents/Part III System Biology/TE Classification/models/scripts/hybrid_v4_3_lite/results/three_class_balanced
+
+# end     : Sun Apr 26 01:07:34 2026
+# elapsed : 67.1 min
+# success : True

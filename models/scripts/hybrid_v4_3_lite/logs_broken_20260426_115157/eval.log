@@ -1,0 +1,229 @@
+# notebook: 03_eval_and_compare.ipynb
+# variant : None
+# start   : Sun Apr 26 04:31:08 2026
+
+Traceback (most recent call last):
+  File "/Users/alexyang/Documents/Part III System Biology/TE Classification/models/scripts/hybrid_v4_3_lite/run_overnight.py", line 47, in run_notebook
+    client.execute()
+  File "/Users/alexyang/Documents/Part III System Biology/TE Classification/.venv/lib/python3.11/site-packages/jupyter_core/utils/__init__.py", line 165, in wrapped
+    return loop.run_until_complete(inner)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.11/3.11.14/Frameworks/Python.framework/Versions/3.11/lib/python3.11/asyncio/base_events.py", line 654, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/Users/alexyang/Documents/Part III System Biology/TE Classification/.venv/lib/python3.11/site-packages/nbclient/client.py", line 709, in async_execute
+    await self.async_execute_cell(
+  File "/Users/alexyang/Documents/Part III System Biology/TE Classification/.venv/lib/python3.11/site-packages/nbclient/client.py", line 1062, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/Users/alexyang/Documents/Part III System Biology/TE Classification/.venv/lib/python3.11/site-packages/nbclient/client.py", line 918, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+lines = [
+    '# v4.3-lite vs v4.3 — comparison summary',
+    '',
+    '## 1. Held-out VGP test',
+    '',
+    df_show.to_markdown(index=False),
+    '',
+    '## 2. Mini-benchmark (held-out species)',
+    '',
+    bench_df.to_markdown(index=False) if len(bench_df) else '_no benchmark rows_',
+    '',
+    '## 3. Decision rule',
+    '',
+    f'- (a) lite test SF-F1 within {DECISION["max_test_f1_drop"]} of baseline',
+    f'- (b) train→test SF-F1 gap < {DECISION["max_train_test_gap"]}',
+    f'- (c) mini-benchmark top-F1 +{DECISION["min_benchmark_gain"]} on ≥2 of 3 species (vs baseline SF-F1)',
+    '',
+    verdict_df.to_markdown(index=False) if len(verdict_df) else '_no verdict rows_',
+    '',
+]
+out = OUT_DIR / 'summary.md'
+out.write_text('\n'.join(lines))
+print('Wrote', out.resolve())
+------------------
+
+
+[31m---------------------------------------------------------------------------[39m
+[31mModuleNotFoundError[39m                       Traceback (most recent call last)
+[36mFile [39m[32m~/Documents/Part III System Biology/TE Classification/.venv/lib/python3.11/site-packages/pandas/compat/_optional.py:135[39m, in [36mimport_optional_dependency[39m[34m(name, extra, errors, min_version)[39m
+[32m    134[39m [38;5;28;01mtry[39;00m:
+[32m--> [39m[32m135[39m     module = [43mimportlib[49m[43m.[49m[43mimport_module[49m[43m([49m[43mname[49m[43m)[49m
+[32m    136[39m [38;5;28;01mexcept[39;00m [38;5;167;01mImportError[39;00m:
+
+[36mFile [39m[32m/opt/homebrew/Cellar/python@3.11/3.11.14/Frameworks/Python.framework/Versions/3.11/lib/python3.11/importlib/__init__.py:126[39m, in [36mimport_module[39m[34m(name, package)[39m
+[32m    125[39m         level += [32m1[39m
+[32m--> [39m[32m126[39m [38;5;28;01mreturn[39;00m [43m_bootstrap[49m[43m.[49m[43m_gcd_import[49m[43m([49m[43mname[49m[43m[[49m[43mlevel[49m[43m:[49m[43m][49m[43m,[49m[43m [49m[43mpackage[49m[43m,[49m[43m [49m[43mlevel[49m[43m)[49m
+
+[36mFile [39m[32m<frozen importlib._bootstrap>:1204[39m, in [36m_gcd_import[39m[34m(name, package, level)[39m
+
+[36mFile [39m[32m<frozen importlib._bootstrap>:1176[39m, in [36m_find_and_load[39m[34m(name, import_)[39m
+
+[36mFile [39m[32m<frozen importlib._bootstrap>:1140[39m, in [36m_find_and_load_unlocked[39m[34m(name, import_)[39m
+
+[31mModuleNotFoundError[39m: No module named 'tabulate'
+
+During handling of the above exception, another exception occurred:
+
+[31mImportError[39m                               Traceback (most recent call last)
+[36mCell[39m[36m [39m[32mIn[10][39m[32m, line 6[39m
+[32m      1[39m lines = [
+[32m      2[39m     [33m'[39m[33m# v4.3-lite vs v4.3 — comparison summary[39m[33m'[39m,
+[32m      3[39m     [33m'[39m[33m'[39m,
+[32m      4[39m     [33m'[39m[33m## 1. Held-out VGP test[39m[33m'[39m,
+[32m      5[39m     [33m'[39m[33m'[39m,
+[32m----> [39m[32m6[39m     [43mdf_show[49m[43m.[49m[43mto_markdown[49m[43m([49m[43mindex[49m[43m=[49m[38;5;28;43;01mFalse[39;49;00m[43m)[49m,
+[32m      7[39m     [33m'[39m[33m'[39m,
+[32m      8[39m     [33m'[39m[33m## 2. Mini-benchmark (held-out species)[39m[33m'[39m,
+[32m      9[39m     [33m'[39m[33m'[39m,
+[32m     10[39m     bench_df.to_markdown(index=[38;5;28;01mFalse[39;00m) [38;5;28;01mif[39;00m [38;5;28mlen[39m(bench_df) [38;5;28;01melse[39;00m [33m'[39m[33m_no benchmark rows_[39m[33m'[39m,
+[32m     11[39m     [33m'[39m[33m'[39m,
+[32m     12[39m     [33m'[39m[33m## 3. Decision rule[39m[33m'[39m,
+[32m     13[39m     [33m'[39m[33m'[39m,
+[32m     14[39m     [33mf[39m[33m'[39m[33m- (a) lite test SF-F1 within [39m[38;5;132;01m{[39;00mDECISION[[33m"[39m[33mmax_test_f1_drop[39m[33m"[39m][38;5;132;01m}[39;00m[33m of baseline[39m[33m'[39m,
+[32m     15[39m     [33mf[39m[33m'[39m[33m- (b) train→test SF-F1 gap < [39m[38;5;132;01m{[39;00mDECISION[[33m"[39m[33mmax_train_test_gap[39m[33m"[39m][38;5;132;01m}[39;00m[33m'[39m,
+[32m     16[39m     [33mf[39m[33m'[39m[33m- (c) mini-benchmark top-F1 +[39m[38;5;132;01m{[39;00mDECISION[[33m"[39m[33mmin_benchmark_gain[39m[33m"[39m][38;5;132;01m}[39;00m[33m on ≥2 of 3 species (vs baseline SF-F1)[39m[33m'[39m,
+[32m     17[39m     [33m'[39m[33m'[39m,
+[32m     18[39m     verdict_df.to_markdown(index=[38;5;28;01mFalse[39;00m) [38;5;28;01mif[39;00m [38;5;28mlen[39m(verdict_df) [38;5;28;01melse[39;00m [33m'[39m[33m_no verdict rows_[39m[33m'[39m,
+[32m     19[39m     [33m'[39m[33m'[39m,
+[32m     20[39m ]
+[32m     21[39m out = OUT_DIR / [33m'[39m[33msummary.md[39m[33m'[39m
+[32m     22[39m out.write_text([33m'[39m[38;5;130;01m\n[39;00m[33m'[39m.join(lines))
+
+[36mFile [39m[32m~/Documents/Part III System Biology/TE Classification/.venv/lib/python3.11/site-packages/pandas/util/_decorators.py:333[39m, in [36mdeprecate_nonkeyword_arguments.<locals>.decorate.<locals>.wrapper[39m[34m(*args, **kwargs)[39m
+[32m    327[39m [38;5;28;01mif[39;00m [38;5;28mlen[39m(args) > num_allow_args:
+[32m    328[39m     warnings.warn(
+[32m    329[39m         msg.format(arguments=_format_argument_list(allow_args)),
+[32m    330[39m         [38;5;167;01mFutureWarning[39;00m,
+[32m    331[39m         stacklevel=find_stack_level(),
+[32m    332[39m     )
+[32m--> [39m[32m333[39m [38;5;28;01mreturn[39;00m [43mfunc[49m[43m([49m[43m*[49m[43margs[49m[43m,[49m[43m [49m[43m*[49m[43m*[49m[43mkwargs[49m[43m)[49m
+
+[36mFile [39m[32m~/Documents/Part III System Biology/TE Classification/.venv/lib/python3.11/site-packages/pandas/core/frame.py:2994[39m, in [36mDataFrame.to_markdown[39m[34m(self, buf, mode, index, storage_options, **kwargs)[39m
+[32m   2992[39m kwargs.setdefault([33m"[39m[33mtablefmt[39m[33m"[39m, [33m"[39m[33mpipe[39m[33m"[39m)
+[32m   2993[39m kwargs.setdefault([33m"[39m[33mshowindex[39m[33m"[39m, index)
+[32m-> [39m[32m2994[39m tabulate = [43mimport_optional_dependency[49m[43m([49m[33;43m"[39;49m[33;43mtabulate[39;49m[33;43m"[39;49m[43m)[49m
+[32m   2995[39m result = tabulate.tabulate([38;5;28mself[39m, **kwargs)
+[32m   2996[39m [38;5;28;01mif[39;00m buf [38;5;129;01mis[39;00m [38;5;28;01mNone[39;00m:
+
+[36mFile [39m[32m~/Documents/Part III System Biology/TE Classification/.venv/lib/python3.11/site-packages/pandas/compat/_optional.py:138[39m, in [36mimport_optional_dependency[39m[34m(name, extra, errors, min_version)[39m
+[32m    136[39m [38;5;28;01mexcept[39;00m [38;5;167;01mImportError[39;00m:
+[32m    137[39m     [38;5;28;01mif[39;00m errors == [33m"[39m[33mraise[39m[33m"[39m:
+[32m--> [39m[32m138[39m         [38;5;28;01mraise[39;00m [38;5;167;01mImportError[39;00m(msg)
+[32m    139[39m     [38;5;28;01mreturn[39;00m [38;5;28;01mNone[39;00m
+[32m    141[39m [38;5;66;03m# Handle submodules: if we have submodule, grab parent module from sys.modules[39;00m
+
+[31mImportError[39m: Missing optional dependency 'tabulate'.  Use pip or conda to install tabulate.
+
+--- cell #2 stdout ---
+RESULTS_ROOT: /Users/alexyang/Documents/Part III System Biology/TE Classification/models/scripts/hybrid_v4_3_lite/results
+BASELINE:     /Users/alexyang/Documents/Part III System Biology/TE Classification/data_analysis/vgp_model_data_tpase_multi/v4.3/results_v4.3.pt (exists)
+MINI_BENCH:   /Users/alexyang/Documents/Part III System Biology/TE Classification/data/mini_benchmark
+--- cell #4 stdout ---
+device: mps
+--- cell #6 stdout ---
+=== v4.3-lite variants ===
+  loaded three_class_balanced: best_epoch=5  n_test=6141  n_sf=23
+  loaded three_class_unbalanced: best_epoch=9  n_test=9961  n_sf=23
+  loaded binary_dna: best_epoch=5  n_test=6141  n_sf=23
+
+=== v4.3 baseline ===
+  loaded baseline v4.3: best_epoch=40  n_test=6141  n_sf=23
+--- cell #10 stdout ---
+v4.3 baseline: {'DNA': 0.9778, 'LTR': 0.9832, 'LINE': 0.9833}
+three_class_balanced: {'DNA': 0.433, 'LTR': 0.0, 'LINE': 0.0}
+three_class_unbalanced: {'DNA': 0.3451, 'LTR': 0.0, 'LINE': 0.0}
+binary_dna: {'non-DNA': 0.8397, 'DNA': 0.0}
+--- cell #12 stdout ---
+  bTaeGut: 543 records,   top-level set = ['DNA', 'DNA?', 'LINE', 'LTR', 'LTR?', 'PLE', 'RC', 'RC?'] ...
+  WARN mOrnAna: ../../../data/mini_benchmark/mOrnAna/ornithorhynchus_anatinus_lib.fa missing — pick another file in MINI_BENCH_FILES
+  WARN rAllMis: ../../../data/mini_benchmark/rAllMis/alligator_mississippiensis_lib.fa missing — pick another file in MINI_BENCH_FILES
+--- cell #13 stdout ---
+
+=== three_class_balanced (ckpt hybrid_v43_lite_three_class_balanced_epoch1.pt, epoch 1) ===
+--- cell #13 stdout ---
+  bTaeGut:  top-F1 0.102 (414/543 known)   sf-F1 0.027 (172/543 known)
+
+=== three_class_unbalanced (ckpt hybrid_v43_lite_three_class_unbalanced_epoch4.pt, epoch 4) ===
+--- cell #13 stdout ---
+  bTaeGut:  top-F1 0.102 (414/543 known)   sf-F1 0.027 (172/543 known)
+
+=== binary_dna (ckpt hybrid_v43_lite_binary_dna_epoch1.pt, epoch 1) ===
+--- cell #13 stdout ---
+  bTaeGut:  top-F1 0.000 (75/543 known)   sf-F1 0.027 (172/543 known)
+--- cell #19 ERROR ---
+[31m---------------------------------------------------------------------------[39m
+[31mModuleNotFoundError[39m                       Traceback (most recent call last)
+[36mFile [39m[32m~/Documents/Part III System Biology/TE Classification/.venv/lib/python3.11/site-packages/pandas/compat/_optional.py:135[39m, in [36mimport_optional_dependency[39m[34m(name, extra, errors, min_version)[39m
+[32m    134[39m [38;5;28;01mtry[39;00m:
+[32m--> [39m[32m135[39m     module = [43mimportlib[49m[43m.[49m[43mimport_module[49m[43m([49m[43mname[49m[43m)[49m
+[32m    136[39m [38;5;28;01mexcept[39;00m [38;5;167;01mImportError[39;00m:
+
+[36mFile [39m[32m/opt/homebrew/Cellar/python@3.11/3.11.14/Frameworks/Python.framework/Versions/3.11/lib/python3.11/importlib/__init__.py:126[39m, in [36mimport_module[39m[34m(name, package)[39m
+[32m    125[39m         level += [32m1[39m
+[32m--> [39m[32m126[39m [38;5;28;01mreturn[39;00m [43m_bootstrap[49m[43m.[49m[43m_gcd_import[49m[43m([49m[43mname[49m[43m[[49m[43mlevel[49m[43m:[49m[43m][49m[43m,[49m[43m [49m[43mpackage[49m[43m,[49m[43m [49m[43mlevel[49m[43m)[49m
+
+[36mFile [39m[32m<frozen importlib._bootstrap>:1204[39m, in [36m_gcd_import[39m[34m(name, package, level)[39m
+
+[36mFile [39m[32m<frozen importlib._bootstrap>:1176[39m, in [36m_find_and_load[39m[34m(name, import_)[39m
+
+[36mFile [39m[32m<frozen importlib._bootstrap>:1140[39m, in [36m_find_and_load_unlocked[39m[34m(name, import_)[39m
+
+[31mModuleNotFoundError[39m: No module named 'tabulate'
+
+During handling of the above exception, another exception occurred:
+
+[31mImportError[39m                               Traceback (most recent call last)
+[36mCell[39m[36m [39m[32mIn[10][39m[32m, line 6[39m
+[32m      1[39m lines = [
+[32m      2[39m     [33m'[39m[33m# v4.3-lite vs v4.3 — comparison summary[39m[33m'[39m,
+[32m      3[39m     [33m'[39m[33m'[39m,
+[32m      4[39m     [33m'[39m[33m## 1. Held-out VGP test[39m[33m'[39m,
+[32m      5[39m     [33m'[39m[33m'[39m,
+[32m----> [39m[32m6[39m     [43mdf_show[49m[43m.[49m[43mto_markdown[49m[43m([49m[43mindex[49m[43m=[49m[38;5;28;43;01mFalse[39;49;00m[43m)[49m,
+[32m      7[39m     [33m'[39m[33m'[39m,
+[32m      8[39m     [33m'[39m[33m## 2. Mini-benchmark (held-out species)[39m[33m'[39m,
+[32m      9[39m     [33m'[39m[33m'[39m,
+[32m     10[39m     bench_df.to_markdown(index=[38;5;28;01mFalse[39;00m) [38;5;28;01mif[39;00m [38;5;28mlen[39m(bench_df) [38;5;28;01melse[39;00m [33m'[39m[33m_no benchmark rows_[39m[33m'[39m,
+[32m     11[39m     [33m'[39m[33m'[39m,
+[32m     12[39m     [33m'[39m[33m## 3. Decision rule[39m[33m'[39m,
+[32m     13[39m     [33m'[39m[33m'[39m,
+[32m     14[39m     [33mf[39m[33m'[39m[33m- (a) lite test SF-F1 within [39m[38;5;132;01m{[39;00mDECISION[[33m"[39m[33mmax_test_f1_drop[39m[33m"[39m][38;5;132;01m}[39;00m[33m of baseline[39m[33m'[39m,
+[32m     15[39m     [33mf[39m[33m'[39m[33m- (b) train→test SF-F1 gap < [39m[38;5;132;01m{[39;00mDECISION[[33m"[39m[33mmax_train_test_gap[39m[33m"[39m][38;5;132;01m}[39;00m[33m'[39m,
+[32m     16[39m     [33mf[39m[33m'[39m[33m- (c) mini-benchmark top-F1 +[39m[38;5;132;01m{[39;00mDECISION[[33m"[39m[33mmin_benchmark_gain[39m[33m"[39m][38;5;132;01m}[39;00m[33m on ≥2 of 3 species (vs baseline SF-F1)[39m[33m'[39m,
+[32m     17[39m     [33m'[39m[33m'[39m,
+[32m     18[39m     verdict_df.to_markdown(index=[38;5;28;01mFalse[39;00m) [38;5;28;01mif[39;00m [38;5;28mlen[39m(verdict_df) [38;5;28;01melse[39;00m [33m'[39m[33m_no verdict rows_[39m[33m'[39m,
+[32m     19[39m     [33m'[39m[33m'[39m,
+[32m     20[39m ]
+[32m     21[39m out = OUT_DIR / [33m'[39m[33msummary.md[39m[33m'[39m
+[32m     22[39m out.write_text([33m'[39m[38;5;130;01m\n[39;00m[33m'[39m.join(lines))
+
+[36mFile [39m[32m~/Documents/Part III System Biology/TE Classification/.venv/lib/python3.11/site-packages/pandas/util/_decorators.py:333[39m, in [36mdeprecate_nonkeyword_arguments.<locals>.decorate.<locals>.wrapper[39m[34m(*args, **kwargs)[39m
+[32m    327[39m [38;5;28;01mif[39;00m [38;5;28mlen[39m(args) > num_allow_args:
+[32m    328[39m     warnings.warn(
+[32m    329[39m         msg.format(arguments=_format_argument_list(allow_args)),
+[32m    330[39m         [38;5;167;01mFutureWarning[39;00m,
+[32m    331[39m         stacklevel=find_stack_level(),
+[32m    332[39m     )
+[32m--> [39m[32m333[39m [38;5;28;01mreturn[39;00m [43mfunc[49m[43m([49m[43m*[49m[43margs[49m[43m,[49m[43m [49m[43m*[49m[43m*[49m[43mkwargs[49m[43m)[49m
+
+[36mFile [39m[32m~/Documents/Part III System Biology/TE Classification/.venv/lib/python3.11/site-packages/pandas/core/frame.py:2994[39m, in [36mDataFrame.to_markdown[39m[34m(self, buf, mode, index, storage_options, **kwargs)[39m
+[32m   2992[39m kwargs.setdefault([33m"[39m[33mtablefmt[39m[33m"[39m, [33m"[39m[33mpipe[39m[33m"[39m)
+[32m   2993[39m kwargs.setdefault([33m"[39m[33mshowindex[39m[33m"[39m, index)
+[32m-> [39m[32m2994[39m tabulate = [43mimport_optional_dependency[49m[43m([49m[33;43m"[39;49m[33;43mtabulate[39;49m[33;43m"[39;49m[43m)[49m
+[32m   2995[39m result = tabulate.tabulate([38;5;28mself[39m, **kwargs)
+[32m   2996[39m [38;5;28;01mif[39;00m buf [38;5;129;01mis[39;00m [38;5;28;01mNone[39;00m:
+
+[36mFile [39m[32m~/Documents/Part III System Biology/TE Classification/.venv/lib/python3.11/site-packages/pandas/compat/_optional.py:138[39m, in [36mimport_optional_dependency[39m[34m(name, extra, errors, min_version)[39m
+[32m    136[39m [38;5;28;01mexcept[39;00m [38;5;167;01mImportError[39;00m:
+[32m    137[39m     [38;5;28;01mif[39;00m errors == [33m"[39m[33mraise[39m[33m"[39m:
+[32m--> [39m[32m138[39m         [38;5;28;01mraise[39;00m [38;5;167;01mImportError[39;00m(msg)
+[32m    139[39m     [38;5;28;01mreturn[39;00m [38;5;28;01mNone[39;00m
+[32m    141[39m [38;5;66;03m# Handle submodules: if we have submodule, grab parent module from sys.modules[39;00m
+
+[31mImportError[39m: Missing optional dependency 'tabulate'.  Use pip or conda to install tabulate.
+
+# end     : Sun Apr 26 04:31:31 2026
+# elapsed : 0.4 min
+# success : False

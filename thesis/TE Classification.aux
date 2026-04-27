@@ -4,131 +4,155 @@
 \providecommand\HyField@AuxAddToCoFields[2]{}
 \@writefile{toc}{\contentsline {section}{Summary}{3}{section*.1}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{List of Abbreviations}{6}{section*.2}\protected@file@percent }
+\citation{wells2020field}
+\citation{wells2020field}
+\citation{wells2020field}
+\citation{smit2015repeatmasker}
+\citation{wells2020field}
+\citation{wells2020field}
+\citation{wells2020field}
+\citation{smit2015repeatmasker}
+\@writefile{toc}{\contentsline {section}{\numberline {1}Introduction}{7}{section.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.1}Transposable Elements}{7}{subsection.1.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.2}Sequence Features of TE Classes}{7}{subsection.1.2}\protected@file@percent }
+\citation{sierra2024pantera}
 \citation{lecun2015deep}
-\citation{goodfellow2016deep}
+\citation{krizhevsky2012imagenet}
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.3}Previous Work and the Pantera Catalogue}{8}{subsection.1.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.4}Convolutional Neural Networks for Sequence Classification}{8}{subsection.1.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.5}Graph Neural Networks for Compositional Information}{8}{subsection.1.5}\protected@file@percent }
 \citation{kipf2016semi}
 \citation{hamilton2017inductive}
-\@writefile{toc}{\contentsline {section}{\numberline {1}Introduction}{7}{section.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {1.1}Computational Challenges in Sequence Classification}{7}{subsection.1.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {2}Results}{8}{section.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.1}Terminal Inverted Repeat Detection}{8}{subsection.2.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.1.1}Model Architecture and Reverse-Complement Invariance}{8}{subsubsection.2.1.1}\protected@file@percent }
-\newlabel{ssec:tir}{{2.1.1}{8}{Model Architecture and Reverse-Complement Invariance}{subsubsection.2.1.1}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.1.2}Handling Class Imbalance}{8}{subsubsection.2.1.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.1.3}Sequence Position Augmentation}{8}{subsubsection.2.1.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.2}Hierarchical DNA Transposon Classification (v3)}{9}{subsection.2.2}\protected@file@percent }
-\newlabel{ssec:hier}{{2.2}{9}{Hierarchical DNA Transposon Classification (v3)}{subsection.2.2}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.2.1}Hierarchical Design}{9}{subsubsection.2.2.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.2.2}Addressing Extreme Class Imbalance}{9}{subsubsection.2.2.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.2.3}Performance}{10}{subsubsection.2.2.3}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Confusion matrix for v3 hierarchical CNN model on binary classification (DNA vs non-DNA). Cell intensity represents classification frequency; diagonal elements (correct predictions) dominate. Misclassifications cluster among related families (e.g., DNA/hAT $\leftrightarrow $ DNA/Tc1), indicating learned feature space captures evolutionary relationships.}}{10}{figure.1}\protected@file@percent }
-\newlabel{fig:v3_confusion}{{1}{10}{Confusion matrix for v3 hierarchical CNN model on binary classification (DNA vs non-DNA). Cell intensity represents classification frequency; diagonal elements (correct predictions) dominate. Misclassifications cluster among related families (e.g., DNA/hAT $\leftrightarrow $ DNA/Tc1), indicating learned feature space captures evolutionary relationships}{figure.1}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.3}Hybrid CNN and K-mer Graph Neural Network Model (v4)}{10}{subsection.2.3}\protected@file@percent }
-\newlabel{ssec:hybrid}{{2.3}{10}{Hybrid CNN and K-mer Graph Neural Network Model (v4)}{subsection.2.3}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.3.1}K-mer Graph Representation}{11}{subsubsection.2.3.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.3.2}Attention-Based Fusion}{11}{subsubsection.2.3.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.3.3}Comparison with CNN-Only Model}{11}{subsubsection.2.3.3}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Confusion matrices for v4 hybrid CNN+GNN model comparing binary (DNA vs non-DNA, left) and superfamily classification (7 families, right). Hybrid architecture shows modest improvements over v3 CNN-only, particularly for binary class discrimination where compositional (GNN) signal provides additional separability. Superfamily performance remains comparable to v3.}}{12}{figure.2}\protected@file@percent }
-\newlabel{fig:v4_confusion}{{2}{12}{Confusion matrices for v4 hybrid CNN+GNN model comparing binary (DNA vs non-DNA, left) and superfamily classification (7 families, right). Hybrid architecture shows modest improvements over v3 CNN-only, particularly for binary class discrimination where compositional (GNN) signal provides additional separability. Superfamily performance remains comparable to v3}{figure.2}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Training curves for v4 hybrid model showing convergence of training and validation loss. The model stabilizes after ~20 epochs with dropout regularization (0.15) and early stopping criterion based on validation macro F1 score.}}{12}{figure.3}\protected@file@percent }
-\newlabel{fig:v4_training}{{3}{12}{Training curves for v4 hybrid model showing convergence of training and validation loss. The model stabilizes after ~20 epochs with dropout regularization (0.15) and early stopping criterion based on validation macro F1 score}{figure.3}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.4}Multi-Class Extension: Three-Class Classification (v4.2 and v4.3)}{12}{subsection.2.4}\protected@file@percent }
-\newlabel{ssec:fullset}{{2.4}{12}{Multi-Class Extension: Three-Class Classification (v4.2 and v4.3)}{subsection.2.4}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.4.1}Three-Class Reformulation}{13}{subsubsection.2.4.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.4.2}Overfitting Analysis in v4.2}{13}{subsubsection.2.4.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.4.3}Benchmark Exclusion and Final Model (v4.3)}{13}{subsubsection.2.4.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.4.4}Performance (v4.3)}{14}{subsubsection.2.4.4}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Confusion matrices for v4.3 final hybrid model showing three-class (DNA/LTR/LINE, left) and 23-superfamily (right) classification performance on held-out VGP test set. Strong separation of top-level classes (off-diagonal elements in left matrix are minimal) contrasts with moderate superfamily confusions, reflecting the biological hierarchy of TE classification.}}{14}{figure.4}\protected@file@percent }
-\newlabel{fig:v4_3_confusion}{{4}{14}{Confusion matrices for v4.3 final hybrid model showing three-class (DNA/LTR/LINE, left) and 23-superfamily (right) classification performance on held-out VGP test set. Strong separation of top-level classes (off-diagonal elements in left matrix are minimal) contrasts with moderate superfamily confusions, reflecting the biological hierarchy of TE classification}{figure.4}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.4.5}K-mer Features Separate Top-Level Classes}{15}{subsubsection.2.4.5}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces K-mer feature separability for top-level classes, showing that 7-mer frequency composition alone achieves ~85\% macro F1 on class discrimination (DNA/LTR/LINE). This analysis justifies the GNN component of the hybrid architecture: compositional signals provide strong priors for class identity, reducing the hypothesis space for CNN-driven fine-grained superfamily classification.}}{15}{figure.5}\protected@file@percent }
-\newlabel{fig:kmer_separation}{{5}{15}{K-mer feature separability for top-level classes, showing that 7-mer frequency composition alone achieves ~85\% macro F1 on class discrimination (DNA/LTR/LINE). This analysis justifies the GNN component of the hybrid architecture: compositional signals provide strong priors for class identity, reducing the hypothesis space for CNN-driven fine-grained superfamily classification}{figure.5}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.5}External Benchmark: Mini Dataset Evaluation}{15}{subsection.2.5}\protected@file@percent }
-\newlabel{ssec:mini_benchmark}{{2.5}{15}{External Benchmark: Mini Dataset Evaluation}{subsection.2.5}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces Learned attention gate weights evolution during v4.3 training, showing CNN vs.\ GNN contribution weights over 40 training epochs. Gate weights are variable across training folds and epochs with no clear stabilisation to a fixed ratio. GNN weighting generally dominates, indicating that global compositional patterns remain important even in the three-class setting.}}{16}{figure.6}\protected@file@percent }
-\newlabel{fig:gate_weights}{{6}{16}{Learned attention gate weights evolution during v4.3 training, showing CNN vs.\ GNN contribution weights over 40 training epochs. Gate weights are variable across training folds and epochs with no clear stabilisation to a fixed ratio. GNN weighting generally dominates, indicating that global compositional patterns remain important even in the three-class setting}{figure.6}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.5.1}Benchmark Species}{16}{subsubsection.2.5.1}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Mini benchmark species, Pantera-derived consensus sequence counts, and curated library sizes.}}{16}{table.1}\protected@file@percent }
-\newlabel{tab:mini_benchmark_species}{{1}{16}{Mini benchmark species, Pantera-derived consensus sequence counts, and curated library sizes}{table.1}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.5.2}Evaluation Protocol}{16}{subsubsection.2.5.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.5.3}Results}{17}{subsubsection.2.5.3}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces v4.3 classification performance on held-out curated libraries from the mini benchmark. ``Matched sequences'' denotes the evaluable subset after class filtering and label mapping to the model vocabulary.}}{17}{table.2}\protected@file@percent }
-\newlabel{tab:mini_benchmark}{{2}{17}{v4.3 classification performance on held-out curated libraries from the mini benchmark. ``Matched sequences'' denotes the evaluable subset after class filtering and label mapping to the model vocabulary}{table.2}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces Transfer learning performance on three held-out species. Left: per-class macro F1 (DNA / LTR / LINE) broken down by species. Right: overall class accuracy, class macro F1, superfamily accuracy, and superfamily macro F1 per species. Platypus achieves the highest class-level F1, while Zebra finch shows substantial degradation driven by LTR element misclassification.}}{17}{figure.7}\protected@file@percent }
-\newlabel{fig:transfer_class_accuracy}{{7}{17}{Transfer learning performance on three held-out species. Left: per-class macro F1 (DNA / LTR / LINE) broken down by species. Right: overall class accuracy, class macro F1, superfamily accuracy, and superfamily macro F1 per species. Platypus achieves the highest class-level F1, while Zebra finch shows substantial degradation driven by LTR element misclassification}{figure.7}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces Per-superfamily F1 heatmap across the three held-out species. Each cell shows the binary F1 for one superfamily in one species; grey indicates the superfamily is absent from that library. Superfamilies with broad amniote representation (DNA/hAT, LINE/CR1) generalise well, while avian-specific or rare LTR superfamilies score near zero, revealing the lineage-specific nature of TE sequence features.}}{18}{figure.8}\protected@file@percent }
-\newlabel{fig:transfer_sf_heatmap}{{8}{18}{Per-superfamily F1 heatmap across the three held-out species. Each cell shows the binary F1 for one superfamily in one species; grey indicates the superfamily is absent from that library. Superfamilies with broad amniote representation (DNA/hAT, LINE/CR1) generalise well, while avian-specific or rare LTR superfamilies score near zero, revealing the lineage-specific nature of TE sequence features}{figure.8}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {9}{\ignorespaces Error analysis for the top-12 most misclassified superfamilies per held-out species. Red bars show the SF-level error rate (fraction of true-label sequences that are misassigned at superfamily level); orange bars show the class-level error rate. For Zebra finch, the near-coincidence of SF and class error rates for LTR families confirms that top-level class discrimination fails, not only fine-grained resolution.}}{19}{figure.9}\protected@file@percent }
-\newlabel{fig:transfer_error_analysis}{{9}{19}{Error analysis for the top-12 most misclassified superfamilies per held-out species. Red bars show the SF-level error rate (fraction of true-label sequences that are misassigned at superfamily level); orange bars show the class-level error rate. For Zebra finch, the near-coincidence of SF and class error rates for LTR families confirms that top-level class discrimination fails, not only fine-grained resolution}{figure.9}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {10}{\ignorespaces Row-normalised class-level confusion matrices for v4.3 applied to the three held-out species. Cell values show the fraction of true-class sequences assigned to each predicted class, with raw counts in parentheses. Zebra finch (left) shows the most severe off-diagonal mass for LTR elements, while Platypus (centre) and Alligator (right) exhibit cleaner diagonal structure, consistent with their higher overall transfer accuracy.}}{19}{figure.10}\protected@file@percent }
-\newlabel{fig:transfer_confusion}{{10}{19}{Row-normalised class-level confusion matrices for v4.3 applied to the three held-out species. Cell values show the fraction of true-class sequences assigned to each predicted class, with raw counts in parentheses. Zebra finch (left) shows the most severe off-diagonal mass for LTR elements, while Platypus (centre) and Alligator (right) exhibit cleaner diagonal structure, consistent with their higher overall transfer accuracy}{figure.10}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.6}Saliency-Based Attribution Analysis}{19}{subsection.2.6}\protected@file@percent }
-\newlabel{ssec:saliency}{{2.6}{19}{Saliency-Based Attribution Analysis}{subsection.2.6}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {11}{\ignorespaces Saliency maps (input-level gradients) for v4.3 model, aggregated by superfamily. Per-position attribution scores reveal stereotyped patterns: DNA transposons show sharp peaks at sequence boundaries (TIR regions), LTR elements show symmetric internal patterns characteristic of retroviral structure, and LINEs concentrate saliency near poly(A) motifs. This biologically interpretable attribution validates that convolutional layers learn to detect canonical TE-specific features.}}{20}{figure.11}\protected@file@percent }
-\newlabel{fig:saliency_analysis}{{11}{20}{Saliency maps (input-level gradients) for v4.3 model, aggregated by superfamily. Per-position attribution scores reveal stereotyped patterns: DNA transposons show sharp peaks at sequence boundaries (TIR regions), LTR elements show symmetric internal patterns characteristic of retroviral structure, and LINEs concentrate saliency near poly(A) motifs. This biologically interpretable attribution validates that convolutional layers learn to detect canonical TE-specific features}{figure.11}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {12}{\ignorespaces Saliency comparison: correctly classified vs. misclassified sequences. Misclassified DNA elements show weak or absent TIR peaks, instead exhibiting diffuse internal saliency peaks. This diagnostic pattern suggests that for rare superfamilies with weak boundary structures, data augmentation emphasizing canonical features could improve robustness.}}{21}{figure.12}\protected@file@percent }
-\newlabel{fig:misclassification}{{12}{21}{Saliency comparison: correctly classified vs. misclassified sequences. Misclassified DNA elements show weak or absent TIR peaks, instead exhibiting diffuse internal saliency peaks. This diagnostic pattern suggests that for rare superfamilies with weak boundary structures, data augmentation emphasizing canonical features could improve robustness}{figure.12}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.7}Unsupervised Clustering of TE Sequences}{21}{subsection.2.7}\protected@file@percent }
-\newlabel{ssec:clustering}{{2.7}{21}{Unsupervised Clustering of TE Sequences}{subsection.2.7}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.7.1}Contrastive Learning Framework}{21}{subsubsection.2.7.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.7.2}Embedding Space Geometry}{21}{subsubsection.2.7.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.7.3}Hierarchical Clustering and Subclusters}{22}{subsubsection.2.7.3}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {13}{\ignorespaces Training history for the v5 contrastive model (combined SupCon + cross-entropy + center loss, temperature $\tau = 0.07$). The combined objective stabilizes the embedding geometry compared to pure SupCon, preventing arbitrary inter-class separation while maintaining cluster compactness.}}{22}{figure.13}\protected@file@percent }
-\newlabel{fig:contrastive_training}{{13}{22}{Training history for the v5 contrastive model (combined SupCon + cross-entropy + center loss, temperature $\tau = 0.07$). The combined objective stabilizes the embedding geometry compared to pure SupCon, preventing arbitrary inter-class separation while maintaining cluster compactness}{figure.13}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.7.4}UMAP Visualization and Interpretability}{22}{subsubsection.2.7.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.7.5}Novel Substructure Discovery}{22}{subsubsection.2.7.5}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {14}{\ignorespaces UMAP projection of contrastive learning embeddings (v5 combined-loss model). The model recovers class-level structure (DNA/LTR/LINE), with partial superfamily ordering visible within each cluster. Note that UMAP axes have no direct biological interpretation; the 2D layout preserves local neighbourhood structure in the high-dimensional embedding space.}}{23}{figure.14}\protected@file@percent }
-\newlabel{fig:contrastive_umap}{{14}{23}{UMAP projection of contrastive learning embeddings (v5 combined-loss model). The model recovers class-level structure (DNA/LTR/LINE), with partial superfamily ordering visible within each cluster. Note that UMAP axes have no direct biological interpretation; the 2D layout preserves local neighbourhood structure in the high-dimensional embedding space}{figure.14}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {15}{\ignorespaces UMAP projection of learned embeddings coloured by TE superfamily. Clear separation of top-level classes (DNA, LTR, LINE) reflects robust high-level discrimination. Within-class structure shows superfamily-dependent ordering (e.g., DNA/hAT and DNA/TcMar-Tc1 occupy distinct peripheral regions), with some scatter suggesting continuous feature variation or annotation ambiguity within superfamilies. UMAP axes have no direct biological interpretation.}}{24}{figure.15}\protected@file@percent }
-\newlabel{fig:superfamily_umap}{{15}{24}{UMAP projection of learned embeddings coloured by TE superfamily. Clear separation of top-level classes (DNA, LTR, LINE) reflects robust high-level discrimination. Within-class structure shows superfamily-dependent ordering (e.g., DNA/hAT and DNA/TcMar-Tc1 occupy distinct peripheral regions), with some scatter suggesting continuous feature variation or annotation ambiguity within superfamilies. UMAP axes have no direct biological interpretation}{figure.15}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {16}{\ignorespaces UMAP projection with hierarchical Ward clustering results overlaid, showing detected subclusters within each top-level class. Within-class subclusters reveal partial correspondence to known superfamilies, with some clusters mapping cleanly to individual families and others representing admixed or novel groups. Note that UMAP axes have no direct interpretation; the 2D layout reflects local neighbourhood structure in the high-dimensional embedding space.}}{25}{figure.16}\protected@file@percent }
-\newlabel{fig:clustering_umap}{{16}{25}{UMAP projection with hierarchical Ward clustering results overlaid, showing detected subclusters within each top-level class. Within-class subclusters reveal partial correspondence to known superfamilies, with some clusters mapping cleanly to individual families and others representing admixed or novel groups. Note that UMAP axes have no direct interpretation; the 2D layout reflects local neighbourhood structure in the high-dimensional embedding space}{figure.16}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {3}Discussion}{26}{section.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Architectural Insights and Hybrid Design Justification}{26}{subsection.3.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.2}Generalization and Domain Shift}{26}{subsection.3.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.3}Overfitting Mechanisms and Remedies}{26}{subsection.3.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.4}Saliency and Feature Attribution}{27}{subsection.3.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.5}Unsupervised Learning and Emergent Structure}{27}{subsection.3.5}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.6}Comparative Performance and Baselines}{28}{subsection.3.6}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.7}Limitations and Future Directions}{28}{subsection.3.7}\protected@file@percent }
+\citation{zhou2019graph}
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.6}Attention Fusion and Hierarchical Heads}{9}{subsection.1.6}\protected@file@percent }
 \citation{sierra2024pantera}
-\@writefile{toc}{\contentsline {section}{\numberline {4}Materials and Methods}{29}{section.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Data}{29}{subsection.4.1}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {17}{\ignorespaces Distribution of VGP TE sequences across classes (DNA, LTR, LINE, etc.) showing extreme class imbalance: DNA transposons comprise ~8\% of total sequences. This imbalance motivated subsampling of majority ``None'' class and inverse square-root weighting for fine-grained superfamily classification.}}{29}{figure.17}\protected@file@percent }
-\newlabel{fig:class_distribution}{{17}{29}{Distribution of VGP TE sequences across classes (DNA, LTR, LINE, etc.) showing extreme class imbalance: DNA transposons comprise ~8\% of total sequences. This imbalance motivated subsampling of majority ``None'' class and inverse square-root weighting for fine-grained superfamily classification}{figure.17}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}Model Architectures}{29}{subsection.4.2}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {18}{\ignorespaces Bar chart showing superfamily abundances within each major TE class. Among DNA transposons, hAT and Tc1 are most prevalent (>500 samples each); DNA/CMC and other rare families (30-100 samples) present greater classification challenge due to limited training data. Within LTR and LINE classes, compositional diversity is reflected in superfamily frequency distribution, motivating hierarchical feature learning.}}{30}{figure.18}\protected@file@percent }
-\newlabel{fig:superfamily_distribution}{{18}{30}{Bar chart showing superfamily abundances within each major TE class. Among DNA transposons, hAT and Tc1 are most prevalent (>500 samples each); DNA/CMC and other rare families (30-100 samples) present greater classification challenge due to limited training data. Within LTR and LINE classes, compositional diversity is reflected in superfamily frequency distribution, motivating hierarchical feature learning}{figure.18}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.3}Training}{30}{subsection.4.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.4}Evaluation}{31}{subsection.4.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.5}Implementation}{31}{subsection.4.5}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {3}{\ignorespaces Hyperparameter configuration for all models. CNN/Hybrid refer to single-modality and multimodal classifiers respectively. SupCon = supervised contrastive models.}}{32}{table.3}\protected@file@percent }
-\newlabel{tab:hyperparams}{{3}{32}{Hyperparameter configuration for all models. CNN/Hybrid refer to single-modality and multimodal classifiers respectively. SupCon = supervised contrastive models}{table.3}{}}
-\@writefile{toc}{\contentsline {section}{Acknowledgements}{33}{section*.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {2}Data and Methods}{10}{section.2}\protected@file@percent }
+\newlabel{sec:methods}{{2}{10}{Data and Methods}{section.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.1}Data}{10}{subsection.2.1}\protected@file@percent }
+\newlabel{ssec:data}{{2.1}{10}{Data}{subsection.2.1}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Distribution of VGP TE sequences across the top-level classes (DNA, LTR, LINE, \dots  ). The marked imbalance --- DNA transposons account for $\sim $8\% of all sequences while unannotated/non-transposase sequences dominate --- motivates both the subsampling strategy used to balance binary heads and the inverse square-root weighting used at the superfamily level.}}{10}{figure.1}\protected@file@percent }
+\newlabel{fig:class_distribution}{{1}{10}{Distribution of VGP TE sequences across the top-level classes (DNA, LTR, LINE, \dots ). The marked imbalance --- DNA transposons account for $\sim $8\% of all sequences while unannotated/non-transposase sequences dominate --- motivates both the subsampling strategy used to balance binary heads and the inverse square-root weighting used at the superfamily level}{figure.1}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Superfamily abundances within each top-level TE class. Among DNA transposons, hAT and Tc1 dominate ($>500$ samples each); rare DNA superfamilies (30--100 samples) are the main source of fine-grained classification difficulty. LTR and LINE classes show analogous skew across their own superfamilies.}}{11}{figure.2}\protected@file@percent }
+\newlabel{fig:superfamily_distribution}{{2}{11}{Superfamily abundances within each top-level TE class. Among DNA transposons, hAT and Tc1 dominate ($>500$ samples each); rare DNA superfamilies (30--100 samples) are the main source of fine-grained classification difficulty. LTR and LINE classes show analogous skew across their own superfamilies}{figure.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.2}Sequence Representation}{11}{subsection.2.2}\protected@file@percent }
+\newlabel{ssec:repr}{{2.2}{11}{Sequence Representation}{subsection.2.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.3}Model v1 — TIR Detection CNN}{11}{subsection.2.3}\protected@file@percent }
+\newlabel{ssec:methods_v1}{{2.3}{11}{Model v1 — TIR Detection CNN}{subsection.2.3}{}}
+\citation{hamilton2017inductive}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.4}Model v3 — Hierarchical CNN Classifier}{12}{subsection.2.4}\protected@file@percent }
+\newlabel{ssec:methods_v3}{{2.4}{12}{Model v3 — Hierarchical CNN Classifier}{subsection.2.4}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.5}Model v4 — Hybrid CNN + k-mer GNN}{12}{subsection.2.5}\protected@file@percent }
+\newlabel{ssec:methods_v4}{{2.5}{12}{Model v4 — Hybrid CNN + k-mer GNN}{subsection.2.5}{}}
+\citation{loshchilov2019decoupled}
+\citation{khosla2020supervised}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.6}Training}{13}{subsection.2.6}\protected@file@percent }
+\newlabel{ssec:training}{{2.6}{13}{Training}{subsection.2.6}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.7}Evaluation}{13}{subsection.2.7}\protected@file@percent }
+\newlabel{ssec:evaluation}{{2.7}{13}{Evaluation}{subsection.2.7}{}}
+\citation{khosla2020supervised}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.8}Implementation}{14}{subsection.2.8}\protected@file@percent }
+\newlabel{ssec:implementation}{{2.8}{14}{Implementation}{subsection.2.8}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Hyperparameter configuration. CNN/Hybrid refer to the v3 single-modality and v4 multi-modality classifiers; SupCon = supervised contrastive (v5).}}{14}{table.1}\protected@file@percent }
+\newlabel{tab:hyperparams}{{1}{14}{Hyperparameter configuration. CNN/Hybrid refer to the v3 single-modality and v4 multi-modality classifiers; SupCon = supervised contrastive (v5)}{table.1}{}}
+\citation{lin2017focal}
+\@writefile{toc}{\contentsline {section}{\numberline {3}Results}{15}{section.3}\protected@file@percent }
+\newlabel{sec:results}{{3}{15}{Results}{section.3}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Terminal Inverted Repeat Detection}{15}{subsection.3.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.1.1}Handling Class Imbalance}{15}{subsubsection.3.1.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.1.2}Sequence Position and Boundary Prediction}{15}{subsubsection.3.1.2}\protected@file@percent }
+\newlabel{ssec:tir}{{3.1.2}{15}{Sequence Position and Boundary Prediction}{subsubsection.3.1.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2}Hierarchical DNA Transposon Classification (v3)}{15}{subsection.3.2}\protected@file@percent }
+\newlabel{ssec:hier}{{3.2}{15}{Hierarchical DNA Transposon Classification (v3)}{subsection.3.2}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.2.1}Performance}{16}{subsubsection.3.2.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Confusion matrix for the v3 hierarchical CNN model on binary classification (DNA vs non-DNA). Cell intensity represents classification frequency; diagonal elements (correct predictions) dominate. The small off-diagonal mass is concentrated at the boundary between DNA and non-DNA, indicating that classification errors arise from sequences close to the decision boundary rather than being randomly distributed across classes.}}{16}{figure.3}\protected@file@percent }
+\newlabel{fig:v3_confusion}{{3}{16}{Confusion matrix for the v3 hierarchical CNN model on binary classification (DNA vs non-DNA). Cell intensity represents classification frequency; diagonal elements (correct predictions) dominate. The small off-diagonal mass is concentrated at the boundary between DNA and non-DNA, indicating that classification errors arise from sequences close to the decision boundary rather than being randomly distributed across classes}{figure.3}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3}Hybrid CNN and K-mer Graph Neural Network Model (v4)}{16}{subsection.3.3}\protected@file@percent }
+\newlabel{ssec:hybrid}{{3.3}{16}{Hybrid CNN and K-mer Graph Neural Network Model (v4)}{subsection.3.3}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.3.1}Comparison with the CNN-Only Model}{17}{subsubsection.3.3.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Confusion matrices for the v4 hybrid CNN+GNN model: binary DNA vs non-DNA (left) and DNA-superfamily classification across seven families (right). The hybrid architecture shows modest gains over v3, mainly for the binary task, where the GNN's compositional signal provides additional separability; superfamily performance is comparable to v3.}}{17}{figure.4}\protected@file@percent }
+\newlabel{fig:v4_confusion}{{4}{17}{Confusion matrices for the v4 hybrid CNN+GNN model: binary DNA vs non-DNA (left) and DNA-superfamily classification across seven families (right). The hybrid architecture shows modest gains over v3, mainly for the binary task, where the GNN's compositional signal provides additional separability; superfamily performance is comparable to v3}{figure.4}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Training curves for the v4 hybrid model. Both training and validation loss converge after roughly 20 epochs with dropout 0.15 and early stopping on validation macro $F_1$.}}{18}{figure.5}\protected@file@percent }
+\newlabel{fig:v4_training}{{5}{18}{Training curves for the v4 hybrid model. Both training and validation loss converge after roughly 20 epochs with dropout 0.15 and early stopping on validation macro $F_1$}{figure.5}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.4}Multi-Class Extension: Three-Class Classification (v4.2 and v4.3)}{18}{subsection.3.4}\protected@file@percent }
+\newlabel{ssec:fullset}{{3.4}{18}{Multi-Class Extension: Three-Class Classification (v4.2 and v4.3)}{subsection.3.4}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.4.1}Three-Class Reformulation}{18}{subsubsection.3.4.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.4.2}Overfitting Analysis in v4.2}{18}{subsubsection.3.4.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.4.3}Benchmark Exclusion and Final Model (v4.3)}{19}{subsubsection.3.4.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.4.4}Performance (v4.3)}{19}{subsubsection.3.4.4}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces Confusion matrices for v4.3 final hybrid model showing three-class (DNA/LTR/LINE, left) and 23-superfamily (right) classification performance on held-out VGP test set. Strong separation of top-level classes (off-diagonal elements in left matrix are minimal) contrasts with moderate superfamily confusions, reflecting the biological hierarchy of TE classification.}}{20}{figure.6}\protected@file@percent }
+\newlabel{fig:v4_3_confusion}{{6}{20}{Confusion matrices for v4.3 final hybrid model showing three-class (DNA/LTR/LINE, left) and 23-superfamily (right) classification performance on held-out VGP test set. Strong separation of top-level classes (off-diagonal elements in left matrix are minimal) contrasts with moderate superfamily confusions, reflecting the biological hierarchy of TE classification}{figure.6}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.4.5}K-mer Features Separate Top-Level Classes}{20}{subsubsection.3.4.5}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces K-mer feature separability for top-level classes, showing that 7-mer frequency composition alone achieves ~85\% macro F1 on class discrimination (DNA/LTR/LINE). This analysis justifies the GNN component of the hybrid architecture: compositional signals provide strong priors for class identity, reducing the hypothesis space for CNN-driven fine-grained superfamily classification.}}{21}{figure.7}\protected@file@percent }
+\newlabel{fig:kmer_separation}{{7}{21}{K-mer feature separability for top-level classes, showing that 7-mer frequency composition alone achieves ~85\% macro F1 on class discrimination (DNA/LTR/LINE). This analysis justifies the GNN component of the hybrid architecture: compositional signals provide strong priors for class identity, reducing the hypothesis space for CNN-driven fine-grained superfamily classification}{figure.7}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.5}External Benchmark: Mini Dataset Evaluation}{21}{subsection.3.5}\protected@file@percent }
+\newlabel{ssec:mini_benchmark}{{3.5}{21}{External Benchmark: Mini Dataset Evaluation}{subsection.3.5}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.5.1}Benchmark Species}{21}{subsubsection.3.5.1}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces Mini benchmark species, Pantera-derived consensus sequence counts, and curated library sizes.}}{21}{table.2}\protected@file@percent }
+\newlabel{tab:mini_benchmark_species}{{2}{21}{Mini benchmark species, Pantera-derived consensus sequence counts, and curated library sizes}{table.2}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces Learned attention gate weights evolution during v4.3 training, showing CNN vs.\ GNN contribution weights over 40 training epochs. Gate weights are variable across training folds and epochs with no clear stabilisation to a fixed ratio. GNN weighting generally dominates, indicating that global compositional patterns remain important even in the three-class setting.}}{22}{figure.8}\protected@file@percent }
+\newlabel{fig:gate_weights}{{8}{22}{Learned attention gate weights evolution during v4.3 training, showing CNN vs.\ GNN contribution weights over 40 training epochs. Gate weights are variable across training folds and epochs with no clear stabilisation to a fixed ratio. GNN weighting generally dominates, indicating that global compositional patterns remain important even in the three-class setting}{figure.8}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.5.2}Evaluation Protocol}{22}{subsubsection.3.5.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.5.3}Results}{22}{subsubsection.3.5.3}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {3}{\ignorespaces v4.3 classification performance on held-out curated libraries from the mini benchmark. ``Matched sequences'' denotes the evaluable subset after class filtering and label mapping to the model vocabulary.}}{22}{table.3}\protected@file@percent }
+\newlabel{tab:mini_benchmark}{{3}{22}{v4.3 classification performance on held-out curated libraries from the mini benchmark. ``Matched sequences'' denotes the evaluable subset after class filtering and label mapping to the model vocabulary}{table.3}{}}
+\citation{simonyan2014deep}
+\@writefile{lof}{\contentsline {figure}{\numberline {9}{\ignorespaces Transfer learning performance on three held-out species. Left: per-class macro F1 (DNA / LTR / LINE) broken down by species. Right: overall class accuracy, class macro F1, superfamily accuracy, and superfamily macro F1 per species. Platypus achieves the highest class-level F1, while Zebra finch shows substantial degradation driven by LTR element misclassification.}}{23}{figure.9}\protected@file@percent }
+\newlabel{fig:transfer_class_accuracy}{{9}{23}{Transfer learning performance on three held-out species. Left: per-class macro F1 (DNA / LTR / LINE) broken down by species. Right: overall class accuracy, class macro F1, superfamily accuracy, and superfamily macro F1 per species. Platypus achieves the highest class-level F1, while Zebra finch shows substantial degradation driven by LTR element misclassification}{figure.9}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.6}Saliency-Based Attribution Analysis}{23}{subsection.3.6}\protected@file@percent }
+\newlabel{ssec:saliency}{{3.6}{23}{Saliency-Based Attribution Analysis}{subsection.3.6}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {10}{\ignorespaces Per-superfamily F1 heatmap across the three held-out species. Each cell shows the binary F1 for one superfamily in one species; grey indicates the superfamily is absent from that library. Superfamilies with broad amniote representation (DNA/hAT, LINE/CR1) generalise well, while avian-specific or rare LTR superfamilies score near zero, revealing the lineage-specific nature of TE sequence features.}}{24}{figure.10}\protected@file@percent }
+\newlabel{fig:transfer_sf_heatmap}{{10}{24}{Per-superfamily F1 heatmap across the three held-out species. Each cell shows the binary F1 for one superfamily in one species; grey indicates the superfamily is absent from that library. Superfamilies with broad amniote representation (DNA/hAT, LINE/CR1) generalise well, while avian-specific or rare LTR superfamilies score near zero, revealing the lineage-specific nature of TE sequence features}{figure.10}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {11}{\ignorespaces Error analysis for the top-12 most misclassified superfamilies per held-out species. Red bars show the SF-level error rate (fraction of true-label sequences that are misassigned at superfamily level); orange bars show the class-level error rate. For Zebra finch, the near-coincidence of SF and class error rates for LTR families confirms that top-level class discrimination fails, not only fine-grained resolution.}}{25}{figure.11}\protected@file@percent }
+\newlabel{fig:transfer_error_analysis}{{11}{25}{Error analysis for the top-12 most misclassified superfamilies per held-out species. Red bars show the SF-level error rate (fraction of true-label sequences that are misassigned at superfamily level); orange bars show the class-level error rate. For Zebra finch, the near-coincidence of SF and class error rates for LTR families confirms that top-level class discrimination fails, not only fine-grained resolution}{figure.11}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {12}{\ignorespaces Row-normalised class-level confusion matrices for v4.3 applied to the three held-out species. Cell values show the fraction of true-class sequences assigned to each predicted class, with raw counts in parentheses. Zebra finch (left) shows the most severe off-diagonal mass for LTR elements, while Platypus (centre) and Alligator (right) exhibit cleaner diagonal structure, consistent with their higher overall transfer accuracy.}}{25}{figure.12}\protected@file@percent }
+\newlabel{fig:transfer_confusion}{{12}{25}{Row-normalised class-level confusion matrices for v4.3 applied to the three held-out species. Cell values show the fraction of true-class sequences assigned to each predicted class, with raw counts in parentheses. Zebra finch (left) shows the most severe off-diagonal mass for LTR elements, while Platypus (centre) and Alligator (right) exhibit cleaner diagonal structure, consistent with their higher overall transfer accuracy}{figure.12}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.7}Unsupervised Clustering of TE Sequences}{25}{subsection.3.7}\protected@file@percent }
+\newlabel{ssec:clustering}{{3.7}{25}{Unsupervised Clustering of TE Sequences}{subsection.3.7}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {13}{\ignorespaces Saliency maps (input-level gradients) for v4.3 model, aggregated by superfamily. Per-position attribution scores reveal stereotyped patterns: DNA transposons show sharp peaks at sequence boundaries (TIR regions), LTR elements show symmetric internal patterns characteristic of retroviral structure, and LINEs concentrate saliency near poly(A) motifs. This biologically interpretable attribution is consistent with the convolutional layers detecting canonical TE-specific features.}}{26}{figure.13}\protected@file@percent }
+\newlabel{fig:saliency_analysis}{{13}{26}{Saliency maps (input-level gradients) for v4.3 model, aggregated by superfamily. Per-position attribution scores reveal stereotyped patterns: DNA transposons show sharp peaks at sequence boundaries (TIR regions), LTR elements show symmetric internal patterns characteristic of retroviral structure, and LINEs concentrate saliency near poly(A) motifs. This biologically interpretable attribution is consistent with the convolutional layers detecting canonical TE-specific features}{figure.13}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.7.1}Contrastive Learning Framework}{26}{subsubsection.3.7.1}\protected@file@percent }
+\citation{mcginnis2021umap}
+\citation{ward1963hierarchical}
+\@writefile{lof}{\contentsline {figure}{\numberline {14}{\ignorespaces Saliency comparison: correctly classified vs. misclassified sequences. Misclassified DNA elements show weak or absent TIR peaks, instead exhibiting diffuse internal saliency peaks. This diagnostic pattern suggests that for rare superfamilies with weak boundary structures, data augmentation emphasizing canonical features could improve robustness.}}{27}{figure.14}\protected@file@percent }
+\newlabel{fig:misclassification}{{14}{27}{Saliency comparison: correctly classified vs. misclassified sequences. Misclassified DNA elements show weak or absent TIR peaks, instead exhibiting diffuse internal saliency peaks. This diagnostic pattern suggests that for rare superfamilies with weak boundary structures, data augmentation emphasizing canonical features could improve robustness}{figure.14}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.7.2}Embedding Space Geometry}{27}{subsubsection.3.7.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.7.3}Hierarchical Clustering and Subclusters}{27}{subsubsection.3.7.3}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {15}{\ignorespaces Training history for the v5 contrastive model (combined SupCon + cross-entropy + center loss, temperature $\tau = 0.07$). The combined objective stabilizes the embedding geometry compared to pure SupCon, preventing arbitrary inter-class separation while maintaining cluster compactness.}}{28}{figure.15}\protected@file@percent }
+\newlabel{fig:contrastive_training}{{15}{28}{Training history for the v5 contrastive model (combined SupCon + cross-entropy + center loss, temperature $\tau = 0.07$). The combined objective stabilizes the embedding geometry compared to pure SupCon, preventing arbitrary inter-class separation while maintaining cluster compactness}{figure.15}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.7.4}UMAP Visualization and Interpretability}{28}{subsubsection.3.7.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.7.5}Novel Substructure Discovery}{28}{subsubsection.3.7.5}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {16}{\ignorespaces UMAP projection of contrastive learning embeddings (v5 combined-loss model). The model recovers class-level structure (DNA/LTR/LINE), with partial superfamily ordering visible within each cluster. Note that UMAP axes have no direct biological interpretation; the 2D layout preserves local neighbourhood structure in the high-dimensional embedding space.}}{29}{figure.16}\protected@file@percent }
+\newlabel{fig:contrastive_umap}{{16}{29}{UMAP projection of contrastive learning embeddings (v5 combined-loss model). The model recovers class-level structure (DNA/LTR/LINE), with partial superfamily ordering visible within each cluster. Note that UMAP axes have no direct biological interpretation; the 2D layout preserves local neighbourhood structure in the high-dimensional embedding space}{figure.16}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {17}{\ignorespaces UMAP projection of learned embeddings coloured by TE superfamily. Clear separation of top-level classes (DNA, LTR, LINE) reflects robust high-level discrimination. Within-class structure shows superfamily-dependent ordering (e.g., DNA/hAT and DNA/TcMar-Tc1 occupy distinct peripheral regions), with some scatter suggesting continuous feature variation or annotation ambiguity within superfamilies. UMAP axes have no direct biological interpretation.}}{30}{figure.17}\protected@file@percent }
+\newlabel{fig:superfamily_umap}{{17}{30}{UMAP projection of learned embeddings coloured by TE superfamily. Clear separation of top-level classes (DNA, LTR, LINE) reflects robust high-level discrimination. Within-class structure shows superfamily-dependent ordering (e.g., DNA/hAT and DNA/TcMar-Tc1 occupy distinct peripheral regions), with some scatter suggesting continuous feature variation or annotation ambiguity within superfamilies. UMAP axes have no direct biological interpretation}{figure.17}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {18}{\ignorespaces UMAP projection with hierarchical Ward clustering results overlaid, showing detected subclusters within each top-level class. Within-class subclusters reveal partial correspondence to known superfamilies, with some clusters mapping cleanly to individual families and others representing admixed or novel groups. Note that UMAP axes have no direct interpretation; the 2D layout reflects local neighbourhood structure in the high-dimensional embedding space.}}{31}{figure.18}\protected@file@percent }
+\newlabel{fig:clustering_umap}{{18}{31}{UMAP projection with hierarchical Ward clustering results overlaid, showing detected subclusters within each top-level class. Within-class subclusters reveal partial correspondence to known superfamilies, with some clusters mapping cleanly to individual families and others representing admixed or novel groups. Note that UMAP axes have no direct interpretation; the 2D layout reflects local neighbourhood structure in the high-dimensional embedding space}{figure.18}{}}
+\citation{ganin2015unsupervised}
+\citation{finn2017model}
+\@writefile{toc}{\contentsline {section}{\numberline {4}Discussion}{32}{section.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}When Does the GNN Branch Help?}{32}{subsection.4.1}\protected@file@percent }
+\newlabel{ssec:hybrid_disc}{{4.1}{32}{When Does the GNN Branch Help?}{subsection.4.1}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}Generalisation and Domain Shift}{32}{subsection.4.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3}Overfitting Patterns Across the Hierarchy}{33}{subsection.4.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.4}Interpretability: Saliency and Unsupervised Structure}{33}{subsection.4.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.5}Limitations and Future Directions}{34}{subsection.4.5}\protected@file@percent }
+\newlabel{ssec:limitations}{{4.5}{34}{Limitations and Future Directions}{subsection.4.5}{}}
+\@writefile{toc}{\contentsline {section}{Acknowledgements}{35}{section*.3}\protected@file@percent }
 \bibcite{sierra2024pantera}{1}
 \bibcite{lecun2015deep}{2}
-\bibcite{goodfellow2016deep}{3}
-\bibcite{kipf2016semi}{4}
-\bibcite{hamilton2017inductive}{5}
-\bibcite{zhou2019graph}{6}
-\bibcite{krizhevsky2012imagenet}{7}
-\bibcite{wells2020field}{8}
-\bibcite{smit2015repeatmasker}{9}
-\bibcite{khare2022automated}{10}
-\bibcite{mcnulty2020genomic}{11}
-\bibcite{simonyan2014deep}{12}
-\bibcite{selvaraju2016grad}{13}
-\bibcite{chen2020simple}{14}
-\bibcite{khosla2020supervised}{15}
-\bibcite{mcginnis2021umap}{16}
-\@writefile{toc}{\contentsline {section}{References}{34}{section*.4}\protected@file@percent }
-\bibcite{ward1963hierarchical}{17}
-\bibcite{rousseeuw1987silhouettes}{18}
-\bibcite{gal2016dropout}{19}
-\bibcite{finn2017model}{20}
-\bibcite{ganin2015unsupervised}{21}
-\bibcite{devlin2019bert}{22}
-\bibcite{lin2017focal}{23}
-\bibcite{kingma2014adam}{24}
-\bibcite{loshchilov2019decoupled}{25}
-\gdef \@abspage@last{36}
+\bibcite{kipf2016semi}{3}
+\bibcite{hamilton2017inductive}{4}
+\bibcite{zhou2019graph}{5}
+\bibcite{krizhevsky2012imagenet}{6}
+\bibcite{wells2020field}{7}
+\bibcite{smit2015repeatmasker}{8}
+\bibcite{simonyan2014deep}{9}
+\bibcite{khosla2020supervised}{10}
+\bibcite{mcginnis2021umap}{11}
+\bibcite{ward1963hierarchical}{12}
+\bibcite{finn2017model}{13}
+\bibcite{ganin2015unsupervised}{14}
+\bibcite{lin2017focal}{15}
+\@writefile{toc}{\contentsline {section}{References}{36}{section*.4}\protected@file@percent }
+\bibcite{loshchilov2019decoupled}{16}
+\gdef \@abspage@last{38}

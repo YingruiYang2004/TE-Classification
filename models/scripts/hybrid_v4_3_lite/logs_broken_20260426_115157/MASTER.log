@@ -1,0 +1,20 @@
+
+========== three_class_balanced ==========
+three_class_balanced: OK  (67.1 min)
+
+========== three_class_unbalanced ==========
+three_class_unbalanced: OK  (136.6 min)
+
+========== binary_dna ==========
+binary_dna: OK  (67.0 min)
+
+========== eval ==========
+eval: FAILED  (0.4 min)
+
+========== SUMMARY ==========
+  three_class_balanced            OK     67.1 min
+  three_class_unbalanced          OK    136.6 min
+  binary_dna                      OK     67.0 min
+  eval                            FAIL     0.4 min
+
+Logs: /Users/alexyang/Documents/Part III System Biology/TE Classification/models/scripts/hybrid_v4_3_lite/logs

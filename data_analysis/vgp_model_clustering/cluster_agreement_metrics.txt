@@ -1,0 +1,12 @@
+Clustering agreement metrics vs annotated superfamily (fine-grained, noise excluded)
+  subcluster_local : n=7,966 non-noise points, 252 clusters, 25 true SF
+  global cluster_id: n=7,012 non-noise points, 72 clusters, 17 true SF
+
+Metric             subcluster_local  global cluster_id
+------------------------------------------------------
+ARI                          0.0361             0.0129
+NMI                          0.1361             0.1806
+Homogeneity                  0.2468             0.2983
+Completeness                 0.0940             0.1295
+V-measure                    0.1361             0.1806
+------------------------------------------------------
