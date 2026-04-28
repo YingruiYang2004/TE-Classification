@@ -1003,9 +1003,9 @@ To identify structure within classes, I applied two complementary clustering ana
 
 \begin{figure}[h]
 \centering
-\includegraphics[width=0.9\textwidth]{clustering_umap.png}
-\caption{UMAP projection of DNA transposon embeddings coloured by HDBSCAN cluster identity. The top 20 largest clusters are shown in distinct colours; remaining points are shown in light grey. A total of 72 clusters were discovered, revealing substantial substructure within the DNA transposon class beyond the seven annotated superfamilies. Spatially isolated clusters suggest the model has learned sequence groupings that may correspond to novel biological subfamilies or convergently-evolved sequence variants. UMAP axes have no direct biological interpretation.}
-\label{fig:clustering_umap}
+\includegraphics[width=0.9\textwidth]{contrastive_umap.png}
+\caption{UMAP projection of contrastive learning embeddings (v5 combined-loss model). The model recovers class-level structure (DNA/LTR/LINE), with partial superfamily ordering visible within each cluster. Note that UMAP axes have no direct biological interpretation; the 2D layout preserves local neighbourhood structure in the high-dimensional embedding space.}
+\label{fig:contrastive_umap}
 \end{figure}
 
 \subsubsection{UMAP Visualization and Interpretability}
@@ -1021,9 +1021,9 @@ Two UMAP projections are included for visual reference. The first (Figure~\ref{f
 
 \begin{figure}[h]
 \centering
-\includegraphics[width=0.9\textwidth]{contrastive_umap.png}
-\caption{UMAP projection of contrastive learning embeddings (v5 combined-loss model). The model recovers class-level structure (DNA/LTR/LINE), with partial superfamily ordering visible within each cluster. Note that UMAP axes have no direct biological interpretation; the 2D layout preserves local neighbourhood structure in the high-dimensional embedding space.}
-\label{fig:contrastive_umap}
+\includegraphics[width=0.9\textwidth]{clustering_umap.png}
+\caption{UMAP projection of DNA transposon embeddings coloured by HDBSCAN cluster identity. The top 20 largest clusters are shown in distinct colours; remaining points are shown in light grey. A total of 72 clusters were discovered, revealing substantial substructure within the DNA transposon class beyond the seven annotated superfamilies. Spatially isolated clusters suggest the model has learned sequence groupings that may correspond to novel biological subfamilies or convergently-evolved sequence variants. UMAP axes have no direct biological interpretation.}
+\label{fig:clustering_umap}
 \end{figure}
 
 \subsubsection{Novel Substructure Discovery}

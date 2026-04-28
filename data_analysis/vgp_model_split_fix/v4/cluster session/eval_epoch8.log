@@ -1,0 +1,123 @@
+NB:   /Users/alexyang/Documents/Part III System Biology/TE Classification/data_analysis/vgp_model_split_fix/v4/cluster session/vgp_hybrid_v4_gpu.ipynb
+CKPT: /Users/alexyang/Documents/Part III System Biology/TE Classification/data_analysis/vgp_model_split_fix/v4/cluster session/hybrid_v4_epoch8.pt
+  exec cell 0  (939 chars)
+PyTorch version: 2.9.0
+CUDA available: False
+MPS available: True
+  exec cell 1  (2388 chars)
+Using device: mps
+  exec cell 3  (5565 chars)
+  exec cell 5  (3745 chars)
+  exec cell 6  (8841 chars)
+  exec cell 8  (4180 chars)
+  exec cell 10  (2341 chars)
+  exec cell 11  (2760 chars)
+  exec cell 13  (2307 chars)
+  exec cell 15  (2896 chars)
+  exec cell 17  (3660 chars)
+  exec cell 19  (1986 chars)
+  exec cell 21  (10930 chars)
+  exec cell 22  (18032 chars)
+  exec cell 23  (4053 chars)
+  exec cell 39  (3754 chars)
+[skip] kernel state missing (name 'model' is not defined); load a checkpoint first.
+FASTA: /Users/alexyang/Documents/Part III System Biology/TE Classification/data/vgp/all_vgp_tes.fa
+LABEL: /Users/alexyang/Documents/Part III System Biology/TE Classification/data/vgp/20260120_features_sf
+Device: mps
+
+=== Loading data ===
+Loaded 135751 sequences (binary DNA vs non-DNA)
+
+Top-level class distribution:
+  None          84512   (non-DNA -> 0)
+  LTR           25568   (non-DNA -> 0)
+  LINE          14084   (non-DNA -> 0)
+  DNA           10779   (DNA -> 1)
+  SINE            566   (non-DNA -> 0)
+  PLE             151   (non-DNA -> 0)
+  RC               91   (non-DNA -> 0)
+
+Binary totals: DNA=10779, non-DNA=124972
+Matched 135751 sequences  [0.5s]
+Kept SFs (8): ['DNA', 'DNA/Academ-1', 'DNA/CMC', 'DNA/Maverick', 'DNA/PIF-Harbinger', 'DNA/PiggyBac', 'DNA/TcMar-Tc1', 'DNA/hAT']
+Filtered: 135354 (DNA=10382, non-DNA=124972)
+After non-DNA cap: 36637 (DNA=10382, non-DNA=26255)
+
+=== K-mer featurization ===
+  using GPU featurizer on mps
+  [2000/36637] 478.5 seq/s  ETA 1.2 min
+  [4000/36637] 537.9 seq/s  ETA 1.0 min
+  [6000/36637] 549.4 seq/s  ETA 0.9 min
+  [8000/36637] 561.8 seq/s  ETA 0.8 min
+  [10000/36637] 572.9 seq/s  ETA 0.8 min
+  [12000/36637] 584.7 seq/s  ETA 0.7 min
+  [14000/36637] 540.4 seq/s  ETA 0.7 min
+  [16000/36637] 529.5 seq/s  ETA 0.6 min
+  [18000/36637] 527.5 seq/s  ETA 0.6 min
+  [20000/36637] 515.8 seq/s  ETA 0.5 min
+  [22000/36637] 520.4 seq/s  ETA 0.5 min
+  [24000/36637] 517.4 seq/s  ETA 0.4 min
+  [26000/36637] 511.4 seq/s  ETA 0.3 min
+  [28000/36637] 511.6 seq/s  ETA 0.3 min
+  [30000/36637] 505.6 seq/s  ETA 0.2 min
+  [32000/36637] 511.1 seq/s  ETA 0.2 min
+  [34000/36637] 511.1 seq/s  ETA 0.1 min
+  [36000/36637] 512.2 seq/s  ETA 0.0 min
+  [36637/36637] 512.5 seq/s  ETA 0.0 min
+Done featurizing: 71.5s
+
+Split: trainval=29051, test=7586
+Test loader: 7586 samples
+
+=== Loading epoch-8 checkpoint ===
+  epoch       : 8
+  score       : 0.8356
+  arch keys   : ['num_classes', 'class_names', 'cnn_width', 'motif_kernels', 'context_dilations', 'rc_mode', 'gnn_in_dim', 'gnn_hidden', 'gnn_layers', 'fusion_dim', 'num_heads', 'num_superfamilies', 'fixed_length']
+  SF names    : ['DNA', 'DNA/Academ-1', 'DNA/CMC', 'DNA/Maverick', 'DNA/PIF-Harbinger', 'DNA/PiggyBac', 'DNA/TcMar-Tc1', 'DNA/hAT']
+Model on mps, params=1,889,292
+
+=== Running natural-prevalence eval (epoch 8) ===
+========================================================================
+NATURAL-PREVALENCE TEST METRICS (held-out, species-disjoint)
+========================================================================
+
+--- Top-level class ---
+              precision    recall  f1-score   support
+
+     non-DNA     0.9803    0.9370    0.9581      5362
+         DNA     0.8627    0.9546    0.9063      2224
+
+    accuracy                         0.9421      7586
+   macro avg     0.9215    0.9458    0.9322      7586
+weighted avg     0.9458    0.9421    0.9429      7586
+
+
+--- DNA Superfamily (per-class P/R/F1/support, DNA samples only) ---
+                   precision    recall  f1-score   support
+
+              DNA     0.2510    0.7077    0.3706       260
+     DNA/Academ-1     0.1765    0.4615    0.2553        13
+          DNA/CMC     0.3158    0.5000    0.3871        36
+     DNA/Maverick     0.0000    0.0000    0.0000        10
+DNA/PIF-Harbinger     0.3862    0.5429    0.4513       175
+     DNA/PiggyBac     0.2871    0.5762    0.3833       151
+    DNA/TcMar-Tc1     0.9475    0.8164    0.8771       354
+          DNA/hAT     0.8741    0.3796    0.5293      1225
+
+         accuracy                         0.5144      2224
+        macro avg     0.4048    0.4980    0.4067      2224
+     weighted avg     0.7176    0.5144    0.5438      2224
+
+
+Superfamily summary table (sorted by support, ascending):
+superfamily                           P        R       F1  support
+DNA/Maverick                     0.0000   0.0000   0.0000       10
+DNA/Academ-1                     0.1765   0.4615   0.2553       13
+DNA/CMC                          0.3158   0.5000   0.3871       36
+DNA/PiggyBac                     0.2871   0.5762   0.3833      151
+DNA/PIF-Harbinger                0.3862   0.5429   0.4513      175
+DNA                              0.2510   0.7077   0.3706      260
+DNA/TcMar-Tc1                    0.9475   0.8164   0.8771      354
+DNA/hAT                          0.8741   0.3796   0.5293     1225
+
+TOTAL TIME: 2.7 min

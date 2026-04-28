@@ -1,0 +1,37 @@
+PyTorch version: 2.9.0
+CUDA available: False
+MPS available: True
+Using device: mps
+[skip] kernel state missing (name 'model' is not defined); load a checkpoint first.
+[arm augment=True] device=mps
+=== Loading data ===
+Loaded 135751 sequences (binary DNA vs non-DNA)
+
+Top-level class distribution:
+  None          84512   (non-DNA -> 0)
+  LTR           25568   (non-DNA -> 0)
+  LINE          14084   (non-DNA -> 0)
+  DNA           10779   (DNA -> 1)
+  SINE            566   (non-DNA -> 0)
+  PLE             151   (non-DNA -> 0)
+  RC               91   (non-DNA -> 0)
+
+Binary totals: DNA=10779, non-DNA=124972
+After cap: 36637 (DNA=10382, non-DNA=26255)
+Subset: 5000 sequences
+Species in subset: 448
+=== K-mer featurization ===
+  [500/5000] 2.9s
+  [1000/5000] 4.2s
+  [1500/5000] 5.6s
+  [2000/5000] 6.8s
+  [2500/5000] 8.1s
+  [3000/5000] 9.4s
+  [3500/5000] 10.9s
+  [4000/5000] 12.2s
+  [4500/5000] 13.3s
+  [5000/5000] 14.6s
+Splits: train=2939 (268sp) | val=939 (90sp) | test=1122 (90sp)
+  params: 1,889,292
+
+=== Training (augment=True, epochs=3) ===
