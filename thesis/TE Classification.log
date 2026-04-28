@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.9.30)  27 APR 2026 17:54
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.9.30)  28 APR 2026 15:24
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -328,48 +328,73 @@ Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \@floatcapt=\box59
 ) (/usr/local/texlive/2025/texmf-dist/tex/latex/placeins/placeins.sty
 Package: placeins 2005/04/18  v 2.2
+) (/usr/local/texlive/2025/texmf-dist/tex/latex/caption/subcaption.sty
+Package: subcaption 2023/07/28 v1.6b Sub-captions (AR)
+ (/usr/local/texlive/2025/texmf-dist/tex/latex/caption/caption.sty
+Package: caption 2023/08/05 v3.6o Customizing captions (AR)
+ (/usr/local/texlive/2025/texmf-dist/tex/latex/caption/caption3.sty
+Package: caption3 2023/07/31 v2.4d caption3 kernel (AR)
+\caption@tempdima=\dimen193
+\captionmargin=\dimen194
+\caption@leftmargin=\dimen195
+\caption@rightmargin=\dimen196
+\caption@width=\dimen197
+\caption@indent=\dimen198
+\caption@parindent=\dimen199
+\caption@hangindent=\dimen256
+Package caption Info: Standard document class detected.
+)
+\c@caption@flags=\count320
+\c@continuedfloat=\count321
+Package caption Info: float package is loaded.
+Package caption Info: hyperref package is loaded.
+)
+Package caption Info: New subtype `subfigure' on input line 238.
+\c@subfigure=\count322
+Package caption Info: New subtype `subtable' on input line 238.
+\c@subtable=\count323
 ) (/usr/local/texlive/2025/texmf-dist/tex/latex/psnfss/times.sty
 Package: times 2020/03/25 PSNFSS-v9.3 (SPQR) 
 )
-LaTeX Font Info:    Trying to load font information for OT1+ptm on input line 31.
+LaTeX Font Info:    Trying to load font information for OT1+ptm on input line 32.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/psnfss/ot1ptm.fd
 File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
 ) (/usr/local/texlive/2025/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2025-06-09 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count320
+\l__color_backend_stack_int=\count324
 ) (./TE Classification.aux)
 \openout1 = `"TE Classification.aux"'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
  (/usr/local/texlive/2025/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count321
-\scratchdimen=\dimen193
+\scratchcounter=\count325
+\scratchdimen=\dimen257
 \scratchbox=\box60
-\nofMPsegments=\count322
-\nofMParguments=\count323
+\nofMPsegments=\count326
+\nofMParguments=\count327
 \everyMPshowfont=\toks31
-\MPscratchCnt=\count324
-\MPscratchDim=\dimen194
-\MPnumerator=\count325
-\makeMPintoPDFobject=\count326
+\MPscratchCnt=\count328
+\MPscratchDim=\dimen258
+\MPnumerator=\count329
+\makeMPintoPDFobject=\count330
 \everyMPtoPDFconversion=\toks32
 ) (/usr/local/texlive/2025/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
@@ -377,7 +402,7 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 48
  (/usr/local/texlive/2025/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
-Package hyperref Info: Link coloring OFF on input line 31.
+Package hyperref Info: Link coloring OFF on input line 32.
  (./TE Classification.out) (./TE Classification.out)
 \@outlinefile=\write3
 \openout3 = `"TE Classification.out"'.
@@ -417,6 +442,8 @@ Package hyperref Info: Link coloring OFF on input line 31.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: End \AtBeginDocument code.
 
 
 [1
@@ -427,15 +454,15 @@ Package hyperref Info: Link coloring OFF on input line 31.
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.103 \newpage
+l.104 \newpage
                [1]
 
 [2]
-LaTeX Font Info:    Trying to load font information for U+msa on input line 119.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 120.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 119.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 120.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
@@ -457,56 +484,55 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 [8]
 
 [9]
-LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 445.
- (/usr/local/texlive/2025/texmf-dist/tex/latex/psnfss/ts1ptm.fd
-File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
-)
-<figures/superfamily_class_distribution.png, id=341, 801.7152pt x 353.1594pt>
+<figures/superfamily_class_distribution.png, id=360, 349.305pt x 425.9112pt>
 File: figures/superfamily_class_distribution.png Graphic file (type png)
 <use figures/superfamily_class_distribution.png>
-Package pdftex.def Info: figures/superfamily_class_distribution.png  used on input line 454.
-(pdftex.def)             Requested size: 386.95897pt x 170.4576pt.
-<figures/superfamily_distribution_bar.png, id=343, 1004.0712pt x 569.0058pt>
+Package pdftex.def Info: figures/superfamily_class_distribution.png  used on input line 449.
+(pdftex.def)             Requested size: 203.1518pt x 247.70454pt.
+
+Underfull \hbox (badness 3229) in paragraph at lines 450--450
+[]\OT1/ptm/m/n/10.95 (a) |Top-level class dis-tri-bu-tion across all
+ []
+
+<figures/superfamily_distribution_bar.png, id=362, 787.2612pt x 714.0276pt>
 File: figures/superfamily_distribution_bar.png Graphic file (type png)
 <use figures/superfamily_distribution_bar.png>
-Package pdftex.def Info: figures/superfamily_distribution_bar.png  used on input line 461.
-(pdftex.def)             Requested size: 386.95897pt x 219.2893pt.
+Package pdftex.def Info: figures/superfamily_distribution_bar.png  used on input line 456.
+(pdftex.def)             Requested size: 266.03474pt x 241.28442pt.
 
 
-LaTeX Warning: `h' float specifier changed to `ht'.
+[10 <./figures/superfamily_class_distribution.png> <./figures/superfamily_distribution_bar.png>]
+LaTeX Font Info:    Trying to load font information for OT1+pcr on input line 466.
+ (/usr/local/texlive/2025/texmf-dist/tex/latex/psnfss/ot1pcr.fd
+File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
+)
+Overfull \hbox (0.29483pt too wide) in paragraph at lines 466--467
+\OT1/ptm/m/n/12 (ii) an ex-ter-nally cu-rated RepeatMasker-format TE ref-er-ence li-brary with \OT1/pcr/m/n/12 Name#Class/Subclass
+ []
 
 
 
-[10
-pdfTeX warning (ext4): destination with the same identifier (name{figure.1}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.468 \subsection
-                 {Sequence Representation}\label{ssec:repr} <./figures/superfamily_class_distribution.png>]
-
-[11
-pdfTeX warning (ext4): destination with the same identifier (name{figure.2}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.479 
-       <./figures/superfamily_distribution_bar.png>]
+[11]
 
 [12]
 
 [13]
 
-[14
-pdfTeX warning (ext4): destination with the same identifier (name{table.1}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.594 \newpage
-              ]
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+
+[14]
 
 [15]
-<figures/v3_confusion.png, id=398, 999.735pt x 425.9112pt>
+
+[16
+
+]
+<figures/v3_confusion.png, id=428, 999.735pt x 425.9112pt>
 File: figures/v3_confusion.png Graphic file (type png)
 <use figures/v3_confusion.png>
-Package pdftex.def Info: figures/v3_confusion.png  used on input line 667.
+Package pdftex.def Info: figures/v3_confusion.png  used on input line 654.
 (pdftex.def)             Requested size: 386.95897pt x 164.8504pt.
 
 
@@ -514,48 +540,25 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
 
 
-[16
-pdfTeX warning (ext4): destination with the same identifier (name{table.2}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.691 
-      ]
-<figures/v4_confusion.png, id=414, 978.054pt x 352.1958pt>
+[17]
+
+[18 <./figures/v3_confusion.png>]
+<figures/v4_confusion.png, id=457, 978.054pt x 352.1958pt>
 File: figures/v4_confusion.png Graphic file (type png)
 <use figures/v4_confusion.png>
-Package pdftex.def Info: figures/v4_confusion.png  used on input line 696.
+Package pdftex.def Info: figures/v4_confusion.png  used on input line 699.
 (pdftex.def)             Requested size: 411.14528pt x 148.05557pt.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-
-[17
-pdfTeX warning (ext4): destination with the same identifier (name{figure.3}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.701 \FloatBarrier
-                    <./figures/v3_confusion.png>]
-<figures/v4_training.png, id=420, 1147.6476pt x 710.655pt>
+<figures/v4_training.png, id=460, 1147.6476pt x 710.655pt>
 File: figures/v4_training.png Graphic file (type png)
 <use figures/v4_training.png>
-Package pdftex.def Info: figures/v4_training.png  used on input line 704.
+Package pdftex.def Info: figures/v4_training.png  used on input line 707.
 (pdftex.def)             Requested size: 386.95897pt x 239.61342pt.
 
 
-[18
-pdfTeX warning (ext4): destination with the same identifier (name{figure.4}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.716 
-      
-pdfTeX warning (ext4): destination with the same identifier (name{figure.5}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.716 
-       <./figures/v4_confusion.png> <./figures/v4_training.png>]
-<figures/v4_2_training.png, id=434, 1004.0712pt x 285.7074pt>
+[19 <./figures/v4_confusion.png>]
+
+[20 <./figures/v4_training.png>]
+<figures/v4_2_training.png, id=476, 1004.0712pt x 285.7074pt>
 File: figures/v4_2_training.png Graphic file (type png)
 <use figures/v4_2_training.png>
 Package pdftex.def Info: figures/v4_2_training.png  used on input line 730.
@@ -566,342 +569,239 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
 
 
-[19]
-
-[20
-pdfTeX warning (ext4): destination with the same identifier (name{figure.6}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.774 
-       <./figures/v4_2_training.png>]
-<figures/v4_3_confusion.png, id=447, 977.0904pt x 352.1958pt>
+[21 <./figures/v4_2_training.png>]
+<figures/v4_3_confusion.png, id=485, 977.0904pt x 352.1958pt>
 File: figures/v4_3_confusion.png Graphic file (type png)
 <use figures/v4_3_confusion.png>
-Package pdftex.def Info: figures/v4_3_confusion.png  used on input line 777.
+Package pdftex.def Info: figures/v4_3_confusion.png  used on input line 763.
 (pdftex.def)             Requested size: 435.32422pt x 156.91742pt.
-<figures/kmer_separation.png, id=448, 1004.0712pt x 427.3566pt>
+
+
+[22 <./figures/v4_3_confusion.png>]
+<figures/gate_weights.png, id=492, 578.16pt x 289.08pt>
+File: figures/gate_weights.png Graphic file (type png)
+<use figures/gate_weights.png>
+Package pdftex.def Info: figures/gate_weights.png  used on input line 774.
+(pdftex.def)             Requested size: 386.95897pt x 193.47968pt.
+<figures/kmer_separation.png, id=495, 1004.0712pt x 427.3566pt>
 File: figures/kmer_separation.png Graphic file (type png)
 <use figures/kmer_separation.png>
-Package pdftex.def Info: figures/kmer_separation.png  used on input line 788.
+Package pdftex.def Info: figures/kmer_separation.png  used on input line 785.
 (pdftex.def)             Requested size: 386.95897pt x 164.69908pt.
 
 
-[21
-pdfTeX warning (ext4): destination with the same identifier (name{figure.7}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.794 
-      
-pdfTeX warning (ext4): destination with the same identifier (name{figure.8}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.794 
-       <./figures/v4_3_confusion.png> <./figures/kmer_separation.png>]
-<figures/gate_weights.png, id=459, 578.16pt x 289.08pt>
-File: figures/gate_weights.png Graphic file (type png)
-<use figures/gate_weights.png>
-Package pdftex.def Info: figures/gate_weights.png  used on input line 797.
-(pdftex.def)             Requested size: 386.95897pt x 193.47968pt.
-
-
-[22
-pdfTeX warning (ext4): destination with the same identifier (name{figure.9}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.854 
-      
-pdfTeX warning (ext4): destination with the same identifier (name{table.3}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.854 
-       <./figures/gate_weights.png>]
-
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
 
-[23
-pdfTeX warning (ext4): destination with the same identifier (name{table.4}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.902 
-      ]
-LaTeX Font Info:    Trying to load font information for OT1+pcr on input line 905.
- (/usr/local/texlive/2025/texmf-dist/tex/latex/psnfss/ot1pcr.fd
-File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
-)
-<figures/transfer_class_accuracy.png, id=479, 1147.6476pt x 441.8106pt>
+[23 <./figures/gate_weights.png>]
+
+[24 <./figures/kmer_separation.png>]
+Overfull \hbox (6.77516pt too wide) in paragraph at lines 846--847
+\OT1/ptm/m/n/12 ond, an ex-ter-nally cu-rated RepeatMasker-format TE ref-er-ence li-brary with \OT1/pcr/m/n/12 Name#Class/Subclass
+ []
+
+
+Overfull \hbox (21.2455pt too wide) in paragraph at lines 852--861
+ [][] 
+ []
+
+
+
+[25]
+<figures/transfer_class_accuracy.png, id=520, 1147.6476pt x 441.8106pt>
 File: figures/transfer_class_accuracy.png Graphic file (type png)
 <use figures/transfer_class_accuracy.png>
-Package pdftex.def Info: figures/transfer_class_accuracy.png  used on input line 921.
+Package pdftex.def Info: figures/transfer_class_accuracy.png  used on input line 910.
 (pdftex.def)             Requested size: 483.69687pt x 186.20636pt.
-<figures/transfer_sf_heatmap.png, id=481, 619.113pt x 566.5968pt>
+
+
+[26 <./figures/transfer_class_accuracy.png>]
+<figures/transfer_sf_heatmap.png, id=530, 619.113pt x 566.5968pt>
 File: figures/transfer_sf_heatmap.png Graphic file (type png)
 <use figures/transfer_sf_heatmap.png>
-Package pdftex.def Info: figures/transfer_sf_heatmap.png  used on input line 930.
+Package pdftex.def Info: figures/transfer_sf_heatmap.png  used on input line 919.
 (pdftex.def)             Requested size: 411.14528pt x 376.27205pt.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-
-[24
-pdfTeX warning (ext4): destination with the same identifier (name{table.5}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.936 
-      
-pdfTeX warning (ext4): destination with the same identifier (name{table.6}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.936 
-      
-pdfTeX warning (ext4): destination with the same identifier (name{figure.10}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.936 
-       <./figures/transfer_class_accuracy.png>]
-<figures/transfer_error_analysis.png, id=492, 1510.443pt x 499.1448pt>
+<figures/transfer_error_analysis.png, id=532, 1510.443pt x 499.1448pt>
 File: figures/transfer_error_analysis.png Graphic file (type png)
 <use figures/transfer_error_analysis.png>
-Package pdftex.def Info: figures/transfer_error_analysis.png  used on input line 939.
+Package pdftex.def Info: figures/transfer_error_analysis.png  used on input line 928.
 (pdftex.def)             Requested size: 483.69687pt x 159.84384pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<figures/transfer_confusion_matrices.png, id=494, 1278.6972pt x 469.755pt>
+
+
+[27 <./figures/transfer_sf_heatmap.png>]
+<figures/transfer_confusion_matrices.png, id=542, 1278.6972pt x 469.755pt>
 File: figures/transfer_confusion_matrices.png Graphic file (type png)
 <use figures/transfer_confusion_matrices.png>
-Package pdftex.def Info: figures/transfer_confusion_matrices.png  used on input line 948.
+Package pdftex.def Info: figures/transfer_confusion_matrices.png  used on input line 937.
 (pdftex.def)             Requested size: 435.32422pt x 159.92245pt.
+<figures/misclassification_analysis.png, id=544, 1581.9903pt x 540.94095pt>
+File: figures/misclassification_analysis.png Graphic file (type png)
+<use figures/misclassification_analysis.png>
+Package pdftex.def Info: figures/misclassification_analysis.png  used on input line 946.
+(pdftex.def)             Requested size: 411.14528pt x 140.58354pt.
+
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
 
-[25
-pdfTeX warning (ext4): destination with the same identifier (name{figure.11}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.956 
-       <./figures/transfer_sf_heatmap.png>]
-Overfull \hbox (0.85417pt too wide) in paragraph at lines 959--960
-[]\OT1/ptm/m/n/12 Crucially, saliency pat-terns vary pre-dictably across mis-clas-si-fied vs. cor-rectly clas-si-fied se-quences:
- []
+[28 <./figures/transfer_error_analysis.png> <./figures/transfer_confusion_matrices.png>]
 
-
-
-[26
-pdfTeX warning (ext4): destination with the same identifier (name{figure.12}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.964 
-       <./figures/transfer_error_analysis.png>]
-<figures/saliency_analysis.png, id=511, 1148.73164pt x 1025.5113pt>
+[29 <./figures/misclassification_analysis.png>]
+<figures/saliency_analysis.png, id=558, 1148.73164pt x 1025.5113pt>
 File: figures/saliency_analysis.png Graphic file (type png)
 <use figures/saliency_analysis.png>
-Package pdftex.def Info: figures/saliency_analysis.png  used on input line 967.
+Package pdftex.def Info: figures/saliency_analysis.png  used on input line 958.
 (pdftex.def)             Requested size: 435.32422pt x 388.61864pt.
 
 
-LaTeX Warning: `h' float specifier changed to `ht'.
+[30
 
-<figures/misclassification_analysis.png, id=512, 1581.9903pt x 540.94095pt>
-File: figures/misclassification_analysis.png Graphic file (type png)
-<use figures/misclassification_analysis.png>
-Package pdftex.def Info: figures/misclassification_analysis.png  used on input line 974.
-(pdftex.def)             Requested size: 411.14528pt x 140.58354pt.
+ <./figures/saliency_analysis.png>]
 
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-
-[27
-pdfTeX warning (ext4): destination with the same identifier (name{figure.13}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.992 
-       <./figures/transfer_confusion_matrices.png>]
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-
-[28
-pdfTeX warning (ext4): destination with the same identifier (name{figure.14}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.1018 
-        <./figures/saliency_analysis.png>]
-<figures/contrastive_training.png, id=531, 859.0494pt x 279.9258pt>
+[31]
+<figures/contrastive_training.png, id=584, 859.0494pt x 279.9258pt>
 File: figures/contrastive_training.png Graphic file (type png)
 <use figures/contrastive_training.png>
-Package pdftex.def Info: figures/contrastive_training.png  used on input line 1021.
+Package pdftex.def Info: figures/contrastive_training.png  used on input line 999.
 (pdftex.def)             Requested size: 411.14528pt x 133.97415pt.
+<figures/clustering_umap.png, id=585, 714.7503pt x 569.84895pt>
+File: figures/clustering_umap.png Graphic file (type png)
+<use figures/clustering_umap.png>
+Package pdftex.def Info: figures/clustering_umap.png  used on input line 1006.
+(pdftex.def)             Requested size: 435.32422pt x 347.07695pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<figures/contrastive_umap.png, id=532, 858.0858pt x 713.5458pt>
+<figures/superfamily_umap.png, id=589, 714.7503pt x 570.2103pt>
+File: figures/superfamily_umap.png Graphic file (type png)
+<use figures/superfamily_umap.png>
+Package pdftex.def Info: figures/superfamily_umap.png  used on input line 1017.
+(pdftex.def)             Requested size: 435.32422pt x 347.29703pt.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<figures/contrastive_umap.png, id=590, 858.0858pt x 713.5458pt>
 File: figures/contrastive_umap.png Graphic file (type png)
 <use figures/contrastive_umap.png>
-Package pdftex.def Info: figures/contrastive_umap.png  used on input line 1028.
+Package pdftex.def Info: figures/contrastive_umap.png  used on input line 1024.
 (pdftex.def)             Requested size: 435.32422pt x 361.99818pt.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
 
-[29
-pdfTeX warning (ext4): destination with the same identifier (name{figure.15}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.1036 
-       
-pdfTeX warning (ext4): destination with the same identifier (name{table.7}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.1036 
-        <./figures/misclassification_analysis.png>]
-<figures/superfamily_umap.png, id=541, 714.7503pt x 570.2103pt>
-File: figures/superfamily_umap.png Graphic file (type png)
-<use figures/superfamily_umap.png>
-Package pdftex.def Info: figures/superfamily_umap.png  used on input line 1041.
-(pdftex.def)             Requested size: 435.32422pt x 347.29703pt.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-<figures/clustering_umap.png, id=542, 714.7503pt x 569.84895pt>
-File: figures/clustering_umap.png Graphic file (type png)
-<use figures/clustering_umap.png>
-Package pdftex.def Info: figures/clustering_umap.png  used on input line 1048.
-(pdftex.def)             Requested size: 435.32422pt x 347.07695pt.
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1061--1061
-[]\OT1/ptm/m/n/12 Table 8: []Ten largest mixed sub-clus-ters (dom-i-nant su-per-fam-ily $\OML/cmm/m/it/12 <$ \OT1/ptm/m/n/12 80%, from
- []
-
+[32 <./figures/contrastive_training.png>]
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
 
-[30
-pdfTeX warning (ext4): destination with the same identifier (name{figure.16}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.1083 \clearpage
-                  <./figures/contrastive_training.png>]
+[33 <./figures/clustering_umap.png>]
 
-[31
-pdfTeX warning (ext4): destination with the same identifier (name{figure.17}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.1083 \clearpage
-                 
-pdfTeX warning (ext4): destination with the same identifier (name{table.8}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.1083 \clearpage
-                  <./figures/contrastive_umap.png>]
+[34 <./figures/superfamily_umap.png>]
 
-[32
-pdfTeX warning (ext4): destination with the same identifier (name{figure.18}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.1083 \clearpage
-                  <./figures/superfamily_umap.png>]
+[35 <./figures/contrastive_umap.png>]
 
-[33
-pdfTeX warning (ext4): destination with the same identifier (name{figure.19}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.1083 \clearpage
-                  <./figures/clustering_umap.png>]
-
-[34
+[36
 
 ]
 
-[35]
-
-[36]
-
 [37]
-Underfull \hbox (badness 5519) in paragraph at lines 1135--1136
+
+[38]
+
+[39]
+Underfull \hbox (badness 5519) in paragraph at lines 1109--1110
 []\OT1/ptm/m/n/12 Requena F, Doyle EL, Bhatt M, et al. (2021) TERL: clas-si-fi-ca-tion of trans-pos-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1135--1136
+Underfull \hbox (badness 10000) in paragraph at lines 1109--1110
 \OT1/ptm/m/n/12 able el-e-ments by con-vo-lu-tional neu-ral net-works. \OT1/ptm/m/it/12 Brief Bioin-form \OT1/ptm/m/n/12 22:bbab260.
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1141--1142
+Underfull \hbox (badness 10000) in paragraph at lines 1115--1116
 []\OT1/ptm/m/n/12 LeCun Y, Ben-gio Y, Hin-ton G (2015) Deep learn-ing. \OT1/ptm/m/it/12 Na-ture \OT1/ptm/m/n/12 521:436--444.
  []
 
 
-Underfull \hbox (badness 4120) in paragraph at lines 1174--1175
+Underfull \hbox (badness 4120) in paragraph at lines 1148--1149
 []\OT1/ptm/m/n/12 Simonyan K, Vedaldi A, Zis-ser-man A (2014) Deep in-side con-vo-lu-tional net-works:
  []
 
 
-Underfull \hbox (badness 6927) in paragraph at lines 1174--1175
+Underfull \hbox (badness 6927) in paragraph at lines 1148--1149
 \OT1/ptm/m/n/12 vi-su-al-is-ing im-age clas-si-fi-ca-tion mod-els and saliency maps. In: ICLR Work-shop.
  []
 
 
-Underfull \hbox (badness 3460) in paragraph at lines 1189--1190
+Underfull \hbox (badness 3460) in paragraph at lines 1163--1164
 []\OT1/ptm/m/n/12 McInnes L, Healy J, Saul N, Gro^^Yberger L (2018) UMAP: uni-form man-i-fold ap-
  []
 
 
-Underfull \hbox (badness 5787) in paragraph at lines 1189--1190
+Underfull \hbox (badness 5787) in paragraph at lines 1163--1164
 \OT1/ptm/m/n/12 prox-i-ma-tion and pro-jec-tion for di-men-sion re-duc-tion. \OT1/ptm/m/it/12 J Open Source Softw \OT1/ptm/m/n/12 3:861.
  []
 
 
 
-[38]
-Underfull \hbox (badness 4647) in paragraph at lines 1222--1223
+[40]
+Underfull \hbox (badness 4647) in paragraph at lines 1196--1197
 []\OT1/ptm/m/n/12 Loshchilov I, Hut-ter F (2019) De-cou-pled weight de-cay reg-u-lar-iza-tion. In: ICLR.
  []
 
 
+Underfull \hbox (badness 8094) in paragraph at lines 1208--1209
+[]\OT1/ptm/m/n/12 Flynn JM, Hub-ley R, Gou-bert C, et al. (2020) Re-peat-Mod-eler2 for au-to-mated
+ []
 
-[39] (./TE Classification.aux)
+
+Underfull \hbox (badness 10000) in paragraph at lines 1208--1209
+\OT1/ptm/m/n/12 ge-nomic dis-cov-ery of trans-pos-able el-e-ment fam-i-lies. \OT1/ptm/m/it/12 PNAS \OT1/ptm/m/n/12 117:9451--9457.
+ []
+
+
+Underfull \hbox (badness 3098) in paragraph at lines 1223--1224
+[]\OT1/ptm/m/n/12 Ou S, Su W, Liao Y, et al. (2019) Bench-mark-ing trans-pos-able el-e-ment an-no-ta-tion
+ []
+
+
+Underfull \hbox (badness 1990) in paragraph at lines 1223--1224
+\OT1/ptm/m/n/12 meth-ods for cre-ation of a stream-lined, com-pre-hen-sive pipeline. \OT1/ptm/m/it/12 Genome Biol \OT1/ptm/m/n/12 20:275.
+ []
+
+
+
+[41] (./TE Classification.aux)
  ***********
 LaTeX2e <2025-06-01> patch level 1
 L3 programming layer <2025-09-02>
  ***********
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
 Package rerunfilecheck Info: File `"TE Classification".out' has not changed.
-(rerunfilecheck)             Checksum: 349AA473DEA299E450A9A8453808CAAA;10777.
+(rerunfilecheck)             Checksum: 3130870584CCADBA2A3EE368B6BB6F84;10759.
  ) 
 Here is how much of TeX's memory you used:
- 11655 strings out of 467748
- 181833 string characters out of 5426959
- 604552 words of memory out of 5000000
- 40047 multiletter control sequences out of 15000+600000
- 655687 words of font info for 94 fonts, out of 8000000 for 9000
+ 13065 strings out of 467748
+ 209589 string characters out of 5426959
+ 632510 words of memory out of 5000000
+ 41440 multiletter control sequences out of 15000+600000
+ 655373 words of font info for 93 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,10n,79p,1730b,569s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on "TE Classification.pdf" (40 pages, 5500872 bytes).
+ 75i,10n,79p,1730b,585s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on "TE Classification.pdf" (42 pages, 5506941 bytes).
 PDF statistics:
- 682 PDF objects out of 1000 (max. 8388607)
- 573 compressed objects within 6 object streams
- 137 named destinations out of 1000 (max. 500000)
+ 744 PDF objects out of 1000 (max. 8388607)
+ 628 compressed objects within 7 object streams
+ 149 named destinations out of 1000 (max. 500000)
  504 words of extra memory for PDF output out of 10000 (max. 10000000)
 
