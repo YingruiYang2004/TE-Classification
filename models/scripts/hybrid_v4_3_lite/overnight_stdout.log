@@ -7,3 +7,21 @@ three_class_balanced: FAILED  (33.1 min)
 three_class_unbalanced: OK  (138.6 min)
 
 ========== binary_dna ==========
+binary_dna: FAILED  (44.8 min)
+  -> see /Users/alexyang/Documents/Part III System Biology/TE Classification/models/scripts/hybrid_v4_3_lite/logs/binary_dna.log
+
+========== binary_dna_natural ==========
+binary_dna_natural: FAILED  (86.9 min)
+  -> see /Users/alexyang/Documents/Part III System Biology/TE Classification/models/scripts/hybrid_v4_3_lite/logs/binary_dna_natural.log
+
+========== eval ==========
+eval: OK  (0.3 min)
+
+========== SUMMARY ==========
+  three_class_balanced            FAIL    33.1 min
+  three_class_unbalanced          OK    138.6 min
+  binary_dna                      FAIL    44.8 min
+  binary_dna_natural              FAIL    86.9 min
+  eval                            OK      0.3 min
+
+Logs: /Users/alexyang/Documents/Part III System Biology/TE Classification/models/scripts/hybrid_v4_3_lite/logs

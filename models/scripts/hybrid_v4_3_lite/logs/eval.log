@@ -1,0 +1,41 @@
+# notebook: 03_eval_and_compare.ipynb
+# variant : None
+# start   : Mon Apr 27 06:08:53 2026
+
+--- cell #2 stdout ---
+RESULTS_ROOT: /Users/alexyang/Documents/Part III System Biology/TE Classification/models/scripts/hybrid_v4_3_lite/results
+BASELINE:     /Users/alexyang/Documents/Part III System Biology/TE Classification/data_analysis/vgp_model_data_tpase_multi/v4.3/results_v4.3.pt (exists)
+MINI_BENCH:   /Users/alexyang/Documents/Part III System Biology/TE Classification/data/mini_benchmark
+--- cell #4 stdout ---
+device: mps
+--- cell #6 stdout ---
+=== v4.3-lite variants ===
+  loaded three_class_balanced: best_epoch=5  n_test=6141  n_sf=23
+  loaded three_class_unbalanced: best_epoch=9  n_test=9961  n_sf=23
+  SKIP binary_dna: no results.pt at results/binary_dna/results.pt
+
+=== v4.3 baseline ===
+  loaded baseline v4.3: best_epoch=40  n_test=6141  n_sf=23
+--- cell #10 stdout ---
+v4.3 baseline: {'DNA': 0.9778, 'LTR': 0.9832, 'LINE': 0.9833}
+three_class_balanced: {'DNA': 0.433, 'LTR': 0.0, 'LINE': 0.0}
+three_class_unbalanced: {'DNA': 0.3451, 'LTR': 0.0, 'LINE': 0.0}
+--- cell #12 stdout ---
+  bTaeGut: 543 records,   top-level set = ['DNA', 'DNA?', 'LINE', 'LTR', 'LTR?', 'PLE', 'RC', 'RC?'] ...
+  WARN mOrnAna: ../../../data/mini_benchmark/mOrnAna/ornithorhynchus_anatinus_lib.fa missing — pick another file in MINI_BENCH_FILES
+  WARN rAllMis: ../../../data/mini_benchmark/rAllMis/alligator_mississippiensis_lib.fa missing — pick another file in MINI_BENCH_FILES
+--- cell #13 stdout ---
+
+=== three_class_balanced (ckpt hybrid_v43_lite_three_class_balanced_epoch1.pt, epoch 1) ===
+--- cell #13 stdout ---
+  bTaeGut:  top-F1 0.102 (414/543 known)   sf-F1 0.027 (172/543 known)
+
+=== three_class_unbalanced (ckpt hybrid_v43_lite_three_class_unbalanced_epoch4.pt, epoch 4) ===
+--- cell #13 stdout ---
+  bTaeGut:  top-F1 0.102 (414/543 known)   sf-F1 0.027 (172/543 known)
+--- cell #19 stdout ---
+Wrote /Users/alexyang/Documents/Part III System Biology/TE Classification/models/scripts/hybrid_v4_3_lite/results/_summary/summary.md
+
+# end     : Mon Apr 27 06:09:10 2026
+# elapsed : 0.3 min
+# success : True

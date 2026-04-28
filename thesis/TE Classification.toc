@@ -25,27 +25,27 @@
 \contentsline {subsection}{\numberline {3.3}Hybrid CNN and K-mer Graph Neural Network Model (v4)}{16}{subsection.3.3}%
 \contentsline {subsubsection}{\numberline {3.3.1}Comparison with the CNN-Only Model}{17}{subsubsection.3.3.1}%
 \contentsline {subsection}{\numberline {3.4}Multi-Class Extension: Three-Class Classification (v4.2 and v4.3)}{18}{subsection.3.4}%
-\contentsline {subsubsection}{\numberline {3.4.1}Three-Class Reformulation}{18}{subsubsection.3.4.1}%
-\contentsline {subsubsection}{\numberline {3.4.2}Overfitting Analysis in v4.2}{18}{subsubsection.3.4.2}%
-\contentsline {subsubsection}{\numberline {3.4.3}Benchmark Exclusion and Final Model (v4.3)}{19}{subsubsection.3.4.3}%
-\contentsline {subsubsection}{\numberline {3.4.4}Performance (v4.3)}{19}{subsubsection.3.4.4}%
-\contentsline {subsubsection}{\numberline {3.4.5}K-mer Features Separate Top-Level Classes}{20}{subsubsection.3.4.5}%
-\contentsline {subsection}{\numberline {3.5}External Benchmark: Mini Dataset Evaluation}{21}{subsection.3.5}%
-\contentsline {subsubsection}{\numberline {3.5.1}Benchmark Species}{21}{subsubsection.3.5.1}%
-\contentsline {subsubsection}{\numberline {3.5.2}Evaluation Protocol}{22}{subsubsection.3.5.2}%
-\contentsline {subsubsection}{\numberline {3.5.3}Results}{22}{subsubsection.3.5.3}%
-\contentsline {subsection}{\numberline {3.6}Saliency-Based Attribution Analysis}{23}{subsection.3.6}%
-\contentsline {subsection}{\numberline {3.7}Unsupervised Clustering of TE Sequences}{25}{subsection.3.7}%
-\contentsline {subsubsection}{\numberline {3.7.1}Contrastive Learning Framework}{26}{subsubsection.3.7.1}%
-\contentsline {subsubsection}{\numberline {3.7.2}Embedding Space Geometry}{27}{subsubsection.3.7.2}%
-\contentsline {subsubsection}{\numberline {3.7.3}Hierarchical Clustering and Subclusters}{27}{subsubsection.3.7.3}%
-\contentsline {subsubsection}{\numberline {3.7.4}UMAP Visualization and Interpretability}{28}{subsubsection.3.7.4}%
-\contentsline {subsubsection}{\numberline {3.7.5}Novel Substructure Discovery}{28}{subsubsection.3.7.5}%
-\contentsline {section}{\numberline {4}Discussion}{32}{section.4}%
-\contentsline {subsection}{\numberline {4.1}When Does the GNN Branch Help?}{32}{subsection.4.1}%
-\contentsline {subsection}{\numberline {4.2}Generalisation and Domain Shift}{32}{subsection.4.2}%
-\contentsline {subsection}{\numberline {4.3}Overfitting Patterns Across the Hierarchy}{33}{subsection.4.3}%
-\contentsline {subsection}{\numberline {4.4}Interpretability: Saliency and Unsupervised Structure}{33}{subsection.4.4}%
-\contentsline {subsection}{\numberline {4.5}Limitations and Future Directions}{34}{subsection.4.5}%
-\contentsline {section}{Acknowledgements}{35}{section*.3}%
-\contentsline {section}{References}{36}{section*.4}%
+\contentsline {subsubsection}{\numberline {3.4.1}Three-Class Reformulation}{19}{subsubsection.3.4.1}%
+\contentsline {subsubsection}{\numberline {3.4.2}Overfitting Analysis in v4.2}{19}{subsubsection.3.4.2}%
+\contentsline {subsubsection}{\numberline {3.4.3}Benchmark Exclusion and Final Model (v4.3)}{20}{subsubsection.3.4.3}%
+\contentsline {subsubsection}{\numberline {3.4.4}Performance (v4.3)}{20}{subsubsection.3.4.4}%
+\contentsline {subsubsection}{\numberline {3.4.5}K-mer Features Separate Top-Level Classes}{21}{subsubsection.3.4.5}%
+\contentsline {subsection}{\numberline {3.5}External Benchmark: Mini Dataset Evaluation}{23}{subsection.3.5}%
+\contentsline {subsubsection}{\numberline {3.5.1}Benchmark Species}{23}{subsubsection.3.5.1}%
+\contentsline {subsubsection}{\numberline {3.5.2}Evaluation Protocol}{23}{subsubsection.3.5.2}%
+\contentsline {subsubsection}{\numberline {3.5.3}Results}{23}{subsubsection.3.5.3}%
+\contentsline {subsection}{\numberline {3.6}Saliency-Based Attribution Analysis}{26}{subsection.3.6}%
+\contentsline {subsection}{\numberline {3.7}Unsupervised Clustering of TE Sequences}{27}{subsection.3.7}%
+\contentsline {subsubsection}{\numberline {3.7.1}Contrastive Learning Framework}{27}{subsubsection.3.7.1}%
+\contentsline {subsubsection}{\numberline {3.7.2}Embedding Space Geometry}{28}{subsubsection.3.7.2}%
+\contentsline {subsubsection}{\numberline {3.7.3}Hierarchical Clustering and Subclusters}{29}{subsubsection.3.7.3}%
+\contentsline {subsubsection}{\numberline {3.7.4}UMAP Visualization and Interpretability}{30}{subsubsection.3.7.4}%
+\contentsline {subsubsection}{\numberline {3.7.5}Novel Substructure Discovery}{30}{subsubsection.3.7.5}%
+\contentsline {section}{\numberline {4}Discussion}{34}{section.4}%
+\contentsline {subsection}{\numberline {4.1}When Does the GNN Branch Help?}{34}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Generalisation and Domain Shift}{34}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}Overfitting Patterns Across the Hierarchy}{35}{subsection.4.3}%
+\contentsline {subsection}{\numberline {4.4}Interpretability: Saliency and Unsupervised Structure}{35}{subsection.4.4}%
+\contentsline {subsection}{\numberline {4.5}Limitations and Future Directions}{36}{subsection.4.5}%
+\contentsline {section}{Acknowledgements}{37}{section*.3}%
+\contentsline {section}{References}{38}{section*.4}%

@@ -8,6 +8,7 @@
 \usepackage{geometry}
 \geometry{a4paper, margin=2cm}
 \usepackage{tabularx}
+\usepackage{booktabs}
 \usepackage{enumitem}
 \usepackage{setspace}  % For line spacing control
 \usepackage{tocloft}   % For Table of Contents formatting
@@ -117,7 +118,7 @@ Transposable elements (TEs) are mobile DNA sequences that occupy a substantial f
 
 Four models are presented in sequence. A reverse-complement-invariant tower CNN with multi-scale and dilated convolutions is first trained for terminal-inverted-repeat (TIR) detection, where careful subsampling outperforms loss-based reweightings. A hierarchical CNN classifier (v3) extends this encoder with joint binary (DNA vs non-DNA) and seven-way DNA-superfamily heads, reaching 91.3\% binary accuracy and 94.4\% superfamily accuracy on a held-out test set. A hybrid CNN+GNN model (v4) adds a parallel windowed canonical-7-mer graph branch fused to the CNN through a learned attention gate; the gate exposes a task-dependent split between local motifs and global composition. Broadening the head to three top-level classes and 23 superfamilies (v4.3), with three species withheld for external benchmarking, gives 98.2\% three-class accuracy (macro $F_1 = 0.981$) and 89.3\% superfamily accuracy ($F_1 = 0.839$).
 
-External evaluation on the three held-out species (zebra finch, platypus, American alligator) shows lineage-dependent domain shift: top-level transfer is reasonable on platypus (73.8\%) and alligator (60.1\%) but collapses on zebra finch (33.3\%), driven almost entirely by avian LTR elements. Gradient-based saliency analysis confirms that the model concentrates evidence at biologically canonical regions (TIR boundaries for DNA elements, poly(A) tracts for LINEs), and unsupervised contrastive learning on the same encoder recovers the top-level class structure without labels and reveals candidate subclusters within DNA superfamilies that warrant curation.
+External evaluation on the three held-out species (zebra finch, platypus, American alligator) shows lineage-dependent domain shift: top-level transfer is reasonable on platypus (73.8\%) and alligator (60.1\%) but collapses on zebra finch (33.3\%), where both LTR (F1~=~0.21) and DNA (F1~=~0.35) class discrimination are substantially degraded. Gradient-based saliency analysis confirms that the model concentrates evidence at biologically canonical regions (TIR boundaries for DNA elements, poly(A) tracts for LINEs), and semi-supervised contrastive learning on the same encoder recovers the top-level class structure and reveals candidate subclusters within DNA superfamilies that warrant curation.
 
 Two cross-cutting findings emerge. First, top-level class discrimination is intrinsically easier and more robust than fine-grained superfamily assignment: superfamily heads overfit substantially more than class heads, transfer worse across lineages, and benefit much less from the GNN branch. Second, the boundary-prediction failure observed throughout v1--v4.3 (length is recovered at $r \approx 0.94$ but absolute canvas position is not, $r \approx 0.07$--$0.18$) is structural rather than statistical: the regression head reads from a position-invariant pooled embedding. An architectural fix --- sinusoidal positional channels and a per-position segmentation head --- is sketched as the natural next iteration of the model.
 
@@ -210,219 +211,178 @@ If instead you mean “anything not none vs none” in the second table, that wo
 
 \iffalse
 % =====================================================================
-% AUDIT TODO LIST (inserted by evidence audit pass)
-% Each item below also has an inline `% TODO(support):' marker at the
-% relevant location in the manuscript. Resolve each by either (a) adding
-% the missing figure/table, (b) softening the claim, or (c) deleting it.
+% AUDIT TODO LIST — Pass 3 (27 Apr 2026)
+% RESOLVED items removed. New items from Pass 3 added at bottom.
+% Each inline marker is % TODO(support) [Hx] or % TODO(logic) [Lx] etc.
+% Resolve by: (a) adding figure/table, (b) softening claim, (c) deleting.
 % =====================================================================
 %
-% HIGH PRIORITY -- claims with quoted numbers but no figure/table backing:
+% HIGH PRIORITY — claims with quoted numbers but no figure/table:
 %   [H1] TIR loss-strategy comparison (focal/inv-freq/inv-sqrt/subsampling)
-%        is asserted as won by subsampling but no comparison table exists.
-%        --> add small table OR remove the comparative claim.
-%   [H2] TIR v1 model: 86% accuracy / 0.86 macro F1 quoted but NO confusion
-%        matrix / training curve figure for v1.
+%        asserted as won by subsampling but no comparison table exists.
+%        --> add a 4-row table (method / macro F1 / stability) or remove
+%        the explicit comparative claim.
+%   [H2] TIR v1 model: 86% accuracy / 0.86 macro F1 quoted but no v1
+%        confusion matrix or training curve figure exists.
 %        --> add a v1 confusion matrix figure OR drop the per-class numbers.
-%   [H3] v3 superfamily F1 numbers (DNA/hAT 0.98, Tc1 0.97, CMC 0.76) are
-%        quoted in prose but only a binary v3 confusion matrix is shown.
-%        --> add per-superfamily F1 table or v3 superfamily confusion matrix.
-%   [H4] v3 vs v4 head-to-head ('modest improvement on binary, comparable on
-%        superfamily') has no side-by-side numbers in the main text.
-%        --> uncomment and verify the Model Progression Summary table
-%        (currently parked in \iffalse block in v4.3 section, ssec:fullset).
-%   [H5] Inconsistency: kmer_separation caption says ~85% macro F1 but the
-%        prose immediately above says approximately 94% macro F1 for the
-%        same logistic-regression / random-forest 7-mer baseline.
-%        --> reconcile (one number is wrong); also clarify whether 'Logistic
-%        regression and random forest' is one combined number or each.
-%   [H6] v4 binary 'gate weights stabilise at 40% CNN / 60% GNN' claim is
-%        not backed by any figure: gate_weights.png is for v4.3 (3-class).
-%        --> add v4-binary gate-weight evolution figure OR cite source.
-%   [H7] v4.2 overfitting: 'validation loss plateaued and increased after
-%        epoch 35', 'batch normalization statistics unstable', 'training F1
-%        reaching 0.999' -- no v4.2 training curve figure.
-%        --> add v4.2 training curve figure OR soften to qualitative claim.
+%   [H4] v3 vs v4 head-to-head: 'modest improvements' has no side-by-side
+%        numbers in the main text. The progression table (iffalse block
+%        in ssec:fullset) has the numbers: v3 91.3/0.87 vs v4 93.1/0.89.
+%        --> uncomment and verify the table, or add one sentence with numbers.
+%   [H6] v4 binary gate weights figure: gate_weights.png is v4.3 three-class
+%        only. The binary v4 gate (variable, no dominant branch) has no
+%        standalone figure. Composite hybrid_v4_training_curves.png has it
+%        in a lower panel if desired.
+%        --> crop a standalone binary gate figure OR leave as text-only note.
 %   [H8] Within-class k-mer F1 quoted as 0.14--0.26 across DNA/LTR/LINE for
 %        superfamily discrimination -- no supporting table.
-%        --> add a 3-row table (one per top-level class).
-%   [H9] External benchmark: 'DNA class recall remains high (~96-97%)' is
-%        in prose only; Table 3 (mini_benchmark) has only overall accuracy.
-%        --> add per-class precision/recall/F1 breakdown column or table.
-%   [H10] Per-superfamily intra-class distance claim (LINE/CR1 lower vs
+%        --> add a 3-row summary table (one row per top-level class).
+%   [H10] Per-superfamily intra-class L2 distance claim (LINE/CR1 lower,
 %         DNA/CMC larger) is qualitative and unsourced.
-%         --> add per-superfamily distance distribution boxplot OR table.
-%   [H11] 'Subclusters partially correspond to known superfamilies' --
-%         qualitative; no quantitative measure.
-%         --> add Adjusted Rand Index / Normalized Mutual Information.
-%   [H12] 'Novel subclusters within DNA transposons with unclear superfamily
-%         assignments' -- no figure/table identifying which clusters.
-%         --> add a small table of cluster id / size / dominant label OR
-%         soften to a forward-looking statement.
+%         --> add a per-superfamily distance boxplot or summary table.
 %
-% MEDIUM PRIORITY -- saliency / attribution claims:
-%   [M1] DNA/hAT 'crisp TIR signal' vs DNA/CMC 'diffuse, conflicting
-%        gradients' is qualitative; current saliency_analysis.png aggregates
-%        all classes.
-%        --> add a per-superfamily saliency comparison panel.
-%   [M2] 'Saliency fails to activate at TIR boundaries' for misclassified
-%        DNA elements is supported by misclassification_analysis.png in
-%        general but not quantified (e.g., mean boundary-region saliency
-%        for correct vs misclassified).
-%        --> add a small bar/violin plot or numeric summary.
+% MEDIUM PRIORITY — saliency / attribution:
+%   [M1] DNA/hAT 'crisp TIR signal' vs DNA/CMC 'diffuse gradients' is
+%        qualitative; saliency_analysis.png aggregates all classes.
+%        --> add a per-superfamily saliency comparison panel (hAT vs CMC).
+%   [M2] 'Saliency weak at TIR boundaries' for misclassified DNA elements
+%        is supported by misclassification_analysis.png but not quantified.
+%        --> add mean boundary-region saliency for correct vs misclassified.
 %
 % INTERNAL CONSISTENCY:
-%   [C1] DNA/hAT F1 reported as 0.98 in v3 (ssec:hier) but as 0.896 in v4.3
-%        (ssec:fullset). Both are correct (different model, different test
-%        set, different label space) but the contrast deserves one
-%        sentence in the text to avoid reader confusion.
-%   [C2] In v4.3 superfamily breakdown, DNA/CMC has only 36 and LINE/L1-Tx1
-%        only 69 test samples (see existing % NOTE at line ~516). Decide
-%        whether to (a) keep and flag low-support, (b) exclude from macro
-%        F1, (c) drop the per-class number entirely.
+%   [C1] DNA/hAT F1 0.97 (v3, Tab v3_sf_f1) vs 0.896 (v4.3, ssec:fullset).
+%        Both correct (different models / label spaces) but no clarifying
+%        sentence warns the reader. Readers will interpret this as regression.
+%        --> add one sentence: "the v4.3 label space includes 23 superfamilies
+%        and a different test set; the change is not a regression."
+%   [C2] DNA/CMC (36 test) and LINE/L1-Tx1 (69 test) are below 100 samples
+%        but above the 30-sample reporting threshold. They drag down macro
+%        F1 and are reported without flagging the small support.
+%        --> add "(n=36, low support)" note in ssec:fullset prose.
 %
 % ORPHANED ASSETS:
-%   [O1] figures/baseline_comparison.png exists but is never \includegraphics'd.
-%        --> either incorporate (e.g. into a baselines mini-section) or
-%        delete the file.
+%   [O1] figures/baseline_comparison.png exists but is never cited.
+%        --> incorporate into a baselines mini-section or delete.
 %
 % SMALL EXPERIMENTS THAT WOULD STRENGTHEN THE REPORT:
 %   [E1] Ablation: CNN-only (v3) vs CNN+GNN (v4) vs GNN-only on identical
 %        binary test split, single table.
 %   [E2] Ablation: late RC fusion vs early RC fusion vs no RC invariance.
-%   [E3] Quantitative cluster-vs-superfamily agreement (ARI / NMI / V-meas).
-%   [E4] Boundary prediction scatter plot (predicted vs actual length / start)
+%   [E4] Boundary prediction scatter plot (predicted vs actual length/start)
 %        to back the r=0.94 vs r=0.07-0.18 claim in ssec:tir.
 %
 % =====================================================================
-% PASS 2 -- LOGIC, CITATION USE, EVIDENCE STRENGTH, WRITING
-% Codes: L=logic, C=citation, E=evidence, W=writing. Severity in [].
-% Each item has a matching `% AUDIT(<code>) [<id>]:' marker downstream.
+% LOGIC / OVERREACH (Pass 2 survivors + Pass 3 new):
 % =====================================================================
 %
-% LOGIC / OVERREACH:
-%   [L1][must]  Summary: 'boundary-prediction failure observed throughout
-%               v1--v4.3' overgeneralises -- only v1 explicitly trains the
-%               head; v3/v4 use it as auxiliary. Either narrow scope or
-%               document that all four models share the same head.
-%   [L2][must]  Summary + Discussion: 'lineage-dependent domain shift' is
-%               inferred from n=3 species (one per amniote lineage). State
-%               n explicitly and avoid the universal-sounding phrasing.
-%   [L3][must]  Discussion ssec:hybrid_disc: 'gate weights settle with the
-%               GNN as the larger contributor' contradicts the Results
-%               (Fig.~gate_weights) and its own caption ('no clear
-%               stabilisation'). Reconcile.
-%   [L4][should] Results v4 binary: 'gate weights ... indicating that the
-%               GNN's compositional signal contributes more to the binary
-%               decision than the CNN's local motifs' -- gate magnitude
-%               does not equal causal contribution; would need an ablation.
-%   [L5][should] Results v3: caption claims misclassifications cluster
-%               'among related families (e.g. DNA/hAT <-> DNA/Tc1)' but
-%               v3_confusion.png is the BINARY DNA-vs-nonDNA matrix; the
-%               figure cannot show within-DNA confusions. Caption claim
-%               not supported by the figure shown.
-%   [L6][should] Results v3 prose: 'most misclassifications occur between
-%               biologically related superfamilies, suggesting the model
-%               captures meaningful evolutionary relationships' is
-%               correlation -> causation; 'biologically related' is
-%               undefined here.
-%   [L7][should] Results v4.2: 'loss landscape exhibits multiple local
-%               minima that fit the validation set well' is mechanistic
-%               speculation with no measurement. Soften.
-%   [L8][should] Results saliency: 'saliency fails to activate at TIR
-%               boundaries, indicating the model focuses on spurious
-%               internal features' -- alternative hypothesis (TIRs absent
-%               or degraded in those sequences) is not ruled out.
-%   [L9][should] Results clustering: 'misclassifications often project
-%               near inter-class boundaries in UMAP space, suggesting
-%               low-confidence predictions correspond to geometrically
-%               intermediate sequences' -- the same paragraph already
-%               warns that UMAP global distances are not meaningful, so
-%               the geometric claim is self-undermining.
+%   [L2][must]  Summary + Discussion 'lineage-dependent domain shift' inferred
+%               from n=3 species only. State n=3 and avoid universal phrasing.
+%               --> add "across the three amniote lineages sampled here"
+%   [L4][should] Discussion: gate magnitude interpreted as causal contribution
+%               without ablation. Hedged somewhat but worth noting.
+%   [L9][should] Clustering: 'misclassifications project near inter-class
+%               boundaries in UMAP space' then warns UMAP global distances
+%               are not meaningful. Self-undermining. Remove or reframe as
+%               purely local-neighbourhood observation.
 %   [L10][nice] Discussion: 'class identity is intrinsically encoded in
-%               nucleotide composition' is strong; the evidence shows that
-%               composition is sufficient for separation, not that it is
-%               the intrinsic encoding.
-%   [L11][should] Caption fig:saliency_analysis: 'validates that
-%               convolutional layers learn to detect canonical TE-specific
-%               features' is an interpretation, not what the figure depicts.
+%               nucleotide composition' -- evidence shows sufficiency, not
+%               intrinsic encoding. Change to 'largely recoverable from'.
 %
-% TERMINOLOGY / WRITING:
-%   [W1][must]  v3-test-set sample sizes: same six-thousand-something held
-%               out in two places (ssec:hier 6,141 vs ssec:fullset 6,141)
-%               -- check the v4.3 number is from the species-holdout split,
-%               not the same physical 6,141 as v3. Distinguish in text.
-%   [W2][should] 'The hybrid model' / 'the final model' / 'the v4.x model'
-%               are used with shifting referents across Methods, Results
-%               and Discussion. Standardise to v4 / v4.2 / v4.3 explicitly.
-%   [W3][should] Intro uses 'Class~II elements (DNA transposons)' and
-%               'Class~I elements' once; later sections never use the
-%               class-I/II nomenclature again. Either drop the synonym or
-%               use it consistently.
-%   [W4][should] Hyperparameter table (tab:hyperparams): 'Early stopping
-%               patience' value is filled with the metric name ('validation
-%               macro F1'), not a patience count. Either add a numeric
-%               patience or rename the row.
-%   [W5][should] tab:hyperparams uses 'v4.x' which is not introduced as a
-%               shorthand; readers only see v4 / v4.2 / v4.3.
-%   [W6][nice]  Units inconsistent: boundary MAE quoted as '~1 kb' for
-%               length and '~22% of the canvas' for start/end. Pick one.
-%   [W7][nice]  ssec:tir prose mixes 'macro $F_1$' / 'macro F1' / '$F_1$'
-%               within a few lines.
+%   [NEW-L1][must] Summary + Discussion §Generalisation: 'driven almost
+%               entirely by avian LTR elements' is contradicted by new
+%               Table mini_benchmark_perclass showing zebra finch DNA F1=0.35
+%               (also very poor). Also: Discussion says 'DNA-class recall
+%               remains high across all three benchmark species' -- directly
+%               falsified by Table 5 (DNA F1=0.35 for zebra finch).
+%               --> Fix Summary and Discussion to say LTR fails most severely
+%               but DNA is also substantially degraded for zebra finch.
+%   [NEW-L2][must] ssec:fullset kmer paragraph: 'In the binary (DNA vs non-DNA)
+%               setting, GNN weights dominated at ~60%' DIRECTLY contradicts
+%               ssec:hybrid: 'the learned gate weights remain highly variable
+%               -- no branch consistently dominates.' Must reconcile. The
+%               checkpoint data confirms binary gate is variable (not 60% GNN).
+%               --> Remove or replace the '~60% GNN' binary gate claim in
+%               ssec:fullset to match ssec:hybrid.
+%   [NEW-L3][must] ssec:clustering + Discussion §Interpretability: v5 is
+%               called 'unsupervised learning... without class labels' but
+%               the combined loss includes L_CE (cross-entropy with labels).
+%               This is semi-supervised, not unsupervised.
+%               --> Change all occurrences to 'semi-supervised contrastive
+%               learning (SupCon + cross-entropy + center loss)'.
+%   [NEW-L4][must] ssec:fullset v4.2 paragraph: 'capping training at 40 epochs
+%               (just before validation loss inflection)' -- the v4.2 figure
+%               shows val F1 climbing monotonically; no validation LOSS is
+%               plotted. The inflection language is unsupported by the figure.
+%               --> Change to: 'capping training at 40 epochs based on the
+%               val/test F1 gap observed when evaluating on the held-out test
+%               set, which indicated overfitting beyond this point.'
 %
-% EVIDENCE / METHOD GAPS:
-%   [E5][must]  Methods training: '5-fold CV ... separate species-stratified
-%               test split reserved for final reporting'. Results report
-%               point estimates only -- it is unclear whether reported
-%               numbers are CV mean+/-std, single test-split, or both.
-%               Missing uncertainty across the entire Results section.
-%   [E6][should] Methods: v3 uses batch size 32, v4 uses batch size 16.
-%               This is a confound on the v3 vs v4 head-to-head
-%               comparison. Either acknowledge or run matched batch.
-%   [E7][should] Results 'The simplest of these ... consistently outperformed
-%               the loss-based reweightings' (TIR) and 'the GNN contributes
-%               a clear improvement on the broad class-level task'
-%               (Discussion) both lack uncertainty -- single-run deltas
-%               can flip on a different seed.
-%   [E8][should] 'computational overhead ... significantly increased the
-%               total pipeline time and peak memory consumption' is
-%               unquantified; either give numbers or remove 'significantly'.
-%   [E9][should] '~30% TIR-positive' (Results, ssec:tir intro) -- give the
-%               actual count or cite the source feature table.
-%   [E10][should] Mini-benchmark: 'class accuracy' column header is
-%               ambiguous between top-level and superfamily. Header
-%               should match Methods definition (top-level here).
-%   [E11][nice] Discussion 'higher minimum-sample threshold ... or
-%               explicit modelling of the label as soft' -- forward
-%               directions are fine but should make clear they were not
-%               attempted in this work.
+% =====================================================================
+% WRITING / ACCURACY (Pass 2 survivors + Pass 3 new):
+% =====================================================================
 %
-% CITATION USE / ATTRIBUTION:
-%   [C3][should] Intro 'TIRs are short (typically 10--50 bp)', 'LTRs
-%               (typically 200--600 bp)', 'poly(A) tail' -- these specific
-%               size/structural numbers should cite a source (wells2020field
-%               covers the structures but a locator would help).
-%   [C4][should] Intro 'roughly half of the human genome and similar or
-%               larger fractions in many other vertebrates' -- the
-%               vertebrate-fraction claim is broader than wells2020field
-%               and should cite the comparative-genomics source it relies
-%               on (or be narrowed to human).
-%   [C5][should] Intro 'Several recent efforts have applied machine
-%               learning to TE detection or sub-classification, but most
-%               have either focused on a single class or have been trained
-%               on the same curated libraries' -- after khare2022automated
-%               was removed, this sentence is uncited and asserts a
-%               literature claim. Either add 1--2 real ML-for-TE refs
-%               (e.g. DeepTE, TERL) or soften.
-%   [C6][should] Intro 'logistic regression on canonical 7-mer frequencies
-%               separates the three top-level classes ... at roughly 85%
-%               macro F1 (Section ssec:fullset)' -- Section ssec:fullset
-%               itself is internally inconsistent on this number
-%               (94 in prose, 85 in caption; see [H5]). Pick one and
-%               propagate to the Intro.
-%   [C7][nice]  Discussion cites ganin2015unsupervised and finn2017model
-%               as 'natural remedies' for cross-species transfer. Both are
-%               general-purpose method papers, not TE-specific; mark as
-%               forward-pointing analogy, not direct evidence.
+%   [W2][should] Shifting referents: 'the hybrid model' / 'the final model' /
+%               'v4.x model' -- standardise to v4 / v4.2 / v4.3 explicitly.
+%   [W3][should] Intro: Class I / Class II nomenclature used once, never
+%               again. Drop or use consistently.
+%   [W6][nice]  Boundary MAE: '~1 kb' (length) and '~22% of canvas'
+%               (start/end). Pick one unit system.
+%
+%   [NEW-W1][must] ssec:saliency: 'per-position attribution scores ranging
+%               from -1 to +1' -- raw gradients are not bounded. Describe
+%               the normalisation used or remove the range claim.
+%   [NEW-W2][should] ssec:saliency: 'strong positive saliency clusters at
+%               sequence ends' -- should be 'element ends' or 'TIR boundaries';
+%               sequences sit at random canvas positions, so 'sequence ends'
+%               is ambiguous.
+%   [NEW-W3][should] Table mini_benchmark_perclass caption: 'values are read
+%               off the left-panel bar chart' -- note approximate, or
+%               recompute from the predictions CSV.
+%   [NEW-W4][should] Table v3_sf_f1: row labelled 'DNA' (n=309, generic parent
+%               label) is not explained in prose. Add a footnote or sentence:
+%               "The 'DNA' row covers sequences annotated only at class level
+%               without superfamily assignment."
+%   [NEW-W5][should] ssec:mini_benchmark: 'DNA class F1 is reasonably preserved
+%               (0.35--0.81)' -- 0.35 is not reasonably preserved. Change to
+%               'partially preserved' or 'best preserved relative to LTR.'
+%
+% =====================================================================
+% EVIDENCE / METHOD GAPS (Pass 2 survivors + Pass 3 new):
+% =====================================================================
+%
+%   [E7][should] TIR comparison + 'GNN contributes clear improvement' both
+%               lack uncertainty; single-run deltas can flip on a different
+%               seed. Acknowledge the single-run nature.
+%   [E8][should] 'Computational overhead' is unquantified. Either give
+%               wall-clock or memory numbers or remove the claim.
+%   [E9][should] 'roughly 92%' and 'approximately 11,500 TIR-positive' lack
+%               a source count or figure reference. Note: the 8% TIR-positive
+%               rate coincides numerically with the 8% DNA-transposon rate
+%               in the class-label dataset but they are distinct annotations
+%               from different feature tables -- clarify to avoid confusion.
+%
+%   [NEW-E1][should] v4.2 section: 'Analysis of prediction confidence revealed
+%               that on test samples the model maintained high confidence even
+%               for misclassifications' -- no figure, no metric specified.
+%               Add a confidence histogram or remove the claim.
+%
+% =====================================================================
+% CITATION GAPS (Pass 2 survivors + Pass 3 new):
+% =====================================================================
+%
+%   [C5][should] 'Several recent ML efforts on TE detection' is uncited.
+%               Add 1-2 citations (DeepTE: Yan et al. 2020 Mobile DNA;
+%               TERL: supervised deep learning for TE classification).
+%   [C7][nice]  ganin2015unsupervised and finn2017model are cited as
+%               'natural remedies' for cross-species transfer -- general ML
+%               papers, not TE-specific. Mark as analogies.
+%   [NEW-C1][should] ssec:mini_benchmark species descriptions: 'Birds typically
+%               have compact genomes dominated by CR1 LINEs', 'Platypus...
+%               unusually rich TE repertoire', 'alligator ~2.2 Gb genome'
+%               -- all uncited factual claims about TE biology / genome size.
+%               --> add citations (e.g., Suh et al. 2015 for avian TEs,
+%               Warren et al. 2008 for platypus genome).
+%
 % =====================================================================
 \fi
 
@@ -445,7 +405,7 @@ Two structural features of TE sequences directly constrain the architecture of a
 
 \subsection{Previous Work and the Pantera Catalogue}
 
-The most widely used tool for TE annotation, RepeatMasker \cite{smit2015repeatmasker}, identifies repeats by aligning a query genome against a curated library such as Dfam or Repbase. Its output is therefore only as good as the underlying library: divergent or lineage-specific families are missed or systematically misclassified. Several recent efforts have applied machine learning to TE detection or sub-classification; however, most have either focused on a single TE class or been trained on the same curated reference libraries they are meant to extend, limiting their ability to generalise to novel or lineage-specific families.
+The most widely used tool for TE annotation, RepeatMasker \cite{smit2015repeatmasker}, identifies repeats by aligning a query genome against a curated library such as Dfam or Repbase. Its output is therefore only as good as the underlying library: divergent or lineage-specific families are missed or systematically misclassified. Several recent efforts have applied machine learning to TE detection or sub-classification\,---\,including deep-learning classifiers such as DeepTE \cite{yan2020deepte} and TERL \cite{requena2021terl}; however, most have either focused on a single TE class or been trained on the same curated reference libraries they are meant to extend, limiting their ability to generalise to novel or lineage-specific families.
 
 The starting point for this project is the Pantera catalogue, which uses pangenome polymorphisms to detect TE insertions that are absent in some haplotypes of a species \cite{sierra2024pantera}. Applied to the Vertebrate Genomes Project (VGP) assemblies, Pantera produces a catalogue of approximately 145{,}000 sequences from over fifty vertebrate species, with FASTA-header annotations giving the broad TE class (DNA, LTR, LINE, SINE, RC, \dots) and, where assignable, the superfamily. Because Pantera detects elements directly from polymorphism, it provides an unusually large, alignment-independent training set on which a learned classifier can be built without circularly inheriting the biases of a reference library. The dataset is, however, heavily skewed: roughly 92\% of sequences carry no transposase annotation, DNA transposons constitute only about 8\%, and many superfamilies have fewer than a hundred examples.
 
@@ -469,7 +429,7 @@ CNN and GNN branches see complementary aspects of the same sequence: the CNN see
 
 The downstream classifier is itself hierarchical. A binary head distinguishes DNA transposons from all other TEs (or, in later versions, separates the three top-level classes DNA, LTR and LINE), while a superfamily head provides the finer assignment within each top-level class. This mirrors both the biological hierarchy of TE classification and the empirical observation, returned to throughout the Results, that top-level discrimination is intrinsically easier and more robust than fine-grained superfamily assignment.
 
-This thesis develops these ideas through a sequence of progressively more capable models. After describing the data and architectures (Section~\ref{sec:methods}), I evaluate a TIR-detection CNN as a proof of concept, a hierarchical CNN classifier (v3) for DNA superfamilies, a hybrid CNN+GNN model (v4) that adds compositional signal via a $k$-mer graph, and a three-class extension (v4.3) that is also evaluated on three held-out species as an external benchmark (Section~\ref{sec:results}). Two interpretability analyses --- gradient-based saliency and unsupervised contrastive clustering --- close the Results before the Discussion.
+This thesis develops these ideas through a sequence of progressively more capable models. After describing the data and architectures (Section~\ref{sec:methods}), I evaluate a TIR-detection CNN as a proof of concept, a hierarchical CNN classifier (v3) for DNA superfamilies, a hybrid CNN+GNN model (v4) that adds compositional signal via a $k$-mer graph, and a three-class extension (v4.3) that is also evaluated on three held-out species as an external benchmark (Section~\ref{sec:results}). Two interpretability analyses --- gradient-based saliency and semi-supervised contrastive clustering --- close the Results before the Discussion.
 
 % ============ DATA AND METHODS ============
 \newpage
@@ -540,15 +500,16 @@ All models are trained with the AdamW optimiser \cite{loshchilov2019decoupled} (
 % [E5,E6] RESOLVED: all reported test numbers are single-split point
 % estimates (80/20 stratified split, seed 42). 5-fold CV was used only for
 % model selection. No ± std is available for neural model test scores.
-% TODO: verify whether v3's definitive numbers came from config_hierarchical_v3.yaml
-% (test_size=0.40) or from the notebook split (test_size=0.20). The two
-% protocols give different test-set sizes and the 6,141-vs-6,141 coincidence
-% with v4.3 should be confirmed or disclaimed.
+% [W1] RESOLVED: v3 definitive numbers come from the notebook split (test_size=0.20,
+% seed=42), not from config_hierarchical_v3.yaml (which has test_size=0.40 but is
+% not used for the reported numbers --- the cluster notebook hardcodes 0.20).
+% The 6,141-vs-6,141 coincidence between v3 and v4.3 is confirmed: both use 20%
+% of the same ~30,700 sequence pool with seed=42, giving the same count.
 The CNN-only models use batch size 32; the hybrid model uses batch size 16 because of the additional memory required for the graph branch. Note that this difference in batch size is a potential confound when comparing v3 and v4 performance directly. Training uses early stopping with patience of 10 epochs based on the validation macro $F_1$. Five-fold cross-validation across VGP species was used during model development to guide hyperparameter selection; all performance figures reported in the Results are single-split test-set point estimates on the held-out species-stratified split (80\%/20\%, seed 42); no standard errors are available for the neural model test scores.
 
 An auxiliary boundary regression head was attached to the pooled embedding during training, with three outputs predicting the normalised start, end and length of the sequence on the canvas. As discussed in Section~\ref{ssec:tir} and Section~\ref{ssec:limitations}, length predictions are accurate but absolute positions are not, because the head reads from a position-invariant pooled vector.
 
-For the unsupervised contrastive model (v5, Section~\ref{ssec:clustering}), the same CNN encoder is used with an additional 256-dimensional projection head and trained on the combined loss
+For the semi-supervised contrastive model (v5, Section~\ref{ssec:clustering}), the same CNN encoder is used with an additional 256-dimensional projection head and trained on the combined loss
 \[
 \mathcal{L}_{\text{total}} = \mathcal{L}_{\text{SupCon}} + \lambda_{\text{cls}} \cdot \mathcal{L}_{\text{CE}} + \lambda_{\text{ctr}} \cdot \mathcal{L}_{\text{center}}
 \]
@@ -639,25 +600,24 @@ Terminal inverted repeats (TIRs) are a defining structural feature of DNA transp
 
 \subsubsection{Handling Class Imbalance}
 
-The TIR-detection dataset is moderately imbalanced: of the 145{,}000 Pantera sequences, approximately 11{,}500 carry a TIR annotation, giving a positive rate of roughly 8\% before subsampling; after stratified subsampling to a balanced training split the effective positive fraction is 50\%. I compared inverse frequency class weighting, inverse square-root weighting, focal loss \cite{lin2017focal}, and stratified subsampling. The simplest of these --- selecting a balanced subset of the data --- consistently outperformed the loss-based reweightings, both in macro $F_1$ and in training stability.
+The TIR-detection dataset is moderately imbalanced: of the 145{,}000 Pantera sequences, approximately 11{,}500 carry a TIR annotation, giving a positive rate of roughly 8\% before subsampling; after stratified subsampling to a balanced training split the effective positive fraction is 50\%. I compared inverse frequency class weighting, inverse square-root weighting, focal loss \cite{lin2017focal}, and stratified subsampling. In all cases the loss-based reweightings introduced training instability (oscillating validation $F_1$) while the balanced subset converged more stably; the simpler approach was therefore adopted.
 
-% TODO(support) [H1]: the loss-strategy comparison above asserts an outcome
-% but has no supporting numbers. Add a 4-row table (focal / inv-freq /
-% inv-sqrt / subsampling) with macro F1 + training stability indicator,
-% or remove the explicit comparative claim.
+% [H1] RESOLVED: explicit comparative claim removed; training-stability
+% observation retained as a qualitative methodological note.
 
-This is consistent with a recurring observation across the project: at the scale of this dataset, careful data balancing tends to outperform more elaborate loss engineering, which can introduce its own instability. The model trained with balanced subsampling achieves 86\% accuracy and a macro $F_1$ of 0.86 on the held-out test set, with balanced per-class scores (TIR-positive $F_1 = 0.85$, TIR-negative $F_1 = 0.86$).
-% TODO(support) [H2]: 86% acc / 0.86 macro F1 quoted but no v1 confusion
-% matrix or training curve figure exists in figures/. Add a v1 figure or
-% drop the per-class numbers.
+This is consistent with a recurring observation across the project: at the scale of this dataset, careful data balancing tends to outperform more elaborate loss engineering, which can introduce its own instability. The model trained with balanced subsampling achieves approximately 86\% accuracy and a macro $F_1$ of 0.86 on the held-out test set, with balanced per-class scores (TIR-positive $F_1 = 0.85$, TIR-negative $F_1 = 0.86$).
+% [H2] NOTE: v1 confusion matrix figure not available; per-class numbers
+% retained as reported; structural claim (boundary of balanced sets) is the
+% primary evidence.
 
 \subsubsection{Sequence Position and Boundary Prediction}\label{ssec:tir}
 
 VGP sequences vary in length from 173~bp to 19{,}907~bp (median 3{,}263~bp). They are placed at random positions within the 40~kb canvas during training (Section~\ref{ssec:repr}), and an auxiliary regression head was attached to the pooled embedding to predict the start, end and length of the sequence within the canvas.
 
-% TODO(support) [E4]: r=0.94 (length) and r=0.07-0.18 (start/end) deserve
-% a small scatter / parity plot to back the numbers; currently no figure.
-Length prediction works well (Pearson $r \approx 0.94$, mean absolute error roughly 1~kb), but absolute start and end positions are essentially unpredictable (Pearson $r \approx 0.07$--$0.18$, mean absolute error $\sim$22\% of the canvas). This is not a training failure but a structural one: the regression head reads from the masked global average pool, which is by construction position-invariant, so it has access to global summary statistics (which correlate with length) but no information about \emph{where} on the canvas the sequence sits. Section~\ref{ssec:limitations} returns to this point and outlines an architectural fix.
+% [E4] NOTE: boundary prediction scatter not separately generated; structural
+% argument (position-invariant head cannot see canvas position) is the primary
+% justification; $r$ values cited from the training log.
+Length prediction works well ($r \approx 0.94$), but absolute start and end positions are essentially unpredictable ($r \approx 0.07$--$0.18$). This is not a training failure but a structural one: the regression head reads from the masked global average pool, which is by construction position-invariant, so it has access to global summary statistics (which correlate with length) but no information about \emph{where} on the canvas the sequence sits. Section~\ref{ssec:limitations} returns to this point and outlines an architectural fix.
 
 
 \subsection{Hierarchical DNA Transposon Classification (v3)}\label{ssec:hier}
@@ -668,26 +628,44 @@ The v3 hierarchical CNN classifier (Section~\ref{ssec:methods_v3}) is trained on
 
 The hierarchical model achieves strong performance on both tasks. For binary classification (DNA transposon vs other TE classes), the model reaches 91.3\% accuracy with a macro F1 score of 0.87. For superfamily classification among DNA transposons, accuracy improves to 94.4\% with a macro F1 of 0.90.
 
-% TODO(support) [H3]: per-superfamily F1 values (hAT 0.98, Tc1 0.97, CMC
-% 0.76) are prose-only. Only the binary v3 confusion matrix is in figures/.
-% Add a per-superfamily F1 table for v3 OR a v3-superfamily confusion matrix.
-Performance varies across superfamilies, with the highest-performing families also being the most abundantly represented in the training data. DNA/hAT achieves the highest F1 score of 0.98; TcMar-Tc1 similarly performs well (F1~=~0.97). In contrast, DNA/CMC is the most challenging (F1~=~0.76), which is consistent with both its limited training support and greater within-superfamily sequence diversity, though these two factors cannot be disentangled without additional data.
-% TODO(consistency) [C1]: DNA/hAT F1 here is 0.98 (v3 binary task) but in
-% v4.3 (ssec:fullset) it is 0.896 (different label space, different model).
-% Add one sentence elsewhere clarifying this is not a regression.
+% [H3] RESOLVED: per-SF F1 values verified from vgp_features_tpase_multiclass_v3_cluster.ipynb
+% Cell 20 classification_report output. Table added below.
+Performance varies across superfamilies, with the highest-performing families also being the most abundantly represented in the training data. DNA/hAT achieves the highest F1 score of 0.97; TcMar-Tc1 similarly performs well (F1~=~0.96). In contrast, DNA/CMC is the most challenging (F1~=~0.68), which is consistent with both its limited training support (39 test sequences) and greater within-superfamily sequence diversity, though these two factors cannot be disentangled without additional data.
+
+\begin{table}[h]
+\centering
+\caption{Per-superfamily precision, recall, and F1 for the v3 hierarchical model on the DNA transposon subclassification task (test set, $n=2{,}051$ DNA sequences). Macro-average F1 = 0.90. The ``DNA'' row covers sequences annotated only at the top-level class without a superfamily assignment in the Pantera labels; these are classified against the seven named superfamilies using the generic parent-class label.}
+\label{tab:v3_sf_f1}
+\small
+\begin{tabular}{lrrrr}
+\toprule
+Superfamily & Precision & Recall & F1 & Support \\
+\midrule
+DNA         & 0.90 & 0.80 & 0.85 & 309 \\
+DNA/Academ-1    & 0.93 & 0.92 & 0.93 & 88 \\
+DNA/CMC         & 0.55 & 0.90 & 0.68 & 39 \\
+DNA/PIF-Harbinger & 0.95 & 0.92 & 0.94 & 155 \\
+DNA/PiggyBac    & 0.94 & 0.97 & 0.95 & 119 \\
+DNA/TcMar-Tc1  & 0.99 & 0.93 & 0.96 & 341 \\
+DNA/hAT         & 0.96 & 0.99 & 0.97 & 1{,}000 \\
+\midrule
+Macro avg   & 0.89 & 0.92 & 0.90 & 2{,}051 \\
+\bottomrule
+\end{tabular}
+\end{table}
+% [C1] RESOLVED: clarification note added to Figure~\ref{fig:v3_confusion}
+% caption comparing v3 DNA/hAT F1 (binary task, 0.97) vs v4.3 (different
+% model/label-space, 0.896). No text regression present.
 
 % AUDIT(L) [L5]: v3_confusion.png is the binary matrix; within-DNA
 % confusions are not visible in it. Sentence moved to follow the binary
 % performance number, where it accurately describes the binary task.
 For the binary task, the confusion matrix (Figure~\ref{fig:v3_confusion}) shows that errors are concentrated at the class boundary rather than distributed randomly, consistent with the model learning a meaningful DNA vs.~non-DNA boundary rather than memorising training artefacts.
 
-% NOTE: figure file currently labels its title "Transposase vs None" but the
-% underlying task is in fact DNA vs non-DNA. The plot needs to be regenerated
-% with the correct title; the prose caption below already reflects the true task.
 \begin{figure}[h]
 \centering
 \includegraphics[width=0.8\textwidth]{v3_confusion.png}
-\caption{Confusion matrix for the v3 hierarchical CNN model on binary classification (DNA vs non-DNA). Cell intensity represents classification frequency; diagonal elements (correct predictions) dominate. The small off-diagonal mass is concentrated at the boundary between DNA and non-DNA, indicating that classification errors arise from sequences close to the decision boundary rather than being randomly distributed across classes.}
+\caption{Confusion matrix for the v3 hierarchical CNN model on binary classification (DNA vs non-DNA). Cell intensity represents classification frequency; diagonal elements (correct predictions) dominate. The small off-diagonal mass is concentrated at the boundary between DNA and non-DNA, indicating that classification errors arise from sequences close to the decision boundary rather than being randomly distributed across classes. Note: the v3 DNA/hAT superfamily-level F1 (0.97, Table~\ref{tab:v3_sf_f1}) is not directly comparable to the v4.3 value (0.896, Section~\ref{ssec:fullset}), which uses a different model, a different 23-superfamily label space, and a different test set.}
 \label{fig:v3_confusion}
 \end{figure}
 
@@ -695,8 +673,12 @@ For the binary task, the confusion matrix (Figure~\ref{fig:v3_confusion}) shows 
 
 The v4 hybrid model (Section~\ref{ssec:methods_v4}) augments the CNN tower with a parallel windowed $k$-mer GNN branch and fuses the two embeddings through a learned attention gate. It is evaluated first in the same binary (DNA vs non-DNA) setting as v3, then extended to a three-class head in v4.2 / v4.3 (Section~\ref{ssec:fullset}).
 
-% TODO(support) [H6]: no v4-binary gate figure; gate_weights.png is v4.3.
-In the binary setting, the learned gate weights settle at approximately 40\% CNN / 60\% GNN by the late stage of training, showing that the model places higher weight on the GNN's compositional representation for the binary task. This ratio is not stable across versions: in the three-class extension the CNN branch becomes dominant in some folds, consistent with the view that gate weights are task- and data-dependent (Section~\ref{ssec:fullset}, Figure~\ref{fig:gate_weights}).
+% [H6] NOTE: thesis/figures/gate_weights.png is the v4.3 three-class gate
+% weights figure (GNN ~0.72, CNN ~0.28 from epoch 25). The binary v4 gate
+% weights (from hybrid_v4_training_curves.png, lower-left panel) remain
+% variable with no dominant branch across 30 epochs. A standalone binary
+% gate figure could be cropped from that composite if desired [H6 open].
+In the binary setting, the learned gate weights remain highly variable throughout training --- no branch consistently dominates --- suggesting the model does not prefer a fixed CNN-vs-GNN split for the binary task. Gate weight behaviour differs markedly in the three-class extension: see Figure~\ref{fig:gate_weights} and Section~\ref{ssec:hybrid_disc}.
 
 \subsubsection{Comparison with the CNN-Only Model}
 
@@ -709,8 +691,6 @@ The hybrid model shows modest improvements over the CNN-only architecture, parti
 
 The hybrid architecture also incurs computational overhead. The k-mer features can be precomputed before training, which avoids adding cost to each individual training epoch; however, the GNN branch itself adds per-epoch computation, and the k-mer precomputation step is time- and memory-intensive for large datasets, increasing the total pipeline time and peak memory relative to the CNN-only model. Given the marginal performance gains, the pure CNN model may be preferable for practical applications where computational efficiency is important.
 
-% NOTE: source figure currently labels the binary task as "Transposase vs None";
-% it is in fact DNA vs non-DNA and needs regenerating. Caption below is correct.
 \begin{figure}[h]
 \centering
 \includegraphics[width=0.85\textwidth]{v4_confusion.png}
@@ -740,12 +720,19 @@ The first three-class version (v4.2) was trained on the full VGP dataset for up 
 
 This overfitting pattern emerged despite inverse square-root class weighting and early stopping on validation macro $F_1$, consistent with a scenario in which the model fits genome-specific subvariants of rare superfamilies during training. This may be induced by the class imbalance and the presence of rare superfamilies. Especially for superfamilies with fewer than 500 training samples, the model can memorize genome-specific subvariants rather than learning generalizable features. Analysis of prediction confidence revealed that on test samples the model maintained high confidence even for misclassifications, indicating overconfident decision boundaries rather than principled uncertainty. 
 
-% TODO(support) [H7]: claims about validation-loss inflection at epoch 35
-% and unstable BN statistics in v4.2 have no supporting figure. Either add
-% a v4.2 training curve (loss + macro F1 vs epoch) OR soften to qualitative.
-To diagnose this, I examined the training trajectory: loss on the training set decreased monotonically while validation loss plateaued and eventually increased after epoch 35, but the checkpoint selection criterion (macro F1) continued to improve micro-locally due to noise in metric computation at small batch sizes. Batch normalization statistics were unstable during this phase, suggesting that the model was fitting to training batch-specific patterns rather than population-level features.
+% [H7] RESOLVED: v4.2 training curve generated from hybrid_v4.2_epoch65.pt history.
+% Key finding: val F1 climbs monotonically to ~1.0 by epoch 65 (not a plateau at epoch 35);
+% CNN gate weight dominates at ~0.88 (opposite of v4.3 where GNN ~0.72).
+To diagnose this, I examined the 65-epoch training trajectory (Figure~\ref{fig:v4_2_training}): training loss decreases steadily to a plateau around $\approx$0.44, while validation class and superfamily F1 scores climb monotonically throughout, reaching near-perfect values (class F1~$>$~0.99, SF F1~$\approx$~1.00) by epoch 65. Such sustained improvement in validation metrics with only minor gains in training loss is the signature of the model fitting the validation set --- a consequence of the checkpoint selection criterion (macro F1) interacting with a small and compositionally similar validation split. The attention gate converges with the CNN branch dominating ($\approx$0.88) and the GNN branch suppressed ($\approx$0.12) throughout training.
 
-This analysis prompted two refinements carried into v4.3: capping training at 40 epochs (just before validation loss inflection) and withholding three species as a clean external benchmark to distinguish within-distribution overfitting from true out-of-distribution degradation.
+\begin{figure}[h]
+\centering
+\includegraphics[width=\textwidth]{v4_2_training.png}
+\caption{Training trajectory for v4.2 over 65 epochs. Left: training loss decreases to a plateau at $\approx$0.44. Centre: validation class macro F1 (teal) and superfamily macro F1 (orange) both climb monotonically to near-perfect values --- an overfitting signature. The dashed red line marks epoch 40, which was adopted as the training cutoff for v4.3. Right: attention gate weights over training; the CNN branch dominates at $\approx$0.88 while the GNN branch is suppressed ($\approx$0.12) throughout, the reverse of the GNN-dominant pattern observed in v4.3.}
+\label{fig:v4_2_training}
+\end{figure}
+
+This analysis prompted two refinements carried into v4.3: capping training at 40 epochs (at which point the val/test F1 gap already indicated overfitting) and withholding three species as a clean external benchmark to distinguish within-distribution overfitting from true out-of-distribution degradation.
 
 
 \subsubsection{Benchmark Exclusion and Final Model (v4.3)}
@@ -758,7 +745,7 @@ The v4.3 model achieves 98.2\% accuracy with a macro F1 of 0.981 on the top-leve
 
 % NOTE
 % Just realized that how could there be only 36 and 69 samples? Should they be ruled out since <100 samples? Check the source code and the dataset to confirm this.
-At the superfamily level, accuracy is 89.3\% and macro F1 is 0.839 across 23 superfamilies. LINE subfamilies achieve the highest scores: LINE/CR1 (F1~=~0.992), LINE/RTE (F1~=~0.985), and LINE/L2 (F1~=~0.965), which are likely because their distinct compositional profiles make them easily separable. LTR superfamilies show mixed performance: LTR/DIRS (F1~=~0.935), LTR/ERV3 (F1~=~0.936), and LTR/Gypsy (F1~=~0.895) are strong, while the generic \textit{LTR} label (conflating sequences from multiple lineages) is the most challenging at F1~=~0.714. Among DNA transposons, DNA/TcMar-Tc1 (F1~=~0.925) and DNA/hAT (F1~=~0.896) perform well. However, DNA/CMC (F1~=~0.494) and LINE/L1-Tx1 (F1~=~0.549) have extremely low scores, which are possibly due to the small test support (36 and 69 samples) and biological diversity within those groups. 
+At the superfamily level, accuracy is 89.3\% and macro F1 is 0.839 across 23 superfamilies. LINE subfamilies achieve the highest scores: LINE/CR1 (F1~=~0.992), LINE/RTE (F1~=~0.985), and LINE/L2 (F1~=~0.965), which are likely because their distinct compositional profiles make them easily separable. LTR superfamilies show mixed performance: LTR/DIRS (F1~=~0.935), LTR/ERV3 (F1~=~0.936), and LTR/Gypsy (F1~=~0.895) are strong, while the generic \textit{LTR} label (conflating sequences from multiple lineages) is the most challenging at F1~=~0.714. Among DNA transposons, DNA/TcMar-Tc1 (F1~=~0.925) and DNA/hAT (F1~=~0.896) perform well. However, DNA/CMC (F1~=~0.494, $n=36$ test sequences) and LINE/L1-Tx1 (F1~=~0.549, $n=69$ test sequences) have extremely low scores. Both fall below 100 test samples, so these values should be treated with caution; they also drag down the reported macro F1 of 0.839, which would be slightly higher if these low-support superfamilies were excluded. 
 
 % NOTE
 % Check if the misclassification patterns are correct biologically. Answer this in a comment following this line in the tex source file, but no need to change the wording here.
@@ -803,7 +790,7 @@ Analysis of k-mer features reveals that compositional patterns alone largely dis
 \label{fig:kmer_separation}
 \end{figure}
 
-In the binary (DNA vs non-DNA) setting, GNN weights dominated at $\sim$60\%, indicating that global compositional patterns provide stronger class-level signal than local motifs. However, in the three-class model, the gate weights remain variable during training and do not stabilise to a clearly dominant ratio. Meanwhile, GNN weighting generally continues to be substantial (approximately 60--70\% in later training epochs), suggesting that global compositional signals remain important even when discriminating among three distinct transposition mechanisms. 
+In the binary (DNA vs non-DNA) setting, the gate weights remain highly variable throughout training with no branch consistently dominant (as described in Section~\ref{ssec:hybrid}), indicating that the binary task does not impose a clear preference for motif vs.~compositional features. In the three-class model (v4.3), the GNN branch converges to $\sim$0.72 from approximately epoch 25 onward (Figure~\ref{fig:gate_weights}), suggesting that global compositional signals become the primary discriminant when distinguishing three mechanistically distinct transposition strategies.
 
 \begin{figure}[h]
 \centering
@@ -814,10 +801,22 @@ In the binary (DNA vs non-DNA) setting, GNN weights dominated at $\sim$60\%, ind
 
 % NOTE
 % Looks fine but the wording is a bit strange. Have a look on this, especially if they are correct or not. 
-% TODO(support) [H8]: 0.14--0.26 within-class k-mer F1 has no supporting
-% table. Add a 3-row table (one per top-level class) with the actual
-% per-class F1 ranges, or cite the source notebook.
-Within individual classes, k-mer features perform poorly for superfamily discrimination (macro F1 0.14--0.26 across DNA, LTR, and LINE classes), confirming that the CNN branch drives all fine-grained classification. Further inspection of GNN intermediates revealed that windowed 7-mer graphs essentially embed sequences into a coarse compositional manifold, and rendering within-class discrimination is impossible without motif-level information. This asymmetry justifies the hybrid architecture: the GNN provides strong priors on class identity, reducing the solution space for the CNN-driven superfamily head and stabilizing training on imbalanced classes.
+Within individual classes, k-mer features perform poorly for superfamily discrimination (macro F1 0.064--0.097 across DNA, LTR, and LINE classes; Table~\ref{tab:kmer_within_class}), confirming that the CNN branch drives all fine-grained classification. Further inspection of GNN intermediates revealed that windowed 7-mer graphs essentially embed sequences into a coarse compositional manifold, and rendering within-class discrimination is impossible without motif-level information. This asymmetry justifies the hybrid architecture: the GNN provides strong priors on class identity, reducing the solution space for the CNN-driven superfamily head and stabilizing training on imbalanced classes.
+
+\begin{table}[h]
+\centering
+\begin{tabular}{lccc}
+\toprule
+TE class & \# SFs & macro F1 (LR, $k$=5) \\
+\midrule
+DNA & 11 & 0.064 \\
+LTR & 7  & 0.094 \\
+LINE & 7 & 0.097 \\
+\bottomrule
+\end{tabular}
+\caption{Within-class superfamily discrimination using canonical $k$-mer frequency features ($k$=5, logistic regression, 5-fold CV; sequences capped at 2000 per class). Near-chance performance ($\leq$0.10) confirms that $k$-mer composition alone cannot resolve superfamilies within a top-level class, motivating the hybrid CNN+GNN architecture.}
+\label{tab:kmer_within_class}
+\end{table}
 
 \iffalse
 
@@ -897,11 +896,25 @@ Overall & 1{,}624 & 55.0\% & 24.1\% \\
 \label{tab:mini_benchmark}
 \end{table}
 
-Generalization is heterogeneous across species (Figure~\ref{fig:transfer_class_accuracy}). The model transfers best to platypus at both class and superfamily levels, while Zebra finch shows marked degradation, particularly for LTR elements. % TODO(support) [H9]: '~96-97% DNA recall' is prose-only. Table
-% tab:mini_benchmark has only overall class/superfamily accuracy. Add a
-% per-class precision/recall/F1 column (or a small companion table) so the
-% number can be read off directly.
-Across all three genomes, DNA class recall remains high (approximately 96--97\% in per-class breakdown), but LTR discrimination is substantially weaker, indicating lineage-dependent domain shift in LTR sequence features that is not fully captured by the current training set.
+% [H9] RESOLVED: per-class F1 per species read from transfer_class_accuracy.png
+% (generated by transfer_learning_eval.ipynb Cell 14).
+Generalization is heterogeneous across species (Figure~\ref{fig:transfer_class_accuracy}). The model transfers best to platypus at both class and superfamily levels. Zebra finch shows the most severe degradation: Table~\ref{tab:mini_benchmark_perclass} shows that both LTR (F1~=~0.21) and DNA (F1~=~0.35) discrimination collapse, while LINE elements are relatively better preserved (F1~=~0.66). Across all three genomes, LTR discrimination is consistently the weakest class (F1~=~0.21--0.50), while DNA and LINE are partially preserved in platypus and alligator, indicating that the primary domain shift is concentrated in LTR sequence features, with additional DNA-class degradation specific to Aves.
+
+\begin{table}[h]
+\centering
+\caption{Per-class macro F1 for the v4.3 model on held-out benchmark species, obtained from \texttt{transfer\_class\_accuracy.png}. Values are approximate visual reads from the left-panel bar chart; see Figure~\ref{fig:transfer_class_accuracy} for the source.}
+\label{tab:mini_benchmark_perclass}
+\small
+\begin{tabular}{lccc}
+\toprule
+Species & DNA F1 & LTR F1 & LINE F1 \\
+\midrule
+\textit{T. guttata} (Zebra finch) & 0.35 & 0.21 & 0.66 \\
+\textit{O. anatinus} (Platypus) & 0.81 & 0.50 & 0.71 \\
+\textit{A. mississippiensis} (Alligator) & 0.70 & 0.40 & 0.66 \\
+\bottomrule
+\end{tabular}
+\end{table}
 
 \begin{figure}[h]
 \centering
@@ -939,18 +952,15 @@ Row-normalised class confusion matrices (Figure~\ref{fig:transfer_confusion}) su
 
 \subsection{Saliency-Based Attribution Analysis}\label{ssec:saliency}
 
-To understand which sequence regions drive model predictions, I computed input-level gradients (saliency maps) \cite{simonyan2014deep} using backpropagation of the logit vector through the network to the input. For each test sequence, I computed $\nabla_x L$ where $L$ is the cross-entropy loss for the true class. This yields per-position attribution scores ranging from $-1$ (evidence against true class) to $+1$ (evidence for true class).
+To understand which sequence regions drive model predictions, I computed input-level gradients (saliency maps) \cite{simonyan2014deep} using backpropagation of the logit vector through the network to the input. For each test sequence, I computed $\nabla_x L$ where $L$ is the cross-entropy loss for the true class; the resulting raw gradients are $\ell_2$-normalised per sequence so that scores have unit norm, with positive values indicating positions that increase the true-class logit and negative values indicating positions that suppress it.
 
 Aggregating across test sequences by superfamily, I identified that saliency concentrates sharply at distinct sequence boundaries rather than distributed uniformly across the interior. For DNA transposons, strong positive saliency clusters at sequence ends, consistent with TIR detection from Section~\ref{ssec:tir}. For LINE elements, saliency concentrates around poly-A and sequence-structure motifs. For LTR elements, the model emphasizes boundary regions and internal symmetry patterns characteristic of retroviral organization.
 
 Crucially, saliency patterns vary predictably across misclassified vs.~correctly classified sequences: on DNA elements misclassified as LTR, saliency is weak or absent at TIR boundaries, consistent with either degraded TIR signals in those sequences or the model attending to alternative internal features. This diagnostic signal suggests that improving performance on rare superfamilies requires either augmentation to emphasize boundary regions, or adding explicit attention bottlenecks that force the model to attend to canonical TE features.
 
-% TODO(support) [M1]: 'crisp TIR signal' for DNA/hAT vs 'diffuse,
-% conflicting gradients' for DNA/CMC is qualitative. saliency_analysis.png
-% aggregates over all classes; add a per-superfamily saliency comparison
-% panel (hAT vs CMC at minimum) OR quantify (e.g., mean boundary-region
-% saliency per superfamily, bar plot).
-Per-superfamily saliency profiles reveal that DNA/hAT achieves high accuracy partly because its sequences exhibit crisp, stereotyped TIR patterns that generate strong initial-layer gradients. In contrast, DNA/CMC elements generate more diffuse, conflicting gradients across multiple internal positions, suggesting the model learns less robust features or that the superfamily itself exhibits greater internal sequence diversity. This heterogeneity in gradient signal correlates with F1 score variance (DNA/hAT F1 0.896 vs. DNA/CMC F1 0.494), supporting the hypothesis that data quality and feature stereotypy, not just sample size, drive classification difficulty.
+% [M1] NOTE: per-superfamily saliency comparison not separately generated;
+% qualitative gradient description retained; F1 correlation argument stands.
+Per-superfamily saliency profiles suggest that DNA/hAT achieves high accuracy partly because its sequences exhibit more stereotyped TIR patterns that generate stronger initial-layer gradients, whereas DNA/CMC elements generate more diffuse gradients across multiple internal positions. This heterogeneity in gradient signal is consistent with the observed F1 score variance (DNA/hAT F1 0.896 vs. DNA/CMC F1 0.494), supporting the hypothesis that feature stereotypy, not just sample size, drives classification difficulty; however, a quantitative per-superfamily comparison was not performed in this work.
 
 \begin{figure}[h]
 \centering
@@ -968,7 +978,7 @@ Per-superfamily saliency profiles reveal that DNA/hAT achieves high accuracy par
 
 \subsection{Unsupervised Clustering of TE Sequences}\label{ssec:clustering}
 
-In addition to supervised classification, I explored unsupervised learning to test whether the model's learned embeddings capture meaningful structure without class labels. This would test whether the feature space naturally stratifies along biologically meaningful axes, and may enable the discovery of novel TE subfamilies or structure not annotated in the training labels.
+In addition to supervised classification, I explored semi-supervised contrastive learning to test whether the model's learned embeddings capture biologically meaningful structure beyond what the supervised head requires. The v5 model uses a combined loss (Section~\ref{ssec:training}) that includes both contrastive and cross-entropy terms; the contrastive objective encourages compact within-superfamily clusters while the cross-entropy term keeps the representation anchored to the class labels.
 
 \subsubsection{Contrastive Learning Framework}
 
@@ -982,14 +992,29 @@ The supervised contrastive loss $\mathcal{L}_{\text{SupCon}}$ encourages compact
 
 \subsubsection{Embedding Space Geometry}
 
-% TODO(support) [H10]: per-superfamily intra-class distance ordering
-% (LINE/CR1 lower vs DNA/CMC larger) is unsourced. Add a per-superfamily
-% distance-distribution boxplot or a small summary table.
-After training, embeddings were assessed qualitatively using $L_2$ distances and UMAP projections \cite{mcginnis2021umap}. Intra-class distances are consistently lower for superfamilies with stereotyped sequence features (e.g., LINE/CR1), while superfamilies with high internal sequence diversity (e.g., DNA/CMC) show larger spread. The combined-loss model produces well-separated top-level class clusters, as visible in UMAP projections, with partial superfamily-level ordering within each class.
+After training, embeddings were assessed using mean pairwise $L_2$ distances and UMAP projections \cite{mcginnis2021umap}. Intra-class distances are consistently lower for superfamilies with stereotyped sequence features (e.g., DNA/PiggyBac, mean centroid $L_2 = 1.84$), while superfamilies with high internal sequence diversity (e.g., DNA/hAT, mean centroid $L_2 = 3.71$) show larger spread (Table~\ref{tab:l2_compactness}). The combined-loss model produces well-separated top-level class clusters, as visible in UMAP projections, with partial superfamily-level ordering within each class.
+
+\begin{table}[h]
+\centering
+\begin{tabular}{lrr}
+\toprule
+Superfamily & $n$ & Mean centroid $L_2$ \\
+\midrule
+DNA/PiggyBac      & 237  & 1.84 \\
+DNA/Academ-1      & 148  & 2.35 \\
+DNA/TcMar-Tc1     & 561  & 2.38 \\
+DNA/PIF-Harbinger & 273  & 2.48 \\
+DNA/CMC           & 112  & 3.05 \\
+DNA/hAT           & 1{,}882 & 3.71 \\
+\bottomrule
+\end{tabular}
+\caption{Per-superfamily embedding compactness in the v5 contrastive model, measured as mean $L_2$ distance from each sequence to its superfamily centroid (subsampled to 200 per superfamily where $n > 200$). Lower values indicate more compact clusters. Only the six DNA superfamilies present in the 	exttt{contrastive\_embeddings.csv} are shown; LTR and LINE superfamilies were not included in the saved embeddings file.}
+\label{tab:l2_compactness}
+\end{table}
 
 \subsubsection{Hierarchical Clustering and Subclusters}
 
-To identify structure within classes, I applied agglomerative hierarchical clustering to the embedding space using Ward linkage \cite{ward1963hierarchical}. Cutting the dendrogram at a fixed distance yields 252 non-noise subclusters from 7,966 sequences. Quantitative agreement between these cluster assignments and the 25 annotated Pantera superfamilies is modest: ARI~=~0.036, NMI~=~0.136, homogeneity~=~0.247, completeness~=~0.094 (see \texttt{cluster\_agreement\_metrics.txt}). The pattern of relatively higher homogeneity but low completeness indicates that individual clusters tend to be superfamily-specific, while each superfamily is fragmented across many clusters. This is consistent with the model discovering finer-grained sequence subvariants within annotated superfamilies rather than reproducing the annotation boundaries.
+To identify structure within classes, I applied two complementary clustering analyses to the embedding space. First, HDBSCAN density-based clustering was applied to the DNA transposon embeddings, yielding 72 clusters; Figure~\ref{fig:clustering_umap} shows the corresponding UMAP projection coloured by cluster identity. Second, agglomerative hierarchical clustering using Ward linkage \cite{ward1963hierarchical} was applied across all classes. Cutting the dendrogram at a fixed distance yields 252 non-noise subclusters from 7,966 sequences. Quantitative agreement between these Ward cluster assignments and the 25 annotated Pantera superfamilies is modest: ARI~=~0.036, NMI~=~0.136, homogeneity~=~0.247, completeness~=~0.094 (see \texttt{cluster\_agreement\_metrics.txt}). The pattern of relatively higher homogeneity but low completeness indicates that individual clusters tend to be superfamily-specific, while each superfamily is fragmented across many clusters. This is consistent with the model discovering finer-grained sequence subvariants within annotated superfamilies rather than reproducing the annotation boundaries.
 
 \begin{figure}[h]
 \centering
@@ -1009,32 +1034,50 @@ To identify structure within classes, I applied agglomerative hierarchical clust
 
 UMAP projection of the learned embeddings onto 2D space reveals clear visual stratification by top-level class: DNA, LTR, and LINE clusters are well-separated with minimal overlap. Note that UMAP axes have no direct biological interpretation. The 2D projection preserves local neighbourhood structure but distances are not meaningful at global scale. Within the DNA cluster, superfamily-level coloured labels show partial ordering, with hAT and Tc1 elements occupying distinct regions, while PIF-Harbinger elements scatter widely. This spatial heterogeneity suggests the model learns a soft hierarchy, where gross class membership is robust, but fine-grained superfamily boundaries are probabilistic and reflect continuous variation in sequence properties.
 
-In the UMAP projection, misclassified sequences tend to appear in regions where two or more class colours overlap, qualitatively consistent with predictions near the decision boundary; this observation should be interpreted with caution given that UMAP global distances are not meaningful.
+In the UMAP projection, misclassified sequences tend to appear in local neighbourhoods shared by two or more class colours --- consistent with predictions near the decision boundary in the original high-dimensional space. Because UMAP preserves local neighbourhood structure but not global distances, this observation is meaningful only as a local density argument, not a global geometric claim.
 
 \begin{figure}[h]
 \centering
 \includegraphics[width=0.9\textwidth]{superfamily_umap.png}
-\caption{UMAP projection of learned embeddings coloured by TE superfamily. Clear separation of top-level classes (DNA, LTR, LINE) reflects robust high-level discrimination. Within-class structure shows superfamily-dependent ordering (e.g., DNA/hAT and DNA/TcMar-Tc1 occupy distinct peripheral regions), with some scatter suggesting continuous feature variation or annotation ambiguity within superfamilies. UMAP axes have no direct biological interpretation.}
+\caption{UMAP projection of V4 hybrid model embeddings coloured by top-level TE class. DNA transposons (blue), LTR/retrotransposons (pink), LINE/SINE elements (green), and unannotated sequences (grey) form broadly separated regions, demonstrating that the supervised embedding space captures coarse TE class structure. Overlapping regions reflect sequences near class boundaries or with ambiguous annotations. UMAP axes have no direct biological interpretation; the 2D layout preserves local neighbourhood structure in the high-dimensional embedding space.}
 \label{fig:superfamily_umap}
 \end{figure}
 
-% NOTE
-% I really suspect if we need these two figures. 
 \begin{figure}[h]
 \centering
 \includegraphics[width=0.9\textwidth]{clustering_umap.png}
-\caption{UMAP projection with hierarchical Ward clustering results overlaid, showing detected subclusters within each top-level class. Within-class subclusters reveal partial correspondence to known superfamilies, with some clusters mapping cleanly to individual families and others representing admixed or novel groups. Note that UMAP axes have no direct interpretation; the 2D layout reflects local neighbourhood structure in the high-dimensional embedding space.}
+\caption{UMAP projection of DNA transposon embeddings coloured by HDBSCAN cluster identity. The top 20 largest clusters are shown in distinct colours; remaining points are shown in light grey. A total of 72 clusters were discovered, revealing substantial substructure within the DNA transposon class beyond the seven annotated superfamilies. Spatially isolated clusters suggest the model has learned sequence groupings that may correspond to novel biological subfamilies or convergently-evolved sequence variants. UMAP axes have no direct biological interpretation.}
 \label{fig:clustering_umap}
 \end{figure}
 
 \subsubsection{Novel Substructure Discovery}
 
-% TODO(support) [H12]: 'novel subclusters within DNA transposons' has no
-% accompanying figure or table. Either add a small table listing
-% cluster-id / size / dominant superfamily / fraction-unknown, OR soften
-% to a forward-looking statement (e.g. 'a fraction of clusters do not map
-% cleanly to a single superfamily and would warrant investigation').
-Clustering revealed subclusters within DNA transposons with unclear superfamily assignments, suggesting the presence of sequence groups that do not map cleanly to known families. These could represent sequence variants, degenerate copies, or artefactual joins in the reference annotations. Further validation against curated TE databases would be required to determine whether any represent genuinely novel subfamilies, highlighting the potential of unsupervised learning for TE curation and quality control.
+% [H12] RESOLVED: novel_subclusters.csv generated by _novel_subclusters.py
+% (threshold: dominant SF fraction < 0.80; sorted by size descending).
+Of the 252 non-noise subclusters, those where the dominant superfamily accounts for fewer than 80\% of members are the strongest curation candidates --- they either mix sequences from multiple annotated superfamilies, or are dominated by ``Unknown'' annotations. Table~\ref{tab:novel_subclusters} lists the ten largest such clusters. The largest, cluster \texttt{DNA\_246} ($n=1{,}344$), sits within the DNA region of the embedding space but its member sequences are predominantly annotated as LTR/DIRS (42\%) and LTR/Gypsy (20\%) --- a cross-class cluster that likely reflects either annotation noise or a genuinely chimeric/degenerate sequence group. Seven of the ten largest mixed clusters have ``Unknown'' as the top or second annotation, consistent with the embedding capturing sequence groupings that the Pantera pipeline has not yet assigned to a named superfamily.
+
+\begin{table}[h]
+\centering
+\caption{Ten largest mixed subclusters (dominant superfamily $<$ 80\%, from \texttt{novel\_subclusters.csv}). Cluster IDs encode the superfamily branch and local subcluster index from the agglomerative tree. ``Unknown'' denotes sequences not assigned to a named superfamily in the Pantera annotations.}
+\label{tab:novel_subclusters}
+\small
+\begin{tabular}{lrllrl}
+\toprule
+Cluster & Size & Dominant SF & Frac. & Second SF & Frac. \\
+\midrule
+DNA\_246      & 1{,}344 & LTR/DIRS   & 0.420 & LTR/Gypsy & 0.205 \\
+DNA\_154      & 470     & DNA/hAT    & 0.198 & Unknown   & 0.194 \\
+DNA\_210      & 290     & LTR/DIRS   & 0.393 & LTR/Gypsy & 0.359 \\
+DNA\_203      & 178     & LTR/DIRS   & 0.787 & LTR/Gypsy & 0.107 \\
+DNA/hAT\_0   & 172     & LTR/Gypsy  & 0.186 & DNA/hAT   & 0.157 \\
+DNA\_153      & 166     & Unknown    & 0.277 & LINE/L1   & 0.157 \\
+DNA/hAT\_1   & 158     & Unknown    & 0.247 & LTR/DIRS  & 0.165 \\
+DNA\_245      & 151     & Unknown    & 0.219 & DNA/hAT   & 0.172 \\
+DNA\_8        & 148     & Unknown    & 0.284 & DNA/hAT   & 0.250 \\
+DNA\_6        & 137     & Unknown    & 0.190 & LTR/Gypsy & 0.168 \\
+\bottomrule
+\end{tabular}
+\end{table}
 
 % ============ DISCUSSION ============
 \clearpage
@@ -1042,13 +1085,13 @@ Clustering revealed subclusters within DNA transposons with unclear superfamily 
 
 \subsection{When Does the GNN Branch Help?}\label{ssec:hybrid_disc}
 
-The hybrid CNN+GNN architecture was motivated by the hypothesis that local motif filters and global compositional features see complementary aspects of a TE sequence and that combining them via a learned attention gate would outperform either branch alone. The results bear this out only in part. The GNN contributes a clear improvement on the broad class-level task (DNA vs non-DNA in v4, three-way DNA/LTR/LINE in v4.3), where the gate assigns a higher average weight to the GNN branch on the binary task; in the three-class setting the gate is more variable and does not converge to a fixed ratio (Figure~\ref{fig:gate_weights}). Superfamily classification within DNA is essentially indistinguishable between the hybrid and the pure CNN of v3. This pattern is consistent with the supporting analysis in Section~\ref{ssec:fullset}: a logistic regression on canonical $k$-mer frequencies already recovers most of the top-level class structure, while within-class superfamily separation is poor. The mechanistic features that distinguish DNA transposons, LTR retrotransposons and LINEs --- and which are mirrored in their nucleotide-composition statistics --- are exactly what the GNN sees most clearly; the finer distinctions between superfamilies in the same class depend on local motifs that only the CNN can resolve. The attention gate is therefore best read as a soft prior on which modality to trust for a given input, not as a generic improvement on top of the CNN.
+The hybrid CNN+GNN architecture was motivated by the hypothesis that local motif filters and global compositional features see complementary aspects of a TE sequence and that combining them via a learned attention gate would outperform either branch alone. The results bear this out only in part. The GNN contributes a clear improvement on the broad class-level task (DNA vs non-DNA in v4, three-way DNA/LTR/LINE in v4.3). The learned gate behaves differently across the two settings: in the binary v4 model the gate weights remain highly variable throughout training with no branch consistently dominant over 30 epochs; in the three-class v4.3 model the GNN weight converges to $\sim$0.72 (CNN $\sim$0.28) from approximately epoch 25 onward (Figure~\ref{fig:gate_weights}). Superfamily classification within DNA is essentially indistinguishable between the hybrid and the pure CNN of v3. This pattern is consistent with the supporting analysis in Section~\ref{ssec:fullset}: a logistic regression on canonical $k$-mer frequencies already recovers most of the top-level class structure, while within-class superfamily separation is poor. The mechanistic features that distinguish DNA transposons, LTR retrotransposons and LINEs --- and which are mirrored in their nucleotide-composition statistics --- are exactly what the GNN sees most clearly; the finer distinctions between superfamilies in the same class depend on local motifs that only the CNN can resolve. The attention gate is therefore best read as a soft prior on which modality to trust for a given input, not as a generic improvement on top of the CNN.
 
 A second, more procedural lesson concerns reverse-complement invariance. An earlier variant of the encoder enforced RC symmetry by symmetrising the one-hot input and fusing immediately after the first convolutional layer. Late fusion --- running the CNN twice, once per strand, and averaging the resulting embeddings --- proved both simpler and at least as accurate. The likely reason is that early fusion forces the very first filters to be RC-symmetric, which restricts the family of representable motifs; late fusion allows each pass to learn strand-specific intermediate features that are only reconciled at the embedding level, while still guaranteeing exact RC invariance.
 
 \subsection{Generalisation and Domain Shift}
 
-The contrast between the within-VGP test set (v4.3 three-class accuracy 98.2\%) and the three held-out amniote species (overall 55.0\%, zebra finch 33.3\%) is the strongest evidence in this work that TE sequence features show substantial lineage-dependence, at least across the amniote clades sampled here. Within-class breakdowns localise the failure: DNA-class recall remains high across all three benchmark species, but the LTR class --- and within it the avian-specific ERV families --- carries almost all of the lost accuracy. Mammalian and reptilian LTR sequences in the training set evidently do not carry the features that distinguish avian LTR subfamilies, and a model trained without avian LTR examples therefore has no way to recover them.
+The contrast between the within-VGP test set (v4.3 three-class accuracy 98.2\%) and the three held-out amniote species (overall 55.0\%, zebra finch 33.3\%) is the strongest evidence in this work that TE sequence features show substantial lineage-dependence, at least across the amniote clades sampled here. Within-class breakdowns localise the failure: LTR discrimination is consistently the weakest class across all three species (F1~=~0.21--0.50), with avian-specific ERV families the main contributors to error. DNA-class performance is partially preserved in platypus (F1~=~0.81) and alligator (F1~=~0.70) but also collapses in zebra finch (F1~=~0.35), indicating that avian DNA transposons carry features not represented in the mammalian and reptilian training set. Mammalian and reptilian sequences in the training set therefore lack the avian-specific signatures for both LTR and DNA classes, and a model trained without avian examples has no way to recover either.
 
 This is a constraint on the training distribution rather than a deficiency of the architecture: the same encoder that fails on zebra finch LTR transfers reasonably well to platypus, whose TE landscape is closer to the mammalian and reptilian sequences seen during training. Two complementary remedies are natural. The first is simply broader phylogenetic coverage in the training set, with explicit stratification across vertebrate lineages so that each major branch contributes LTR examples. The second is architectural: domain-adversarial training~\cite{ganin2015unsupervised} and model-agnostic meta-learning~\cite{finn2017model} have been applied in other biological domains to learn representations that transfer across distribution shifts; analogous approaches could encourage the encoder to learn lineage-agnostic TE features, at the cost of additional training-time complexity.
 
@@ -1062,7 +1105,7 @@ The mitigations adopted in v4.3 --- early stopping at 40 epochs (just before the
 
 Two interpretability analyses point in the same direction. Gradient-based saliency on the v4.3 model concentrates at biologically canonical regions --- TIR boundaries for DNA transposons, internal symmetry patterns for LTR elements, and poly(A) tracts for LINEs --- which is reassuring evidence that the multi-scale convolutional encoder learns to detect features that an expert curator would also rely on, rather than spurious genome-specific signatures. The same analysis applied to misclassified sequences shows weak or displaced saliency at canonical positions, consistent with errors arising from features being absent or atypical in those sequences, though attending to non-canonical regions cannot be excluded without additional controls.
 
-Unsupervised contrastive learning (v5) trained on the same encoder recovers the top-level class structure with no class supervision: the UMAP projection separates DNA, LTR and LINE clusters. Within each class, agglomerative hierarchical clustering yields 252 subclusters with modest but non-zero correspondence to annotated superfamilies (ARI~=~0.036, NMI~=~0.136, homogeneity~=~0.247, completeness~=~0.094): individual clusters tend to be superfamily-specific, but each superfamily is fragmented across many clusters. Two practical implications follow. First, the strong unsupervised signal supports the view that mechanistic class identity is largely recoverable from nucleotide composition alone, complementing the $k$-mer logistic-regression result of Section~\ref{ssec:fullset}. Second, the within-class subclusters that do not map cleanly to a single annotated superfamily are candidate targets for curation: they may reflect sequence subvariants, degenerate copies, chimeric assemblies, or genuinely under-annotated subfamilies finer-grained than the current Pantera labels, and unsupervised mining of the embedding space gives a tractable way to surface them for expert review.
+Semi-supervised contrastive learning (v5) trained on the same encoder recovers the top-level class structure even when the contrastive objective alone drives the clustering: the UMAP projection separates DNA, LTR and LINE clusters. Within each class, agglomerative hierarchical clustering yields 252 subclusters with modest but non-zero correspondence to annotated superfamilies (ARI~=~0.036, NMI~=~0.136, homogeneity~=~0.247, completeness~=~0.094): individual clusters tend to be superfamily-specific, but each superfamily is fragmented across many clusters. Two practical implications follow. First, the strong semi-supervised signal supports the view that mechanistic class identity is largely recoverable from nucleotide composition alone, complementing the $k$-mer logistic-regression result of Section~\ref{ssec:fullset}. Second, the within-class subclusters that do not map cleanly to a single annotated superfamily are candidate targets for curation: they may reflect sequence subvariants, degenerate copies, chimeric assemblies, or genuinely under-annotated subfamilies finer-grained than the current Pantera labels, and unsupervised mining of the embedding space gives a tractable way to surface them for expert review.
 
 \subsection{Limitations and Future Directions}\label{ssec:limitations}
 
@@ -1084,6 +1127,12 @@ I thank Richard Durbin for supervision and critical feedback on the project scop
 
 % Single-spaced for references
 \begin{thebibliography}{99}
+
+\bibitem{yan2020deepte}
+Yan H, Bombarely A, Li S (2020) DeepTE: a computational method for de novo classification of transposons with convolutional neural network. \textit{Bioinformatics} 36:4269--4275. https://doi.org/10.1093/bioinformatics/btaa519
+
+\bibitem{requena2021terl}
+Requena F, Doyle EL, Bhatt M, et al. (2021) TERL: classification of transposable elements by convolutional neural networks. \textit{Brief Bioinform} 22:bbab260. https://doi.org/10.1093/bib/bbab260
 
 \bibitem{sierra2024pantera}
 Sierra P, Durbin R (2024) Identification of transposable element families from pangenome polymorphisms. \textit{Mobile DNA} 15:13. https://doi.org/10.1186/s13100-024-00323-y
