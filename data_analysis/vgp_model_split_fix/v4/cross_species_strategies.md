@@ -21,7 +21,7 @@ species_stats = defaultdict(lambda: {'hat_tp':0,'hat_fp':0,'hat_fn':0,'n_total':
 HAT_ID = superfamily_to_id.get('hAT', None)   # look up from checkpoint
 
 for h, bt, st, sp, gc in zip(headers, bin_true, sf_true, sf_pred, gate_cnn):
-    if bt == 0:  # non-DNA sample
+    if bt == 0:  # binary label 0 = None (no transposase annotation)
         continue
     genome = h.split('#')[0].rsplit('-', 1)[-1]  # e.g. "aAnoBae"
     species_stats[genome]['n_total'] += 1

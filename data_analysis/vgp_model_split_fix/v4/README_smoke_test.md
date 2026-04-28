@@ -25,6 +25,10 @@ in ~10–30 minutes on MPS or ~5 minutes on A100.
 cd data_analysis/vgp_model_split_fix/v4/
 
 # Smoke test (fast, default parameters)
+# Note: --fasta and --labels paths depend on your local data layout.
+# The script defaults to <repo>/data_analysis/all_vgp_tes.fa and
+# <repo>/data_analysis/20251215-features-tpase (the v4 VGP label file).
+# Adjust to match your local paths.
 python dann_smoke_test.py \
   --fasta  ../../../data/vgp/all_vgp_tes.fa \
   --labels ../../../data/vgp/20260120_features_sf \

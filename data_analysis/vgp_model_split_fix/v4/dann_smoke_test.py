@@ -255,7 +255,7 @@ def _chain_edges(n):
 
 class HybridDataset(Dataset):
     def __init__(self, headers, sequences, binary_labels, class_labels,
-                 kmer_features, species_ids, fixed_length=FIXED_LENGTH):
+                 kmer_features, species_ids, fixed_length=FIXED_LENGTH, train=True):
         self.headers = list(headers)
         self.sequences = list(sequences)
         self.binary_labels = np.asarray(binary_labels, dtype=np.int64)
@@ -263,6 +263,7 @@ class HybridDataset(Dataset):
         self.kmer_features = kmer_features
         self.species_ids = np.asarray(species_ids, dtype=np.int64)
         self.fixed_length = fixed_length
+        self.train = train  # True -> random canvas placement; False -> deterministic (left-align)
 
     def __len__(self):
         return len(self.sequences)
@@ -271,7 +272,10 @@ class HybridDataset(Dataset):
         seq = self.sequences[idx]
         seq_idx = ENCODE[np.frombuffer(seq.encode("ascii", "ignore"), dtype=np.uint8)]
         max_start = max(0, self.fixed_length - len(seq))
-        start_pos = np.random.randint(0, max_start + 1) if max_start > 0 else 0
+        if self.train and max_start > 0:
+            start_pos = np.random.randint(0, max_start + 1)
+        else:
+            start_pos = 0  # deterministic for eval: always left-align
         return (
             self.headers[idx],
             seq_idx,
@@ -334,7 +338,10 @@ class ConvBlock(nn.Module):
 
 
 class MaskedMaxPool(nn.Module):
-    def __init__(self, k=2, s=2): super().__init__(); self.k = k; self.s = s
+    def __init__(self, k=2, s=2):
+        super().__init__()
+        self.k = k
+        self.s = s
 
     def forward(self, x, mask):
         if mask is not None:
@@ -640,8 +647,8 @@ def run_training(
     te_kmer = [featurize(s) for s in tqdm(te_s, desc="test")]
 
     # ---- Datasets / loaders ----
-    ds_tr = HybridDataset(tr_h, tr_s, tr_bin, tr_cls, tr_kmer, tr_sp)
-    ds_te = HybridDataset(te_h, te_s, te_bin, te_cls, te_kmer, te_sp)
+    ds_tr = HybridDataset(tr_h, tr_s, tr_bin, tr_cls, tr_kmer, tr_sp, train=True)
+    ds_te = HybridDataset(te_h, te_s, te_bin, te_cls, te_kmer, te_sp, train=False)
     dl_tr = DataLoader(ds_tr, batch_size=BATCH_SIZE, shuffle=True,
                        num_workers=0, collate_fn=collate_hybrid)
     dl_te = DataLoader(ds_te, batch_size=BATCH_SIZE, shuffle=False,
@@ -786,7 +793,6 @@ def _compute_per_species_breakdown(
 
     model.eval()
     stats = defaultdict(lambda: {"tp": 0, "fp": 0, "fn": 0, "n": 0, "gc": []})
-    sample_idx = 0
     with torch.no_grad():
         for batch in dl_te:
             hdr, X_cnn, mask, Y_bin, Y_cls, _, x_gnn, ei, bvec = batch
