@@ -1,0 +1,51 @@
+{
+  "track": "T3",
+  "delta_sf_macro_f1": -0.04758856264732532,
+  "delta_cls_macro_f1": -0.44573445782878,
+  "stack_sf_macro_f1": 0.03875324629736261,
+  "nostack_sf_macro_f1": 0.08634180894468793,
+  "stack_per_clade_hat": {
+    "0": {
+      "n": 163,
+      "recall": 0.0
+    },
+    "3": {
+      "n": 7,
+      "recall": 0.0
+    },
+    "4": {
+      "n": 10,
+      "recall": 0.0
+    },
+    "6": {
+      "n": 9,
+      "recall": 0.0
+    },
+    "7": {
+      "n": 3,
+      "recall": 0.0
+    }
+  },
+  "nostack_per_clade_hat": {
+    "0": {
+      "n": 163,
+      "recall": 0.0
+    },
+    "3": {
+      "n": 7,
+      "recall": 0.0
+    },
+    "4": {
+      "n": 10,
+      "recall": 0.0
+    },
+    "6": {
+      "n": 9,
+      "recall": 0.0
+    },
+    "7": {
+      "n": 3,
+      "recall": 0.0
+    }
+  }
+}

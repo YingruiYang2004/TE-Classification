@@ -1,0 +1,37 @@
+Loading helpers from /Users/alexyang/Documents/Part III System Biology/TE Classification/data_analysis/vgp_model_split_fix/v4.2/cluster session/vgp_hybrid_v4.2.ipynb
+PyTorch version: 2.9.0
+CUDA available: False
+MPS available: True
+Using device: mps
+  helpers loaded.
+Device: mps
+FIXED_LENGTH=20000
+
+=== Parsing mini-benchmark FASTAs ===
+  bTaeGut  n= 414  by class: {'DNA': 75, 'LTR': 291, 'LINE': 48}
+  mOrnAna  n= 208  by class: {'DNA': 107, 'LTR': 38, 'LINE': 63}
+  rAllMis  n=1032  by class: {'DNA': 423, 'LTR': 456, 'LINE': 153}
+
+======================================================================
+=== Checkpoint: v4.2_epoch28
+=== /Users/alexyang/Documents/Part III System Biology/TE Classification/data_analysis/vgp_model_split_fix/v4.2/cluster session/hybrid_v4.2_epoch28.pt
+======================================================================
+  epoch=28 score=0.9931 n_sf=23
+
+  -- bTaeGut: n=414, sf-known=172 --
+     featurized in 3.5s
+     inferred  in 4.8s
+/Users/alexyang/Documents/Part III System Biology/TE Classification/.venv/lib/python3.11/site-packages/sklearn/metrics/_classification.py:2801: UserWarning: y_pred contains classes not in y_true
+  warnings.warn("y_pred contains classes not in y_true")
+     class macroF1=0.6183  DNA F1/rec=0.602/0.827 LTR F1=0.711  LINE F1=0.542
+     sf    macroF1=0.1279  bal_acc=0.3411  (n_sf_eval=172)
+
+  -- mOrnAna: n=208, sf-known=125 --
+     featurized in 1.8s
+     inferred  in 2.5s
+/Users/alexyang/Documents/Part III System Biology/TE Classification/.venv/lib/python3.11/site-packages/sklearn/metrics/_classification.py:2801: UserWarning: y_pred contains classes not in y_true
+  warnings.warn("y_pred contains classes not in y_true")
+     class macroF1=0.6767  DNA F1/rec=0.760/0.710 LTR F1=0.526  LINE F1=0.744
+     sf    macroF1=0.1694  bal_acc=0.3118  (n_sf_eval=125)
+
+  -- rAllMis: n=1032, sf-known=600 --

@@ -1,0 +1,1073 @@
+{
+  "checkpoints": {
+    "v4.2_epoch28": {
+      "path": "/Users/alexyang/Documents/Part III System Biology/TE Classification/data_analysis/vgp_model_split_fix/v4.2/cluster session/hybrid_v4.2_epoch28.pt",
+      "epoch": 28,
+      "internal_score": 0.9930684960479346,
+      "per_genome": {
+        "bTaeGut": {
+          "n_total": 414,
+          "n_sf_evaluable": 172,
+          "class_acc": 0.6521739130434783,
+          "class_balanced_acc": 0.7399742268041237,
+          "class_macroF1": 0.6164319569774861,
+          "class_weightedF1": 0.6693932224481143,
+          "class_per": {
+            "DNA": {
+              "f1": 0.5990338164251208,
+              "prec": 0.4696969696969697,
+              "rec": 0.8266666666666667,
+              "support": 75
+            },
+            "LTR": {
+              "f1": 0.7085953878406709,
+              "prec": 0.9086021505376344,
+              "rec": 0.5807560137457045,
+              "support": 291
+            },
+            "LINE": {
+              "f1": 0.5416666666666666,
+              "prec": 0.40625,
+              "rec": 0.8125,
+              "support": 48
+            }
+          },
+          "sf_acc": 0.36046511627906974,
+          "sf_balanced_acc": 0.3411375661375662,
+          "sf_macroF1": 0.12789021654768912,
+          "sf_weightedF1": 0.42326334116599795,
+          "sf_per": {
+            "DNA": {
+              "f1": 0.3137254901960784,
+              "support": 24
+            },
+            "DNA/PIF-Harbinger": {
+              "f1": 0.0,
+              "support": 18
+            },
+            "DNA/hAT": {
+              "f1": 0.21052631578947367,
+              "support": 6
+            },
+            "LINE/CR1": {
+              "f1": 0.7941176470588235,
+              "support": 40
+            },
+            "LINE/L1": {
+              "f1": 0.0,
+              "support": 1
+            },
+            "LINE/L2": {
+              "f1": 0.5,
+              "support": 6
+            },
+            "LTR": {
+              "f1": 0.0,
+              "support": 1
+            },
+            "LTR/DIRS": {
+              "f1": 0.631578947368421,
+              "support": 6
+            },
+            "LTR/ERV1": {
+              "f1": 0.36363636363636365,
+              "support": 70
+            }
+          }
+        },
+        "mOrnAna": {
+          "n_total": 208,
+          "n_sf_evaluable": 125,
+          "class_acc": 0.7067307692307693,
+          "class_balanced_acc": 0.6972688731173728,
+          "class_macroF1": 0.6806285669128128,
+          "class_weightedF1": 0.7165979307315662,
+          "class_per": {
+            "DNA": {
+              "f1": 0.7661691542288557,
+              "prec": 0.8191489361702128,
+              "rec": 0.719626168224299,
+              "support": 107
+            },
+            "LTR": {
+              "f1": 0.5319148936170213,
+              "prec": 0.44642857142857145,
+              "rec": 0.6578947368421053,
+              "support": 38
+            },
+            "LINE": {
+              "f1": 0.743801652892562,
+              "prec": 0.7758620689655172,
+              "rec": 0.7142857142857143,
+              "support": 63
+            }
+          },
+          "sf_acc": 0.44,
+          "sf_balanced_acc": 0.31183862433862436,
+          "sf_macroF1": 0.1694267858120234,
+          "sf_weightedF1": 0.4858576166895681,
+          "sf_per": {
+            "DNA": {
+              "f1": 0.4074074074074074,
+              "support": 33
+            },
+            "DNA/PIF-Harbinger": {
+              "f1": 0.0,
+              "support": 6
+            },
+            "DNA/TcMar-Tc1": {
+              "f1": 0.0,
+              "support": 1
+            },
+            "DNA/hAT": {
+              "f1": 0.17391304347826086,
+              "support": 9
+            },
+            "LINE/CR1": {
+              "f1": 0.6046511627906976,
+              "support": 28
+            },
+            "LINE/L1": {
+              "f1": 0.0,
+              "support": 1
+            },
+            "LINE/L1-Tx1": {
+              "f1": 0.0,
+              "support": 1
+            },
+            "LINE/L2": {
+              "f1": 0.8076923076923077,
+              "support": 27
+            },
+            "LTR": {
+              "f1": 0.4,
+              "support": 2
+            },
+            "LTR/DIRS": {
+              "f1": 0.46153846153846156,
+              "support": 3
+            },
+            "LTR/ERV1": {
+              "f1": 0.5333333333333333,
+              "support": 9
+            },
+            "LTR/Gypsy": {
+              "f1": 0.0,
+              "support": 5
+            }
+          }
+        },
+        "rAllMis": {
+          "n_total": 1032,
+          "n_sf_evaluable": 600,
+          "class_acc": 0.7093023255813954,
+          "class_balanced_acc": 0.6784973663473103,
+          "class_macroF1": 0.6870084078456227,
+          "class_weightedF1": 0.7047135578789889,
+          "class_per": {
+            "DNA": {
+              "f1": 0.7652733118971061,
+              "prec": 0.7,
+              "rec": 0.8439716312056738,
+              "support": 423
+            },
+            "LTR": {
+              "f1": 0.677570093457944,
+              "prec": 0.725,
+              "rec": 0.6359649122807017,
+              "support": 456
+            },
+            "LINE": {
+              "f1": 0.6181818181818182,
+              "prec": 0.6967213114754098,
+              "rec": 0.5555555555555556,
+              "support": 153
+            }
+          },
+          "sf_acc": 0.24333333333333335,
+          "sf_balanced_acc": 0.313252953233477,
+          "sf_macroF1": 0.13533799705545943,
+          "sf_weightedF1": 0.28953229909610184,
+          "sf_per": {
+            "DNA": {
+              "f1": 0.11920529801324503,
+              "support": 27
+            },
+            "DNA/Academ-1": {
+              "f1": 0.0,
+              "support": 1
+            },
+            "DNA/Maverick": {
+              "f1": 0.0,
+              "support": 2
+            },
+            "DNA/PIF-Harbinger": {
+              "f1": 0.11688311688311688,
+              "support": 103
+            },
+            "DNA/PiggyBac": {
+              "f1": 0.4,
+              "support": 1
+            },
+            "DNA/TcMar-Tc1": {
+              "f1": 0.0,
+              "support": 3
+            },
+            "DNA/hAT": {
+              "f1": 0.058823529411764705,
+              "support": 15
+            },
+            "LINE/CR1": {
+              "f1": 0.76,
+              "support": 60
+            },
+            "LINE/L1": {
+              "f1": 0.16666666666666666,
+              "support": 3
+            },
+            "LINE/L1-Tx1": {
+              "f1": 0.20689655172413793,
+              "support": 22
+            },
+            "LINE/L2": {
+              "f1": 0.38095238095238093,
+              "support": 8
+            },
+            "LINE/RTE-X": {
+              "f1": 0.0,
+              "support": 2
+            },
+            "LTR": {
+              "f1": 0.14,
+              "support": 24
+            },
+            "LTR/DIRS": {
+              "f1": 0.2222222222222222,
+              "support": 7
+            },
+            "LTR/ERV1": {
+              "f1": 0.2127659574468085,
+              "support": 62
+            },
+            "LTR/Gypsy": {
+              "f1": 0.3283582089552239,
+              "support": 260
+            }
+          }
+        }
+      },
+      "overall": {
+        "n_total": 1654,
+        "n_sf_evaluable": 897,
+        "class_acc": 0.6946795646916566,
+        "class_balanced_acc": 0.692182245149819,
+        "class_macroF1": 0.6813395215306892,
+        "class_weightedF1": 0.6924382124433245,
+        "class_per": {
+          "DNA": {
+            "f1": 0.7397464578672632,
+            "prec": 0.6739130434782609,
+            "rec": 0.8198347107438017,
+            "support": 605
+          },
+          "LTR": {
+            "f1": 0.6783461807988788,
+            "prec": 0.7538940809968847,
+            "rec": 0.6165605095541401,
+            "support": 785
+          },
+          "LINE": {
+            "f1": 0.6259259259259259,
+            "prec": 0.6123188405797102,
+            "rec": 0.6401515151515151,
+            "support": 264
+          }
+        },
+        "sf_acc": 0.2931995540691193,
+        "sf_balanced_acc": 0.31756534440606443,
+        "sf_macroF1": 0.14804911890626643,
+        "sf_weightedF1": 0.33030621234439345,
+        "sf_per": {
+          "DNA": {
+            "f1": 0.21875,
+            "support": 84
+          },
+          "DNA/Academ-1": {
+            "f1": 0.0,
+            "support": 1
+          },
+          "DNA/Maverick": {
+            "f1": 0.0,
+            "support": 2
+          },
+          "DNA/PIF-Harbinger": {
+            "f1": 0.0967741935483871,
+            "support": 127
+          },
+          "DNA/PiggyBac": {
+            "f1": 0.18181818181818182,
+            "support": 1
+          },
+          "DNA/TcMar-Tc1": {
+            "f1": 0.0,
+            "support": 4
+          },
+          "DNA/hAT": {
+            "f1": 0.10909090909090909,
+            "support": 30
+          },
+          "LINE/CR1": {
+            "f1": 0.7393364928909952,
+            "support": 128
+          },
+          "LINE/L1": {
+            "f1": 0.1111111111111111,
+            "support": 5
+          },
+          "LINE/L1-Tx1": {
+            "f1": 0.1875,
+            "support": 23
+          },
+          "LINE/L2": {
+            "f1": 0.6588235294117647,
+            "support": 41
+          },
+          "LINE/RTE-X": {
+            "f1": 0.0,
+            "support": 2
+          },
+          "LTR": {
+            "f1": 0.13333333333333333,
+            "support": 27
+          },
+          "LTR/DIRS": {
+            "f1": 0.3488372093023256,
+            "support": 16
+          },
+          "LTR/ERV1": {
+            "f1": 0.30456852791878175,
+            "support": 141
+          },
+          "LTR/Gypsy": {
+            "f1": 0.3151862464183381,
+            "support": 265
+          }
+        }
+      }
+    },
+    "v4.3_rotating_epoch40": {
+      "path": "/Users/alexyang/Documents/Part III System Biology/TE Classification/data_analysis/vgp_model_split_fix/v4.3/cluster session/hybrid_v4.3_epoch40.pt",
+      "epoch": 40,
+      "internal_score": 0.998821052471774,
+      "per_genome": {
+        "bTaeGut": {
+          "n_total": 414,
+          "n_sf_evaluable": 172,
+          "class_acc": 0.6666666666666666,
+          "class_balanced_acc": 0.7384450171821305,
+          "class_macroF1": 0.6385641189638632,
+          "class_weightedF1": 0.6888999735821248,
+          "class_per": {
+            "DNA": {
+              "f1": 0.56,
+              "prec": 0.4,
+              "rec": 0.9333333333333333,
+              "support": 75
+            },
+            "LTR": {
+              "f1": 0.7330508474576272,
+              "prec": 0.9558011049723757,
+              "rec": 0.5945017182130584,
+              "support": 291
+            },
+            "LINE": {
+              "f1": 0.6226415094339622,
+              "prec": 0.5689655172413793,
+              "rec": 0.6875,
+              "support": 48
+            }
+          },
+          "sf_acc": 0.37790697674418605,
+          "sf_balanced_acc": 0.5021164021164021,
+          "sf_macroF1": 0.1678379315516098,
+          "sf_weightedF1": 0.42496010976389403,
+          "sf_per": {
+            "DNA": {
+              "f1": 0.48148148148148145,
+              "support": 24
+            },
+            "DNA/PIF-Harbinger": {
+              "f1": 0.0,
+              "support": 18
+            },
+            "DNA/hAT": {
+              "f1": 0.17647058823529413,
+              "support": 6
+            },
+            "LINE/CR1": {
+              "f1": 0.7692307692307693,
+              "support": 40
+            },
+            "LINE/L1": {
+              "f1": 0.0,
+              "support": 1
+            },
+            "LINE/L2": {
+              "f1": 0.6666666666666666,
+              "support": 6
+            },
+            "LTR": {
+              "f1": 0.18181818181818182,
+              "support": 1
+            },
+            "LTR/DIRS": {
+              "f1": 0.6,
+              "support": 6
+            },
+            "LTR/ERV1": {
+              "f1": 0.3132530120481928,
+              "support": 70
+            }
+          }
+        },
+        "mOrnAna": {
+          "n_total": 208,
+          "n_sf_evaluable": 125,
+          "class_acc": 0.8413461538461539,
+          "class_balanced_acc": 0.8110384996759813,
+          "class_macroF1": 0.8209716209716209,
+          "class_weightedF1": 0.8341131091131092,
+          "class_per": {
+            "DNA": {
+              "f1": 0.8888888888888888,
+              "prec": 0.8188976377952756,
+              "rec": 0.9719626168224299,
+              "support": 107
+            },
+            "LTR": {
+              "f1": 0.8311688311688312,
+              "prec": 0.8205128205128205,
+              "rec": 0.8421052631578947,
+              "support": 38
+            },
+            "LINE": {
+              "f1": 0.7428571428571429,
+              "prec": 0.9285714285714286,
+              "rec": 0.6190476190476191,
+              "support": 63
+            }
+          },
+          "sf_acc": 0.504,
+          "sf_balanced_acc": 0.3914943081609748,
+          "sf_macroF1": 0.2741685765215177,
+          "sf_weightedF1": 0.5326767507002802,
+          "sf_per": {
+            "DNA": {
+              "f1": 0.45454545454545453,
+              "support": 33
+            },
+            "DNA/PIF-Harbinger": {
+              "f1": 0.0,
+              "support": 6
+            },
+            "DNA/TcMar-Tc1": {
+              "f1": 0.0,
+              "support": 1
+            },
+            "DNA/hAT": {
+              "f1": 0.35714285714285715,
+              "support": 9
+            },
+            "LINE/CR1": {
+              "f1": 0.6,
+              "support": 28
+            },
+            "LINE/L1": {
+              "f1": 0.0,
+              "support": 1
+            },
+            "LINE/L1-Tx1": {
+              "f1": 0.0,
+              "support": 1
+            },
+            "LINE/L2": {
+              "f1": 0.8627450980392157,
+              "support": 27
+            },
+            "LTR": {
+              "f1": 0.6666666666666666,
+              "support": 2
+            },
+            "LTR/DIRS": {
+              "f1": 0.6,
+              "support": 3
+            },
+            "LTR/ERV1": {
+              "f1": 0.5714285714285714,
+              "support": 9
+            },
+            "LTR/Gypsy": {
+              "f1": 0.0,
+              "support": 5
+            }
+          }
+        },
+        "rAllMis": {
+          "n_total": 1032,
+          "n_sf_evaluable": 600,
+          "class_acc": 0.8381782945736435,
+          "class_balanced_acc": 0.7695999141226729,
+          "class_macroF1": 0.7872933418921599,
+          "class_weightedF1": 0.8313768025856869,
+          "class_per": {
+            "DNA": {
+              "f1": 0.8806133625410734,
+              "prec": 0.8204081632653061,
+              "rec": 0.950354609929078,
+              "support": 423
+            },
+            "LTR": {
+              "f1": 0.8542825361512792,
+              "prec": 0.8668171557562077,
+              "rec": 0.8421052631578947,
+              "support": 456
+            },
+            "LINE": {
+              "f1": 0.626984126984127,
+              "prec": 0.797979797979798,
+              "rec": 0.5163398692810458,
+              "support": 153
+            }
+          },
+          "sf_acc": 0.31833333333333336,
+          "sf_balanced_acc": 0.40004969475490926,
+          "sf_macroF1": 0.21569145535301135,
+          "sf_weightedF1": 0.3711295147728842,
+          "sf_per": {
+            "DNA": {
+              "f1": 0.2631578947368421,
+              "support": 27
+            },
+            "DNA/Academ-1": {
+              "f1": 0.0,
+              "support": 1
+            },
+            "DNA/Maverick": {
+              "f1": 0.5,
+              "support": 2
+            },
+            "DNA/PIF-Harbinger": {
+              "f1": 0.1875,
+              "support": 103
+            },
+            "DNA/PiggyBac": {
+              "f1": 1.0,
+              "support": 1
+            },
+            "DNA/TcMar-Tc1": {
+              "f1": 0.0,
+              "support": 3
+            },
+            "DNA/hAT": {
+              "f1": 0.175,
+              "support": 15
+            },
+            "LINE/CR1": {
+              "f1": 0.7551020408163265,
+              "support": 60
+            },
+            "LINE/L1": {
+              "f1": 0.23529411764705882,
+              "support": 3
+            },
+            "LINE/L1-Tx1": {
+              "f1": 0.08,
+              "support": 22
+            },
+            "LINE/L2": {
+              "f1": 0.625,
+              "support": 8
+            },
+            "LINE/RTE-X": {
+              "f1": 0.0,
+              "support": 2
+            },
+            "LTR": {
+              "f1": 0.13836477987421383,
+              "support": 24
+            },
+            "LTR/DIRS": {
+              "f1": 0.3,
+              "support": 7
+            },
+            "LTR/ERV1": {
+              "f1": 0.24719101123595505,
+              "support": 62
+            },
+            "LTR/Gypsy": {
+              "f1": 0.45429362880886426,
+              "support": 260
+            }
+          }
+        }
+      },
+      "overall": {
+        "n_total": 1654,
+        "n_sf_evaluable": 897,
+        "class_acc": 0.7956469165659008,
+        "class_balanced_acc": 0.7581180946699186,
+        "class_macroF1": 0.7634759749598863,
+        "class_weightedF1": 0.7918512893027099,
+        "class_per": {
+          "DNA": {
+            "f1": 0.8246241947029349,
+            "prec": 0.7272727272727273,
+            "rec": 0.9520661157024793,
+            "support": 605
+          },
+          "LTR": {
+            "f1": 0.81353591160221,
+            "prec": 0.8883861236802413,
+            "rec": 0.7503184713375797,
+            "support": 785
+          },
+          "LINE": {
+            "f1": 0.652267818574514,
+            "prec": 0.7587939698492462,
+            "rec": 0.571969696969697,
+            "support": 264
+          }
+        },
+        "sf_acc": 0.3556298773690078,
+        "sf_balanced_acc": 0.396757988362042,
+        "sf_macroF1": 0.23063419511995512,
+        "sf_weightedF1": 0.396633756160747,
+        "sf_per": {
+          "DNA": {
+            "f1": 0.36752136752136755,
+            "support": 84
+          },
+          "DNA/Academ-1": {
+            "f1": 0.0,
+            "support": 1
+          },
+          "DNA/Maverick": {
+            "f1": 0.5,
+            "support": 2
+          },
+          "DNA/PIF-Harbinger": {
+            "f1": 0.15789473684210525,
+            "support": 127
+          },
+          "DNA/PiggyBac": {
+            "f1": 1.0,
+            "support": 1
+          },
+          "DNA/TcMar-Tc1": {
+            "f1": 0.0,
+            "support": 4
+          },
+          "DNA/hAT": {
+            "f1": 0.2112676056338028,
+            "support": 30
+          },
+          "LINE/CR1": {
+            "f1": 0.729064039408867,
+            "support": 128
+          },
+          "LINE/L1": {
+            "f1": 0.16,
+            "support": 5
+          },
+          "LINE/L1-Tx1": {
+            "f1": 0.07142857142857142,
+            "support": 23
+          },
+          "LINE/L2": {
+            "f1": 0.7848101265822784,
+            "support": 41
+          },
+          "LINE/RTE-X": {
+            "f1": 0.0,
+            "support": 2
+          },
+          "LTR": {
+            "f1": 0.1590909090909091,
+            "support": 27
+          },
+          "LTR/DIRS": {
+            "f1": 0.42857142857142855,
+            "support": 16
+          },
+          "LTR/ERV1": {
+            "f1": 0.3010752688172043,
+            "support": 141
+          },
+          "LTR/Gypsy": {
+            "f1": 0.43386243386243384,
+            "support": 265
+          }
+        }
+      }
+    },
+    "v4.3_singlefold_epoch28": {
+      "path": "/Users/alexyang/Documents/Part III System Biology/TE Classification/data_analysis/vgp_model_split_fix/v4.3/cluster session single fold/hybrid_v4.3_singlefold_epoch28.pt",
+      "epoch": 28,
+      "internal_score": 0.8346909008693639,
+      "per_genome": {
+        "bTaeGut": {
+          "n_total": 414,
+          "n_sf_evaluable": 172,
+          "class_acc": 0.4057971014492754,
+          "class_balanced_acc": 0.6131357388316151,
+          "class_macroF1": 0.4284255916250177,
+          "class_weightedF1": 0.39134102127677084,
+          "class_per": {
+            "DNA": {
+              "f1": 0.4024390243902439,
+              "prec": 0.2608695652173913,
+              "rec": 0.88,
+              "support": 75
+            },
+            "LTR": {
+              "f1": 0.36813186813186816,
+              "prec": 0.9178082191780822,
+              "rec": 0.23024054982817868,
+              "support": 291
+            },
+            "LINE": {
+              "f1": 0.5147058823529411,
+              "prec": 0.3977272727272727,
+              "rec": 0.7291666666666666,
+              "support": 48
+            }
+          },
+          "sf_acc": 0.4186046511627907,
+          "sf_balanced_acc": 0.42063492063492064,
+          "sf_macroF1": 0.24417940017419698,
+          "sf_weightedF1": 0.4362579979651175,
+          "sf_per": {
+            "DNA": {
+              "f1": 0.4146341463414634,
+              "support": 24
+            },
+            "DNA/PIF-Harbinger": {
+              "f1": 0.0,
+              "support": 18
+            },
+            "DNA/hAT": {
+              "f1": 0.18181818181818182,
+              "support": 6
+            },
+            "LINE/CR1": {
+              "f1": 0.7945205479452054,
+              "support": 40
+            },
+            "LINE/L1": {
+              "f1": 0.0,
+              "support": 1
+            },
+            "LINE/L2": {
+              "f1": 0.7142857142857143,
+              "support": 6
+            },
+            "LTR": {
+              "f1": 0.0,
+              "support": 1
+            },
+            "LTR/DIRS": {
+              "f1": 1.0,
+              "support": 6
+            },
+            "LTR/ERV1": {
+              "f1": 0.3132530120481928,
+              "support": 70
+            }
+          }
+        },
+        "mOrnAna": {
+          "n_total": 208,
+          "n_sf_evaluable": 125,
+          "class_acc": 0.7596153846153846,
+          "class_balanced_acc": 0.6740995791659835,
+          "class_macroF1": 0.7032464197333227,
+          "class_weightedF1": 0.7451514202284618,
+          "class_per": {
+            "DNA": {
+              "f1": 0.8264462809917356,
+              "prec": 0.7407407407407407,
+              "rec": 0.9345794392523364,
+              "support": 107
+            },
+            "LTR": {
+              "f1": 0.5714285714285714,
+              "prec": 0.8888888888888888,
+              "rec": 0.42105263157894735,
+              "support": 38
+            },
+            "LINE": {
+              "f1": 0.711864406779661,
+              "prec": 0.7636363636363637,
+              "rec": 0.6666666666666666,
+              "support": 63
+            }
+          },
+          "sf_acc": 0.56,
+          "sf_balanced_acc": 0.31260020843354175,
+          "sf_macroF1": 0.2352900649046694,
+          "sf_weightedF1": 0.5725332598436047,
+          "sf_per": {
+            "DNA": {
+              "f1": 0.5287356321839081,
+              "support": 33
+            },
+            "DNA/PIF-Harbinger": {
+              "f1": 0.0,
+              "support": 6
+            },
+            "DNA/TcMar-Tc1": {
+              "f1": 0.0,
+              "support": 1
+            },
+            "DNA/hAT": {
+              "f1": 0.3333333333333333,
+              "support": 9
+            },
+            "LINE/CR1": {
+              "f1": 0.6818181818181818,
+              "support": 28
+            },
+            "LINE/L1": {
+              "f1": 0.0,
+              "support": 1
+            },
+            "LINE/L1-Tx1": {
+              "f1": 0.0,
+              "support": 1
+            },
+            "LINE/L2": {
+              "f1": 0.8846153846153846,
+              "support": 27
+            },
+            "LTR": {
+              "f1": 0.0,
+              "support": 2
+            },
+            "LTR/DIRS": {
+              "f1": 1.0,
+              "support": 3
+            },
+            "LTR/ERV1": {
+              "f1": 0.5714285714285714,
+              "support": 9
+            },
+            "LTR/Gypsy": {
+              "f1": 0.0,
+              "support": 5
+            }
+          }
+        },
+        "rAllMis": {
+          "n_total": 1032,
+          "n_sf_evaluable": 600,
+          "class_acc": 0.6724806201550387,
+          "class_balanced_acc": 0.6634764581457816,
+          "class_macroF1": 0.6538940363613207,
+          "class_weightedF1": 0.6534364654302367,
+          "class_per": {
+            "DNA": {
+              "f1": 0.7442289935364728,
+              "prec": 0.6106060606060606,
+              "rec": 0.9527186761229315,
+              "support": 423
+            },
+            "LTR": {
+              "f1": 0.5718390804597702,
+              "prec": 0.8291666666666667,
+              "rec": 0.43640350877192985,
+              "support": 456
+            },
+            "LINE": {
+              "f1": 0.6456140350877193,
+              "prec": 0.696969696969697,
+              "rec": 0.6013071895424836,
+              "support": 153
+            }
+          },
+          "sf_acc": 0.2916666666666667,
+          "sf_balanced_acc": 0.37773487656875143,
+          "sf_macroF1": 0.23776384599854605,
+          "sf_weightedF1": 0.339784757814448,
+          "sf_per": {
+            "DNA": {
+              "f1": 0.16740088105726872,
+              "support": 27
+            },
+            "DNA/Academ-1": {
+              "f1": 0.0,
+              "support": 1
+            },
+            "DNA/Maverick": {
+              "f1": 0.6666666666666666,
+              "support": 2
+            },
+            "DNA/PIF-Harbinger": {
+              "f1": 0.2184873949579832,
+              "support": 103
+            },
+            "DNA/PiggyBac": {
+              "f1": 0.0,
+              "support": 1
+            },
+            "DNA/TcMar-Tc1": {
+              "f1": 0.0625,
+              "support": 3
+            },
+            "DNA/hAT": {
+              "f1": 0.13953488372093023,
+              "support": 15
+            },
+            "LINE/CR1": {
+              "f1": 0.8205128205128205,
+              "support": 60
+            },
+            "LINE/L1": {
+              "f1": 0.2857142857142857,
+              "support": 3
+            },
+            "LINE/L1-Tx1": {
+              "f1": 0.37037037037037035,
+              "support": 22
+            },
+            "LINE/L2": {
+              "f1": 0.6666666666666666,
+              "support": 8
+            },
+            "LINE/RTE-X": {
+              "f1": 0.0,
+              "support": 2
+            },
+            "LTR": {
+              "f1": 0.04040404040404041,
+              "support": 24
+            },
+            "LTR/DIRS": {
+              "f1": 0.6,
+              "support": 7
+            },
+            "LTR/ERV1": {
+              "f1": 0.41379310344827586,
+              "support": 62
+            },
+            "LTR/Gypsy": {
+              "f1": 0.3032258064516129,
+              "support": 260
+            }
+          }
+        }
+      },
+      "overall": {
+        "n_total": 1654,
+        "n_sf_evaluable": 897,
+        "class_acc": 0.6166868198307134,
+        "class_balanced_acc": 0.6466276839033064,
+        "class_macroF1": 0.6069695978868243,
+        "class_weightedF1": 0.5917659174160775,
+        "class_per": {
+          "DNA": {
+            "f1": 0.6884452510586812,
+            "prec": 0.5429389312977099,
+            "rec": 0.9404958677685951,
+            "support": 605
+          },
+          "LTR": {
+            "f1": 0.5053763440860215,
+            "prec": 0.851963746223565,
+            "rec": 0.3592356687898089,
+            "support": 785
+          },
+          "LINE": {
+            "f1": 0.62708719851577,
+            "prec": 0.6145454545454545,
+            "rec": 0.6401515151515151,
+            "support": 264
+          }
+        },
+        "sf_acc": 0.3534002229654404,
+        "sf_balanced_acc": 0.34468974039791306,
+        "sf_macroF1": 0.2501593697680494,
+        "sf_weightedF1": 0.3829671368364134,
+        "sf_per": {
+          "DNA": {
+            "f1": 0.29797979797979796,
+            "support": 84
+          },
+          "DNA/Academ-1": {
+            "f1": 0.0,
+            "support": 1
+          },
+          "DNA/Maverick": {
+            "f1": 0.6666666666666666,
+            "support": 2
+          },
+          "DNA/PIF-Harbinger": {
+            "f1": 0.18181818181818182,
+            "support": 127
+          },
+          "DNA/PiggyBac": {
+            "f1": 0.0,
+            "support": 1
+          },
+          "DNA/TcMar-Tc1": {
+            "f1": 0.0392156862745098,
+            "support": 4
+          },
+          "DNA/hAT": {
+            "f1": 0.16666666666666666,
+            "support": 30
+          },
+          "LINE/CR1": {
+            "f1": 0.7863247863247863,
+            "support": 128
+          },
+          "LINE/L1": {
+            "f1": 0.2,
+            "support": 5
+          },
+          "LINE/L1-Tx1": {
+            "f1": 0.35714285714285715,
+            "support": 23
+          },
+          "LINE/L2": {
+            "f1": 0.8045977011494253,
+            "support": 41
+          },
+          "LINE/RTE-X": {
+            "f1": 0.0,
+            "support": 2
+          },
+          "LTR": {
+            "f1": 0.035398230088495575,
+            "support": 27
+          },
+          "LTR/DIRS": {
+            "f1": 0.7894736842105263,
+            "support": 16
+          },
+          "LTR/ERV1": {
+            "f1": 0.3804347826086957,
+            "support": 141
+          },
+          "LTR/Gypsy": {
+            "f1": 0.2974683544303797,
+            "support": 265
+          }
+        }
+      }
+    }
+  },
+  "_meta": {
+    "device": "mps",
+    "fixed_length": 20000
+  }
+}

@@ -1,0 +1,72 @@
+[params] EPOCHS=6 SUBSET_SIZE=5000 DANN_LAMBDA=0.5 DANN_WARMUP=1 GDRO_ETA=0.05 TAG='_6ep'
+Device: mps
+PyTorch: 2.9.0  CUDA: False  MPS: True
+PyTorch version: 2.9.0
+CUDA available: False
+MPS available: True
+Using device: mps
+[skip] kernel state missing (name 'model' is not defined); load a checkpoint first.
+=== Loading data ===
+Loaded 135751 sequences (binary DNA vs non-DNA)
+
+Top-level class distribution:
+  None          84512   (non-DNA -> 0)
+  LTR           25568   (non-DNA -> 0)
+  LINE          14084   (non-DNA -> 0)
+  DNA           10779   (DNA -> 1)
+  SINE            566   (non-DNA -> 0)
+  PLE             151   (non-DNA -> 0)
+  RC               91   (non-DNA -> 0)
+
+Binary totals: DNA=10779, non-DNA=124972
+After cap: 36637 (DNA=10382, non-DNA=26255)
+Subset: 5000 sequences
+Species in subset: 448 | clades: ['a', 'b', 'e', 'f', 'k', 'm', 'r', 's']
+=== K-mer featurization ===
+  [500/5000] 2.2s
+  [1000/5000] 3.7s
+  [1500/5000] 5.2s
+  [2000/5000] 6.6s
+  [2500/5000] 8.0s
+  [3000/5000] 9.4s
+  [3500/5000] 10.9s
+  [4000/5000] 12.2s
+  [4500/5000] 13.4s
+  [5000/5000] 14.7s
+Splits: train=2939 (268sp) | val=939 (90sp) | test=1122 (90sp)
+
+>>> arm track=T1 stack=OFF device=mps
+  params: 1,889,292
+=== Training (track=T1, stack=False, epochs=6) ===
+  ep 1/6 | loss 3.3005 | val cls F1 0.6864 | val SF F1 0.0173 | gate (0.00,1.00) | 127s
+      hAT P=0.000 R=0.000 F1=0.000 n=181
+  ep 2/6 | loss 2.9411 | val cls F1 0.8573 | val SF F1 0.0167 | gate (0.01,0.99) | 124s
+      hAT P=0.000 R=0.000 F1=0.000 n=181
+  ep 3/6 | loss 2.7112 | val cls F1 0.8654 | val SF F1 0.0365 | gate (0.72,0.28) | 123s
+      hAT P=0.000 R=0.000 F1=0.000 n=181
+  ep 4/6 | loss 2.5850 | val cls F1 0.8567 | val SF F1 0.1550 | gate (0.90,0.10) | 122s
+      hAT P=0.000 R=0.000 F1=0.000 n=181
+  ep 5/6 | loss 2.4265 | val cls F1 0.8424 | val SF F1 0.1768 | gate (0.86,0.14) | 122s
+      hAT P=0.000 R=0.000 F1=0.000 n=181
+  ep 6/6 | loss 2.2177 | val cls F1 0.8704 | val SF F1 0.1503 | gate (0.77,0.23) | 122s
+      hAT P=0.714 R=0.028 F1=0.053 n=181
+
+=== Held-out test (species-disjoint) ===
+  cls macro F1: 0.8218
+  SF macro F1 : 0.2083
+  gate mean   : (cnn=0.791, gnn=0.209)
+  DNA                    P=0.191 R=0.214 F1=0.202 n=42
+  DNA/Academ-1           P=0.321 R=0.641 F1=0.427 n=39
+  DNA/CMC                P=0.000 R=0.000 F1=0.000 n=7
+  DNA/Maverick           P=0.012 R=0.143 F1=0.022 n=14
+  DNA/PIF-Harbinger      P=0.194 R=0.316 F1=0.240 n=19
+  DNA/PiggyBac           P=0.105 R=0.125 F1=0.114 n=16
+  DNA/TcMar-Tc1          P=0.880 R=0.478 F1=0.620 n=46
+  DNA/hAT                P=0.667 R=0.021 F1=0.040 n=192
+  per-clade hAT recall (test, clade-id):
+    clade=0 n=163 R=0.000
+    clade=3 n=7 R=0.000
+    clade=4 n=10 R=0.000
+    clade=6 n=9 R=0.444
+    clade=7 n=3 R=0.000
+  wrote /Users/alexyang/Documents/Part III System Biology/TE Classification/data_analysis/vgp_model_split_fix/v4/round2/results/T1/smoke_T1_nostack_6ep.json

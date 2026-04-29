@@ -1,0 +1,31 @@
+=== Training (track=T2, stack=False, epochs=6) ===
+  ep 1/6 | loss 3.3565 | val cls F1 0.4023 | val SF F1 0.0016 | gate n/a | 120s
+      hAT P=0.000 R=0.000 F1=0.000 n=181
+  ep 2/6 | loss 3.3534 | val cls F1 0.4748 | val SF F1 0.0463 | gate n/a | 120s
+      hAT P=0.000 R=0.000 F1=0.000 n=181
+  ep 3/6 | loss 3.3014 | val cls F1 0.4107 | val SF F1 0.0317 | gate n/a | 120s
+      hAT P=0.000 R=0.000 F1=0.000 n=181
+  ep 4/6 | loss 3.1875 | val cls F1 0.5392 | val SF F1 0.0017 | gate n/a | 120s
+      hAT P=0.000 R=0.000 F1=0.000 n=181
+  ep 5/6 | loss 3.1852 | val cls F1 0.6215 | val SF F1 0.0716 | gate n/a | 120s
+      hAT P=0.000 R=0.000 F1=0.000 n=181
+  ep 6/6 | loss 3.0713 | val cls F1 0.6984 | val SF F1 0.1270 | gate n/a | 120s
+      hAT P=0.000 R=0.000 F1=0.000 n=181
+
+=== Held-out test (species-disjoint) ===
+  cls macro F1: 0.6670
+  SF macro F1 : 0.1426
+  DNA                    P=0.720 R=0.429 F1=0.537 n=42
+  DNA/Academ-1           P=0.000 R=0.000 F1=0.000 n=39
+  DNA/CMC                P=0.000 R=0.000 F1=0.000 n=7
+  DNA/Maverick           P=0.036 R=0.786 F1=0.069 n=14
+  DNA/PIF-Harbinger      P=0.000 R=0.000 F1=0.000 n=19
+  DNA/PiggyBac           P=0.000 R=0.000 F1=0.000 n=16
+  DNA/TcMar-Tc1          P=0.575 R=0.500 F1=0.535 n=46
+  DNA/hAT                P=0.000 R=0.000 F1=0.000 n=192
+  per-clade hAT recall (test, clade-id):
+    clade=0 n=163 R=0.000
+    clade=3 n=7 R=0.000
+    clade=4 n=10 R=0.000
+    clade=6 n=9 R=0.000
+    clade=7 n=3 R=0.000

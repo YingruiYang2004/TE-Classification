@@ -1,0 +1,243 @@
+Loading definitions from /Users/alexyang/Documents/Part III System Biology/TE Classification/data_analysis/vgp_model_split_fix/v4.2/cluster session/vgp_hybrid_v4.2.ipynb
+PyTorch version: 2.9.0
+CUDA available: False
+MPS available: True
+Using device: mps
+  notebook helpers loaded.
+Device: mps
+Loading checkpoint: /Users/alexyang/Documents/Part III System Biology/TE Classification/data_analysis/vgp_model_split_fix/v4.2/cluster session/hybrid_v4.2_epoch28.pt
+  epoch=28  score=0.9931
+  num_superfamilies=23
+  arch keys=['num_classes', 'class_names', 'cnn_width', 'motif_kernels', 'context_dilations', 'rc_mode', 'gnn_in_dim', 'gnn_hidden', 'gnn_layers', 'fusion_dim', 'num_heads', 'num_superfamilies', 'fixed_length']
+  model loaded.
+
+=== Loading FASTA + labels ===
+Loaded 50431 sequences (filtered to ('DNA', 'LTR', 'LINE'))
+\nSuperfamily distribution by class:
+\n  DNA (10779 total):
+    ✓ DNA/hAT: 4900 (9.7%)
+    ✓ DNA/TcMar-Tc1: 1875 (3.7%)
+    ✓ DNA: 1530 (3.0%)
+    ✓ DNA/PIF-Harbinger: 790 (1.6%)
+    ✓ DNA/PiggyBac: 563 (1.1%)
+    ✓ DNA/Academ-1: 415 (0.8%)
+    ✓ DNA/CMC: 180 (0.4%)
+    ✓ DNA/Maverick: 129 (0.3%)
+    ✓ DNA/Sola-2: 93 (0.2%)
+    ✓ DNA/Kolobok: 86 (0.2%)
+    ✓ DNA/P: 77 (0.2%)
+    ✓ DNA/Sola-1: 43 (0.1%)
+    ✓ DNA/PIF-ISL2EU: 38 (0.1%)
+    ✓ DNA/MULE-MuDR: 23 (0.0%)
+    ✓ DNA/Crypton-V: 19 (0.0%)
+    ✓ DNA/Merlin: 12 (0.0%)
+    ✓ DNA/Ginger-1: 4 (0.0%)
+    ✓ DNA/Dada: 2 (0.0%)
+\n  LTR (25568 total):
+    ✓ LTR/Gypsy: 11913 (23.6%)
+    ✓ LTR/DIRS: 7108 (14.1%)
+    ✓ LTR/ERV1: 1709 (3.4%)
+    ✓ LTR/Pao: 1578 (3.1%)
+    ✓ LTR/ERV2: 1116 (2.2%)
+    ✓ LTR: 953 (1.9%)
+    ✓ LTR/ERV3: 667 (1.3%)
+    ✓ LTR/Copia: 522 (1.0%)
+    ✓ LTR/ERV: 1 (0.0%)
+    ✓ LTR/ERV4: 1 (0.0%)
+\n  LINE (14084 total):
+    ✓ LINE/L1: 7184 (14.2%)
+    ✓ LINE/CR1: 2416 (4.8%)
+    ✓ LINE/L2: 1903 (3.8%)
+    ✓ LINE/RTE: 988 (2.0%)
+    ✓ LINE/Rex-Babar: 867 (1.7%)
+    ✓ LINE/L1-Tx1: 348 (0.7%)
+    ✓ LINE/RTE-X: 178 (0.4%)
+    ✓ LINE/R1-like: 74 (0.1%)
+    ✓ LINE/R2-Hero: 52 (0.1%)
+    ✓ LINE/Dong-R4: 20 (0.0%)
+    ✓ LINE/Proto2: 17 (0.0%)
+    ✓ LINE/I-Jockey: 15 (0.0%)
+    ✓ LINE/R2: 10 (0.0%)
+    ✓ LINE/R2-NeSL: 10 (0.0%)
+    ✓ LINE/I: 2 (0.0%)
+\nDropped classes:
+    ✗ None: 84512
+    ✗ SINE: 566
+    ✗ PLE/Poseidon: 151
+    ✗ RC/Helitron: 91
+\nClass distribution:
+  DNA (id=0): 10779
+  LTR (id=1): 25568
+  LINE (id=2): 14084
+Matched 49832 sequences against the 23 known superfamilies
+  DNA: 10382
+  LTR: 25566
+  LINE: 13884
+
+=== Reproducing splits (test_size=0.2, n_folds=5, random_state=42) ===
+  trainval=38986  test=10846
+  fold0 train=31442  val=7544
+  unique species: trainval=408 test=103 train(f0)=327 val(f0)=81
+
+=== K-mer featurization ===
+  featurizing 49832 sequences (full pool would be 49832)
+    [2491/49832] elapsed 124.9s
+    [4982/49832] elapsed 241.8s
+    [7473/49832] elapsed 367.5s
+    [9964/49832] elapsed 473.0s
+    [12455/49832] elapsed 602.3s
+    [14946/49832] elapsed 750.0s
+    [17437/49832] elapsed 870.2s
+    [19928/49832] elapsed 991.6s
+    [22419/49832] elapsed 1107.6s
+    [24910/49832] elapsed 1206.7s
+    [27401/49832] elapsed 1304.9s
+    [29892/49832] elapsed 1406.3s
+    [32383/49832] elapsed 1503.0s
+    [34874/49832] elapsed 1602.7s
+    [37365/49832] elapsed 1707.8s
+    [39856/49832] elapsed 1842.3s
+    [42347/49832] elapsed 1957.1s
+    [44838/49832] elapsed 2060.0s
+    [47329/49832] elapsed 2155.5s
+    [49820/49832] elapsed 2243.3s
+    [49832/49832] elapsed 2243.5s
+
+=== Eval: train_fold0 (n=31442) ===
+    batch 20/983  elapsed 7.6s
+    batch 40/983  elapsed 14.7s
+    batch 60/983  elapsed 21.6s
+    batch 80/983  elapsed 28.5s
+    batch 100/983  elapsed 35.7s
+    batch 120/983  elapsed 42.9s
+    batch 140/983  elapsed 50.3s
+    batch 160/983  elapsed 57.6s
+    batch 180/983  elapsed 64.8s
+    batch 200/983  elapsed 72.1s
+    batch 220/983  elapsed 79.4s
+    batch 240/983  elapsed 86.8s
+    batch 260/983  elapsed 94.1s
+    batch 280/983  elapsed 101.3s
+    batch 300/983  elapsed 108.4s
+    batch 320/983  elapsed 115.8s
+    batch 340/983  elapsed 123.0s
+    batch 360/983  elapsed 130.4s
+    batch 380/983  elapsed 137.8s
+    batch 400/983  elapsed 145.3s
+    batch 420/983  elapsed 152.8s
+    batch 440/983  elapsed 160.3s
+    batch 460/983  elapsed 167.5s
+    batch 480/983  elapsed 174.8s
+    batch 500/983  elapsed 182.1s
+    batch 520/983  elapsed 189.5s
+    batch 540/983  elapsed 196.9s
+    batch 560/983  elapsed 204.1s
+    batch 580/983  elapsed 211.4s
+    batch 600/983  elapsed 218.9s
+    batch 620/983  elapsed 226.5s
+    batch 640/983  elapsed 234.0s
+    batch 660/983  elapsed 241.6s
+    batch 680/983  elapsed 249.3s
+    batch 700/983  elapsed 256.7s
+    batch 720/983  elapsed 264.3s
+    batch 740/983  elapsed 271.8s
+    batch 760/983  elapsed 279.2s
+    batch 780/983  elapsed 286.8s
+    batch 800/983  elapsed 294.1s
+    batch 820/983  elapsed 301.1s
+    batch 840/983  elapsed 308.5s
+    batch 860/983  elapsed 315.7s
+    batch 880/983  elapsed 323.1s
+    batch 900/983  elapsed 330.4s
+    batch 920/983  elapsed 337.8s
+    batch 940/983  elapsed 345.2s
+    batch 960/983  elapsed 352.4s
+    batch 980/983  elapsed 359.7s
+  class : acc=0.9998  bal_acc=0.9998  macroF1=0.9998  weightedF1=0.9998
+  sf    : acc=0.9909  bal_acc=0.9869  macroF1=0.9850  weightedF1=0.9909
+  combined (0.5*cls_macroF1 + 0.5*sf_macroF1) = 0.9924
+
+  Top-level class report:
+              precision    recall  f1-score   support
+
+         DNA     0.9996    0.9997    0.9996      6673
+         LTR     0.9999    0.9999    0.9999     16441
+        LINE     0.9999    0.9999    0.9999      8328
+
+    accuracy                         0.9998     31442
+   macro avg     0.9998    0.9998    0.9998     31442
+weighted avg     0.9998    0.9998    0.9998     31442
+
+
+=== Eval: val_fold0 (n=7544) ===
+    batch 20/236  elapsed 7.8s
+    batch 40/236  elapsed 15.0s
+    batch 60/236  elapsed 22.5s
+    batch 80/236  elapsed 29.6s
+    batch 100/236  elapsed 37.2s
+    batch 120/236  elapsed 44.5s
+    batch 140/236  elapsed 51.8s
+    batch 160/236  elapsed 59.1s
+    batch 180/236  elapsed 66.2s
+    batch 200/236  elapsed 73.6s
+    batch 220/236  elapsed 80.9s
+  class : acc=1.0000  bal_acc=1.0000  macroF1=1.0000  weightedF1=1.0000
+  sf    : acc=0.9916  bal_acc=0.9873  macroF1=0.9849  weightedF1=0.9917
+  combined (0.5*cls_macroF1 + 0.5*sf_macroF1) = 0.9925
+
+  Top-level class report:
+              precision    recall  f1-score   support
+
+         DNA     1.0000    1.0000    1.0000      1675
+         LTR     1.0000    1.0000    1.0000      3142
+        LINE     1.0000    1.0000    1.0000      2727
+
+    accuracy                         1.0000      7544
+   macro avg     1.0000    1.0000    1.0000      7544
+weighted avg     1.0000    1.0000    1.0000      7544
+
+
+=== Eval: test (n=10846) ===
+    batch 20/339  elapsed 7.5s
+    batch 40/339  elapsed 14.5s
+    batch 60/339  elapsed 21.5s
+    batch 80/339  elapsed 28.8s
+    batch 100/339  elapsed 36.0s
+    batch 120/339  elapsed 43.8s
+    batch 140/339  elapsed 50.8s
+    batch 160/339  elapsed 58.1s
+    batch 180/339  elapsed 65.2s
+    batch 200/339  elapsed 72.5s
+    batch 220/339  elapsed 79.5s
+    batch 240/339  elapsed 86.6s
+    batch 260/339  elapsed 93.8s
+    batch 280/339  elapsed 100.9s
+    batch 300/339  elapsed 108.2s
+    batch 320/339  elapsed 115.3s
+  class : acc=0.9253  bal_acc=0.8880  macroF1=0.8955  weightedF1=0.9231
+  sf    : acc=0.7797  bal_acc=0.6538  macroF1=0.6042  weightedF1=0.7816
+  combined (0.5*cls_macroF1 + 0.5*sf_macroF1) = 0.7498
+
+  Top-level class report:
+              precision    recall  f1-score   support
+
+         DNA     0.9422    0.7134    0.8120      2034
+         LTR     0.9666    0.9723    0.9694      5983
+        LINE     0.8418    0.9784    0.9050      2829
+
+    accuracy                         0.9253     10846
+   macro avg     0.9169    0.8880    0.8955     10846
+weighted avg     0.9295    0.9253    0.9231     10846
+
+
+Saved confusion matrix → /Users/alexyang/Documents/Part III System Biology/TE Classification/data_analysis/vgp_model_split_fix/v4.2/cluster session/eval_epoch28_confusion.png
+
+=== Overfitting summary (sf macro-F1) ===
+  train_fold0 = 0.9850
+  val_fold0   = 0.9849  (checkpoint internal val sf_F1 ≈ 0.9864)
+  test        = 0.6042
+  Δ(train-test) = +0.3808
+  Δ(val-test)   = +0.3807
+
+Wrote metrics JSON → /Users/alexyang/Documents/Part III System Biology/TE Classification/data_analysis/vgp_model_split_fix/v4.2/cluster session/eval_epoch28.json
+DONE.

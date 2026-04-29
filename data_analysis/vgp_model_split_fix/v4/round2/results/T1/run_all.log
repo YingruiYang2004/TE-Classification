@@ -1,0 +1,97 @@
+Device: mps
+PyTorch: 2.9.0  CUDA: False  MPS: True
+PyTorch version: 2.9.0
+CUDA available: False
+MPS available: True
+Using device: mps
+[skip] kernel state missing (name 'model' is not defined); load a checkpoint first.
+=== Loading data ===
+Loaded 135751 sequences (binary DNA vs non-DNA)
+
+Top-level class distribution:
+  None          84512   (non-DNA -> 0)
+  LTR           25568   (non-DNA -> 0)
+  LINE          14084   (non-DNA -> 0)
+  DNA           10779   (DNA -> 1)
+  SINE            566   (non-DNA -> 0)
+  PLE             151   (non-DNA -> 0)
+  RC               91   (non-DNA -> 0)
+
+Binary totals: DNA=10779, non-DNA=124972
+After cap: 36637 (DNA=10382, non-DNA=26255)
+Subset: 5000 sequences
+Species in subset: 448 | clades: ['a', 'b', 'e', 'f', 'k', 'm', 'r', 's']
+=== K-mer featurization ===
+  [500/5000] 2.1s
+  [1000/5000] 3.5s
+  [1500/5000] 5.1s
+  [2000/5000] 6.5s
+  [2500/5000] 7.8s
+  [3000/5000] 9.1s
+  [3500/5000] 10.6s
+  [4000/5000] 11.9s
+  [4500/5000] 13.1s
+  [5000/5000] 14.3s
+Splits: train=2939 (268sp) | val=939 (90sp) | test=1122 (90sp)
+
+>>> arm track=T1 stack=ON device=mps
+  params: 1,889,292
+=== Training (track=T1, stack=True, epochs=3) ===
+  ep 1/3 | loss 11.7538 | val cls F1 0.2464 | val SF F1 0.0016 | gate (0.30,0.70) | 129s
+      hAT P=0.000 R=0.000 F1=0.000 n=181
+  ep 2/3 | loss 10.9145 | val cls F1 0.2464 | val SF F1 0.0016 | gate (0.05,0.95) | 125s
+      hAT P=0.000 R=0.000 F1=0.000 n=181
+  ep 3/3 | loss 9.2917 | val cls F1 0.2464 | val SF F1 0.0355 | gate (0.04,0.96) | 122s
+      hAT P=0.000 R=0.000 F1=0.000 n=181
+
+=== Held-out test (species-disjoint) ===
+  cls macro F1: 0.2505
+  SF macro F1 : 0.0385
+  gate mean   : (cnn=0.050, gnn=0.950)
+  DNA                    P=0.000 R=0.000 F1=0.000 n=42
+  DNA/Academ-1           P=0.500 R=0.103 F1=0.170 n=39
+  DNA/CMC                P=0.028 R=0.571 F1=0.054 n=7
+  DNA/Maverick           P=0.000 R=0.000 F1=0.000 n=14
+  DNA/PIF-Harbinger      P=0.000 R=0.000 F1=0.000 n=19
+  DNA/PiggyBac           P=0.045 R=0.625 F1=0.084 n=16
+  DNA/TcMar-Tc1          P=0.000 R=0.000 F1=0.000 n=46
+  DNA/hAT                P=0.000 R=0.000 F1=0.000 n=192
+  per-clade hAT recall (test, clade-id):
+    clade=0 n=163 R=0.000
+    clade=3 n=7 R=0.000
+    clade=4 n=10 R=0.000
+    clade=6 n=9 R=0.000
+    clade=7 n=3 R=0.000
+  wrote /Users/alexyang/Documents/Part III System Biology/TE Classification/data_analysis/vgp_model_split_fix/v4/round2/results/T1/smoke_T1_stack.json
+
+>>> arm track=T1 stack=OFF device=mps
+  params: 1,889,292
+=== Training (track=T1, stack=False, epochs=3) ===
+  ep 1/3 | loss 3.4703 | val cls F1 0.7978 | val SF F1 0.0016 | gate (0.35,0.65) | 124s
+      hAT P=0.000 R=0.000 F1=0.000 n=181
+  ep 2/3 | loss 2.9930 | val cls F1 0.8157 | val SF F1 0.0225 | gate (0.58,0.42) | 122s
+      hAT P=0.000 R=0.000 F1=0.000 n=181
+  ep 3/3 | loss 2.8762 | val cls F1 0.8427 | val SF F1 0.0016 | gate (0.44,0.56) | 123s
+      hAT P=0.000 R=0.000 F1=0.000 n=181
+
+=== Held-out test (species-disjoint) ===
+  cls macro F1: 0.8421
+  SF macro F1 : 0.0091
+  gate mean   : (cnn=0.443, gnn=0.557)
+  DNA                    P=0.000 R=0.000 F1=0.000 n=42
+  DNA/Academ-1           P=0.000 R=0.000 F1=0.000 n=39
+  DNA/CMC                P=0.000 R=0.000 F1=0.000 n=7
+  DNA/Maverick           P=0.038 R=1.000 F1=0.073 n=14
+  DNA/PIF-Harbinger      P=0.000 R=0.000 F1=0.000 n=19
+  DNA/PiggyBac           P=0.000 R=0.000 F1=0.000 n=16
+  DNA/TcMar-Tc1          P=0.000 R=0.000 F1=0.000 n=46
+  DNA/hAT                P=0.000 R=0.000 F1=0.000 n=192
+  per-clade hAT recall (test, clade-id):
+    clade=0 n=163 R=0.000
+    clade=3 n=7 R=0.000
+    clade=4 n=10 R=0.000
+    clade=6 n=9 R=0.000
+    clade=7 n=3 R=0.000
+  wrote /Users/alexyang/Documents/Part III System Biology/TE Classification/data_analysis/vgp_model_split_fix/v4/round2/results/T1/smoke_T1_nostack.json
+
+A/B delta (stack - nostack) for T1: SF=+0.0294  cls=-0.5916
