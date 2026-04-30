@@ -1,0 +1,25 @@
+# v5 contrastive clustering — recomputed for §3.7
+N_sequences = 1771
+N_superfamilies = 7
+
+## L2 compactness (sorted ascending)
+DNA/hAT              n=  980  mean_L2=0.79
+DNA/Maverick         n=   26  mean_L2=0.94
+DNA/TcMar-Tc1        n=  375  mean_L2=1.22
+DNA/PIF-Harbinger    n=  158  mean_L2=1.33
+DNA/Academ-1         n=   83  mean_L2=1.36
+DNA/CMC              n=   36  mean_L2=1.48
+DNA/PiggyBac         n=  113  mean_L2=1.59
+
+## HDBSCAN (min_cluster_size=10, min_samples=10)
+clusters = 11
+noise    = 617/1771
+silhouette = 0.5601
+ARI        = 0.8644
+NMI        = 0.9101
+
+## Ward agglomerative (n_clusters=50)
+ARI          = 0.2415
+NMI          = 0.5688
+homogeneity  = 0.9650
+completeness = 0.4032

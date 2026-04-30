@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.9.30)  29 APR 2026 18:22
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.9.30)  30 APR 2026 17:54
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -454,20 +454,20 @@ Package caption Info: End \AtBeginDocument code.
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.104 \newpage
+l.113 \newpage
                [1]
 
 [2]
-LaTeX Font Info:    Trying to load font information for U+msa on input line 120.
+
+[3] (./TE Classification.toc
+LaTeX Font Info:    Trying to load font information for U+msa on input line 1.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 120.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 1.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-
-[3] (./TE Classification.toc
 
 [4])
 \tf@toc=\write4
@@ -484,45 +484,31 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 [8]
 
 [9]
-<figures/superfamily_class_distribution.png, id=343, 349.305pt x 425.9112pt>
+<figures/superfamily_class_distribution.png, id=330, 349.305pt x 425.9112pt>
 File: figures/superfamily_class_distribution.png Graphic file (type png)
 <use figures/superfamily_class_distribution.png>
-Package pdftex.def Info: figures/superfamily_class_distribution.png  used on input line 443.
+Package pdftex.def Info: figures/superfamily_class_distribution.png  used on input line 460.
 (pdftex.def)             Requested size: 203.1518pt x 247.70454pt.
-
-Underfull \hbox (badness 3229) in paragraph at lines 444--444
-[]\OT1/ptm/m/n/10.95 (a) |Top-level class dis-tri-bu-tion across all
- []
-
-<figures/superfamily_distribution_bar.png, id=345, 787.2612pt x 714.0276pt>
+<figures/superfamily_distribution_bar.png, id=332, 787.2612pt x 714.0276pt>
 File: figures/superfamily_distribution_bar.png Graphic file (type png)
 <use figures/superfamily_distribution_bar.png>
-Package pdftex.def Info: figures/superfamily_distribution_bar.png  used on input line 450.
+Package pdftex.def Info: figures/superfamily_distribution_bar.png  used on input line 467.
 (pdftex.def)             Requested size: 266.03474pt x 241.28442pt.
-
-Overfull \hbox (37.77089pt too wide) in paragraph at lines 458--459
-\OT1/ptm/m/n/12 DNA, only seven su-per-fam-i-lies ex-ceed 100 ex-am-ples; counts span 4,900 (DNA/hAT) to 129 (DNA/Maverick).
- []
-
-LaTeX Font Info:    Trying to load font information for OT1+pcr on input line 460.
-(/usr/local/texlive/2025/texmf-dist/tex/latex/psnfss/ot1pcr.fd
-File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
-)
-Overfull \hbox (0.29483pt too wide) in paragraph at lines 460--461
-\OT1/ptm/m/n/12 (ii) an ex-ter-nally cu-rated RepeatMasker-format TE ref-er-ence li-brary with \OT1/pcr/m/n/12 Name#Class/Subclass
- []
-
 
 
 [10 <./figures/superfamily_class_distribution.png> <./figures/superfamily_distribution_bar.png>]
 
 [11]
-
-[12]
+LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 528.
+ (/usr/local/texlive/2025/texmf-dist/tex/latex/psnfss/ts1ptm.fd
+File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
+)
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
+
+[12]
 
 [13]
 
@@ -530,301 +516,10 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-<figures/v3_confusion.png, id=396, 999.735pt x 425.9112pt>
+<figures/v3_confusion.png, id=400, 999.735pt x 425.9112pt>
 File: figures/v3_confusion.png Graphic file (type png)
 <use figures/v3_confusion.png>
-Package pdftex.def Info: figures/v3_confusion.png  used on input line 634.
+Package pdftex.def Info: figures/v3_confusion.png  used on input line 628.
 (pdftex.def)             Requested size: 386.95897pt x 164.8504pt.
 
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-
-[15
-
-]
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-<figures/v4_confusion.png, id=412, 978.054pt x 352.1958pt>
-File: figures/v4_confusion.png Graphic file (type png)
-<use figures/v4_confusion.png>
-Package pdftex.def Info: figures/v4_confusion.png  used on input line 675.
-(pdftex.def)             Requested size: 411.14528pt x 148.05557pt.
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-
-[16]
-
-[17 <./figures/v3_confusion.png> <./figures/v4_confusion.png>]
-<figures/v4_training.png, id=429, 1147.6476pt x 710.655pt>
-File: figures/v4_training.png Graphic file (type png)
-<use figures/v4_training.png>
-Package pdftex.def Info: figures/v4_training.png  used on input line 683.
-(pdftex.def)             Requested size: 386.95897pt x 239.61342pt.
-<figures/v4_2_training.png, id=433, 1004.0712pt x 285.7074pt>
-File: figures/v4_2_training.png Graphic file (type png)
-<use figures/v4_2_training.png>
-Package pdftex.def Info: figures/v4_2_training.png  used on input line 704.
-(pdftex.def)             Requested size: 483.69687pt x 137.63496pt.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-
-[18
-
- <./figures/v4_training.png>]
-<figures/v4_3_confusion.png, id=443, 977.0904pt x 352.1958pt>
-File: figures/v4_3_confusion.png Graphic file (type png)
-<use figures/v4_3_confusion.png>
-Package pdftex.def Info: figures/v4_3_confusion.png  used on input line 737.
-(pdftex.def)             Requested size: 435.32422pt x 156.91742pt.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-<figures/gate_weights.png, id=444, 578.16pt x 289.08pt>
-File: figures/gate_weights.png Graphic file (type png)
-<use figures/gate_weights.png>
-Package pdftex.def Info: figures/gate_weights.png  used on input line 746.
-(pdftex.def)             Requested size: 386.95897pt x 193.47968pt.
-
-
-[19 <./figures/v4_2_training.png>]
-
-[20 <./figures/v4_3_confusion.png> <./figures/gate_weights.png>]
-<figures/kmer_separation.png, id=460, 1004.0712pt x 427.3566pt>
-File: figures/kmer_separation.png Graphic file (type png)
-<use figures/kmer_separation.png>
-Package pdftex.def Info: figures/kmer_separation.png  used on input line 757.
-(pdftex.def)             Requested size: 386.95897pt x 164.69908pt.
-
-Overfull \hbox (21.2455pt too wide) in paragraph at lines 820--829
- [][] 
- []
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-
-[21 <./figures/kmer_separation.png>]
-<figures/transfer_class_accuracy.png, id=476, 1147.6476pt x 441.8106pt>
-File: figures/transfer_class_accuracy.png Graphic file (type png)
-<use figures/transfer_class_accuracy.png>
-Package pdftex.def Info: figures/transfer_class_accuracy.png  used on input line 872.
-(pdftex.def)             Requested size: 483.69687pt x 186.20636pt.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-<figures/transfer_sf_heatmap.png, id=478, 619.113pt x 566.5968pt>
-File: figures/transfer_sf_heatmap.png Graphic file (type png)
-<use figures/transfer_sf_heatmap.png>
-Package pdftex.def Info: figures/transfer_sf_heatmap.png  used on input line 881.
-(pdftex.def)             Requested size: 411.14528pt x 376.27205pt.
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-
-[22]
-<figures/transfer_error_analysis.png, id=489, 1510.443pt x 499.1448pt>
-File: figures/transfer_error_analysis.png Graphic file (type png)
-<use figures/transfer_error_analysis.png>
-Package pdftex.def Info: figures/transfer_error_analysis.png  used on input line 890.
-(pdftex.def)             Requested size: 483.69687pt x 159.84384pt.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-<figures/transfer_confusion_matrices.png, id=491, 1278.6972pt x 469.755pt>
-File: figures/transfer_confusion_matrices.png Graphic file (type png)
-<use figures/transfer_confusion_matrices.png>
-Package pdftex.def Info: figures/transfer_confusion_matrices.png  used on input line 899.
-(pdftex.def)             Requested size: 435.32422pt x 159.92245pt.
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-<figures/misclassification_analysis.png, id=493, 1581.9903pt x 540.94095pt>
-File: figures/misclassification_analysis.png Graphic file (type png)
-<use figures/misclassification_analysis.png>
-Package pdftex.def Info: figures/misclassification_analysis.png  used on input line 908.
-(pdftex.def)             Requested size: 411.14528pt x 140.58354pt.
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-
-[23 <./figures/transfer_class_accuracy.png>]
-
-[24 <./figures/transfer_sf_heatmap.png> <./figures/transfer_error_analysis.png>]
-
-[25 <./figures/transfer_confusion_matrices.png> <./figures/misclassification_analysis.png>]
-<figures/saliency_analysis.png, id=515, 1148.73164pt x 1025.5113pt>
-File: figures/saliency_analysis.png Graphic file (type png)
-<use figures/saliency_analysis.png>
-Package pdftex.def Info: figures/saliency_analysis.png  used on input line 920.
-(pdftex.def)             Requested size: 435.32422pt x 388.61864pt.
-
-Overfull \hbox (46.9711pt too wide) in paragraph at lines 925--926
-[]\OT1/ptm/m/n/12 Figure []14[] ex-am-ines four rep-re-sen-ta-tive mis-clas-si-fied se-quences. For the within-class LTR/Gypsy$\OMS/cmsy/m/n/12 !$\OT1/ptm/m/n/12 LTR/Pao
- []
-
-
-
-[26
-
- <./figures/saliency_analysis.png>]
-Overfull \hbox (0.23409pt too wide) in paragraph at lines 933--934
-\OT1/ptm/m/n/12 pro-jec-tions [[]]. Per-superfamily com-pact-ness varies with in-ter-nal se-quence het-ero-gene-ity (Ta-ble []10[]):
- []
-
-<figures/contrastive_training.png, id=532, 859.0494pt x 279.9258pt>
-File: figures/contrastive_training.png Graphic file (type png)
-<use figures/contrastive_training.png>
-Package pdftex.def Info: figures/contrastive_training.png  used on input line 959.
-(pdftex.def)             Requested size: 411.14528pt x 133.97415pt.
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-<figures/contrastive_umap.png, id=533, 858.0858pt x 713.5458pt>
-File: figures/contrastive_umap.png Graphic file (type png)
-<use figures/contrastive_umap.png>
-Package pdftex.def Info: figures/contrastive_umap.png  used on input line 966.
-(pdftex.def)             Requested size: 435.32422pt x 361.99818pt.
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-<figures/superfamily_umap.png, id=536, 714.7503pt x 570.2103pt>
-File: figures/superfamily_umap.png Graphic file (type png)
-<use figures/superfamily_umap.png>
-Package pdftex.def Info: figures/superfamily_umap.png  used on input line 977.
-(pdftex.def)             Requested size: 435.32422pt x 347.29703pt.
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-<figures/clustering_umap.png, id=537, 714.7503pt x 569.84895pt>
-File: figures/clustering_umap.png Graphic file (type png)
-<use figures/clustering_umap.png>
-Package pdftex.def Info: figures/clustering_umap.png  used on input line 984.
-(pdftex.def)             Requested size: 435.32422pt x 347.07695pt.
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-
-[27]
-
-[28 <./figures/contrastive_training.png>]
-
-[29 <./figures/contrastive_umap.png>]
-
-[30 <./figures/superfamily_umap.png>]
-
-[31 <./figures/clustering_umap.png>]
-
-[32
-
-]
-
-[33]
-
-[34]
-Underfull \hbox (badness 5519) in paragraph at lines 1069--1070
-[]\OT1/ptm/m/n/12 Requena F, Doyle EL, Bhatt M, et al. (2021) TERL: clas-si-fi-ca-tion of trans-pos-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1069--1070
-\OT1/ptm/m/n/12 able el-e-ments by con-vo-lu-tional neu-ral net-works. \OT1/ptm/m/it/12 Brief Bioin-form \OT1/ptm/m/n/12 22:bbab260.
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1075--1076
-[]\OT1/ptm/m/n/12 LeCun Y, Ben-gio Y, Hin-ton G (2015) Deep learn-ing. \OT1/ptm/m/it/12 Na-ture \OT1/ptm/m/n/12 521:436--444.
- []
-
-
-Underfull \hbox (badness 4120) in paragraph at lines 1108--1109
-[]\OT1/ptm/m/n/12 Simonyan K, Vedaldi A, Zis-ser-man A (2014) Deep in-side con-vo-lu-tional net-works:
- []
-
-
-Underfull \hbox (badness 6927) in paragraph at lines 1108--1109
-\OT1/ptm/m/n/12 vi-su-al-is-ing im-age clas-si-fi-ca-tion mod-els and saliency maps. In: ICLR Work-shop.
- []
-
-
-Underfull \hbox (badness 3460) in paragraph at lines 1123--1124
-[]\OT1/ptm/m/n/12 McInnes L, Healy J, Saul N, Gro^^Yberger L (2018) UMAP: uni-form man-i-fold ap-
- []
-
-
-Underfull \hbox (badness 5787) in paragraph at lines 1123--1124
-\OT1/ptm/m/n/12 prox-i-ma-tion and pro-jec-tion for di-men-sion re-duc-tion. \OT1/ptm/m/it/12 J Open Source Softw \OT1/ptm/m/n/12 3:861.
- []
-
-
-
-[35]
-Underfull \hbox (badness 4647) in paragraph at lines 1156--1157
-[]\OT1/ptm/m/n/12 Loshchilov I, Hut-ter F (2019) De-cou-pled weight de-cay reg-u-lar-iza-tion. In: ICLR.
- []
-
-
-Underfull \hbox (badness 8094) in paragraph at lines 1168--1169
-[]\OT1/ptm/m/n/12 Flynn JM, Hub-ley R, Gou-bert C, et al. (2020) Re-peat-Mod-eler2 for au-to-mated
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1168--1169
-\OT1/ptm/m/n/12 ge-nomic dis-cov-ery of trans-pos-able el-e-ment fam-i-lies. \OT1/ptm/m/it/12 PNAS \OT1/ptm/m/n/12 117:9451--9457.
- []
-
-
-Underfull \hbox (badness 3098) in paragraph at lines 1183--1184
-[]\OT1/ptm/m/n/12 Ou S, Su W, Liao Y, et al. (2019) Bench-mark-ing trans-pos-able el-e-ment an-no-ta-tion
- []
-
-
-Underfull \hbox (badness 1990) in paragraph at lines 1183--1184
-\OT1/ptm/m/n/12 meth-ods for cre-ation of a stream-lined, com-pre-hen-sive pipeline. \OT1/ptm/m/it/12 Genome Biol \OT1/ptm/m/n/12 20:275.
- []
-
-
-
-[36] (./TE Classification.aux)
- ***********
-LaTeX2e <2025-06-01> patch level 1
-L3 programming layer <2025-09-02>
- ***********
-Package rerunfilecheck Info: File `"TE Classification".out' has not changed.
-(rerunfilecheck)             Checksum: 1DD41F921647BCC93B52BA67C4EF0BA8;9946.
- ) 
-Here is how much of TeX's memory you used:
- 13056 strings out of 467748
- 209465 string characters out of 5426959
- 635142 words of memory out of 5000000
- 41438 multiletter control sequences out of 15000+600000
- 655373 words of font info for 93 fonts, out of 8000000 for 9000
- 1141 hyphenation exceptions out of 8191
- 75i,10n,79p,1503b,585s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on "TE Classification.pdf" (37 pages, 5483211 bytes).
-PDF statistics:
- 693 PDF objects out of 1000 (max. 8388607)
- 583 compressed objects within 6 object streams
- 142 named destinations out of 1000 (max. 500000)
- 480 words of extra memory for PDF output out of 10000 (max. 10000000)
-
+LaTeX Warning: `h' float specifier c
