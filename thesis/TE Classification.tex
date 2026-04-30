@@ -581,6 +581,8 @@ GNN layers & 3 & GraphSAGE-style \\
 \clearpage
 \section{Results}\label{sec:results}
 
+The central finding of this project is that the hybrid CNN+GNN architecture learns a strong representation of Pantera TE labels, but cross-species transfer is substantially more limited than in-distribution performance suggests. Under the Stage-1 sequence-level hold-out (Section~\ref{ssec:stage1}), the three-class hybrid reaches $>98\%$ accuracy, serving as a label-quality audit of the Pantera catalogue. Under the species-disjoint Stage-2 and Stage-3 protocols (Sections~\ref{ssec:stage2}--\ref{ssec:stage3}), Pantera test $F_1$ remains high (class macro $F_1 = 0.955$--$0.982$), but the three held-out amniote benchmark genomes tell a different story: top-level class transfer is lineage-dependent, reaching $F_1 = 0.70$ on platypus and alligator but falling to $F_1 = 0.43$--$0.64$ on zebra finch (Table~\ref{tab:mini_benchmark}; per-class breakdown in Table~\ref{tab:mini_benchmark_perclass}). Disentangling how much of the Pantera-test score is attributable to evaluation-design choices rather than genuine generalisation is the core methodological contribution of the three-stage progression.
+
 \subsection{Terminal Inverted Repeat Detection}\label{ssec:tir}
 
 % will have to run some reuslt on v1 model to argue that loss based methods really not working. This is foundamental for why we use balanced subsampling. 
@@ -597,7 +599,7 @@ The v3 hierarchical CNN classifier (Section~\ref{ssec:methods_family}) extends t
 
 \paragraph{Performance. }
 
-The hierarchical model achieves strong overall performance on both tasks while testing on the balanced dataset (Table~\ref{tab:v3_sf_f1}). On superfamily level, performance varies broadly with training support, with DNA/CMC the lowest ($F_1$ at 0.68 with $n=39$ test sequences). The main driver of CMC's low precision is confusion with the generic DNA label: sequences annotated only at class level share compositional features with CMC elements and are frequently misassigned there. 
+The hierarchical model achieves strong overall performance on both tasks on the held-out test subset (Table~\ref{tab:v3_sf_f1}). On superfamily level, performance varies broadly with training support, with DNA/CMC the lowest ($F_1$ at 0.68 with $n=39$ test sequences). The main driver of CMC's low precision is confusion with the generic DNA label: sequences annotated only at class level share compositional features with CMC elements and are frequently misassigned there. 
 
 \begin{table}[h]
 \centering
@@ -626,7 +628,7 @@ On the full unsubsampled catalogue (10{,}255 DNA; 125{,}098 non-DNA), the class 
 \begin{figure}[h]
 \centering
 \includegraphics[width=0.8\textwidth]{v3_confusion.png}
-\caption{Confusion matrix for v3 binary classification (DNA vs non-DNA) on the balanced held-out test split.}
+\caption{Confusion matrix for v3 binary classification (DNA vs non-DNA) on the 20\% held-out test subset. Note that both train and test are drawn from the subsampled pool (non-DNA capped at 20{,}000), so the class ratio is approximately 50:50; metrics are not estimates of real-world deployment performance at natural DNA prevalence ($\approx$8\%), for which see the full-catalogue evaluation in the text.}
 \label{fig:v3_confusion}
 \end{figure}
 
