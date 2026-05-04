@@ -1,0 +1,253 @@
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex)
+ restricted \write18 enabled.
+entering extended mode
+(./TE Classification.tex
+LaTeX2e <2025-06-01> patch level 1
+L3 programming layer <2025-09-02>
+(/usr/local/texlive/2025/texmf-dist/tex/latex/base/article.cls
+Document Class: article 2025/01/22 v1.4n Standard LaTeX document class
+(/usr/local/texlive/2025/texmf-dist/tex/latex/base/size12.clo))
+(/usr/local/texlive/2025/texmf-dist/tex/latex/base/inputenc.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/amsmath/amsmath.sty
+For additional information on amsmath, use the `?' option.
+(/usr/local/texlive/2025/texmf-dist/tex/latex/amsmath/amstext.sty
+(/usr/local/texlive/2025/texmf-dist/tex/latex/amsmath/amsgen.sty))
+(/usr/local/texlive/2025/texmf-dist/tex/latex/amsmath/amsbsy.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/amsmath/amsopn.sty))
+(/usr/local/texlive/2025/texmf-dist/tex/latex/amsfonts/amsfonts.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/amsfonts/amssymb.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/graphics/graphicx.sty
+(/usr/local/texlive/2025/texmf-dist/tex/latex/graphics/keyval.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/graphics/graphics.sty
+(/usr/local/texlive/2025/texmf-dist/tex/latex/graphics/trig.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/graphics-cfg/graphics.cfg)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/graphics-def/pdftex.def)))
+(/usr/local/texlive/2025/texmf-dist/tex/latex/hyperref/hyperref.sty
+(/usr/local/texlive/2025/texmf-dist/tex/generic/iftex/iftex.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/kvsetkeys/kvsetkeys.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/kvdefinekeys/kvdefinekeys.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pdfescape/pdfescape.sty
+(/usr/local/texlive/2025/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty
+(/usr/local/texlive/2025/texmf-dist/tex/generic/infwarerr/infwarerr.sty)))
+(/usr/local/texlive/2025/texmf-dist/tex/latex/hycolor/hycolor.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/hyperref/nameref.sty
+(/usr/local/texlive/2025/texmf-dist/tex/latex/refcount/refcount.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/gettitlestring/gettitlestring.s
+ty (/usr/local/texlive/2025/texmf-dist/tex/latex/kvoptions/kvoptions.sty)))
+(/usr/local/texlive/2025/texmf-dist/tex/latex/etoolbox/etoolbox.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/stringenc/stringenc.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/hyperref/pd1enc.def)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/intcalc/intcalc.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/hyperref/puenc.def)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/url/url.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/bitset/bitset.sty
+(/usr/local/texlive/2025/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty)))
+(/usr/local/texlive/2025/texmf-dist/tex/latex/hyperref/hpdftex.def
+(/usr/local/texlive/2025/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty
+
+(/usr/local/texlive/2025/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty
+))) (/usr/local/texlive/2025/texmf-dist/tex/latex/geometry/geometry.sty
+(/usr/local/texlive/2025/texmf-dist/tex/generic/iftex/ifvtex.sty))
+(/usr/local/texlive/2025/texmf-dist/tex/latex/tools/tabularx.sty
+(/usr/local/texlive/2025/texmf-dist/tex/latex/tools/array.sty))
+(/usr/local/texlive/2025/texmf-dist/tex/latex/booktabs/booktabs.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/enumitem/enumitem.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/setspace/setspace.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/tocloft/tocloft.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/float/float.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/placeins/placeins.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/caption/subcaption.sty
+(/usr/local/texlive/2025/texmf-dist/tex/latex/caption/caption.sty
+(/usr/local/texlive/2025/texmf-dist/tex/latex/caption/caption3.sty)))
+(/usr/local/texlive/2025/texmf-dist/tex/latex/psnfss/times.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/psnfss/ot1ptm.fd)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def)
+(./TE Classification.aux)
+(/usr/local/texlive/2025/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+) (/usr/local/texlive/2025/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
+(/usr/local/texlive/2025/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg))
+(./TE Classification.out) (./TE Classification.out)
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+
+[1{/usr/local/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/usr/l
+ocal/texlive/2025/texmf-dist/fonts/enc/dvips/base/8r.enc}]
+
+pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has 
+been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.104 \newpage
+               [1]
+[2] (/usr/local/texlive/2025/texmf-dist/tex/latex/amsfonts/umsa.fd)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/amsfonts/umsb.fd)
+[3] (./TE Classification.toc
+[4])
+[5]
+[6]
+[7]
+[8]
+[9]
+Underfull \hbox (badness 3229) in paragraph at lines 444--444
+[]\OT1/ptm/m/n/10.95 (a) |Top-level class dis-tri-bu-tion across all
+
+Overfull \hbox (37.77089pt too wide) in paragraph at lines 458--459
+\OT1/ptm/m/n/12 DNA, only seven su-per-fam-i-lies ex-ceed 100 ex-am-ples; count
+s span 4,900 (DNA/hAT) to 129 (DNA/Maverick).
+(/usr/local/texlive/2025/texmf-dist/tex/latex/psnfss/ot1pcr.fd)
+[10 <./figures/superfamily_class_distribution.png> <./figures/superfamily_distr
+ibution_bar.png>]
+[11]
+[12] (/usr/local/texlive/2025/texmf-dist/tex/latex/psnfss/ts1ptm.fd)
+Overfull \hbox (68.41374pt too wide) in paragraph at lines 501--515
+ [][] 
+(/usr/local/texlive/2025/texmf-dist/tex/latex/psnfss/omsptm.fd)
+[13]
+[14]
+[15]
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+[16]
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+[17]
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+[18 <./figures/v3_confusion.png>]
+[19 <./figures/v4_confusion.png> <./figures/v4_training.png>]
+[20 <./figures/v4_2_training.png>]
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+[21 <./figures/v4_3_confusion.png>]
+[22 <./figures/gate_weights.png> <./figures/kmer_separation.png>]
+Overfull \hbox (38.8633pt too wide) in paragraph at lines 812--822
+ [][] 
+
+[23]
+Overfull \hbox (21.2455pt too wide) in paragraph at lines 865--874
+ [][] 
+
+[24]
+[25]
+Overfull \hbox (40.9711pt too wide) in paragraph at lines 946--947
+[]\OT1/ptm/m/n/12 Figure []9[] ex-am-ines four rep-re-sen-ta-tive mis-clas-si-f
+ied se-quences. For the within-class LTR/Gypsy$\OMS/cmsy/m/n/12 !$\OT1/ptm/m/n/
+12 LTR/Pao
+
+[26 <./figures/saliency_analysis.png>]
+Overfull \hbox (0.23409pt too wide) in paragraph at lines 956--957
+\OT1/ptm/m/n/12 pro-jec-tions [[]]. Per-superfamily com-pact-ness varies with i
+n-ter-nal se-quence het-ero-gene-ity (Ta-ble []12[]):
+
+[27]
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+[28 <./figures/contrastive_training.png>]
+[29 <./figures/contrastive_umap.png>]
+[30 <./figures/superfamily_umap.png>]
+[31 <./figures/clustering_umap.png>]
+[32]
+[33]
+Overfull \hbox (18.6784pt too wide) in paragraph at lines 1069--1070
+ []\OT1/ptm/b/n/12 Beyond v4.4.[] \OT1/ptm/m/n/12 Three di-rec-tions fol-low na
+t-u-rally from the species-shift fram-ing of Sec-tion []4.2[]: (i) broader
+
+[34]
+[35]
+Underfull \hbox (badness 5519) in paragraph at lines 1090--1091
+[]\OT1/ptm/m/n/12 Requena F, Doyle EL, Bhatt M, et al. (2021) TERL: clas-si-fi-
+ca-tion of trans-pos-
+
+Underfull \hbox (badness 10000) in paragraph at lines 1090--1091
+\OT1/ptm/m/n/12 able el-e-ments by con-vo-lu-tional neu-ral net-works. \OT1/ptm
+/m/it/12 Brief Bioin-form \OT1/ptm/m/n/12 22:bbab260.
+
+Underfull \hbox (badness 10000) in paragraph at lines 1096--1097
+[]\OT1/ptm/m/n/12 LeCun Y, Ben-gio Y, Hin-ton G (2015) Deep learn-ing. \OT1/ptm
+/m/it/12 Na-ture \OT1/ptm/m/n/12 521:436--444.
+
+Underfull \hbox (badness 4120) in paragraph at lines 1129--1130
+[]\OT1/ptm/m/n/12 Simonyan K, Vedaldi A, Zis-ser-man A (2014) Deep in-side con-
+vo-lu-tional net-works:
+
+Underfull \hbox (badness 6927) in paragraph at lines 1129--1130
+\OT1/ptm/m/n/12 vi-su-al-is-ing im-age clas-si-fi-ca-tion mod-els and saliency 
+maps. In: ICLR Work-shop.
+
+Underfull \hbox (badness 3460) in paragraph at lines 1144--1145
+[]\OT1/ptm/m/n/12 McInnes L, Healy J, Saul N, Gro^^Yberger L (2018) UMAP: uni-f
+orm man-i-fold ap-
+
+Underfull \hbox (badness 5787) in paragraph at lines 1144--1145
+\OT1/ptm/m/n/12 prox-i-ma-tion and pro-jec-tion for di-men-sion re-duc-tion. \O
+T1/ptm/m/it/12 J Open Source Softw \OT1/ptm/m/n/12 3:861.
+
+[36]
+Underfull \hbox (badness 4647) in paragraph at lines 1177--1178
+[]\OT1/ptm/m/n/12 Loshchilov I, Hut-ter F (2019) De-cou-pled weight de-cay reg-
+u-lar-iza-tion. In: ICLR.
+
+Underfull \hbox (badness 8094) in paragraph at lines 1189--1190
+[]\OT1/ptm/m/n/12 Flynn JM, Hub-ley R, Gou-bert C, et al. (2020) Re-peat-Mod-el
+er2 for au-to-mated
+
+Underfull \hbox (badness 10000) in paragraph at lines 1189--1190
+\OT1/ptm/m/n/12 ge-nomic dis-cov-ery of trans-pos-able el-e-ment fam-i-lies. \O
+T1/ptm/m/it/12 PNAS \OT1/ptm/m/n/12 117:9451--9457.
+
+Underfull \hbox (badness 3098) in paragraph at lines 1204--1205
+[]\OT1/ptm/m/n/12 Ou S, Su W, Liao Y, et al. (2019) Bench-mark-ing trans-pos-ab
+le el-e-ment an-no-ta-tion
+
+Underfull \hbox (badness 1990) in paragraph at lines 1204--1205
+\OT1/ptm/m/n/12 meth-ods for cre-ation of a stream-lined, com-pre-hen-sive pipe
+line. \OT1/ptm/m/it/12 Genome Biol \OT1/ptm/m/n/12 20:275.
+
+[37]
+[38] (./TE Classification.aux)
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+ )
+(see the transcript file for additional information)</usr/local/texlive/2025/te
+xmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2025/tex
+mf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2025/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2025/texmf-
+dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2025/texmf-di
+st/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2025/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2025/texmf-dist/fo
+nts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2025/texmf-dist/fon
+ts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2025/texmf-dist/fonts
+/type1/urw/courier/ucrr8a.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/u
+rw/times/utmb8a.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/urw/times/u
+tmr8a.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/urw/times/utmri8a.pfb
+>
+Output written on "TE Classification.pdf" (39 pages, 4805028 bytes).
+Transcript written on "TE Classification.log".
