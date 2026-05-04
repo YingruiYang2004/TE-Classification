@@ -85,7 +85,7 @@ def fig_heatmap(data, top_n=14):
                     M[i, j] = f1
         return M
 
-    fig, axes = plt.subplots(1, 2, figsize=(9, 0.45 * len(sfs) + 1.5))
+    fig, axes = plt.subplots(1, 2, figsize=(10, 0.55 * len(sfs) + 1.5))
     titles = ["v4.3 (Stage 2; rotating-CV)", "v4.3-singlefold (Stage 3; disjoint val)"]
     for ax, ck, title in zip(axes, [CK_ROT, CK_SF], titles):
         M = matrix(ck)
@@ -98,9 +98,10 @@ def fig_heatmap(data, top_n=14):
         for i in range(M.shape[0]):
             for j in range(M.shape[1]):
                 v = M[i, j]
+                _, sup = get_f1(data, ck, SPECIES[j][0], sfs[i])
                 if not np.isnan(v):
                     ax.text(
-                        j, i, f"{v:.2f}",
+                        j, i, f"{v:.2f}\n(n={sup})",
                         ha="center", va="center",
                         color="white" if v < 0.55 else "black",
                         fontsize=7,

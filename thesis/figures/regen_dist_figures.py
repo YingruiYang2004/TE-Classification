@@ -98,19 +98,21 @@ bar_colors = [class_colors.get(sf.split('/')[0], '#7f7f7f') for sf in sf_names]
 fig, ax = plt.subplots(figsize=(11, 10))
 ax.barh(range(len(sf_names)), sf_values, color=bar_colors)
 ax.set_yticks(range(len(sf_names)))
-ax.set_yticklabels(sf_names, fontsize=9)
+ax.set_yticklabels(sf_names, fontsize=16)
+ax.tick_params(axis='x', labelsize=14)
 ax.invert_yaxis()
-ax.set_xlabel('Count', fontsize=10)
-ax.set_title('Top 30 Superfamilies (excluding None)', fontsize=12)
+ax.set_xlabel('Count', fontsize=18)
+ax.set_title('Top 30 Superfamilies (excluding None)', fontsize=20)
 
 # Annotate bar values
 for i, v in enumerate(sf_values):
-    ax.text(v + 60, i, str(v), va='center', fontsize=8)
+    ax.text(v + 60, i, str(v), va='center', fontsize=14)
 
 # Legend
 import matplotlib.patches as mpatches
 legend_elements = [mpatches.Patch(facecolor=c, label=cls) for cls, c in class_colors.items()]
-ax.legend(handles=legend_elements, loc='lower right', fontsize=9, frameon=True)
+ax.legend(handles=legend_elements, loc='lower right', fontsize=16, title='Class',
+          title_fontsize=16, frameon=True)
 
 plt.tight_layout()
 bar_path = os.path.join(os.path.dirname(__file__), 'superfamily_distribution_bar.png')

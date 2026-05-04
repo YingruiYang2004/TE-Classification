@@ -104,6 +104,7 @@ All metadata verified via DOI, arXiv, or JOSS:
 | Key | Paper | Venue | Status |
 |---|---|---|---|
 | `sierra2024pantera` | Sierra & Durbin, *Mobile DNA* 15:13 | 2024 | ✓ |
+| `dacruz2021terl` | da Cruz MHP et al. (TERL), *Brief Bioinform* 22:bbaa185 | 2021 | ✓ (fixed from fabricated `requena2021terl`) |
 | `lecun2015deep` | LeCun, Bengio, Hinton, *Nature* 521 | 2015 | ✓ |
 | `hamilton2017inductive` | Hamilton, Ying, Leskovec (GraphSAGE) | NeurIPS 2017 | ✓ |
 | `krizhevsky2012imagenet` | Krizhevsky, Sutskever, Hinton (AlexNet) | NeurIPS 2012 | ✓ |
@@ -135,11 +136,60 @@ All metadata verified via DOI, arXiv, or JOSS:
 5. Added `\cite{mcginnis2021umap}` at UMAP projections
 6. Added `\cite{ward1963hierarchical}` at Ward linkage
 7. Added `\cite{ganin2015unsupervised}` and `\cite{finn2017model}` at domain-adaptation/meta-learning
+8. Added `\cite{ji2021dnabert}` for CNN positional-information limitation (L426)
 
 **Bibliography**:
-8. `kipf2016semi`: year 2016 → 2017
-9. `zhou2019graph`: year 2019 → 2021; URL 1901.00596 → 1812.08434; pages 57–70 → 57–75
-10. `selvaraju2016grad`: year 2016 → 2017; URL 1610.02055 → 1610.02391; entry commented out
-11. `mcginnis2021umap`: year 2021 → 2018; authors "Melville J" → "Saul N, Großberger L"
-12. `kingma2014adam`: year 2014 → 2015; entry commented out
-13. Commented out with notes: `goodfellow2016deep`, `khare2022automated`, `mcnulty2020genomic`, `selvaraju2016grad`, `chen2020simple`, `rousseeuw1987silhouettes`, `gal2016dropout`, `devlin2019bert`, `kingma2014adam`
+9. `kipf2016semi`: year 2016 → 2017
+10. `zhou2019graph`: year 2019 → 2021; URL 1901.00596 → 1812.08434; pages 57–70 → 57–75
+11. `selvaraju2016grad`: year 2016 → 2017; URL 1610.02055 → 1610.02391; entry commented out
+12. `mcginnis2021umap`: year 2021 → 2018; authors "Melville J" → "Saul N, Großberger L"
+13. `kingma2014adam`: year 2014 → 2015; entry commented out
+14. Commented out with notes: `goodfellow2016deep`, `khare2022automated`, `mcnulty2020genomic`, `selvaraju2016grad`, `chen2020simple`, `rousseeuw1987silhouettes`, `gal2016dropout`, `devlin2019bert`, `kingma2014adam`, `ou2019edta`
+15. Added new `ji2021dnabert` bibitem (DNABERT, Ji Y et al. 2021, *Bioinformatics* 37:2112–2120, DOI 10.1093/bioinformatics/btab083)
+16. `requena2021terl`: **completely replaced** — fabricated authors (Requena F, Doyle EL, Bhatt M) and wrong DOI (bbab260 = oncoPredict paper). Correct entry: da Cruz MHP et al. 2021, *Brief Bioinform* 22:bbaa185, DOI 10.1093/bib/bbaa185, PMID 34020551. Citation key renamed `dacruz2021terl`.
+17. In-text `\cite{requena2021terl}` updated to `\cite{dacruz2021terl}`
+18. LTR size claim changed from "typically 200--600~bp" to "ranging from a few hundred base pairs to several kilobases" to match Wicker 2007's actual text ("range from a few hundred base pairs to more than 5 kb")
+
+---
+
+## GROUP A CITATION CLAIM VERIFICATION (Session 2)
+
+Targeted verification of five papers cited in the Introduction (§1) for specific empirical claims.
+
+### `yan2020deepte` — ✅ SUPPORTED
+- **PMID**: 32415954  
+- **Claim** (L418): "most have either focused on a single TE class or been trained on the same curated reference libraries they are meant to extend"  
+- **Abstract confirmed**: DeepTE trains CNN models on k-mer vectors from curated TE sequences (Repbase-derived). Three separate models trained for plants, metazoans, and fungi. Classifies into orders and superfamilies.  
+- **Assessment**: "trained on curated reference libraries" is well-supported. DeepTE is not single-class (covers multiple orders), but the broader "most" claim in the disjunction is satisfied by the second condition. **No text change needed.**
+
+### `alipanahi2015deepbind` — ✅ SUPPORTED
+- **PMID**: 26213851  
+- **Claim** (L424): CNNs are "a natural choice for detecting short, position-invariant motifs in biological sequences"  
+- **Abstract confirmed**: DeepBind uses deep learning to predict sequence specificities of DNA/RNA-binding proteins from experimental data. Exactly matches the cited claim.
+
+### `sierra2024pantera` — ✅ SUPPORTED
+- **PMID**: 38926873  
+- **Claim** (L420): "Pantera uses pangenome polymorphisms to detect TE insertions… produces a catalogue of approximately 135,000 sequences from over five hundred vertebrate species"  
+- **Abstract confirmed**: Pantera uses structural polymorphisms in pangenomes to create TE family libraries. The "135,000 / 500+" numbers are the VGP-application result (consistent with L454: "135,751 sequences from 512 unique vertebrate species"). Not mentioned in abstract but internally consistent.
+
+### `requena2021terl` — ❌ FABRICATED METADATA (real paper, completely wrong authors + DOI)
+- **Was**: `Requena F, Doyle EL, Bhatt M, et al. (2021)` … DOI `10.1093/bib/bbab260`
+- **Problem**: DOI `10.1093/bib/bbab260` resolves to *oncoPredict: an R package for predicting in vivo or cancer patient drug response* (Maeser D, Gruener RF, Huang RS) — a completely unrelated paper. Authors "Requena F, Doyle EL, Bhatt M" are fabricated.
+- **Real paper**: da Cruz MHP, Domingues DS, Saito PTM, Paschoal AR, Bugatti PH (2021) TERL: classification of transposable elements by convolutional neural networks. *Brief Bioinform* 22:bbaa185. **PMID 34020551. DOI 10.1093/bib/bbaa185.**
+- **Content confirmed**: TERL converts 1D TE sequences to 2D image-like data and applies CNNs. Trained on RepBase and six other databases. Achieves 96.4% accuracy at superfamily level. Satisfies "trained on curated reference libraries" claim.
+- **Fix applied**: Bibitem replaced with correct authors, article id (bbab260 → bbaa185), and DOI. Citation key changed from `requena2021terl` to `dacruz2021terl`. In-text `\cite{requena2021terl}` updated to `\cite{dacruz2021terl}`.
+
+### `wicker2007unified` — ⚠️ PAPER VERIFIED, BUT ONE CLAIM INACCURATE
+- **DOI**: 10.1038/nrg2165 — **PDF now confirmed**. The paper is "A unified classification system for eukaryotic transposable elements" by Thomas Wicker et al., Nat Rev Genet 8:973–982 (2007). ✓
+- **TIR size claim** (L412 "TIRs are typically 10–50 bp"):
+  - Wicker says TIRs are "of variable length". hAT: 5–27 bp; Mutator: "can extend to several hundred base pairs"; Merlin: "a few dozen to several hundred base pairs". The "typically 10–50 bp" range is too narrow per Wicker, but reasonable for the most common vertebrate Class II superfamilies (Tc1/mariner ~30 bp, piggyBac ~13 bp, hAT ~10–27 bp).
+  - **Assessment**: Minor inaccuracy — Wicker does not give a "10–50 bp" range. Retained as a reasonable approximation for the vertebrate context of the thesis.
+- **LTR size claim** (L412 "typically 200–600 bp"):
+  - **Wicker actually says**: "LTRs flanking the elements range from a few hundred base pairs to more than 5 kb."
+  - The thesis claim of "typically 200–600 bp" significantly understates the upper bound per Wicker.
+  - **Fix applied**: Changed to "ranging from a few hundred base pairs to several kilobases" to match Wicker's actual text.
+- **TIR definition** (L414 "reverse-complement match between the two ends"):
+  - Confirmed: Wicker defines TIRs exactly this way. ✓
+
+### `dallatorre2023nucleotide` — ✅ SUPPORTED (verified in Session 1)
+- Nucleotide Transformer uses 500M–2.5B parameter transformer trained on 3202 human genomes + 850 other genomes. Confirmed from abstract.

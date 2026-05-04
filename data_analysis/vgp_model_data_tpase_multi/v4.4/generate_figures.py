@@ -390,16 +390,25 @@ for idx, res in enumerate(saliency_results):
     sal_true_smooth = np.convolve(res["sal_true"], kernel, mode="same")
     sal_pred_smooth = np.convolve(res["sal_pred"], kernel, mode="same")
 
-    ax.fill_between(x_pos, sal_true_smooth, alpha=0.3, color="#2196F3", label=f"True: {res['true_sf']}")
+    # Integrated drop = sum over positions (proportional to total causal mass).
+    int_true = float(np.sum(res["sal_true"]))
+    int_pred = float(np.sum(res["sal_pred"]))
+    b_true = float(res["baseline_true"])
+    b_pred = float(res["baseline_pred"])
+
+    ax.fill_between(x_pos, sal_true_smooth, alpha=0.3, color="#2196F3",
+                    label=f"True: {res['true_sf']}  (baseline logit={b_true:+.2f}, Σdrop={int_true:+.2f})")
     ax.plot(x_pos, sal_true_smooth, color="#2196F3", linewidth=0.8)
-    ax.fill_between(x_pos, sal_pred_smooth, alpha=0.3, color="#E53935", label=f"Pred: {res['pred_sf']}")
+    ax.fill_between(x_pos, sal_pred_smooth, alpha=0.3, color="#E53935",
+                    label=f"Pred: {res['pred_sf']}  (baseline logit={b_pred:+.2f}, Σdrop={int_pred:+.2f})")
     ax.plot(x_pos, sal_pred_smooth, color="#E53935", linewidth=0.8)
 
     ax.axhline(0, color="gray", linewidth=0.5, linestyle="--")
     ax.set_ylabel("Saliency\n(logit drop)")
+    margin = b_pred - b_true
     ax.set_title(
         f"{res['header'].split('#')[0]}  |  True: {res['true_sf']}  →  Pred: {res['pred_sf']}  "
-        f"(len={seq_len:,})",
+        f"(len={seq_len:,}, decision margin pred−true={margin:+.2f})",
         fontsize=10,
     )
     ax.legend(loc="upper right", fontsize=8)

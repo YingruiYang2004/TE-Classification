@@ -8,7 +8,7 @@
 \contentsline {subsection}{\numberline {1.5}Graph Neural Networks for Compositional Information}{8}{subsection.1.5}%
 \contentsline {subsection}{\numberline {1.6}Attention Fusion and Hierarchical Heads}{9}{subsection.1.6}%
 \contentsline {subsection}{\numberline {1.7}Model Intuition and Stages}{9}{subsection.1.7}%
-\contentsline {section}{\numberline {2}Data and Methods}{10}{section.2}%
+\contentsline {section}{\numberline {2}Materials and Methods}{10}{section.2}%
 \contentsline {subsection}{\numberline {2.1}Data}{10}{subsection.2.1}%
 \contentsline {subsection}{\numberline {2.2}Sequence Representation}{11}{subsection.2.2}%
 \contentsline {subsection}{\numberline {2.3}Introductory Model: TIR Detection CNN}{11}{subsection.2.3}%
@@ -27,37 +27,33 @@
 \contentsline {subsection}{\numberline {3.1}Terminal Inverted Repeat Detection}{15}{subsection.3.1}%
 \contentsline {subsection}{\numberline {3.2}Stage 1 --- Validation on the Pantera Dataset}{15}{subsection.3.2}%
 \contentsline {subsubsection}{\numberline {3.2.1}Hierarchical CNN (v3, binary + 7-way DNA superfamily)}{15}{subsubsection.3.2.1}%
-\contentsline {paragraph}{Performance. }{15}{section*.14}%
-\contentsline {subsubsection}{\numberline {3.2.2}Hybrid CNN + k-mer GNN (v4, binary)}{16}{subsubsection.3.2.2}%
+\contentsline {paragraph}{Performance. }{16}{section*.14}%
+\contentsline {subsubsection}{\numberline {3.2.2}Hybrid CNN + k-mer GNN (v4, binary)}{17}{subsubsection.3.2.2}%
 \contentsline {paragraph}{Comparison with the CNN-only baseline.}{17}{section*.17}%
 \contentsline {subsubsection}{\numberline {3.2.3}Three-Class (v4.1)}{18}{subsubsection.3.2.3}%
 \contentsline {paragraph}{Stage 1 takeaways.}{19}{section*.23}%
 \contentsline {subsection}{\numberline {3.3}Stage 2 --- Extending to the Species-Disjoint Protocol}{19}{subsection.3.3}%
-\contentsline {subsubsection}{\numberline {3.3.1}Protocol and Train/Val Leak Caveat}{19}{subsubsection.3.3.1}%
-\contentsline {subsubsection}{\numberline {3.3.2}Performance on Species-Disjoint Pantera Test}{20}{subsubsection.3.3.2}%
-\contentsline {paragraph}{$k$-mer features dominate the three-class head.}{21}{section*.26}%
+\contentsline {subsubsection}{\numberline {3.3.1}Performance on Species-Disjoint Pantera Test}{19}{subsubsection.3.3.1}%
+\contentsline {subsubsection}{\numberline {3.3.2}K-mer features dominate the three-class head}{20}{subsubsection.3.3.2}%
 \contentsline {subsection}{\numberline {3.4}Stage 3 --- Single-Fold Inner Split (v4.3-singlefold)}{21}{subsection.3.4}%
-\contentsline {subsubsection}{\numberline {3.4.1}Removing the Train/Val Species Overlap}{21}{subsubsection.3.4.1}%
-\contentsline {subsubsection}{\numberline {3.4.2}Comparison on model performance}{22}{subsubsection.3.4.2}%
-\contentsline {paragraph}{The DNA/hAT collapse.}{22}{section*.29}%
+\contentsline {subsubsection}{\numberline {3.4.1}Comparison on model performance}{21}{subsubsection.3.4.1}%
+\contentsline {paragraph}{The DNA/hAT collapse.}{21}{section*.28}%
 \contentsline {subsection}{\numberline {3.5}Mini-Benchmark on Three Excised Amniote Genomes}{22}{subsection.3.5}%
 \contentsline {subsubsection}{\numberline {3.5.1}Benchmark Species}{22}{subsubsection.3.5.1}%
-\contentsline {subsubsection}{\numberline {3.5.2}Stage 2 vs Stage 3 on the Mini-Benchmark}{23}{subsubsection.3.5.2}%
-\contentsline {subsubsection}{\numberline {3.5.3}Per-Class Transfer is Heterogeneous Across Lineages}{23}{subsubsection.3.5.3}%
-\contentsline {paragraph}{Interpretation.}{24}{section*.34}%
-\contentsline {subsection}{\numberline {3.6}Saliency as a Sanity Check}{26}{subsection.3.6}%
-\contentsline {subsection}{\numberline {3.7}Semi-supervised Clustering of TE Sequences}{27}{subsection.3.7}%
-\contentsline {subsubsection}{\numberline {3.7.1}Embedding Space Geometry}{27}{subsubsection.3.7.1}%
-\contentsline {subsubsection}{\numberline {3.7.2}Hierarchical Clustering and Subclusters}{27}{subsubsection.3.7.2}%
-\contentsline {subsubsection}{\numberline {3.7.3}UMAP Visualization and Interpretability}{28}{subsubsection.3.7.3}%
-\contentsline {subsubsection}{\numberline {3.7.4}Novel Substructure Discovery}{28}{subsubsection.3.7.4}%
+\contentsline {subsubsection}{\numberline {3.5.2}Performance on the Mini-Benchmark}{22}{subsubsection.3.5.2}%
+\contentsline {subsection}{\numberline {3.6}Full-Corpus Inference and Out-of-Vocabulary Behaviour}{25}{subsection.3.6}%
+\contentsline {subsection}{\numberline {3.7}Saliency as a Sanity Check}{26}{subsection.3.7}%
+\contentsline {subsection}{\numberline {3.8}Semi-supervised Clustering of TE Sequences}{27}{subsection.3.8}%
+\contentsline {subsubsection}{\numberline {3.8.1}Embedding Space Geometry}{27}{subsubsection.3.8.1}%
+\contentsline {subsubsection}{\numberline {3.8.2}Hierarchical Clustering and Subclusters}{27}{subsubsection.3.8.2}%
+\contentsline {subsubsection}{\numberline {3.8.3}UMAP Visualization and Interpretability}{27}{subsubsection.3.8.3}%
+\contentsline {subsubsection}{\numberline {3.8.4}Novel Substructure Discovery}{28}{subsubsection.3.8.4}%
 \contentsline {section}{\numberline {4}Discussion}{31}{section.4}%
 \contentsline {subsection}{\numberline {4.1}The Three-Stage Lesson: Splits, Not Architectures}{31}{subsection.4.1}%
-\contentsline {subsection}{\numberline {4.2}Species-Shift as the Primary Source of Cross-Species Performance Variation}{31}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.2}Cross-Species Diversity as the Key Challenge in Generalisation}{31}{subsection.4.2}%
 \contentsline {subsection}{\numberline {4.3}When the GNN Branch Helps}{32}{subsection.4.3}%
-\contentsline {subsection}{\numberline {4.4}The Boundary-Prediction Diagnostic}{32}{subsection.4.4}%
-\contentsline {subsection}{\numberline {4.5}Limitations and Future Directions}{32}{subsection.4.5}%
-\contentsline {paragraph}{Stage 1 is a label audit, not a generalisation estimate.}{32}{section*.43}%
-\contentsline {paragraph}{v4.4: a position-aware successor.}{32}{section*.44}%
-\contentsline {paragraph}{Beyond v4.4.}{32}{section*.45}%
-\contentsline {section}{References}{33}{section*.46}%
+\contentsline {subsection}{\numberline {4.4}Limitations and Future Directions}{32}{subsection.4.4}%
+\contentsline {paragraph}{Boundary prediction.}{32}{section*.41}%
+\contentsline {paragraph}{Architecture-aware design.}{32}{section*.42}%
+\contentsline {paragraph}{Broader directions.}{32}{section*.43}%
+\contentsline {section}{References}{33}{section*.43}%

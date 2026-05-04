@@ -1,0 +1,7 @@
+5-fold stratified CV, macro F1 (k=7, canonical, mean-pooled, L2-normalised)
+n=5000  classes=['DNA', 'LTR', 'LINE']  counts=[1069, 2497, 1434]
+
+LogReg         0.8529 ± 0.0122
+RandomForest   0.8485 ± 0.0127
+LDA            0.8900 ± 0.0086
+Majority       0.4994 ± 0.0000

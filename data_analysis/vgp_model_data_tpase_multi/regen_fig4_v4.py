@@ -660,7 +660,7 @@ def run():
     all_bin_true = np.array(all_bin_true)
 
     # ─── Fig 4: Confusion matrices ─────────────────────────────────────────
-    fig, axes = plt.subplots(1, 2, figsize=(14, 5))
+    fig, axes = plt.subplots(1, 2, figsize=(14, 7))
 
     # Binary confusion matrix — CORRECTED LABELS
     ax1 = axes[0]
@@ -671,6 +671,7 @@ def run():
     ax1.set_xlabel("Predicted")
     ax1.set_ylabel("True")
     ax1.set_title("Binary Classification Confusion Matrix")
+    ax1.set_box_aspect(1)
 
     # Superfamily confusion matrix (top 10 classes)
     ax2 = axes[1]
@@ -689,6 +690,7 @@ def run():
     ax2.set_title("Superfamily Confusion Matrix (Top 10 Classes)")
     plt.setp(ax2.get_xticklabels(), rotation=45, ha="right")
     plt.setp(ax2.get_yticklabels(), rotation=0)
+    ax2.set_box_aspect(1)
 
     plt.tight_layout()
     out4 = OUT_DIR / "v4_confusion.png"
